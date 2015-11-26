@@ -5,7 +5,7 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Informational                             A. Pelov, Ed.
-Expires: May 22, 2016                                             Acklio
+Expires: May 30, 2016                                             Acklio
                                                              A. Somaraju
                                                    Tridonic GmbH & Co KG
                                                                R. Turner
@@ -14,7 +14,7 @@ Expires: May 22, 2016                                             Acklio
                                                                YumaWorks
                                                          P. van der Stok
                                                               Consultant
-                                                       November 19, 2015
+                                                       November 27, 2015
 
 
                 CBOR Encoding of Data Modeled with YANG
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 22, 2016.
+   This Internet-Draft will expire on May 30, 2016.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Veillette, et al.         Expires May 22, 2016                  [Page 1]
+Veillette, et al.         Expires May 30, 2016                  [Page 1]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -72,7 +72,7 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
      1.1.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   3
-   2.  Textual representation of CBOR contents . . . . . . . . . . .   3
+   2.  CBOR diagnostic notation  . . . . . . . . . . . . . . . . . .   3
    3.  YANG to CBOR mapping  . . . . . . . . . . . . . . . . . . . .   4
      3.1.  YANG leaf . . . . . . . . . . . . . . . . . . . . . . . .   4
        3.1.1.  YANG type: binary . . . . . . . . . . . . . . . . . .   4
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Veillette, et al.         Expires May 22, 2016                  [Page 2]
+Veillette, et al.         Expires May 30, 2016                  [Page 2]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -135,14 +135,12 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
    o  Parent data node: See Child data node.
 
-2.  Textual representation of CBOR contents
+2.  CBOR diagnostic notation
 
-   CoOL encodes payloads and the "Fields" CoAP option using the Concise
-   Binary Object Representation (CBOR) as defined by [RFC7049].  Within
-   this document, this binary encoding is represented using an
-   equivalent textual form.  This textual form is used strictly for
-   documentation purposes and is never transmitted as such.
-
+   Within this document, CBOR binary contents are represented using an
+   equivalent textual form called CBOR diagnostic notation.  This
+   notation is used strictly for documentation purposes and is never
+   transmitted as such.
 
 
 
@@ -165,7 +163,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 22, 2016                  [Page 3]
+
+
+Veillette, et al.         Expires May 30, 2016                  [Page 3]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -189,7 +189,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
    |          |      | values within square     |           |          |
    |          |      | brackets                 |           |          |
    | Map      | 5    | Comma separated list of  | { 1: 123, | a2       |
-   |          |      | name/value pair within   | 2: 456 }  | 01187b   |
+   |          |      | name/value pairs within  | 2: 456 }  | 01187b   |
    |          |      | curly braces             |           | 021901c8 |
    | Boolean  | 7/20 | false                    | false     | f4       |
    |          | 7/21 | true                     | true      | f5       |
@@ -221,7 +221,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 22, 2016                  [Page 4]
+Veillette, et al.         Expires May 30, 2016                  [Page 4]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -232,7 +232,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      }
    }
 
-   Textual form: h'1f1ce6a3f42660d888d92a4d8030476e'
+   CBOR diagnostic notation: h'1f1ce6a3f42660d888d92a4d8030476e'
 
    CBOR encoding: 50 1f1ce6a3f42660d888d92a4d8030476e
 
@@ -260,8 +260,8 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      }
    }
 
-   Textual form: h'05' (Represents bits disable-nagle and 10-Mb-only
-   set)
+   CBOR diagnostic notation: h'05' (Represents bits disable-nagle and
+   10-Mb-only set)
 
    CBOR encoding: 41 05
 
@@ -277,7 +277,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 22, 2016                  [Page 5]
+Veillette, et al.         Expires May 30, 2016                  [Page 5]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -286,7 +286,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      type boolean;
    }
 
-   Textual form: true
+   CBOR diagnostic notation: true
 
    CBOR encoding: f5
 
@@ -305,7 +305,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      }
    }
 
-   Textual form: 257 (Represents decimal value 2.57)
+   CBOR diagnostic notation: 257 (Represents decimal value 2.57)
 
    CBOR encoding: 19 0101
 
@@ -320,7 +320,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      type empty;
    }
 
-   Textual form: null
+   CBOR diagnostic notation: null
 
    CBOR encoding: f6
 
@@ -333,7 +333,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 22, 2016                  [Page 6]
+Veillette, et al.         Expires May 30, 2016                  [Page 6]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -350,7 +350,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      }
    }
 
-   Textual form: 3 (Represents enumeration value "testing")
+   CBOR diagnostic notation: 3 (Represents enumeration value "testing")
 
    CBOR encoding: 03
 
@@ -381,7 +381,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      }
    }
 
-   Textual form: "iana-interface-type.ethernetCsmacd"
+   CBOR diagnostic notation: "iana-interface-type.ethernetCsmacd"
 
    CBOR encoding: 78 22
    69616e612d696e746572666163652d747970652e65746865726e657443736d616364
@@ -389,7 +389,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 22, 2016                  [Page 7]
+Veillette, et al.         Expires May 30, 2016                  [Page 7]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -414,7 +414,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      }
    }
 
-   Textual form: 69635
+   CBOR diagnostic notation: 69635
 
    CBOR encoding: 1a 00011003
 
@@ -445,7 +445,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 22, 2016                  [Page 8]
+Veillette, et al.         Expires May 30, 2016                  [Page 8]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -474,7 +474,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      }
    }
 
-   Textual form: [69679, ["bob", "admin"]]
+   CBOR diagnostic notation: [69679, ["bob", "admin"]]
 
    CBOR encoding: 82 1a 0001102f 82 63 626f62 65 61646d696e
 
@@ -497,11 +497,11 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      }
    }
 
-   Textual form: -300
+   CBOR diagnostic notation: -300
 
 
 
-Veillette, et al.         Expires May 22, 2016                  [Page 9]
+Veillette, et al.         Expires May 30, 2016                  [Page 9]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -533,7 +533,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      }
    }
 
-   Textual form: "eth1.10"
+   CBOR diagnostic notation: "eth1.10"
 
    CBOR encoding: 67 657468312e3130
 
@@ -548,7 +548,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      type string;
    }
 
-   Textual form: "eth0"
+   CBOR diagnostic notation: "eth0"
 
    CBOR encoding: 64 65746830
 
@@ -557,7 +557,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 22, 2016                 [Page 10]
+Veillette, et al.         Expires May 30, 2016                 [Page 10]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -575,7 +575,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      }
    }
 
-   Textual form: 1280
+   CBOR diagnostic notation: 1280
 
    CBOR encoding: 19 0500
 
@@ -613,7 +613,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 22, 2016                 [Page 11]
+Veillette, et al.         Expires May 30, 2016                 [Page 11]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -648,7 +648,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      type inet:ip-address;
    }
 
-   Textual form: "[2001:db8:0:1]:80"
+   CBOR diagnostic notation: "[2001:db8:0:1]:80"
 
    CBOR encoding: 71 5b323030313a6462383a303a315d3a3830
 
@@ -662,14 +662,14 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
    anyxml data;
 
-   Textual form: 123
+   CBOR diagnostic notation: 123
 
    CBOR encoding: 18 7b
 
 
 
 
-Veillette, et al.         Expires May 22, 2016                 [Page 12]
+Veillette, et al.         Expires May 30, 2016                 [Page 12]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -713,7 +713,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      }
    }
 
-   Textual form:
+   CBOR diagnostic notation:
 
    {
      69667 : {
@@ -725,7 +725,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 22, 2016                 [Page 13]
+Veillette, et al.         Expires May 30, 2016                 [Page 13]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -765,7 +765,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      ordered-by user;
    }
 
-   Textual form: [ "ietf.org", "ieee.org" ]
+   CBOR diagnostic notation: [ "ietf.org", "ieee.org" ]
 
    CBOR encoding: 82 68 696574662e6f7267 68 696565652e6f7267
 
@@ -781,7 +781,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 22, 2016                 [Page 14]
+Veillette, et al.         Expires May 30, 2016                 [Page 14]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -823,7 +823,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      }
    }
 
-   Textual form:
+   CBOR diagnostic notation:
 
 
 
@@ -837,7 +837,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 22, 2016                 [Page 15]
+Veillette, et al.         Expires May 30, 2016                 [Page 15]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -893,7 +893,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 22, 2016                 [Page 16]
+Veillette, et al.         Expires May 30, 2016                 [Page 16]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -923,7 +923,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
      }
    }
 
-   Textual form:
+   CBOR diagnostic notation:
 
    {
      69638 : "Europe/Stockholm"
@@ -949,7 +949,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 22, 2016                 [Page 17]
+Veillette, et al.         Expires May 30, 2016                 [Page 17]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -1005,7 +1005,7 @@ Authors' Addresses
 
 
 
-Veillette, et al.         Expires May 22, 2016                 [Page 18]
+Veillette, et al.         Expires May 30, 2016                 [Page 18]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
@@ -1061,4 +1061,4 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 22, 2016                 [Page 19]
+Veillette, et al.         Expires May 30, 2016                 [Page 19]

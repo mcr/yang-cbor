@@ -5,7 +5,7 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Informational                             A. Pelov, Ed.
-Expires: May 30, 2016                                             Acklio
+Expires: June 7, 2016                                             Acklio
                                                              A. Somaraju
                                                    Tridonic GmbH & Co KG
                                                                R. Turner
@@ -14,7 +14,7 @@ Expires: May 30, 2016                                             Acklio
                                                                YumaWorks
                                                          P. van der Stok
                                                               Consultant
-                                                       November 27, 2015
+                                                       December 05, 2015
 
 
                 CBOR Encoding of Data Modeled with YANG
@@ -24,8 +24,8 @@ Abstract
 
    This document defines encoding rules for representing configuration,
    state data, RPC input and output parameters, and notifications
-   defined using YANG as Concise Binary Object Representation (CBOR, RFC
-   7049).
+   defined using YANG as Concise Binary Object Representation (CBOR,
+   RFC7049).
 
 Status of This Memo
 
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 30, 2016.
+   This Internet-Draft will expire on June 7, 2016.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Veillette, et al.         Expires May 30, 2016                  [Page 1]
+Veillette, et al.         Expires June 7, 2016                  [Page 1]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -94,25 +94,37 @@ Table of Contents
        3.1.17. YANG type: list . . . . . . . . . . . . . . . . . . .  14
        3.1.18. YANG type: choice . . . . . . . . . . . . . . . . . .  16
    4.  Security Considerations . . . . . . . . . . . . . . . . . . .  17
-   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  17
-   6.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  18
-     6.1.  Normative References  . . . . . . . . . . . . . . . . . .  18
-     6.2.  Informative References  . . . . . . . . . . . . . . . . .  18
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  18
+   5.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  18
+     5.1.  Normative References  . . . . . . . . . . . . . . . . . .  18
+     5.2.  Informative References  . . . . . . . . . . . . . . . . .  18
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  19
 
 1.  Introduction
 
-   TO DO.
+   The specification of YANG 1.1 data modelling language
+   [I-D.ietf-netmod-rfc6020bis] defines only XML encoding for data
+   instances, i.e. contents of configuration datastores, state data, RPC
+   operation or action input and output parameters, and event
+   notifications.
 
 
 
-
-
-
-Veillette, et al.         Expires May 30, 2016                  [Page 2]
+Veillette, et al.         Expires June 7, 2016                  [Page 2]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
+
+   A new set of encoding rules has been defined to allow the use of the
+   same data models in environments based on the JavaScript Object
+   Notation (JSON) Data Interchange Format [RFC7159].  This is
+   accomplished in the JSON Encoding of Data Modeled with YANG
+   specification [I-D.ietf-netmod-yang-json].
+
+   The aim of this document is to define a set of encoding rules for the
+   Concise Binary Object Representation (CBOR) [RFC7049].  The resulting
+   encoding is more compact compared to XML and JSON and more suitable
+   of Constrained Nodes and/or Constrained Networks as defined by
+   [RFC7228].
 
 1.1.  Terminology
 
@@ -123,7 +135,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
    This specification makes use of the following terminology:
 
    o  Data node: A node in the YANG schema that can be instantiated in a
-      Datastore.  One of container, leaf, leaf-list, list, or anyxml.
+      datastore.  One of container, leaf, leaf-list, list, or anyxml.
 
    o  Child data node: A data node defined within a container or a list
       is a child of this container or list.  The container or list is
@@ -153,21 +165,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-Veillette, et al.         Expires May 30, 2016                  [Page 3]
+Veillette, et al.         Expires June 7, 2016                  [Page 3]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
    +----------+------+--------------------------+-----------+----------+
@@ -221,9 +221,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 30, 2016                  [Page 4]
+Veillette, et al.         Expires June 7, 2016                  [Page 4]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
    leaf aes128-key {
@@ -277,9 +277,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 30, 2016                  [Page 5]
+Veillette, et al.         Expires June 7, 2016                  [Page 5]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
    leaf enabled {
@@ -333,9 +333,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 30, 2016                  [Page 6]
+Veillette, et al.         Expires June 7, 2016                  [Page 6]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
    leaf oper-status {
@@ -389,9 +389,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 30, 2016                  [Page 7]
+Veillette, et al.         Expires June 7, 2016                  [Page 7]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
 3.1.8.  YANG type: instance-identifier
@@ -445,9 +445,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 30, 2016                  [Page 8]
+Veillette, et al.         Expires June 7, 2016                  [Page 8]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
    list user {
@@ -501,9 +501,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 30, 2016                  [Page 9]
+Veillette, et al.         Expires June 7, 2016                  [Page 9]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
    CBOR encoding: 39 012b
@@ -557,9 +557,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 30, 2016                 [Page 10]
+Veillette, et al.         Expires June 7, 2016                 [Page 10]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
 3.1.12.  YANG type: uint8, uint16, uint32, uint64
@@ -613,9 +613,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 30, 2016                 [Page 11]
+Veillette, et al.         Expires June 7, 2016                 [Page 11]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
    typedef ipv4-address {
@@ -669,9 +669,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 30, 2016                 [Page 12]
+Veillette, et al.         Expires June 7, 2016                 [Page 12]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
    Alternate value:
@@ -725,9 +725,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 30, 2016                 [Page 13]
+Veillette, et al.         Expires June 7, 2016                 [Page 13]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
    CBOR encoding:
@@ -781,9 +781,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 30, 2016                 [Page 14]
+Veillette, et al.         Expires June 7, 2016                 [Page 14]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
    list server {
@@ -837,9 +837,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 30, 2016                 [Page 15]
+Veillette, et al.         Expires June 7, 2016                 [Page 15]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
    {
@@ -893,9 +893,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 30, 2016                 [Page 16]
+Veillette, et al.         Expires June 7, 2016                 [Page 16]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
    payload MUST carry data nodes defined in only one of the possible
@@ -938,29 +938,29 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 4.  Security Considerations
 
-   TO DO.
+   This document defines an alternative encoding for data modeled in the
+   YANG data modeling language.  As such, this encoding doesn't
+   contribute any new security issues in addition of those identified
+   for the specific protocol or context for which it is used.
 
-5.  IANA Considerations
-
-   TO DO.
-
-
+   To minimize security risks, software on the receiving side SHOULD
+   reject all messages that do not comply to the rules of this document
+   and reply with an appropriate error message to the sender.
 
 
 
-
-Veillette, et al.         Expires May 30, 2016                 [Page 17]
+Veillette, et al.         Expires June 7, 2016                 [Page 17]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
 
 
-6.  References
+5.  References
 
-6.1.  Normative References
+5.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/
-              RFC2119, March 1997,
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
               <http://www.rfc-editor.org/info/rfc2119>.
 
    [RFC6020]  Bjorklund, M., Ed., "YANG - A Data Modeling Language for
@@ -972,19 +972,43 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
               October 2013, <http://www.rfc-editor.org/info/rfc7049>.
 
+5.2.  Informative References
+
+   [I-D.ietf-netmod-rfc6020bis]
+              Bjorklund, M., "The YANG 1.1 Data Modeling Language",
+              draft-ietf-netmod-rfc6020bis-08 (work in progress),
+              October 2015.
+
+   [I-D.ietf-netmod-yang-json]
+              Lhotka, L., "JSON Encoding of Data Modeled with YANG",
+              draft-ietf-netmod-yang-json-06 (work in progress), October
+              2015.
+
    [RFC7159]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
               Interchange Format", RFC 7159, DOI 10.17487/RFC7159, March
               2014, <http://www.rfc-editor.org/info/rfc7159>.
-
-6.2.  Informative References
 
    [RFC7223]  Bjorklund, M., "A YANG Data Model for Interface
               Management", RFC 7223, DOI 10.17487/RFC7223, May 2014,
               <http://www.rfc-editor.org/info/rfc7223>.
 
-   [RFC7277]  Bjorklund, M., "A YANG Data Model for IP Management", RFC
-              7277, DOI 10.17487/RFC7277, June 2014,
+   [RFC7228]  Bormann, C., Ersue, M., and A. Keranen, "Terminology for
+              Constrained-Node Networks", RFC 7228,
+              DOI 10.17487/RFC7228, May 2014,
+              <http://www.rfc-editor.org/info/rfc7228>.
+
+   [RFC7277]  Bjorklund, M., "A YANG Data Model for IP Management",
+              RFC 7277, DOI 10.17487/RFC7277, June 2014,
               <http://www.rfc-editor.org/info/rfc7277>.
+
+
+
+
+
+Veillette, et al.         Expires June 7, 2016                 [Page 18]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
+
 
    [RFC7317]  Bierman, A. and M. Bjorklund, "A YANG Data Model for
               System Management", RFC 7317, DOI 10.17487/RFC7317, August
@@ -1000,14 +1024,6 @@ Authors' Addresses
 
    Phone: +14503750556
    Email: michel.veillette@trilliantinc.com
-
-
-
-
-
-Veillette, et al.         Expires May 30, 2016                 [Page 18]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
    Alexander Pelov (editor)
@@ -1042,6 +1058,14 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
    URI:   http://www.landisgyr.com/
 
 
+
+
+
+Veillette, et al.         Expires June 7, 2016                 [Page 19]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2015
+
+
    Andy Bierman
    YumaWorks
    685 Cochran St.
@@ -1061,4 +1085,36 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2015
 
 
 
-Veillette, et al.         Expires May 30, 2016                 [Page 19]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Veillette, et al.         Expires June 7, 2016                 [Page 20]

@@ -5,14 +5,14 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Informational                             A. Pelov, Ed.
-Expires: August 3, 2016                                           Acklio
+Expires: August 7, 2016                                           Acklio
                                                              A. Somaraju
                                                    Tridonic GmbH & Co KG
                                                                R. Turner
                                                               Landis+Gyr
                                                              A. Minaburo
                                                                   Acklio
-                                                        January 31, 2016
+                                                       February 04, 2016
 
 
                 CBOR Encoding of Data Modeled with YANG
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on August 3, 2016.
+   This Internet-Draft will expire on August 7, 2016.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Veillette, et al.        Expires August 3, 2016                 [Page 1]
+Veillette, et al.        Expires August 7, 2016                 [Page 1]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
    publication of this document.  Please review these documents
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Veillette, et al.        Expires August 3, 2016                 [Page 2]
+Veillette, et al.        Expires August 7, 2016                 [Page 2]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 1.  Introduction
@@ -165,9 +165,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                 [Page 3]
+Veillette, et al.        Expires August 7, 2016                 [Page 3]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
    +----------+------+--------------------------+-----------+----------+
@@ -221,9 +221,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                 [Page 4]
+Veillette, et al.        Expires August 7, 2016                 [Page 4]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 5.2.  The "container" Data Node
@@ -277,9 +277,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                 [Page 5]
+Veillette, et al.        Expires August 7, 2016                 [Page 5]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
    In this example, we assume that the module ID = 68, data node IDs
@@ -333,9 +333,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                 [Page 6]
+Veillette, et al.        Expires August 7, 2016                 [Page 6]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
    list server {
@@ -389,9 +389,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                 [Page 7]
+Veillette, et al.        Expires August 7, 2016                 [Page 7]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
    {
@@ -445,9 +445,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                 [Page 8]
+Veillette, et al.        Expires August 7, 2016                 [Page 8]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
    payload MUST carry data nodes defined in only one of the possible
@@ -501,9 +501,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                 [Page 9]
+Veillette, et al.        Expires August 7, 2016                 [Page 9]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 6.  Representing YANG Data Types in CBOR
@@ -557,9 +557,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                [Page 10]
+Veillette, et al.        Expires August 7, 2016                [Page 10]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
    leaf my-decimal {
@@ -613,9 +613,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                [Page 11]
+Veillette, et al.        Expires August 7, 2016                [Page 11]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
    leaf oper-status {
@@ -669,9 +669,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                [Page 12]
+Veillette, et al.        Expires August 7, 2016                [Page 12]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 6.8.  The "binary" Type
@@ -725,9 +725,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                [Page 13]
+Veillette, et al.        Expires August 7, 2016                [Page 13]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 6.10.  The "identityref" Type
@@ -781,9 +781,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                [Page 14]
+Veillette, et al.        Expires August 7, 2016                [Page 14]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 6.12.  The "union" Type
@@ -837,9 +837,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                [Page 15]
+Veillette, et al.        Expires August 7, 2016                [Page 15]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
    Definition example [RFC7317]:
@@ -893,9 +893,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                [Page 16]
+Veillette, et al.        Expires August 7, 2016                [Page 16]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
    list user {
@@ -949,9 +949,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                [Page 17]
+Veillette, et al.        Expires August 7, 2016                [Page 17]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 9.  Acknowledgments
@@ -992,8 +992,8 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
    [I-D.ietf-netmod-yang-json]
               Lhotka, L., "JSON Encoding of Data Modeled with YANG",
-              draft-ietf-netmod-yang-json-06 (work in progress), October
-              2015.
+              draft-ietf-netmod-yang-json-07 (work in progress), January
+              2016.
 
    [RFC7159]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
               Interchange Format", RFC 7159, DOI 10.17487/RFC7159, March
@@ -1005,9 +1005,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                [Page 18]
+Veillette, et al.        Expires August 7, 2016                [Page 18]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
    [RFC7228]  Bormann, C., Ersue, M., and A. Keranen, "Terminology for
@@ -1061,9 +1061,9 @@ Authors' Addresses
 
 
 
-Veillette, et al.        Expires August 3, 2016                [Page 19]
+Veillette, et al.        Expires August 7, 2016                [Page 19]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
    Randy Turner
@@ -1117,4 +1117,4 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2016
 
 
 
-Veillette, et al.        Expires August 3, 2016                [Page 20]
+Veillette, et al.        Expires August 7, 2016                [Page 20]

@@ -470,6 +470,7 @@ li, p {
   <li>parent: The collection in which a schema node is defined.</li>
   <li>path: A path is a string that identifies a schema node within the schema tree. A path consists of the list of schema node identifier(s) separated by slashes (&#8220;/&#8221;). Schema node identifier(s) are always listed from the top-level schema node up to the targeted schema node. (e.g. &#8220;/system-state/clock/current-datetime&#8221;)</li>
   <li>structured identifier or SID: Unsigned integer used to identify different YANG items.</li>
+  <li>Item:  A schema node or identity which has been allocated a SID.</li>
 </ul>
 <h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#cbor-diagnostic-notation" id="cbor-diagnostic-notation">CBOR diagnostic notation</a></h1>
 <p id="rfc.section.2.1.p.1">Within this document, CBOR binary contents are represented using an equivalent textual form called CBOR diagnostic notation as define in <a href="#RFC7049">[RFC7049]</a> section 6. This notation is used strictly for documentation purposes and is never used in the data serialization.</p>
@@ -559,9 +560,9 @@ li, p {
 <p id="rfc.section.2.1.p.2">Within this document, comments are allowed in CBOR diagnostic notation. Any characters after a Pound sign (&#8216;#&#8217;) up to the end of the line is treated as a comment.</p>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#properties-of-the-cbor-encoding" id="properties-of-the-cbor-encoding">Properties of the CBOR Encoding</a></h1>
 <p id="rfc.section.3.p.1">This document defines CBOR encoding rules for YANG schema trees and their subtrees.</p>
-<p id="rfc.section.3.p.2">Basic schema nodes such leaf, leaf-list, anydata and anyxml can be encoded standalone. In this case, only the value of this schema node is encoded in CBOR. Identification of this value need to be provided by some external means when needed.</p>
-<p id="rfc.section.3.p.3">Collections like container, list, notification, RPC input, RPC output, action input and action output are serialized using a CBOR map in which each child schema node is encode using a tag and a value. <a href="#SID">Section 4</a> defines how the tag part is encoded, and the following sections deal with the value part.</p>
-<p id="rfc.section.3.p.4">In order to minimize the size of the encoded data, the propose mapping do not make use of any meta-information beyond those natively supported by CBOR. This include the use of CBOR tags which are not used for any of the proposed mapping. It is expected that entities generating and decoding CBOR contents have enough knowledge about the information processed in order to perform the expected task, and this without the need of such extra meta-information.</p>
+<p id="rfc.section.3.p.2">Basic schema nodes such as leaf, leaf-list, anydata and anyxml can be encoded standalone. In this case, only the value of this schema node is encoded in CBOR. Identification of this value need to be provided by some external means when needed.</p>
+<p id="rfc.section.3.p.3">Collections like container, list entry, notification, RPC input, RPC output, action input and action output are serialized using a CBOR map in which each child schema node is encode using a tag and a value. <a href="#SID">Section 4</a> defines how the tag part is encoded, and the following sections deal with the value part.</p>
+<p id="rfc.section.3.p.4">In order to minimize the size of the encoded data, the proposed mapping does not make use of any meta-information beyond those natively supported by CBOR. This includes the use of CBOR tags which are not used for any of the proposed mapping. It is expected that entities generating and decoding CBOR contents have enough knowledge about the information processed in order to perform the expected task without the need of such extra meta-information.</p>
 <h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#SID" id="SID">Structured IDentifiers (SID)</a></h1>
 <p id="rfc.section.4.p.1">Some of the items defined within YANG data models are identified using a unique unsigned integer called structured identifier (SID). The following items are identified using SIDs:</p>
 <p/>
@@ -578,23 +579,23 @@ li, p {
 <p/>
 
 <ul>
-  <li>The tools extract the different items defined for a specific YANG module.</li>
+  <li>A tool extract the different items defined for a specific YANG module.</li>
   <li>The list of items is ordered by type, assignment date and label.</li>
   <li>SIDs are assigned sequentially for the entry point up to the size of the registered SID range. It is important to note that sequentially assigned SIDs optimizes the CBOR serialization due to the use of delta encoding.</li>
-  <li>If the number of items exceed the SID range(s) associated to a YANG module, an extra range is added for subsequent assignments.</li>
-  <li>SID are assigned permanently, items introduced by a new revision of a YANG module are added to the list of SIDs already assigned.</li>
+  <li>If the number of items exceeds the SID range(s) allocated  to a YANG module, an extra range is added for subsequent assignments.</li>
+  <li>SIDs are assigned permanently, items introduced by a new revision of a YANG module are added to the list of SIDs already assigned.</li>
 </ul>
 <p id="rfc.section.4.p.6">Appendix B define a standard file format used to store and publish SIDs.</p>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#instance-encoding" id="instance-encoding">Encoding of YANG Schema Node Instances</a></h1>
 <p id="rfc.section.5.p.1">Objects defined using the YANG modeling language are encoded using CBOR <a href="#RFC7049">[RFC7049]</a> based on the rules defined in this section. We assume that the reader is already familiar with both YANG <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> and CBOR <a href="#RFC7049">[RFC7049]</a>.</p>
 <h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#the-leaf-schema-node" id="the-leaf-schema-node">The &#8220;leaf&#8221; Schema Node</a></h1>
-<p id="rfc.section.5.1.p.1">Leaf MUST be encoded based on the encoding rules specific in <a href="#data-types-mapping">Section 6</a>.</p>
+<p id="rfc.section.5.1.p.1">Leafs MUST be encoded based on the encoding rules specified in <a href="#data-types-mapping">Section 6</a>.</p>
 <h1 id="rfc.section.5.2"><a href="#rfc.section.5.2">5.2.</a> <a href="#container" id="container">The &#8220;container&#8221; Schema Node</a></h1>
 <p id="rfc.section.5.2.p.1">A container MUST be encoded using a CBOR map data item (major type 5). A map is comprised of pairs of data items, with each data item consisting of a key and a value.  Keys MUST be encoded using a CBOR unsigned integer (major type 0) and set to the delta value of the associated SID. Delta values are computed as follow:</p>
 <p/>
 
 <ul>
-  <li>The delta value is equal the SID of the current schema node minus the SID of the parent schema node. When no parent exists in the context of use of this container, the delta is set to the SID of the current schema node (a parent with SID equal to zero is assumed).</li>
+  <li>The delta value is equal to the SID of the current schema node minus the SID of the parent schema node. When no parent exists in the context of use of this container, the delta is set to the SID of the current schema node (a parent with SID equal to zero is assumed).</li>
   <li>Delta values may result in a negative number, CoOL clients and servers MUST support negative deltas.</li>
 </ul>
 <p id="rfc.section.5.2.p.3">Values MUST be encoded using the appropriate rules defined in <a href="#instance-encoding">Section 5</a> and <a href="#data-types-mapping">Section 6</a>.</p>
@@ -1030,7 +1031,7 @@ list user {
 <p id="rfc.section.7.p.2">To minimize security risks, software on the receiving side SHOULD reject all messages that do not comply to the rules of this document and reply with an appropriate error message to the sender.</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#IANA" id="IANA">IANA Considerations</a></h1>
 <h1 id="rfc.section.8.1"><a href="#rfc.section.8.1">8.1.</a> <a href="#sid-registry" id="sid-registry">&#8220;SID&#8221; range registry</a></h1>
-<p id="rfc.section.8.1.p.1">This document defines a registry for Structure Identifier (SID) ranges. This registry guaranty that each SID assigned is globally unique. The registry SHALL record for each entry:</p>
+<p id="rfc.section.8.1.p.1">This document defines a registry for Structure Identifier (SID) ranges. This registry MUST guaranty that each SID assigned is globally unique. The registry SHALL record for each entry:</p>
 <p/>
 
 <ul>
@@ -1038,9 +1039,9 @@ list user {
   <li>The size of the registered SID range.</li>
   <li>The contact information of the owner of the range such as name, email address, and phone number.  The IANA policy for this registry is split into four tiers as follows:</li>
   <li>The range of 0 to 9999 and 0x40000000 to 0xFFFFFFFFFFFFFFFF are reserved for future extensions of this protocol. Allocation within these ranges require IETF review or IESG approval.</li>
-  <li>The range of 1000 to 59999 is reserved for standardized YANG modules. Allocation within this range require publishing of the associated &#8220;.yang&#8221; and &#8220;.sid&#8221; files.</li>
+  <li>The range of 1000 to 59999 is reserved for standardized YANG modules. Allocation within this range requires publishing of the associated &#8220;.yang&#8221; and &#8220;.sid&#8221; files.</li>
   <li>The range of 60000 to 99999 is reserved for experimental or private YANG modules. Use of this range SHOUD NOT be used in operational deployments since these SIDs are not globally unique which limit their interoperability.</li>
-  <li>The range of 100000 to 0x3FFFFFFF is available as first come first served basis. The only information require from the registrant is a valid contact information. The recommended size of the SID ranges allocated is 1,000 for private use and 10,000 for standard development organizations (SDOs). Registrants MAY request less or more SIDs based on their expected needs. Allocation of a significant larger SID range MAY required IETF review or IESG approval.</li>
+  <li>The range of 100000 to 0x3FFFFFFF is available as first come first served basis. The only information require from the registrant is a valid contact information. The recommended size of the SID ranges allocated is 1,000 for private use and 10,000 for standard development organizations (SDOs). Registrants MAY request less or more SIDs based on their expected needs. Allocation of a significant larger SID range MAY required IETF review or IESG approval. IANA MAY delegate this registration process to one or multiple sub-registries. The recommended size of the SID range allocation for a sub-registry is 1,000,000.</li>
 </ul>
 <table cellpadding="3" cellspacing="0" class="tt full left">
   <thead>
@@ -1053,21 +1054,21 @@ list user {
   <tbody>
     <tr>
       <td class="left">0</td>
-      <td class="left">1 000</td>
+      <td class="left">1,000</td>
       <td class="left">Specification required, expert review</td>
     </tr>
     <tr>
-      <td class="left">1 000</td>
-      <td class="left">59 000</td>
+      <td class="left">1,000</td>
+      <td class="left">59,000</td>
       <td class="left">Specification and associated &#8220;.yang&#8221; and &#8220;.sid&#8221; files required</td>
     </tr>
     <tr>
-      <td class="left">60 000</td>
-      <td class="left">40 000</td>
+      <td class="left">60,000</td>
+      <td class="left">40,000</td>
       <td class="left">Experimental or private use</td>
     </tr>
     <tr>
-      <td class="left">100 000</td>
+      <td class="left">100,000</td>
       <td class="left">0x3FFE7960</td>
       <td class="left">Contact information is required. Registration of the module name(s) and associated &#8220;.yang&#8221; and &#8220;.sid&#8221; files are optional.</td>
     </tr>
@@ -1079,7 +1080,7 @@ list user {
   </tbody>
 </table>
 <h1 id="rfc.section.8.2"><a href="#rfc.section.8.2">8.2.</a> <a href="#yang-module-registry" id="yang-module-registry">YANG module registry</a></h1>
-<p id="rfc.section.8.2.p.1">Each registered SID range can be used to assign SIDs multiple YANG modules. To track which YANG module have been assigned and to avoid duplicate allocation, IANA SHALL provide a method to register and query the following information:</p>
+<p id="rfc.section.8.2.p.1">Each registered SID range can be used to assign SIDs to multiple YANG modules. To track which YANG module have been assigned and to avoid duplicate allocation, IANA SHALL provide a method to register and query the following information:</p>
 <p/>
 
 <ul>
@@ -1089,8 +1090,8 @@ list user {
   <li>The associated &#8220;.yang&#8221; file(s) (Optional)</li>
   <li>The associated &#8220;.sid&#8221; file(Optional)</li>
 </ul>
-<p id="rfc.section.8.2.p.3">Registration of YANG modules is optional. When a YANG module is registered, the registrant MUST provide the module name and its contact information and/or a specification reference.</p>
-<p id="rfc.section.8.2.p.4">The registration of the associated &#8220;.yang&#8221; and &#8220;.sid&#8221; files is optional. When provided, the validity of the files SHOULD be verified. This can be accomplished by a YANG validation tool specially modified to support &#8220;.sid&#8221; file verification. The SID range specified within the &#8220;.sid&#8221; file SHOULD also be checked against the &#8220;SID&#8221; range registry (<a href="#sid-registry">Section 8.1</a>) and against the other YANG modules registered to detect any duplicate use of SIDs.</p>
+<p id="rfc.section.8.2.p.3">Registration of YANG modules is optional. When a YANG module is registered, the registrant MUST provide the module name and contact information and/or a specification reference.</p>
+<p id="rfc.section.8.2.p.4">The registration of the associated &#8220;.yang&#8221; and &#8220;.sid&#8221; files is optional. When provided, the validity of the files MUST be verified. This can be accomplished by a YANG validation tool specially modified to support &#8220;.sid&#8221; file verification. The SID range specified within the &#8220;.sid&#8221; file SHOULD also be checked against the &#8220;SID&#8221; range registry (<a href="#sid-registry">Section 8.1</a>) and against the other YANG modules registered to detect any duplicate use of SIDs.</p>
 <p id="rfc.section.8.2.p.5">Initial entries in this registry are as follows:</p>
 <table cellpadding="3" cellspacing="0" class="tt full left">
   <thead>

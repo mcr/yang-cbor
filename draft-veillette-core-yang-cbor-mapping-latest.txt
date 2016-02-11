@@ -178,6 +178,11 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
       container, a list, a case, a notification, a RPC input, a RPC
       output, an action input, an action output.
 
+   o  delta : Difference between the SID assigned to the current schema
+      node and the SID assigned to the parent.
+
+   o  item: A schema node or identity which has been allocated a SID.
+
    o  parent: The collection in which a schema node is defined.
 
    o  path: A path is a string that identifies a schema node within the
@@ -190,17 +195,12 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    o  structured identifier or SID: Unsigned integer used to identify
       different YANG items.
 
-   o  Item: A schema node or identity which has been allocated a SID.
-
 2.1.  CBOR diagnostic notation
 
    Within this document, CBOR binary contents are represented using an
    equivalent textual form called CBOR diagnostic notation as define in
    [RFC7049] section 6.  This notation is used strictly for
    documentation purposes and is never used in the data serialization.
-
-
-
 
 
 

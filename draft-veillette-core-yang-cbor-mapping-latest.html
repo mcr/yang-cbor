@@ -467,10 +467,11 @@ li, p {
 
 <ul>
   <li>child: A schema node defined within a collection such as a container, a list, a case, a notification, a RPC input, a RPC output, an action input, an action output.</li>
+  <li>delta : Difference between the SID assigned to the current schema node and the SID assigned to the parent.</li>
+  <li>item:  A schema node or identity which has been allocated a SID.</li>
   <li>parent: The collection in which a schema node is defined.</li>
   <li>path: A path is a string that identifies a schema node within the schema tree. A path consists of the list of schema node identifier(s) separated by slashes (&#8220;/&#8221;). Schema node identifier(s) are always listed from the top-level schema node up to the targeted schema node. (e.g. &#8220;/system-state/clock/current-datetime&#8221;)</li>
   <li>structured identifier or SID: Unsigned integer used to identify different YANG items.</li>
-  <li>Item:  A schema node or identity which has been allocated a SID.</li>
 </ul>
 <h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#cbor-diagnostic-notation" id="cbor-diagnostic-notation">CBOR diagnostic notation</a></h1>
 <p id="rfc.section.2.1.p.1">Within this document, CBOR binary contents are represented using an equivalent textual form called CBOR diagnostic notation as define in <a href="#RFC7049">[RFC7049]</a> section 6. This notation is used strictly for documentation purposes and is never used in the data serialization.</p>

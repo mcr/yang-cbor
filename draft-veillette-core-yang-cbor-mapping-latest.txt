@@ -98,12 +98,12 @@ Table of Contents
      8.1.  "SID" range registry  . . . . . . . . . . . . . . . . . .  21
      8.2.  YANG module registry  . . . . . . . . . . . . . . . . . .  22
    9.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  23
-   10. Appendix A. ".sid" file lifecycle . . . . . . . . . . . . . .  23
-   11. Appendix B. ".sid" file format  . . . . . . . . . . . . . . .  25
-   12. Appendix C. ".sid" file example . . . . . . . . . . . . . . .  28
-   13. References  . . . . . . . . . . . . . . . . . . . . . . . . .  37
-     13.1.  Normative References . . . . . . . . . . . . . . . . . .  37
-     13.2.  Informative References . . . . . . . . . . . . . . . . .  38
+   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  23
+     10.1.  Normative References . . . . . . . . . . . . . . . . . .  23
+     10.2.  Informative References . . . . . . . . . . . . . . . . .  23
+   Appendix A.  ".sid" file lifecycle  . . . . . . . . . . . . . . .  24
+   Appendix B.  ".sid" file format . . . . . . . . . . . . . . . . .  26
+   Appendix C.  ".sid" file example  . . . . . . . . . . . . . . . .  29
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  38
 
 
@@ -306,8 +306,8 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
    o  notification
 
-   SIDs are globally unique and need to be registered, see section 9 and
-   appendix A for more details about the registration process of SIDs.
+   SIDs are globally unique and need to be registered, see Section 8 and
+   Appendix A for more details about the registration process of SIDs.
 
    Assignment of SIDs can be automated, the recommended process to
    assign SIDs is as follow:
@@ -347,8 +347,8 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 5.1.  The "leaf" Schema Node
 
-   Leaf MUST be encoded based on the encoding rules specific in section
-   6.
+   Leaf MUST be encoded based on the encoding rules specific in
+   Section 6.
 
 5.2.  The "container" Schema Node
 
@@ -367,8 +367,8 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    o  Delta values may result in a negative number, CoOL clients and
       servers MUST support negative deltas.
 
-   Values MUST be encoded using the appropriate rules defined in section
-   5 and section 6.
+   Values MUST be encoded using the appropriate rules defined in
+   Section 5 and Section 6.
 
    Definition example [RFC7317]:
 
@@ -480,7 +480,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
    A list MUST be encoded using a CBOR array data item (major type 4).
    Each entry of this array is encoded using a CBOR map data item (major
-   type 5) based on the same rules as a YANG container, see section 5.2.
+   type 5) based on the same rules as a YANG container, see Section 5.2.
 
    Definition example [RFC7317]:
 
@@ -633,7 +633,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
       list, see Section 5.3), or maps (as a list, see Section 5.4).
 
    o  Values MUST follow the encoding rules of one of the datatype
-      listed in section 6.
+      listed in Section 6.
 
 5.6.  The "anyxml" Schema Node
 
@@ -1219,7 +1219,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    verified.  This can be accomplished by a YANG validation tool
    specially modified to support ".sid" file verification.  The SID
    range specified within the ".sid" file SHOULD also be checked against
-   the "SID" range registry (section 9.1) and against the other YANG
+   the "SID" range registry (Section 8.1) and against the other YANG
    modules registered to detect any duplicate use of SIDs.
 
    Initial entries in this registry are as follows:
@@ -1259,7 +1259,69 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    The authors would also like to acknowledge the review, feedback, and
    comments from Ladislav Lhotka and Juergen Schoenwaelder.
 
-10.  Appendix A. ".sid" file lifecycle
+10.  References
+
+10.1.  Normative References
+
+   [I-D.ietf-netmod-rfc6020bis]
+              Bjorklund, M., "The YANG 1.1 Data Modeling Language",
+              draft-ietf-netmod-rfc6020bis-09 (work in progress),
+              December 2015.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <http://www.rfc-editor.org/info/rfc2119>.
+
+   [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
+              Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
+              October 2013, <http://www.rfc-editor.org/info/rfc7049>.
+
+10.2.  Informative References
+
+
+
+
+
+
+
+Veillette, et al.        Expires August 14, 2016               [Page 23]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
+
+
+   [I-D.ietf-netmod-yang-json]
+              Lhotka, L., "JSON Encoding of Data Modeled with YANG",
+              draft-ietf-netmod-yang-json-07 (work in progress), January
+              2016.
+
+   [I-D.vanderstok-core-comi]
+              Stok, P., Bierman, A., Schoenwaelder, J., and A. Sehgal,
+              "CoAP Management Interface", draft-vanderstok-core-comi-08
+              (work in progress), October 2015.
+
+   [RFC7159]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
+              Interchange Format", RFC 7159, DOI 10.17487/RFC7159, March
+              2014, <http://www.rfc-editor.org/info/rfc7159>.
+
+   [RFC7223]  Bjorklund, M., "A YANG Data Model for Interface
+              Management", RFC 7223, DOI 10.17487/RFC7223, May 2014,
+              <http://www.rfc-editor.org/info/rfc7223>.
+
+   [RFC7228]  Bormann, C., Ersue, M., and A. Keranen, "Terminology for
+              Constrained-Node Networks", RFC 7228,
+              DOI 10.17487/RFC7228, May 2014,
+              <http://www.rfc-editor.org/info/rfc7228>.
+
+   [RFC7277]  Bjorklund, M., "A YANG Data Model for IP Management",
+              RFC 7277, DOI 10.17487/RFC7277, June 2014,
+              <http://www.rfc-editor.org/info/rfc7277>.
+
+   [RFC7317]  Bierman, A. and M. Bjorklund, "A YANG Data Model for
+              System Management", RFC 7317, DOI 10.17487/RFC7317, August
+              2014, <http://www.rfc-editor.org/info/rfc7317>.
+
+Appendix A.  ".sid" file lifecycle
 
    The following activity diagram summarize the life cycle of ".sid"
    files.
@@ -1279,13 +1341,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-
-
-
-
-
-
-Veillette, et al.        Expires August 14, 2016               [Page 23]
+Veillette, et al.        Expires August 14, 2016               [Page 24]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1341,7 +1397,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 14, 2016               [Page 24]
+Veillette, et al.        Expires August 14, 2016               [Page 25]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1373,7 +1429,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    ".sid" file header.  These extra SIDs are used for subsequent
    assignment.
 
-11.  Appendix B. ".sid" file format
+Appendix B.  ".sid" file format
 
    ".sid" files are used to persist and publish SIDs assigned to the
    different YANG items of a specific YANG module.  The following YANG
@@ -1397,7 +1453,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 14, 2016               [Page 25]
+Veillette, et al.        Expires August 14, 2016               [Page 26]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1453,7 +1509,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 14, 2016               [Page 26]
+Veillette, et al.        Expires August 14, 2016               [Page 27]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1509,7 +1565,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 14, 2016               [Page 27]
+Veillette, et al.        Expires August 14, 2016               [Page 28]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1554,7 +1610,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
      }
    }
 
-12.  Appendix C. ".sid" file example
+Appendix C.  ".sid" file example
 
    The following .sid file (ietf-system@2014-08-06.sid) have been
    generated using the following yang modules:
@@ -1565,7 +1621,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 14, 2016               [Page 28]
+Veillette, et al.        Expires August 14, 2016               [Page 29]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1621,7 +1677,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 14, 2016               [Page 29]
+Veillette, et al.        Expires August 14, 2016               [Page 30]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1677,7 +1733,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 14, 2016               [Page 30]
+Veillette, et al.        Expires August 14, 2016               [Page 31]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1733,7 +1789,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 14, 2016               [Page 31]
+Veillette, et al.        Expires August 14, 2016               [Page 32]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1789,7 +1845,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 14, 2016               [Page 32]
+Veillette, et al.        Expires August 14, 2016               [Page 33]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1845,7 +1901,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 14, 2016               [Page 33]
+Veillette, et al.        Expires August 14, 2016               [Page 34]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1901,7 +1957,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 14, 2016               [Page 34]
+Veillette, et al.        Expires August 14, 2016               [Page 35]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1957,7 +2013,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 14, 2016               [Page 35]
+Veillette, et al.        Expires August 14, 2016               [Page 36]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -2013,7 +2069,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 14, 2016               [Page 36]
+Veillette, et al.        Expires August 14, 2016               [Page 37]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -2049,64 +2105,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
   ]
 }
 
-13.  References
-
-13.1.  Normative References
-
-   [I-D.ietf-netmod-rfc6020bis]
-              Bjorklund, M., "The YANG 1.1 Data Modeling Language",
-              draft-ietf-netmod-rfc6020bis-09 (work in progress),
-              December 2015.
-
-   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <http://www.rfc-editor.org/info/rfc2119>.
-
-   [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
-              Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
-              October 2013, <http://www.rfc-editor.org/info/rfc7049>.
-
-
-
-Veillette, et al.        Expires August 14, 2016               [Page 37]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
-
-
-13.2.  Informative References
-
-   [I-D.ietf-netmod-yang-json]
-              Lhotka, L., "JSON Encoding of Data Modeled with YANG",
-              draft-ietf-netmod-yang-json-07 (work in progress), January
-              2016.
-
-   [I-D.vanderstok-core-comi]
-              Stok, P., Bierman, A., Schoenwaelder, J., and A. Sehgal,
-              "CoAP Management Interface", draft-vanderstok-core-comi-08
-              (work in progress), October 2015.
-
-   [RFC7159]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
-              Interchange Format", RFC 7159, DOI 10.17487/RFC7159, March
-              2014, <http://www.rfc-editor.org/info/rfc7159>.
-
-   [RFC7223]  Bjorklund, M., "A YANG Data Model for Interface
-              Management", RFC 7223, DOI 10.17487/RFC7223, May 2014,
-              <http://www.rfc-editor.org/info/rfc7223>.
-
-   [RFC7228]  Bormann, C., Ersue, M., and A. Keranen, "Terminology for
-              Constrained-Node Networks", RFC 7228,
-              DOI 10.17487/RFC7228, May 2014,
-              <http://www.rfc-editor.org/info/rfc7228>.
-
-   [RFC7277]  Bjorklund, M., "A YANG Data Model for IP Management",
-              RFC 7277, DOI 10.17487/RFC7277, June 2014,
-              <http://www.rfc-editor.org/info/rfc7277>.
-
-   [RFC7317]  Bierman, A. and M. Bjorklund, "A YANG Data Model for
-              System Management", RFC 7317, DOI 10.17487/RFC7317, August
-              2014, <http://www.rfc-editor.org/info/rfc7317>.
-
 Authors' Addresses
 
    Michel Veillette (editor)
@@ -2117,6 +2115,8 @@ Authors' Addresses
 
    Phone: +14503750556
    Email: michel.veillette@trilliantinc.com
+
+
 
 
 

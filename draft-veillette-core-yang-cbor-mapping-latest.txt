@@ -5,14 +5,14 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Informational                             A. Pelov, Ed.
-Expires: August 27, 2016                                          Acklio
+Expires: September 1, 2016                                        Acklio
                                                              A. Somaraju
                                                    Tridonic GmbH & Co KG
                                                                R. Turner
                                                               Landis+Gyr
                                                              A. Minaburo
                                                                   Acklio
-                                                       February 24, 2016
+                                                       February 29, 2016
 
 
                 CBOR Encoding of Data Modeled with YANG
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on August 27, 2016.
+   This Internet-Draft will expire on September 1, 2016.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Veillette, et al.        Expires August 27, 2016                [Page 1]
+Veillette, et al.       Expires September 1, 2016               [Page 1]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -81,20 +81,20 @@ Table of Contents
      5.6.  The "anyxml" Schema Node  . . . . . . . . . . . . . . . .  12
    6.  Representing YANG Data Types in CBOR  . . . . . . . . . . . .  12
      6.1.  The unsigned integer Types  . . . . . . . . . . . . . . .  12
-     6.2.  The integer Types . . . . . . . . . . . . . . . . . . . .  12
+     6.2.  The integer Types . . . . . . . . . . . . . . . . . . . .  13
      6.3.  The "decimal64" Type  . . . . . . . . . . . . . . . . . .  13
      6.4.  The "string" Type . . . . . . . . . . . . . . . . . . . .  13
      6.5.  The "boolean" Type  . . . . . . . . . . . . . . . . . . .  14
      6.6.  The "enumeration" Type  . . . . . . . . . . . . . . . . .  14
-     6.7.  The "bits" Type . . . . . . . . . . . . . . . . . . . . .  14
+     6.7.  The "bits" Type . . . . . . . . . . . . . . . . . . . . .  15
      6.8.  The "binary" Type . . . . . . . . . . . . . . . . . . . .  15
-     6.9.  The "leafref" Type  . . . . . . . . . . . . . . . . . . .  15
+     6.9.  The "leafref" Type  . . . . . . . . . . . . . . . . . . .  16
      6.10. The "identityref" Type  . . . . . . . . . . . . . . . . .  16
      6.11. The "empty" Type  . . . . . . . . . . . . . . . . . . . .  17
      6.12. The "union" Type  . . . . . . . . . . . . . . . . . . . .  17
      6.13. The "instance-identifier" Type  . . . . . . . . . . . . .  18
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  20
-   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  20
+   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  21
      8.1.  "SID" range registry  . . . . . . . . . . . . . . . . . .  21
      8.2.  YANG module registry  . . . . . . . . . . . . . . . . . .  22
    9.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  23
@@ -109,15 +109,15 @@ Table of Contents
 
 
 
-Veillette, et al.        Expires August 27, 2016                [Page 2]
+Veillette, et al.       Expires September 1, 2016               [Page 2]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 1.  Introduction
 
-   The specification of YANG 1.1 data modelling language
-   [I-D.ietf-netmod-rfc6020bis] defines only XML encoding for data
+   The specification of the YANG 1.1 data modelling language
+   [I-D.ietf-netmod-rfc6020bis] defines only an XML encoding for data
    instances, i.e. contents of configuration datastores, state data, RPC
    inputs and outputs, action inputs and outputs, and event
    notifications.
@@ -165,7 +165,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016                [Page 3]
+Veillette, et al.       Expires September 1, 2016               [Page 3]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -198,7 +198,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 2.1.  CBOR diagnostic notation
 
    Within this document, CBOR binary contents are represented using an
-   equivalent textual form called CBOR diagnostic notation as define in
+   equivalent textual form called CBOR diagnostic notation as defined in
    [RFC7049] section 6.  This notation is used strictly for
    documentation purposes and is never used in the data serialization.
 
@@ -221,7 +221,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016                [Page 4]
+Veillette, et al.       Expires September 1, 2016               [Page 4]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -245,7 +245,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    |          |      | values within square     |           |          |
    |          |      | brackets                 |           |          |
    | Map      | 5    | Comma separated list of  | { 1: 123, | a2       |
-   |          |      | tag : value pairs within | 2: 456 }  | 01187b   |
+   |          |      | key : value pairs within | 2: 456 }  | 01187b   |
    |          |      | curly braces             |           | 021901c8 |
    | Boolean  | 7/20 | false                    | false     | f4       |
    |          | 7/21 | true                     | true      | f5       |
@@ -255,8 +255,8 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    +----------+------+--------------------------+-----------+----------+
 
    Within this document, comments are allowed in CBOR diagnostic
-   notation.  Any characters after a Pound sign ('#') up to the end of
-   the line is treated as a comment.
+   notation.  Any characters after a Pound sign ('#') outside of a
+   string, up to the end of the line, are treated as a comment.
 
 3.  Properties of the CBOR Encoding
 
@@ -268,27 +268,29 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    is encoded in CBOR.  Identification of this value need to be provided
    by some external means when needed.
 
-   Collections like container, list entry, notification, RPC input, RPC
-   output, action input and action output are serialized using a CBOR
-   map in which each child schema node is encode using a tag and a
-   value.  Section 4 defines how the tag part is encoded, and the
+   A collection such as container, list entry, notification, RPC input,
+   RPC output, action input and action output is serialized using a CBOR
+   map in which each child schema node is encoded using a key and a
+   value.  Section 4 defines how the key part is encoded, and the
    following sections deal with the value part.
 
 
 
 
-Veillette, et al.        Expires August 27, 2016                [Page 5]
+Veillette, et al.       Expires September 1, 2016               [Page 5]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
    In order to minimize the size of the encoded data, the proposed
    mapping does not make use of any meta-information beyond those
-   natively supported by CBOR.  This includes the use of CBOR tags which
-   are not used for any of the proposed mapping.  It is expected that
-   entities generating and decoding CBOR contents have enough knowledge
-   about the information processed in order to perform the expected task
-   without the need of such extra meta-information.
+   natively supported by CBOR.  For instance, CBOR tags are not used for
+   any of the proposed mapping.  It is expected that entities generating
+   and decoding CBOR contents have enough knowledge about the
+   information processed in order to perform the expected task without
+   the need of such extra meta-information.  The CoAP Content-Format
+   Option, or an HTTP Content-Type header field, conveys that the data
+   is YANG-encoded CBOR in the first place.
 
 4.  Structured IDentifiers (SID)
 
@@ -310,17 +312,17 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    Appendix A for more details about the registration process of SIDs.
 
    Assignment of SIDs can be automated, the recommended process to
-   assign SIDs is as follow:
+   assign SIDs is as follows:
 
-   o  A tool extract the different items defined for a specific YANG
+   o  A tool extracts the different items defined for a specific YANG
       module.
 
    o  The list of items is ordered by type, assignment date and label.
 
    o  SIDs are assigned sequentially for the entry point up to the size
       of the registered SID range.  It is important to note that
-      sequentially assigned SIDs optimizes the CBOR serialization due to
-      the use of delta encoding.
+      sequentially assigning SIDs optimizes the CBOR serialization due
+      to the use of delta encoding.
 
    o  If the number of items exceeds the SID range(s) allocated to a
       YANG module, an extra range is added for subsequent assignments.
@@ -328,15 +330,16 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    o  SIDs are assigned permanently, items introduced by a new revision
       of a YANG module are added to the list of SIDs already assigned.
 
-   Appendix B define a standard file format used to store and publish
-   SIDs.
 
 
 
-Veillette, et al.        Expires August 27, 2016                [Page 6]
+Veillette, et al.       Expires September 1, 2016               [Page 6]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
+
+   Appendix B defines a standard file format used to store and publish
+   SIDs.
 
 5.  Encoding of YANG Schema Node Instances
 
@@ -356,7 +359,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    5).  A map is comprised of pairs of data items, with each data item
    consisting of a key and a value.  Keys MUST be encoded using a CBOR
    unsigned integer (major type 0) and set to the delta value of the
-   associated SID.  Delta values are computed as follow:
+   associated SID.  Delta values are computed as follows:
 
    o  The delta value is equal to the SID of the current schema node
       minus the SID of the parent schema node.  When no parent exists in
@@ -364,8 +367,8 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
       of the current schema node (a parent with SID equal to zero is
       assumed).
 
-   o  Delta values may result in a negative number, CoOL clients and
-      servers MUST support negative deltas.
+   o  Delta values may result in a negative number, clients and servers
+      MUST support negative deltas.
 
    Values MUST be encoded using the appropriate rules defined in
    Section 5 and Section 6.
@@ -386,10 +389,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-
-
-
-Veillette, et al.        Expires August 27, 2016                [Page 7]
+Veillette, et al.       Expires September 1, 2016               [Page 7]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -416,7 +416,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
      }
    }
 
-   The ".sid" file used in this example is available in appendix C.
+   The ".sid" file used in this example is available in Appendix C.
 
    CBOR diagnostic notation:
 
@@ -445,7 +445,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016                [Page 8]
+Veillette, et al.       Expires September 1, 2016               [Page 8]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -501,7 +501,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016                [Page 9]
+Veillette, et al.       Expires September 1, 2016               [Page 9]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -543,7 +543,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
      }
    }
 
-   The .sid file used in this example is available in appendix C.
+   The .sid file used in this example is available in Appendix C.
 
    CBOR diagnostic notation:
 
@@ -557,7 +557,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 10]
+Veillette, et al.       Expires September 1, 2016              [Page 10]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -613,10 +613,15 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 11]
+Veillette, et al.       Expires September 1, 2016              [Page 11]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
+
+   Note that the protocol or method using this mapping may carry a
+   parent SID or may have the knowledge of this parent SID based on the
+   context.  In these cases, delta encoding can be performed based on
+   this parent SID which minimizes the size of the encoded data.
 
 5.5.  The "anydata" Schema Node
 
@@ -626,18 +631,18 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    map.  The requirement that anydata content can be modeled by YANG
    implies the following:
 
-   o  Tags MUST be set to valid SIDs, this include the tag of the
-      anydata node and the tag of any inner schema node.
+   o  Keys MUST be set to valid SIDs, this includes the key of the
+      anydata node and the key of any inner schema node.
 
-   o  CBOR array MUST contain either unique scalar values (as a leaf-
-      list, see Section 5.3), or maps (as a list, see Section 5.4).
+   o  The CBOR array MUST contain either unique scalar values (as a
+      leaf-list, see Section 5.3), or maps (as a list, see Section 5.4).
 
    o  Values MUST follow the encoding rules of one of the datatype
       listed in Section 6.
 
 5.6.  The "anyxml" Schema Node
 
-   An anyxml instance is encoded as a CBOR tag/value pair.  The tag of
+   An anyxml instance is encoded as a CBOR key/value pair.  The key of
    the anyxml schema node MUST be a valid SID but the value is
    unrestricted, i.e., the value can be any CBOR encoded content.
 
@@ -660,19 +665,20 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
    CBOR encoding: 19 0500
 
+
+
+
+
+Veillette, et al.       Expires September 1, 2016              [Page 12]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
+
+
 6.2.  The integer Types
 
    Leafs of type int8, int16, int32 and int64 MUST be encoded using
    either CBOR unsigned integer (major type 0) or CBOR signed integer
    (major type 1), depending on the actual value.
-
-
-
-
-Veillette, et al.        Expires August 27, 2016               [Page 12]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
-
 
    Definition example [RFC7317]:
 
@@ -714,6 +720,16 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
    Definition example [RFC7223]:
 
+
+
+
+
+
+Veillette, et al.       Expires September 1, 2016              [Page 13]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
+
+
    leaf name {
      type string;
    }
@@ -721,14 +737,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    CBOR diagnostic notation: "eth0"
 
    CBOR encoding: 64 65746830
-
-
-
-
-Veillette, et al.        Expires August 27, 2016               [Page 13]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
-
 
 6.5.  The "boolean" Type
 
@@ -769,6 +777,15 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
    CBOR encoding: 03
 
+
+
+
+
+Veillette, et al.       Expires September 1, 2016              [Page 14]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
+
+
 6.7.  The "bits" Type
 
    Leafs of type bits MUST be encoded using a CBOR byte string data item
@@ -778,13 +795,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    assigned from least to most significant.
 
    Definition example [I-D.ietf-netmod-rfc6020bis]:
-
-
-
-Veillette, et al.        Expires August 27, 2016               [Page 14]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
-
 
    leaf mybits {
      type bits {
@@ -822,25 +832,22 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
    CBOR encoding: 50 1f1ce6a3f42660d888d92a4d8030476e
 
+
+
+
+
+
+Veillette, et al.       Expires September 1, 2016              [Page 15]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
+
+
 6.9.  The "leafref" Type
 
    Leafs of type leafref MUST be encoded using the rules of the schema
    node referenced by the "path" YANG statement.
 
    Definition example [RFC7223]:
-
-
-
-
-
-
-
-
-
-Veillette, et al.        Expires August 27, 2016               [Page 15]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
-
 
    typedef interface-state-ref {
      type leafref {
@@ -860,9 +867,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
      }
    }
 
-   CBOR diagnostic notation: "eth1.10"
+   CBOR diagnostic notation: "eth1"
 
-   CBOR encoding: 67 657468312e3130
+   CBOR encoding: 64 65746831
 
 6.10.  The "identityref" Type
 
@@ -870,6 +877,26 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    integer data item (major type 0) and MUST contain a registered SID.
 
    Definition example [RFC7223]:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Veillette, et al.       Expires September 1, 2016              [Page 16]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
+
 
    identity interface-type {
    }
@@ -890,13 +917,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
    Assuming that the identity "iana-if-type:ethernetCsmacd" have been
    assigned to the SID value 1179.
-
-
-
-Veillette, et al.        Expires August 27, 2016               [Page 16]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
-
 
    CBOR diagnostic notation: 1179
 
@@ -920,7 +940,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 6.12.  The "union" Type
 
    Leafs of type union MUST be encoded using the rules associated with
-   one of the type listed.
+   one of the types listed.
 
    Definition example [RFC7317]:
 
@@ -929,27 +949,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Veillette, et al.        Expires August 27, 2016               [Page 17]
+Veillette, et al.       Expires September 1, 2016              [Page 17]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -984,9 +984,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
      type inet:ip-address;
    }
 
-   CBOR diagnostic notation: "[2001:db8:0:1]:80"
+   CBOR diagnostic notation: "2001:db8:a0b:12f0::1"
 
-   CBOR encoding: 71 5b323030313a6462383a303a315d3a3830
+   CBOR encoding: 74 323030313a6462383a6130623a313266303a3a31
 
 6.13.  The "instance-identifier" Type
 
@@ -1005,7 +1005,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 18]
+Veillette, et al.       Expires September 1, 2016              [Page 18]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1061,7 +1061,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 19]
+Veillette, et al.       Expires September 1, 2016              [Page 19]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1100,8 +1100,11 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 7.  Security Considerations
 
+   The security considerations of [RFC7049] and
+   [I-D.ietf-netmod-rfc6020bis] apply.
+
    This document defines an alternative encoding for data modeled in the
-   YANG data modeling language.  As such, this encoding doesn't
+   YANG data modeling language.  As such, this encoding does not
    contribute any new security issues in addition of those identified
    for the specific protocol or context for which it is used.
 
@@ -1109,26 +1112,25 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
    reject all messages that do not comply to the rules of this document
    and reply with an appropriate error message to the sender.
 
-8.  IANA Considerations
 
 
 
 
 
-
-
-Veillette, et al.        Expires August 27, 2016               [Page 20]
+Veillette, et al.       Expires September 1, 2016              [Page 20]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
+8.  IANA Considerations
+
 8.1.  "SID" range registry
 
-   This document defines a registry for Structure Identifier (SID)
-   ranges.  This registry MUST guaranty that each SID assigned is
-   globally unique.  The registry SHALL record for each entry:
+   IANA is requested to create a registry for Structure Identifier (SID)
+   ranges.  This registry needs to guarantee that the ranges registered
+   do not overlap.  The registry SHALL record for each entry:
 
-   o  The entry point of the registered SID range.
+   o  The entry point (first entry) of the registered SID range.
 
    o  The size of the registered SID range.
 
@@ -1142,25 +1144,23 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
    o  The range of 1000 to 59999 is reserved for standardized YANG
       modules.  Allocation within this range requires publishing of the
-      associated ".yang" and ".sid" files.
+      associated ".yang" and ".sid" files.  (Specification required.)
 
-   o  The range of 60000 to 99999 is reserved for experimental or
-      private YANG modules.  Use of this range SHOUD NOT be used in
-      operational deployments since these SIDs are not globally unique
-      which limit their interoperability.
+   o  The range of 60000 to 99999 is reserved for experimental YANG
+      modules.  Use of this range MUST NOT be used in operational
+      deployments since these SIDs are not globally unique which limit
+      their interoperability.
 
-   o  The range of 100000 to 0x3FFFFFFF is available as first come first
-      served basis.  The only information require from the registrant is
-      a valid contact information.  The recommended size of the SID
-      ranges allocated is 1,000 for private use and 10,000 for standard
-      development organizations (SDOs).  Registrants MAY request less or
-      more SIDs based on their expected needs.  Allocation of a
-      significant larger SID range MAY required IETF review or IESG
-      approval.  IANA MAY delegate this registration process to one or
-      multiple sub-registries.  The recommended size of the SID range
-      allocation for a sub-registry is 1,000,000.
-
-
+   o  The range of 100000 to 0x3FFFFFFF is available on a first come
+      first served basis.  The only information required from the
+      registrant is a valid contact information.  The recommended size
+      of the SID ranges allocated is 1,000 for private use and 10,000
+      for standard development organizations (SDOs).  Registrants MAY
+      request fewer or more SIDs based on their expected, sat needs.
+      Allocation of a significantly larger SID range MAY required IETF
+      review or IESG approval.  IANA MAY delegate this registration
+      process to one or multiple sub-registries.  The recommended size
+      of the SID range allocation for a sub-registry is 1,000,000.
 
 
 
@@ -1173,32 +1173,33 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 21]
+Veillette, et al.       Expires September 1, 2016              [Page 21]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
-   +------------+------------+-----------------------------------------+
-   | Entry      | Size       | Registration Procedures                 |
-   | Point      |            |                                         |
-   +------------+------------+-----------------------------------------+
-   | 0          | 1,000      | Specification required, expert review   |
-   | 1,000      | 59,000     | Specification and associated ".yang"    |
-   |            |            | and ".sid" files required               |
-   | 60,000     | 40,000     | Experimental or private use             |
-   | 100,000    | 0x3FFE7960 | Contact information is required.        |
-   |            |            | Registration of the module name(s) and  |
-   |            |            | associated ".yang" and ".sid" files are |
-   |            |            | optional.                               |
-   | 0x40000000 | 2^64       | Specification required, expert review   |
-   +------------+------------+-----------------------------------------+
+   +------------+-----------------+------------------------------------+
+   | Entry      | Size            | Registration Procedures            |
+   | Point      |                 |                                    |
+   +------------+-----------------+------------------------------------+
+   | 0          | 1,000           | IETF review or IESG approval       |
+   | 1,000      | 59,000          | Specification and associated       |
+   |            |                 | ".yang" and ".sid" files required  |
+   | 60,000     | 40,000          | Experimental use                   |
+   | 100,000    | 0x3ffe7960      | Contact information is required.   |
+   |            |                 | Registration of the module name(s) |
+   |            |                 | and associated ".yang" and ".sid"  |
+   |            |                 | files are optional.                |
+   | 0x40000000 | 2^64-0x40000000 | Specification required, expert     |
+   |            |                 | review                             |
+   +------------+-----------------+------------------------------------+
 
 8.2.  YANG module registry
 
-   Each registered SID range can be used to assign SIDs to multiple YANG
-   modules.  To track which YANG module have been assigned and to avoid
-   duplicate allocation, IANA SHALL provide a method to register and
-   query the following information:
+   Each registered SID range can be used to assign SIDs to one or more
+   YANG modules.  To track which YANG module have been assigned and to
+   avoid duplicate allocation, IANA is requested to provide a method to
+   register and query the following information:
 
    o  The YANG module name
 
@@ -1208,7 +1209,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
    o  The associated ".yang" file(s) (Optional)
 
-   o  The associated ".sid" file(Optional)
+   o  The associated ".sid" file (Optional)
 
    Registration of YANG modules is optional.  When a YANG module is
    registered, the registrant MUST provide the module name and contact
@@ -1228,8 +1229,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-
-Veillette, et al.        Expires August 27, 2016               [Page 22]
+Veillette, et al.       Expires September 1, 2016              [Page 22]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1285,7 +1285,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 23]
+Veillette, et al.       Expires September 1, 2016              [Page 23]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1341,7 +1341,7 @@ Appendix A.  ".sid" file lifecycle
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 24]
+Veillette, et al.       Expires September 1, 2016              [Page 24]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1371,7 +1371,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
                                        |
                                        V
                                 /-------------\      +---------------+
-                               /  Publicaly    \ yes | YANG module   |
+                               /  Publicly     \ yes | YANG module   |
                  +------------>\  available ?  /---->| registration  |
                  |              \-------------/      +---------------+
                  |                     | no                  |
@@ -1397,13 +1397,13 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 25]
+Veillette, et al.       Expires September 1, 2016              [Page 25]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
-   RESTCONF without the need for assigning SIDs to the deferent items
-   within these YANG modules.
+   RESTCONF without the need for assigning SIDs to the items within
+   these YANG modules.
 
    Assignment of SIDs of a YANG module defined by an RFC is the
    responsibility of the authors of this RFC or IANA in the case of
@@ -1453,7 +1453,7 @@ Appendix B.  ".sid" file format
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 26]
+Veillette, et al.       Expires September 1, 2016              [Page 26]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1509,7 +1509,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 27]
+Veillette, et al.       Expires September 1, 2016              [Page 27]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1565,7 +1565,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 28]
+Veillette, et al.       Expires September 1, 2016              [Page 28]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1621,7 +1621,7 @@ Appendix C.  ".sid" file example
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 29]
+Veillette, et al.       Expires September 1, 2016              [Page 29]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1677,7 +1677,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 30]
+Veillette, et al.       Expires September 1, 2016              [Page 30]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1733,7 +1733,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 31]
+Veillette, et al.       Expires September 1, 2016              [Page 31]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1789,7 +1789,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 32]
+Veillette, et al.       Expires September 1, 2016              [Page 32]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1845,7 +1845,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 33]
+Veillette, et al.       Expires September 1, 2016              [Page 33]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1901,7 +1901,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 34]
+Veillette, et al.       Expires September 1, 2016              [Page 34]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -1957,7 +1957,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 35]
+Veillette, et al.       Expires September 1, 2016              [Page 35]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -2013,7 +2013,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 36]
+Veillette, et al.       Expires September 1, 2016              [Page 36]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -2069,7 +2069,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 37]
+Veillette, et al.       Expires September 1, 2016              [Page 37]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -2125,7 +2125,7 @@ Authors' Addresses
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 38]
+Veillette, et al.       Expires September 1, 2016              [Page 38]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
@@ -2181,4 +2181,4 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2016
 
 
 
-Veillette, et al.        Expires August 27, 2016               [Page 39]
+Veillette, et al.       Expires September 1, 2016              [Page 39]

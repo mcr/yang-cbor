@@ -567,7 +567,9 @@ li, p {
 <p id="rfc.section.4.1.p.1">Leafs MUST be encoded based on the encoding rules specified in <a href="#data-types-mapping">Section 5</a>.</p>
 <h1 id="rfc.section.4.2"><a href="#rfc.section.4.2">4.2.</a> <a href="#container" id="container">The &#8220;container&#8221; Schema Node</a></h1>
 <p id="rfc.section.4.2.p.1">Collections such as containers, list instances, notifications, RPC inputs, RPC outputs, action inputs and action outputs MUST be encoded using a CBOR map data item (major type 5). A map is comprised of pairs of data items, with each data item consisting of a key and a value. This specification supports three type of keys; SID as defined in [I.D-somaraju-core-sid], member names as defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> and YANG hash as defined by <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a>.</p>
-<p id="rfc.section.4.2.p.2">** SIDs as keys: **</p>
+<p>
+  <strong>SIDs as keys:</strong>
+</p>
 <p id="rfc.section.4.2.p.3">Keys implemented using SIDs MUST be encoded using a CBOR unsigned integer (major type 0) and set to the delta value of the associated SID. Delta values are computed as follows:</p>
 <p/>
 
@@ -575,9 +577,13 @@ li, p {
   <li>The delta value is equal to the SID of the current schema node minus the SID of the parent schema node. When no parent exists in the context of use of this container, the delta is set to the SID of the current schema node (a parent with SID equal to zero is assumed).</li>
   <li>Delta values may result in a negative number, clients and servers MUST support negative deltas.</li>
 </ul>
-<p id="rfc.section.4.2.p.5">** Member names as keys: **</p>
+<p>
+  <strong>Member names as keys:</strong>
+</p>
 <p id="rfc.section.4.2.p.6">Keys implemented using member names MUST be encoded using a CBOR text string data item (major type 3). A namespace-qualified member name MUST be used for all members of a top-level collection, and then also whenever the namespaces of the schema node and its parent are different. In all other cases, the simple form of the member name MUST be used. Member names and namespaces are defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> section 4.</p>
-<p id="rfc.section.4.2.p.7">** YANG hashes as keys: **</p>
+<p>
+  <strong>YANG hashes as keys:</strong>
+</p>
 <p id="rfc.section.4.2.p.8">Keys implemented using YANG hashes MUST be encoded using a CBOR byte string data item (major type 2).</p>
 <p id="rfc.section.4.2.p.9">Values MUST be encoded using the appropriate rules defined in <a href="#instance-encoding">Section 4</a> and <a href="#data-types-mapping">Section 5</a>.</p>
 <p id="rfc.section.4.2.p.10">Definition example <a href="#RFC7317">[RFC7317]</a>:</p>
@@ -604,7 +610,9 @@ container system {
   }
 }
 </pre>
-<p id="rfc.section.4.2.p.11">** SIDs example: **</p>
+<p>
+  <strong>SIDs example:</strong>
+</p>
 <p id="rfc.section.4.2.p.12">This example is encoded using the SIDs defined in [I.D-somaraju-core-sid] Appendix C.</p>
 <p id="rfc.section.4.2.p.13">CBOR diagnostic notation:</p>
 <pre>
@@ -627,7 +635,9 @@ a1                                      # map(1)
       78 1a                             # text(26)
       323031352d30392d31355430393a31323a35385a2d30353a3030
 </pre>
-<p id="rfc.section.4.2.p.15">** Member names example: **</p>
+<p>
+  <strong>Member names example:</strong>
+</p>
 <p id="rfc.section.4.2.p.16">CBOR diagnostic notation:</p>
 <pre>
 {
@@ -652,7 +662,9 @@ a1                                          # map(1)
       78 1a                                 # text(26)
          323031352d30392d31355430393a31323a35385a2d30353a3030
 </pre>
-<p id="rfc.section.4.2.p.18">** YANG Hashes example: **</p>
+<p>
+  <strong>YANG Hashes example:</strong>
+</p>
 <p id="rfc.section.4.2.p.19">CBOR diagnostic notation:</p>
 <pre>
 {
@@ -738,7 +750,9 @@ list server {
   }
 }
 </pre>
-<p id="rfc.section.4.4.p.3">** SIDs example: **</p>
+<p>
+  <strong>SIDs example:</strong>
+</p>
 <p id="rfc.section.4.4.p.4">SIDs used in this example are defined in [I.D-somaraju-core-sid] Appendix C. It is important to note that the protocol or method using this mapping may carry a parent SID or may have the knowledge of this parent SID based on its context. In these cases, delta encoding can be performed based on this parent SID which minimizes the size of the encoded data.</p>
 <p id="rfc.section.4.4.p.5">CBOR diagnostic notation:</p>
 <pre>
@@ -791,7 +805,9 @@ list server {
          6a                           # text(10)
             7461632e6e72632e6361      # "tac.nrc.ca"
 </pre>
-<p id="rfc.section.4.4.p.7">** Member names example **</p>
+<p>
+  <strong>Member names example:</strong>
+</p>
 <p id="rfc.section.4.4.p.8">CBOR diagnostic notation:</p>
 <pre>
 [
@@ -854,7 +870,9 @@ list server {
          6a                                   # text(10)
             7461632e6e72632e6361              # "tac.nrc.ca"
 </pre>
-<p id="rfc.section.4.4.p.10">** YANG hashes example: **</p>
+<p>
+  <strong>YANG hashes example:</strong>
+</p>
 <p id="rfc.section.4.4.p.11">CBOR diagnostic notation:</p>
 <pre>
 [
@@ -1061,9 +1079,13 @@ container interfaces-state {
 <p id="rfc.section.5.9.p.4">CBOR encoding: 64 65746831</p>
 <h1 id="rfc.section.5.10"><a href="#rfc.section.5.10">5.10.</a> <a href="#the-identityref-type" id="the-identityref-type">The &#8220;identityref&#8221; Type</a></h1>
 <p id="rfc.section.5.10.p.1">This specification support two approaches for encoding identityref, a SID as defined in [I.D-somaraju-core-sid] or a name as defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> section 6.8.</p>
-<p id="rfc.section.5.10.p.2">** SIDs as identityref: **</p>
+<p>
+  <strong>SIDs as identityref:</strong>
+</p>
 <p id="rfc.section.5.10.p.3">SIDs are globally unique and may be used as identityref.  This approach is both compact and simple to implement. When SID are used, identityref MUST be encoded using a CBOR unsigned integer data item (major type 0) and set to a SID allocated from a registered SID range.</p>
-<p id="rfc.section.5.10.p.4">** Name as identityref: **</p>
+<p>
+  <strong>Name as identityref:</strong>
+</p>
 <p id="rfc.section.5.10.p.5">Alternatively, an identityref may be encoded using a name as defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> section 6.8.  When a names are used, identityref MUST be encoded using a CBOR text string data item (major type 3). If the identity is defined in another module than the leaf node containing the identityref value, the namespace-qualified form MUST be used. Otherwise, both the simple and namespace-qualified forms are permitted.</p>
 <p id="rfc.section.5.10.p.6">Definition example <a href="#RFC7223">[RFC7223]</a>:</p>
 <pre>
@@ -1084,11 +1106,15 @@ leaf type {
   }
 }
 </pre>
-<p id="rfc.section.5.10.p.7">** SIDs as identityref: **</p>
+<p>
+  <strong>SIDs as identityref:</strong>
+</p>
 <p id="rfc.section.5.10.p.8">Assuming that the identity &#8220;iana-if-type:ethernetCsmacd&#8221; have been assigned to the SID value 1179.</p>
 <p id="rfc.section.5.10.p.9">CBOR diagnostic notation: 1179</p>
 <p id="rfc.section.5.10.p.10">CBOR encoding: 19 049b</p>
-<p id="rfc.section.5.10.p.11">** Name as identityref: **</p>
+<p>
+  <strong>Name as identityref:</strong>
+</p>
 <p id="rfc.section.5.10.p.12">CBOR diagnostic notation: &#8220;iana-if-type:ethernetCsmacd&#8221;</p>
 <p id="rfc.section.5.10.p.13">CBOR encoding: 78 1b  69616e612d69662d747970653a65746865726e657443736d616364</p>
 <h1 id="rfc.section.5.11"><a href="#rfc.section.5.11">5.11.</a> <a href="#the-empty-type" id="the-empty-type">The &#8220;empty&#8221; Type</a></h1>
@@ -1139,7 +1165,9 @@ leaf address {
 <p id="rfc.section.5.12.p.4">CBOR encoding: 74 323030313a6462383a6130623a313266303a3a31</p>
 <h1 id="rfc.section.5.13"><a href="#rfc.section.5.13">5.13.</a> <a href="#the-instance-identifier-type" id="the-instance-identifier-type">The &#8220;instance-identifier&#8221; Type</a></h1>
 <p id="rfc.section.5.13.p.1">This specification support three approaches for encoding an instance-identifier, one based on SIDs as defined in [I.D-somaraju-core-sid], one based on names as defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> section 6.13 and one based on YANG hashes as defined in <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a>.</p>
-<p id="rfc.section.5.13.p.2">** SIDs as instance-identifier: **</p>
+<p>
+  <strong>SIDs as instance-identifier:</strong>
+</p>
 <p id="rfc.section.5.13.p.3">SIDs uniquely identify a data node. For single instance data node, the SID is sufficient to identify this instance. For a multi-instance data node, a SID is combined with the list key(s) to identify each instance of this data node within the YANG list(s).</p>
 <p id="rfc.section.5.13.p.4">Single instance data nodes MUST be encoded using either a CBOR unsigned integer data item (major type 0) and set to the targeted data node SID.</p>
 <p id="rfc.section.5.13.p.5">Multi-instances data nodes MUST be encoded using a CBOR array data item (major type 4) containing the following entries:</p>
@@ -1150,9 +1178,13 @@ leaf address {
   <li>The following entries MUST contain the value of each key required to identify the instance of the targeted data node. These keys MUST be ordered as defined in the &#8220;key&#8221; YANG statement, starting from top level list, and follow by each of the subordinate list(s).</li>
 </ul>
 <p id="rfc.section.5.13.p.7">When the SID identify a YANG list, the presence of the key(s) for this list is optional. When the key(s) are present, the targeted instance within this list is selected. When the key(s) are absent, the entire YANG list is selected.</p>
-<p id="rfc.section.5.13.p.8">** Names as instance-identifier: **</p>
+<p>
+  <strong>Names as instance-identifier:</strong>
+</p>
 <p id="rfc.section.5.13.p.9">The use of names as instance-identifier is defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> section 6.11. The resulting xpath MUST be encoded using a CBOR text string data item (major type 3).</p>
-<p id="rfc.section.5.13.p.10">** YANG hashes as instance-identifier: **</p>
+<p>
+  <strong>YANG hashes as instance-identifier:</strong>
+</p>
 <p id="rfc.section.5.13.p.11">YANG hashes uniquely identify a data node. For single instance data node, the YANG hash is sufficient to identify this instance. For a multi-instance data node, a YANG hash is combined with the list key(s) to identify each instance of this data node within the YANG list(s).</p>
 <p id="rfc.section.5.13.p.12">Single instance data nodes MUST be encoded using a CBOR byte string data item (major type 2) and set to the YANG hash associated to targeted data node.</p>
 <p id="rfc.section.5.13.p.13">Multi-instances data nodes MUST be encoded using a CBOR array data item (major type 4) containing the following entries:</p>
@@ -1176,15 +1208,21 @@ container system {
   }
 }
 </pre>
-<p id="rfc.section.5.13.p.17">** First example based on SID: **</p>
+<p>
+  <strong>First example based on SID:</strong>
+</p>
 <p id="rfc.section.5.13.p.18">In this example, a field of type instance-identifier identify the data node &#8220;/system/contact&#8221; (SID 1728).</p>
 <p id="rfc.section.5.13.p.19">CBOR diagnostic notation: 1728</p>
 <p id="rfc.section.5.13.p.20">CBOR encoding: 19 06c0</p>
-<p id="rfc.section.5.13.p.21">** First example based on name: **</p>
+<p>
+  <strong>First example based on name:</strong>
+</p>
 <p id="rfc.section.5.13.p.22">Same example as above based on names.</p>
 <p id="rfc.section.5.13.p.23">CBOR diagnostic notation: &#8220;/ietf-system:system/contact&#8221;</p>
 <p id="rfc.section.5.13.p.24">CBOR encoding: 78 1c 2f20696574662d73797374656d3a73797374656d2f636f6e74616374</p>
-<p id="rfc.section.5.13.p.25">** First example based on YANG hash: **</p>
+<p>
+  <strong>First example based on YANG hash:</strong>
+</p>
 <p id="rfc.section.5.13.p.26">Same example assuming data node &#8220;/system/contact&#8221; is associated to YANG hash 0x09b06d17.</p>
 <p id="rfc.section.5.13.p.27">CBOR diagnostic notation: h&#8217;09b06d17&#8217;</p>
 <p id="rfc.section.5.13.p.28">CBOR encoding: 44 09b06d17</p>
@@ -1214,7 +1252,9 @@ list user {
   }
 }
 </pre>
-<p id="rfc.section.5.13.p.30">** Second example based on SID: **</p>
+<p>
+  <strong>Second example based on SID:</strong>
+</p>
 <p id="rfc.section.5.13.p.31">In this example, a field of type instance-identifier identify the data node &#8220;/system/authentication/user/authorized-key/key-data&#8221; (SID 1721) for the user name &#8220;bob&#8221; and the authorized-key name &#8220;admin&#8221;.</p>
 <p id="rfc.section.5.13.p.32">CBOR diagnostic notation:</p>
 <pre>
@@ -1229,7 +1269,9 @@ list user {
    65                   # text(5)
       61646d696e        # "admin"
 </pre>
-<p id="rfc.section.5.13.p.34">** Second example based on name: **</p>
+<p>
+  <strong>Second example based on name:</strong>
+</p>
 <p id="rfc.section.5.13.p.35">Same example as above based on names.</p>
 <p id="rfc.section.5.13.p.36">CBOR diagnostic notation:</p>
 <pre>
@@ -1242,7 +1284,9 @@ list user {
    757365725b6e616d653d27626f62275d2f617574686f72697a65642d6b65795b6e616d
    653d2761646d696e275d2f6b65792d64617461
 </pre>
-<p id="rfc.section.5.13.p.38">** Second example based on YANG hash: **</p>
+<p>
+  <strong>Second example based on YANG hash:</strong>
+</p>
 <p id="rfc.section.5.13.p.39">Same example assuming data node &#8220;/ietf-system:system/authentication/user/authorized-key/key-data&#8221; is associated to YANG hash 0x0d6e7afb.</p>
 <p id="rfc.section.5.13.p.40">CBOR diagnostic notation:</p>
 <pre>
@@ -1258,7 +1302,9 @@ list user {
    65                   # text(5)
       61646d696e        # "admin"
 </pre>
-<p id="rfc.section.5.13.p.42">** Third example based on SID: **</p>
+<p>
+  <strong>Third example based on SID:</strong>
+</p>
 <p id="rfc.section.5.13.p.43">This third example identify an instance within the list &#8220;/system/authentication/user&#8221; (SID 1717) corresponding to the user name &#8220;jack&#8221;.</p>
 <p id="rfc.section.5.13.p.44">CBOR diagnostic notation:</p>
 <pre>
@@ -1271,7 +1317,9 @@ list user {
    64                   # text(4)
       6a61636b          # "jack"
 </pre>
-<p id="rfc.section.5.13.p.46">** Third example based on name: **</p>
+<p>
+  <strong>Third example based on name:</strong>
+</p>
 <p id="rfc.section.5.13.p.47">Same example as above based on names.</p>
 <p id="rfc.section.5.13.p.48">CBOR diagnostic notation:</p>
 <pre>
@@ -1283,7 +1331,9 @@ list user {
    2f696574662d73797374656d3a73797374656d2f61757468656e7469636174696f6e2f
    757365725b6e616d653d27626f62275d
 </pre>
-<p id="rfc.section.5.13.p.50">** Third example based on YANG hash: **</p>
+<p>
+  <strong>Third example based on YANG hash:</strong>
+</p>
 <p id="rfc.section.5.13.p.51">Same example assuming data node &#8220;/ietf-system:system/authentication/user&#8221; is associated to YANG hash 0x2677c6c1.</p>
 <p id="rfc.section.5.13.p.52">CBOR diagnostic notation:</p>
 <pre>

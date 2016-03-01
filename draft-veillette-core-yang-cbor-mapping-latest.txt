@@ -321,7 +321,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    [I-D.ietf-netmod-yang-json] and YANG hash as defined by
    [I-D.vanderstok-core-comi].
 
-   ** SIDs as keys: **
+   *SIDs as keys:*
 
    Keys implemented using SIDs MUST be encoded using a CBOR unsigned
    integer (major type 0) and set to the delta value of the associated
@@ -344,7 +344,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    o  Delta values may result in a negative number, clients and servers
       MUST support negative deltas.
 
-   ** Member names as keys: **
+   *Member names as keys:*
 
    Keys implemented using member names MUST be encoded using a CBOR text
    string data item (major type 3).  A namespace-qualified member name
@@ -354,7 +354,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    MUST be used.  Member names and namespaces are defined in
    [I-D.ietf-netmod-yang-json] section 4.
 
-   ** YANG hashes as keys: **
+   *YANG hashes as keys:*
 
    Keys implemented using YANG hashes MUST be encoded using a CBOR byte
    string data item (major type 2).
@@ -394,7 +394,7 @@ Veillette, et al.       Expires September 2, 2016               [Page 7]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
-   ** SIDs example: **
+   *SIDs example:*
 
    This example is encoded using the SIDs defined in [I.D-somaraju-core-
    sid] Appendix C.
@@ -420,7 +420,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
          78 1a                             # text(26)
          323031352d30392d31355430393a31323a35385a2d30353a3030
 
-   ** Member names example: **
+   *Member names example:*
 
    CBOR diagnostic notation:
 
@@ -463,7 +463,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
          78 1a                                 # text(26)
             323031352d30392d31355430393a31323a35385a2d30353a3030
 
-   ** YANG Hashes example: **
+   *YANG Hashes example:*
 
    CBOR diagnostic notation:
 
@@ -599,7 +599,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
      }
    }
 
-   ** SIDs example: **
+   *SIDs example:*
 
    SIDs used in this example are defined in [I.D-somaraju-core-sid]
    Appendix C.  It is important to note that the protocol or method
@@ -674,7 +674,7 @@ Veillette, et al.       Expires September 2, 2016              [Page 12]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
-   ** Member names example **
+   *Member names example:*
 
    CBOR diagnostic notation:
 
@@ -769,7 +769,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
          6a                                   # text(10)
             7461632e6e72632e6361              # "tac.nrc.ca"
 
-   ** YANG hashes example: **
+   *YANG hashes example:*
 
    CBOR diagnostic notation:
 
@@ -1150,7 +1150,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    SID as defined in [I.D-somaraju-core-sid] or a name as defined in
    [I-D.ietf-netmod-yang-json] section 6.8.
 
-   ** SIDs as identityref: **
+   *SIDs as identityref:*
 
    SIDs are globally unique and may be used as identityref.  This
    approach is both compact and simple to implement.  When SID are used,
@@ -1158,7 +1158,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    (major type 0) and set to a SID allocated from a registered SID
    range.
 
-   ** Name as identityref: **
+   *Name as identityref:*
 
    Alternatively, an identityref may be encoded using a name as defined
    in [I-D.ietf-netmod-yang-json] section 6.8.  When a names are used,
@@ -1195,7 +1195,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
      }
    }
 
-   ** SIDs as identityref: **
+   *SIDs as identityref:*
 
    Assuming that the identity "iana-if-type:ethernetCsmacd" have been
    assigned to the SID value 1179.
@@ -1204,7 +1204,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
    CBOR encoding: 19 049b
 
-   ** Name as identityref: **
+   *Name as identityref:*
 
    CBOR diagnostic notation: "iana-if-type:ethernetCsmacd"
 
@@ -1290,7 +1290,7 @@ Veillette, et al.       Expires September 2, 2016              [Page 23]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
-   ** SIDs as instance-identifier: **
+   *SIDs as instance-identifier:*
 
    SIDs uniquely identify a data node.  For single instance data node,
    the SID is sufficient to identify this instance.  For a multi-
@@ -1318,13 +1318,13 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    instance within this list is selected.  When the key(s) are absent,
    the entire YANG list is selected.
 
-   ** Names as instance-identifier: **
+   *Names as instance-identifier:*
 
    The use of names as instance-identifier is defined in
    [I-D.ietf-netmod-yang-json] section 6.11.  The resulting xpath MUST
    be encoded using a CBOR text string data item (major type 3).
 
-   ** YANG hashes as instance-identifier: **
+   *YANG hashes as instance-identifier:*
 
    YANG hashes uniquely identify a data node.  For single instance data
    node, the YANG hash is sufficient to identify this instance.  For a
@@ -1374,7 +1374,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
      }
    }
 
-   ** First example based on SID: **
+   *First example based on SID:*
 
    In this example, a field of type instance-identifier identify the
    data node "/system/contact" (SID 1728).
@@ -1383,7 +1383,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
    CBOR encoding: 19 06c0
 
-   ** First example based on name: **
+   *First example based on name:*
 
    Same example as above based on names.
 
@@ -1392,7 +1392,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    CBOR encoding: 78 1c
    2f20696574662d73797374656d3a73797374656d2f636f6e74616374
 
-   ** First example based on YANG hash: **
+   *First example based on YANG hash:*
 
 
 
@@ -1435,7 +1435,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
      }
    }
 
-   ** Second example based on SID: **
+   *Second example based on SID:*
 
    In this example, a field of type instance-identifier identify the
    data node "/system/authentication/user/authorized-key/key-data" (SID
@@ -1465,7 +1465,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
       65                   # text(5)
          61646d696e        # "admin"
 
-   ** Second example based on name: **
+   *Second example based on name:*
 
    Same example as above based on names.
 
@@ -1480,7 +1480,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    757365725b6e616d653d27626f62275d2f617574686f72697a65642d6b65795b6e616d
    653d2761646d696e275d2f6b65792d64617461
 
-   ** Second example based on YANG hash: **
+   *Second example based on YANG hash:*
 
    Same example assuming data node "/ietf-
    system:system/authentication/user/authorized-key/key-data" is
@@ -1500,7 +1500,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
       65                   # text(5)
          61646d696e        # "admin"
 
-   ** Third example based on SID: **
+   *Third example based on SID:*
 
    This third example identify an instance within the list
    "/system/authentication/user" (SID 1717) corresponding to the user
@@ -1525,7 +1525,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
       64                   # text(4)
          6a61636b          # "jack"
 
-   ** Third example based on name: **
+   *Third example based on name:*
 
    Same example as above based on names.
 
@@ -1539,7 +1539,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    2f696574662d73797374656d3a73797374656d2f61757468656e7469636174696f6e2f
    757365725b6e616d653d27626f62275d
 
-   ** Third example based on YANG hash: **
+   *Third example based on YANG hash:*
 
    Same example assuming data node "/ietf-system:system/authentication/
    user" is associated to YANG hash 0x2677c6c1.

@@ -4,7 +4,7 @@
 
 CoRE                                                      R. Turner, Ed.
 Internet-Draft                                                Landis+Gyr
-Intended status: Best Current Practice                     March 1, 2016
+Intended status: Best Current Practice                    March 01, 2016
 Expires: September 2, 2016
 
 

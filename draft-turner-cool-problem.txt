@@ -4,8 +4,8 @@
 
 CoRE                                                      R. Turner, Ed.
 Internet-Draft                                                Landis+Gyr
-Intended status: Best Current Practice                 February 29, 2016
-Expires: September 1, 2016
+Intended status: Best Current Practice                     March 1, 2016
+Expires: September 2, 2016
 
 
                          CoOL Problem Statement
@@ -34,7 +34,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 1, 2016.
+   This Internet-Draft will expire on September 2, 2016.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Turner                  Expires September 1, 2016               [Page 1]
+Turner                  Expires September 2, 2016               [Page 1]
 
-Internet-Draft                CoOL Problem                 February 2016
+Internet-Draft                CoOL Problem                    March 2016
 
 
 Table of Contents
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Turner                  Expires September 1, 2016               [Page 2]
+Turner                  Expires September 2, 2016               [Page 2]
 
-Internet-Draft                CoOL Problem                 February 2016
+Internet-Draft                CoOL Problem                    March 2016
 
 
    YANG is a data modeling language used to model configuration and
@@ -165,9 +165,9 @@ Internet-Draft                CoOL Problem                 February 2016
 
 
 
-Turner                  Expires September 1, 2016               [Page 3]
+Turner                  Expires September 2, 2016               [Page 3]
 
-Internet-Draft                CoOL Problem                 February 2016
+Internet-Draft                CoOL Problem                    March 2016
 
 
    risk should come a more strict understanding of the attack vectors
@@ -221,4 +221,4 @@ Author's Address
 
 
 
-Turner                  Expires September 1, 2016               [Page 4]
+Turner                  Expires September 2, 2016               [Page 4]

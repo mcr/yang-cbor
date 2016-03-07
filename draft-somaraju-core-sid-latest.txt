@@ -5,14 +5,14 @@
 Internet Engineering Task Force                         A. Somaraju, Ed.
 Internet-Draft                                     Tridonic GmbH & Co KG
 Intended status: Informational                         M. Veillette, Ed.
-Expires: September 3, 2016                       Trilliant Networks Inc.
+Expires: September 8, 2016                       Trilliant Networks Inc.
                                                                 A. Pelov
                                                                   Acklio
                                                                R. Turner
                                                               Landis+Gyr
                                                              A. Minaburo
                                                                   Acklio
-                                                          March 02, 2016
+                                                          March 07, 2016
 
 
                        Structure Identifier (SID)
@@ -41,7 +41,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 3, 2016.
+   This Internet-Draft will expire on September 8, 2016.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Somaraju, et al.        Expires September 3, 2016               [Page 1]
+Somaraju, et al.        Expires September 8, 2016               [Page 1]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Somaraju, et al.        Expires September 3, 2016               [Page 2]
+Somaraju, et al.        Expires September 8, 2016               [Page 2]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -165,7 +165,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016               [Page 3]
+Somaraju, et al.        Expires September 8, 2016               [Page 3]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -221,7 +221,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016               [Page 4]
+Somaraju, et al.        Expires September 8, 2016               [Page 4]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -277,7 +277,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016               [Page 5]
+Somaraju, et al.        Expires September 8, 2016               [Page 5]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -333,7 +333,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016               [Page 6]
+Somaraju, et al.        Expires September 8, 2016               [Page 6]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -389,7 +389,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016               [Page 7]
+Somaraju, et al.        Expires September 8, 2016               [Page 7]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -445,7 +445,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016               [Page 8]
+Somaraju, et al.        Expires September 8, 2016               [Page 8]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -501,7 +501,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016               [Page 9]
+Somaraju, et al.        Expires September 8, 2016               [Page 9]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -557,7 +557,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016              [Page 10]
+Somaraju, et al.        Expires September 8, 2016              [Page 10]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -613,7 +613,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016              [Page 11]
+Somaraju, et al.        Expires September 8, 2016              [Page 11]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -669,7 +669,7 @@ Appendix A.  ".sid" file example
 
 
 
-Somaraju, et al.        Expires September 3, 2016              [Page 12]
+Somaraju, et al.        Expires September 8, 2016              [Page 12]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -725,7 +725,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016              [Page 13]
+Somaraju, et al.        Expires September 8, 2016              [Page 13]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -781,7 +781,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016              [Page 14]
+Somaraju, et al.        Expires September 8, 2016              [Page 14]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -837,7 +837,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016              [Page 15]
+Somaraju, et al.        Expires September 8, 2016              [Page 15]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -893,7 +893,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016              [Page 16]
+Somaraju, et al.        Expires September 8, 2016              [Page 16]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -949,7 +949,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016              [Page 17]
+Somaraju, et al.        Expires September 8, 2016              [Page 17]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -1005,7 +1005,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016              [Page 18]
+Somaraju, et al.        Expires September 8, 2016              [Page 18]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -1061,7 +1061,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016              [Page 19]
+Somaraju, et al.        Expires September 8, 2016              [Page 19]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -1117,7 +1117,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016              [Page 20]
+Somaraju, et al.        Expires September 8, 2016              [Page 20]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -1173,7 +1173,7 @@ Authors' Addresses
 
 
 
-Somaraju, et al.        Expires September 3, 2016              [Page 21]
+Somaraju, et al.        Expires September 8, 2016              [Page 21]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
@@ -1229,4 +1229,4 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.        Expires September 3, 2016              [Page 22]
+Somaraju, et al.        Expires September 8, 2016              [Page 22]

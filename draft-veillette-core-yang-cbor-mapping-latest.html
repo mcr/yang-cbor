@@ -306,7 +306,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Somaraju, A., Turner, R., and A. Minaburo" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-yang-cbor-mapping-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-3-02" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-3-07" />
   <meta name="dct.abstract" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
   <meta name="description" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
 
@@ -330,7 +330,7 @@ li, p {
   <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: September 3, 2016</td>
+  <td class="left">Expires: September 8, 2016</td>
   <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -359,7 +359,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">March 02, 2016</td>
+  <td class="right">March 07, 2016</td>
 </tr>
 
     	
@@ -379,7 +379,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on September 3, 2016.</p>
+<p>This Internet-Draft will expire on September 8, 2016.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -1185,17 +1185,8 @@ leaf address {
 <p>
   <strong>YANG hashes as instance-identifier:</strong>
 </p>
-<p id="rfc.section.5.13.p.11">YANG hashes uniquely identify a data node. For single instance data node, the YANG hash is sufficient to identify this instance. For a multi-instance data node, a YANG hash is combined with the list key(s) to identify each instance of this data node within the YANG list(s).</p>
-<p id="rfc.section.5.13.p.12">Single instance data nodes MUST be encoded using a CBOR byte string data item (major type 2) and set to the YANG hash associated to targeted data node.</p>
-<p id="rfc.section.5.13.p.13">Multi-instances data nodes MUST be encoded using a CBOR array data item (major type 4) containing the following entries:</p>
-<p/>
-
-<ul>
-  <li>The first entry MUST be encoded as a CBOR byte string data item (major type 2) and set to the YANG hash associated to targeted data node.</li>
-  <li>The following entries MUST contain the value of each key required to identify the instance of the targeted data node. These keys MUST be ordered as defined in the &#8220;key&#8221; YANG statement, starting from top level list, and follow by each of the subordinate list(s).</li>
-</ul>
-<p id="rfc.section.5.13.p.15">When the YANG hash identify a YANG list, the presence of the key(s) for this list is optional. When the key(s) are present, the targeted instance within this list is selected. When the key(s) are absent, the entire YANG list is selected.</p>
-<p id="rfc.section.5.13.p.16">Definition example <a href="#RFC7317">[RFC7317]</a>:</p>
+<p id="rfc.section.5.13.p.11">When YANG hashes are used, xpath can be compressed based on the method defined by <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a> sections 4.1.4.1 and 4.1.4.2.</p>
+<p id="rfc.section.5.13.p.12">Definition example <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 container system {
 
@@ -1211,22 +1202,38 @@ container system {
 <p>
   <strong>First example based on SID:</strong>
 </p>
-<p id="rfc.section.5.13.p.18">In this example, a field of type instance-identifier identify the data node &#8220;/system/contact&#8221; (SID 1728).</p>
-<p id="rfc.section.5.13.p.19">CBOR diagnostic notation: 1728</p>
-<p id="rfc.section.5.13.p.20">CBOR encoding: 19 06c0</p>
+<p id="rfc.section.5.13.p.14">In this example, a field of type instance-identifier identify the data node &#8220;/system/contact&#8221; (SID 1728).</p>
+<pre>
+1728
+</pre>
+<p id="rfc.section.5.13.p.15">CBOR encoding:</p>
+<pre>
+19 06c0
+</pre>
 <p>
   <strong>First example based on name:</strong>
 </p>
-<p id="rfc.section.5.13.p.22">Same example as above based on names.</p>
-<p id="rfc.section.5.13.p.23">CBOR diagnostic notation: &#8220;/ietf-system:system/contact&#8221;</p>
-<p id="rfc.section.5.13.p.24">CBOR encoding: 78 1c 2f20696574662d73797374656d3a73797374656d2f636f6e74616374</p>
+<p id="rfc.section.5.13.p.17">Same example as above based on names.</p>
+<pre>
+"/ietf-system:system/contact"
+</pre>
+<p id="rfc.section.5.13.p.18">CBOR encoding:</p>
+<pre>
+78 1c 2f20696574662d73797374656d3a73797374656d2f636f6e74616374
+</pre>
 <p>
   <strong>First example based on YANG hash:</strong>
 </p>
-<p id="rfc.section.5.13.p.26">Same example assuming data node &#8220;/system/contact&#8221; is associated to YANG hash 0x09b06d17.</p>
-<p id="rfc.section.5.13.p.27">CBOR diagnostic notation: h&#8217;09b06d17&#8217;</p>
-<p id="rfc.section.5.13.p.28">CBOR encoding: 44 09b06d17</p>
-<p id="rfc.section.5.13.p.29">Definition example <a href="#RFC7317">[RFC7317]</a>:</p>
+<p id="rfc.section.5.13.p.20">Same example assuming data node &#8220;/system/contact&#8221; is associated to YANG hash 0x09b06d17 or &#8220;JsG0X&#8221; in base64.</p>
+<p id="rfc.section.5.13.p.21">CBOR diagnostic notation:</p>
+<pre>
+"/JsG0X"
+</pre>
+<p id="rfc.section.5.13.p.22">CBOR encoding:</p>
+<pre>
+66 2f4a73473058
+</pre>
+<p id="rfc.section.5.13.p.23">Definition example <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 list user {
   key name;
@@ -1255,12 +1262,12 @@ list user {
 <p>
   <strong>Second example based on SID:</strong>
 </p>
-<p id="rfc.section.5.13.p.31">In this example, a field of type instance-identifier identify the data node &#8220;/system/authentication/user/authorized-key/key-data&#8221; (SID 1721) for the user name &#8220;bob&#8221; and the authorized-key name &#8220;admin&#8221;.</p>
-<p id="rfc.section.5.13.p.32">CBOR diagnostic notation:</p>
+<p id="rfc.section.5.13.p.25">In this example, a field of type instance-identifier identify the data node &#8220;/system/authentication/user/authorized-key/key-data&#8221; (SID 1721) for the user name &#8220;bob&#8221; and the authorized-key name &#8220;admin&#8221;.</p>
+<p id="rfc.section.5.13.p.26">CBOR diagnostic notation:</p>
 <pre>
 [1721, "bob", "admin"]
 </pre>
-<p id="rfc.section.5.13.p.33">CBOR encoding:</p>
+<p id="rfc.section.5.13.p.27">CBOR encoding:</p>
 <pre>
 83                      # array(3)
    19 06b9              # unsigned(1721)
@@ -1272,12 +1279,12 @@ list user {
 <p>
   <strong>Second example based on name:</strong>
 </p>
-<p id="rfc.section.5.13.p.35">Same example as above based on names.</p>
-<p id="rfc.section.5.13.p.36">CBOR diagnostic notation:</p>
+<p id="rfc.section.5.13.p.29">Same example as above based on names.</p>
+<p id="rfc.section.5.13.p.30">CBOR diagnostic notation:</p>
 <pre>
 "/ietf-system:system/authentication/user[name='bob']/authorized-key[name='admin']/key-data"
 </pre>
-<p id="rfc.section.5.13.p.37">CBOR encoding:</p>
+<p id="rfc.section.5.13.p.31">CBOR encoding:</p>
 <pre>
 78 59
    2f696574662d73797374656d3a73797374656d2f61757468656e7469636174696f6e2f
@@ -1287,30 +1294,24 @@ list user {
 <p>
   <strong>Second example based on YANG hash:</strong>
 </p>
-<p id="rfc.section.5.13.p.39">Same example assuming data node &#8220;/ietf-system:system/authentication/user/authorized-key/key-data&#8221; is associated to YANG hash 0x0d6e7afb.</p>
-<p id="rfc.section.5.13.p.40">CBOR diagnostic notation:</p>
+<p id="rfc.section.5.13.p.33">Same example assuming data node &#8220;/ietf-system:system/authentication/user/authorized-key/key-data&#8221; is associated to YANG hash 0x0d6e7afb or  &#8220;Nbnr7&#8221; in base64.</p>
+<p id="rfc.section.5.13.p.34">CBOR diagnostic notation:</p>
 <pre>
-[h'0d6e7afb', "bob", "admin"]
+"/Nbnr7?keys=\"bob\",\"admin\""
 </pre>
-<p id="rfc.section.5.13.p.41">CBOR encoding:</p>
+<p id="rfc.section.5.13.p.35">CBOR encoding:</p>
 <pre>
-83                      # array(3)
-   44                   # bytes(4)
-      0d6e7afb
-   63                   # text(3)
-      626f62            # "bob"
-   65                   # text(5)
-      61646d696e        # "admin"
+78 19 2f4e626e72373f6b6579733d22626f62222c2261646d696e22
 </pre>
 <p>
   <strong>Third example based on SID:</strong>
 </p>
-<p id="rfc.section.5.13.p.43">This third example identify an instance within the list &#8220;/system/authentication/user&#8221; (SID 1717) corresponding to the user name &#8220;jack&#8221;.</p>
-<p id="rfc.section.5.13.p.44">CBOR diagnostic notation:</p>
+<p id="rfc.section.5.13.p.37">This third example identify an instance within the list &#8220;/system/authentication/user&#8221; (SID 1717) corresponding to the user name &#8220;jack&#8221;.</p>
+<p id="rfc.section.5.13.p.38">CBOR diagnostic notation:</p>
 <pre>
 [1717, "jack"]
 </pre>
-<p id="rfc.section.5.13.p.45">CBOR encoding:</p>
+<p id="rfc.section.5.13.p.39">CBOR encoding:</p>
 <pre>
 82                      # array(2)
    19 06b5              # unsigned(1717)
@@ -1320,12 +1321,12 @@ list user {
 <p>
   <strong>Third example based on name:</strong>
 </p>
-<p id="rfc.section.5.13.p.47">Same example as above based on names.</p>
-<p id="rfc.section.5.13.p.48">CBOR diagnostic notation:</p>
+<p id="rfc.section.5.13.p.41">Same example as above based on names.</p>
+<p id="rfc.section.5.13.p.42">CBOR diagnostic notation:</p>
 <pre>
 "/ietf-system:system/authentication/user[name='bob']"
 </pre>
-<p id="rfc.section.5.13.p.49">CBOR encoding:</p>
+<p id="rfc.section.5.13.p.43">CBOR encoding:</p>
 <pre>
 78 33
    2f696574662d73797374656d3a73797374656d2f61757468656e7469636174696f6e2f
@@ -1334,18 +1335,14 @@ list user {
 <p>
   <strong>Third example based on YANG hash:</strong>
 </p>
-<p id="rfc.section.5.13.p.51">Same example assuming data node &#8220;/ietf-system:system/authentication/user&#8221; is associated to YANG hash 0x2677c6c1.</p>
-<p id="rfc.section.5.13.p.52">CBOR diagnostic notation:</p>
+<p id="rfc.section.5.13.p.45">Same example assuming data node &#8220;/ietf-system:system/authentication/user&#8221; is associated to YANG hash 0x2677c6c1 or &#8220;md8bB&#8221; in base64.</p>
+<p id="rfc.section.5.13.p.46">CBOR diagnostic notation:</p>
 <pre>
-[h'2677c6c1', "bob"]
+"/md8bB?keys=\"bob\""
 </pre>
-<p id="rfc.section.5.13.p.53">CBOR encoding:</p>
+<p id="rfc.section.5.13.p.47">CBOR encoding:</p>
 <pre>
-82                      # array(2)
-   44                   # bytes(4)
-      2677c6c1
-   63                   # text(3)
-      626f62            # "bob"
+71 2f6d643862423f6b6579733d22626f6222
 </pre>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
 <p id="rfc.section.6.p.1">The security considerations of <a href="#RFC7049">[RFC7049]</a> and <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> apply.</p>

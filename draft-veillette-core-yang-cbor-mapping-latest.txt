@@ -5,14 +5,14 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Informational                             A. Pelov, Ed.
-Expires: September 3, 2016                                        Acklio
+Expires: September 8, 2016                                        Acklio
                                                              A. Somaraju
                                                    Tridonic GmbH & Co KG
                                                                R. Turner
                                                               Landis+Gyr
                                                              A. Minaburo
                                                                   Acklio
-                                                          March 02, 2016
+                                                          March 07, 2016
 
 
                 CBOR Encoding of Data Modeled with YANG
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 3, 2016.
+   This Internet-Draft will expire on September 8, 2016.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Veillette, et al.       Expires September 3, 2016               [Page 1]
+Veillette, et al.       Expires September 8, 2016               [Page 1]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -93,7 +93,7 @@ Table of Contents
      5.12. The "union" Type  . . . . . . . . . . . . . . . . . . . .  23
      5.13. The "instance-identifier" Type  . . . . . . . . . . . . .  23
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  28
-   7.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  29
+   7.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  28
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  29
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .  29
      8.2.  Informative References  . . . . . . . . . . . . . . . . .  29
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Veillette, et al.       Expires September 3, 2016               [Page 2]
+Veillette, et al.       Expires September 8, 2016               [Page 2]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -165,7 +165,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016               [Page 3]
+Veillette, et al.       Expires September 8, 2016               [Page 3]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -221,7 +221,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016               [Page 4]
+Veillette, et al.       Expires September 8, 2016               [Page 4]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -277,7 +277,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016               [Page 5]
+Veillette, et al.       Expires September 8, 2016               [Page 5]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -333,7 +333,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016               [Page 6]
+Veillette, et al.       Expires September 8, 2016               [Page 6]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -389,7 +389,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016               [Page 7]
+Veillette, et al.       Expires September 8, 2016               [Page 7]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -445,7 +445,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016               [Page 8]
+Veillette, et al.       Expires September 8, 2016               [Page 8]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -501,7 +501,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016               [Page 9]
+Veillette, et al.       Expires September 8, 2016               [Page 9]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -557,7 +557,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 10]
+Veillette, et al.       Expires September 8, 2016              [Page 10]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -613,7 +613,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 11]
+Veillette, et al.       Expires September 8, 2016              [Page 11]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -669,7 +669,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 12]
+Veillette, et al.       Expires September 8, 2016              [Page 12]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -725,7 +725,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 13]
+Veillette, et al.       Expires September 8, 2016              [Page 13]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -781,7 +781,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 14]
+Veillette, et al.       Expires September 8, 2016              [Page 14]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -837,7 +837,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 15]
+Veillette, et al.       Expires September 8, 2016              [Page 15]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -893,7 +893,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 16]
+Veillette, et al.       Expires September 8, 2016              [Page 16]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -949,7 +949,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 17]
+Veillette, et al.       Expires September 8, 2016              [Page 17]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -1005,7 +1005,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 18]
+Veillette, et al.       Expires September 8, 2016              [Page 18]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -1061,7 +1061,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 19]
+Veillette, et al.       Expires September 8, 2016              [Page 19]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -1117,7 +1117,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 20]
+Veillette, et al.       Expires September 8, 2016              [Page 20]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -1173,7 +1173,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 21]
+Veillette, et al.       Expires September 8, 2016              [Page 21]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -1229,7 +1229,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 22]
+Veillette, et al.       Expires September 8, 2016              [Page 22]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -1285,7 +1285,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 23]
+Veillette, et al.       Expires September 8, 2016              [Page 23]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
@@ -1326,42 +1326,25 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
    *YANG hashes as instance-identifier:*
 
-   YANG hashes uniquely identify a data node.  For single instance data
-   node, the YANG hash is sufficient to identify this instance.  For a
-   multi-instance data node, a YANG hash is combined with the list
-   key(s) to identify each instance of this data node within the YANG
-   list(s).
+   When YANG hashes are used, xpath can be compressed based on the
+   method defined by [I-D.vanderstok-core-comi] sections 4.1.4.1 and
+   4.1.4.2.
 
-   Single instance data nodes MUST be encoded using a CBOR byte string
-   data item (major type 2) and set to the YANG hash associated to
-   targeted data node.
-
-   Multi-instances data nodes MUST be encoded using a CBOR array data
-   item (major type 4) containing the following entries:
+   Definition example [RFC7317]:
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 24]
+
+
+
+
+
+
+
+Veillette, et al.       Expires September 8, 2016              [Page 24]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
-
-   o  The first entry MUST be encoded as a CBOR byte string data item
-      (major type 2) and set to the YANG hash associated to targeted
-      data node.
-
-   o  The following entries MUST contain the value of each key required
-      to identify the instance of the targeted data node.  These keys
-      MUST be ordered as defined in the "key" YANG statement, starting
-      from top level list, and follow by each of the subordinate
-      list(s).
-
-   When the YANG hash identify a YANG list, the presence of the key(s)
-   for this list is optional.  When the key(s) are present, the targeted
-   instance within this list is selected.  When the key(s) are absent,
-   the entire YANG list is selected.
-
-   Definition example [RFC7317]:
 
    container system {
 
@@ -1379,37 +1362,45 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    In this example, a field of type instance-identifier identify the
    data node "/system/contact" (SID 1728).
 
-   CBOR diagnostic notation: 1728
+   1728
 
-   CBOR encoding: 19 06c0
+   CBOR encoding:
+
+   19 06c0
 
    *First example based on name:*
 
    Same example as above based on names.
 
-   CBOR diagnostic notation: "/ietf-system:system/contact"
+   "/ietf-system:system/contact"
 
-   CBOR encoding: 78 1c
-   2f20696574662d73797374656d3a73797374656d2f636f6e74616374
+   CBOR encoding:
+
+   78 1c 2f20696574662d73797374656d3a73797374656d2f636f6e74616374
 
    *First example based on YANG hash:*
 
+   Same example assuming data node "/system/contact" is associated to
+   YANG hash 0x09b06d17 or "JsG0X" in base64.
+
+   CBOR diagnostic notation:
+
+   "/JsG0X"
+
+   CBOR encoding:
+
+   66 2f4a73473058
+
+   Definition example [RFC7317]:
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 25]
+
+
+Veillette, et al.       Expires September 8, 2016              [Page 25]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
-
-   Same example assuming data node "/system/contact" is associated to
-   YANG hash 0x09b06d17.
-
-   CBOR diagnostic notation: h'09b06d17'
-
-   CBOR encoding: 44 09b06d17
-
-   Definition example [RFC7317]:
 
    list user {
      key name;
@@ -1447,17 +1438,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
    CBOR encoding:
 
-
-
-
-
-
-
-Veillette, et al.       Expires September 3, 2016              [Page 26]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
-
-
    83                      # array(3)
       19 06b9              # unsigned(1721)
       63                   # text(3)
@@ -1470,6 +1450,13 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    Same example as above based on names.
 
    CBOR diagnostic notation:
+
+
+
+Veillette, et al.       Expires September 8, 2016              [Page 26]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
+
 
 "/ietf-system:system/authentication/user[name='bob']/authorized-key[name='admin']/key-data"
 
@@ -1484,35 +1471,21 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
    Same example assuming data node "/ietf-
    system:system/authentication/user/authorized-key/key-data" is
-   associated to YANG hash 0x0d6e7afb.
+   associated to YANG hash 0x0d6e7afb or "Nbnr7" in base64.
 
    CBOR diagnostic notation:
 
-   [h'0d6e7afb', "bob", "admin"]
+   "/Nbnr7?keys=\"bob\",\"admin\""
 
    CBOR encoding:
 
-   83                      # array(3)
-      44                   # bytes(4)
-         0d6e7afb
-      63                   # text(3)
-         626f62            # "bob"
-      65                   # text(5)
-         61646d696e        # "admin"
+   78 19 2f4e626e72373f6b6579733d22626f62222c2261646d696e22
 
    *Third example based on SID:*
 
    This third example identify an instance within the list
    "/system/authentication/user" (SID 1717) corresponding to the user
    name "jack".
-
-
-
-
-Veillette, et al.       Expires September 3, 2016              [Page 27]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
-
 
    CBOR diagnostic notation:
 
@@ -1533,6 +1506,14 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
    "/ietf-system:system/authentication/user[name='bob']"
 
+
+
+
+Veillette, et al.       Expires September 8, 2016              [Page 27]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
+
+
    CBOR encoding:
 
 78 33
@@ -1542,33 +1523,20 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    *Third example based on YANG hash:*
 
    Same example assuming data node "/ietf-system:system/authentication/
-   user" is associated to YANG hash 0x2677c6c1.
+   user" is associated to YANG hash 0x2677c6c1 or "md8bB" in base64.
 
    CBOR diagnostic notation:
 
-   [h'2677c6c1', "bob"]
+   "/md8bB?keys=\"bob\""
 
    CBOR encoding:
 
-   82                      # array(2)
-      44                   # bytes(4)
-         2677c6c1
-      63                   # text(3)
-         626f62            # "bob"
+   71 2f6d643862423f6b6579733d22626f6222
 
 6.  Security Considerations
 
    The security considerations of [RFC7049] and
    [I-D.ietf-netmod-rfc6020bis] apply.
-
-
-
-
-
-Veillette, et al.       Expires September 3, 2016              [Page 28]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
-
 
    This document defines an alternative encoding for data modeled in the
    YANG data modeling language.  As such, this encoding does not
@@ -1589,6 +1557,18 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
    The authors would also like to acknowledge the review, feedback, and
    comments from Ladislav Lhotka and Juergen Schoenwaelder.
+
+
+
+
+
+
+
+
+Veillette, et al.       Expires September 8, 2016              [Page 28]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
+
 
 8.  References
 
@@ -1615,17 +1595,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
               draft-ietf-netmod-yang-json-07 (work in progress), January
               2016.
 
-
-
-
-
-
-
-Veillette, et al.       Expires September 3, 2016              [Page 29]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
-
-
    [I-D.vanderstok-core-comi]
               Stok, P., Bierman, A., Schoenwaelder, J., and A. Sehgal,
               "CoAP Management Interface", draft-vanderstok-core-comi-08
@@ -1647,6 +1616,15 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    [RFC7277]  Bjorklund, M., "A YANG Data Model for IP Management",
               RFC 7277, DOI 10.17487/RFC7277, June 2014,
               <http://www.rfc-editor.org/info/rfc7277>.
+
+
+
+
+
+Veillette, et al.       Expires September 8, 2016              [Page 29]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
+
 
    [RFC7317]  Bierman, A. and M. Bjorklund, "A YANG Data Model for
               System Management", RFC 7317, DOI 10.17487/RFC7317, August
@@ -1673,15 +1651,6 @@ Authors' Addresses
    Email: a@ackl.io
 
 
-
-
-
-
-Veillette, et al.       Expires September 3, 2016              [Page 30]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
-
-
    Abhinav Somaraju
    Tridonic GmbH & Co KG
    Farbergasse 15
@@ -1702,6 +1671,15 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    Phone: ++16782581292
    Email: randy.turner@landisgyr.com
    URI:   http://www.landisgyr.com/
+
+
+
+
+
+
+Veillette, et al.       Expires September 8, 2016              [Page 30]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
    Ana Minaburo
@@ -1733,4 +1711,26 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-Veillette, et al.       Expires September 3, 2016              [Page 31]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Veillette, et al.       Expires September 8, 2016              [Page 31]

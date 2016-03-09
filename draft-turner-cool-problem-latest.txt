@@ -172,12 +172,21 @@ Internet-Draft                CoOL Problem                    March 2016
 
    The following drafts are currently available:
 
-   | | Managed, Unmanaged |
-   +-------------+----------------------------------+ | Problem
-   statement | I-D.turner-core-cool-problem-statement | | Data
-   presentation | I-D.veillette-core-yang-cbor-mapping | | Identifiers |
-   I-D.somaraju-core-sid, I-D.bierman-core-yang-hash | | Function set |
-   I-D.veillette-core-cool, I-D.vanderstok-core-comi |
+   +------------------+------------------------------------------------+
+   |                  | Managed, Unmanaged                             |
+   +------------------+------------------------------------------------+
+   | Problem          | I-D.turner-core-cool-problem-statement         |
+   | statement        |                                                |
+   |                  |                                                |
+   | Data             | I-D.veillette-core-yang-cbor-mapping           |
+   | presentation     |                                                |
+   |                  |                                                |
+   | Identifiers      | I-D.somaraju-core-sid, I-D.bierman-core-yang-  |
+   |                  | hash                                           |
+   |                  |                                                |
+   | Function set     | I-D.veillette-core-cool, I-D.vanderstok-core-  |
+   |                  | comi                                           |
+   +------------------+------------------------------------------------+
 
 5.  Security Considerations
 
@@ -209,15 +218,6 @@ Author's Address
 
    Phone: 678-258-1292
    Email: randy.turner@landisgyr.com
-
-
-
-
-
-
-
-
-
 
 
 

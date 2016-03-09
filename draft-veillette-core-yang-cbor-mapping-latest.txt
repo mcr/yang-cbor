@@ -730,48 +730,48 @@ Veillette, et al.      Expires September 10, 2016              [Page 13]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
-82                                            # array(2)
-   a5                                         # map(5)
-      70                                      # text(16)
-         696574662d73797374656d3a6e616d65     # "ietf-system:name"
-      6e                                      # text(14)
-         4e52432054494320736572766572         # "NRC TIC server"
-      6f                                      # text(15)
-         696574662d73797374656d3a756470       # "ietf-system:udp"
-      a2                                      # map(2)
-         67                                   # text(7)
-            61646472657373                    # "address"
-         6a                                   # text(10)
-            7469632e6e72632e6361              # "tic.nrc.ca"
-         64                                   # text(4)
-            706f7274                          # "port"
-         18 7b                                # unsigned(123)
-      78 1c                                   # text(28)
-         696574662d73797374656d3a6173736f63696174696f6e2d74797065
-                                              # "ietf-system:association-type"
-      00                                      # unsigned(0)
-      72                                      # text(18)
-         696574662d73797374656d3a696275727374 # "ietf-system:iburst"
-      f4                                      # primitive(20)
-      72                                      # text(18)
-         696574662d73797374656d3a707265666572 # "ietf-system:prefer"
-      f5                                      # primitive(21)
-   a2                                         # map(2)
-      70                                      # text(16)
-         696574662d73797374656d3a6e616d65     # "ietf-system:name"
-      6e                                      # text(14)
-         4e52432054414320736572766572         # "NRC TAC server"
-      6f                                      # text(15)
-         696574662d73797374656d3a756470       # "ietf-system:udp"
-      a1                                      # map(1)
-         67                                   # text(7)
-            61646472657373                    # "address"
-         6a                                   # text(10)
-            7461632e6e72632e6361              # "tac.nrc.ca"
+   82                                            # array(2)
+      a5                                         # map(5)
+         70                                      # text(16)
+            696574662d73797374656d3a6e616d65     # "ietf-system:name"
+         6e                                      # text(14)
+            4e52432054494320736572766572         # "NRC TIC server"
+         6f                                      # text(15)
+            696574662d73797374656d3a756470       # "ietf-system:udp"
+         a2                                      # map(2)
+            67                                   # text(7)
+               61646472657373                    # "address"
+            6a                                   # text(10)
+               7469632e6e72632e6361              # "tic.nrc.ca"
+            64                                   # text(4)
+               706f7274                          # "port"
+            18 7b                                # unsigned(123)
+         78 1c                                   # text(28)
+            696574662d73797374656d3a6173736f63696174696f6e2d74797065
+         00                                      # unsigned(0)
+         72                                      # text(18)
+            696574662d73797374656d3a696275727374 # "ietf-system:iburst"
+         f4                                      # primitive(20)
+         72                                      # text(18)
+            696574662d73797374656d3a707265666572 # "ietf-system:prefer"
+         f5                                      # primitive(21)
+      a2                                         # map(2)
+         70                                      # text(16)
+            696574662d73797374656d3a6e616d65     # "ietf-system:name"
+         6e                                      # text(14)
+            4e52432054414320736572766572         # "NRC TAC server"
+         6f                                      # text(15)
+            696574662d73797374656d3a756470       # "ietf-system:udp"
+         a1                                      # map(1)
+            67                                   # text(7)
+               61646472657373                    # "address"
+            6a                                   # text(10)
+               7461632e6e72632e6361              # "tac.nrc.ca"
 
    *YANG hashes example:*
 
    CBOR diagnostic notation:
+
 
 
 
@@ -1458,14 +1458,15 @@ Veillette, et al.      Expires September 10, 2016              [Page 26]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
-"/ietf-system:system/authentication/user[name='bob']/authorized-key[name='admin']/key-data"
+   "/ietf-system:system/authentication/user[name='bob']/authorized-key
+   [name='admin']/key-data"
 
    CBOR encoding:
 
-78 59
-   2f696574662d73797374656d3a73797374656d2f61757468656e7469636174696f6e2f
-   757365725b6e616d653d27626f62275d2f617574686f72697a65642d6b65795b6e616d
-   653d2761646d696e275d2f6b65792d64617461
+   78 59
+      2f696574662d73797374656d3a73797374656d2f61757468656e74696361
+      74696f6e2f757365725b6e616d653d27626f62275d2f617574686f72697a
+      65642d6b65795b6e616d653d2761646d696e275d2f6b65792d64617461
 
    *Second example based on YANG hash:*
 
@@ -1508,7 +1509,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
 
-
 Veillette, et al.      Expires September 10, 2016              [Page 27]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
@@ -1516,9 +1516,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
    CBOR encoding:
 
-78 33
-   2f696574662d73797374656d3a73797374656d2f61757468656e7469636174696f6e2f
-   757365725b6e616d653d27626f62275d
+   78 33
+      2f696574662d73797374656d3a73797374656d2f61757468656e74696361
+      74696f6e2f757365725b6e616d653d27626f62275d
 
    *Third example based on YANG hash:*
 

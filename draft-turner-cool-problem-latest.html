@@ -271,7 +271,8 @@ li, p {
 <link href="#rfc.section.1" rel="Chapter" title="1 Introduction"/>
 <link href="#rfc.section.2" rel="Chapter" title="2 Problem Statement"/>
 <link href="#rfc.section.3" rel="Chapter" title="3 Why CoOL ?"/>
-<link href="#rfc.section.4" rel="Chapter" title="4 Security Considerations"/>
+<link href="#rfc.section.4" rel="Chapter" title="4 Roadmap"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 Security Considerations"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -340,7 +341,8 @@ li, p {
   	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
 <li>2.   <a href="#rfc.section.2">Problem Statement</a></li>
 <li>3.   <a href="#rfc.section.3">Why CoOL ?</a></li>
-<li>4.   <a href="#rfc.section.4">Security Considerations</a></li>
+<li>4.   <a href="#rfc.section.4">Roadmap</a></li>
+<li>5.   <a href="#rfc.section.5">Security Considerations</a></li>
 <li><a href="#rfc.authors">Author's Address</a></li>
 
 
@@ -358,9 +360,12 @@ li, p {
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#why-cool-" id="why-cool-">Why CoOL ?</a></h1>
 <p id="rfc.section.3.p.1">Currently proposed solutions for constrained management do not specifically address the requirements previously suggested in this memo.  The solution introduced by CoOL seeks to remedy this by introducing an alternative method for operations and encoding &#8220;on the wire&#8221;. CoOL will address these requirements while still utilizing the IETF application &#8220;stack&#8221; and management data modeling language (YANG). The alternative method employed by CoOL utilizes a more concise representation of management transactions (specifically management &#8220;data&#8221;).</p>
 <p id="rfc.section.3.p.2">The evolution of the CoOL solution will recognize the proliferation of the &#8220;pub/sub&#8221; design pattern by relying on extensions both at the CoAP, as well as CoOL protocol layers where needed. Incorporating the pub/sub design pattern will assist in the application of CoOL into larger scale networks (both constrained and non-constrained).</p>
-<p id="rfc.section.3.p.3">QUESTION: We need text here that describes the applicability of CoOL to different types of networks (different levels of administrative management or domain knowledge)</p>
-<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
-<p id="rfc.section.4.p.1">The security considerations applicable to network management of enterprise networks is similar but different to that of constrained networks given the potential risk involved.  The risk involved to enterprise networks could be local to an organization (assets, reputation). However, in the case of constrained networks, it is reasonable to assume significant risk due to the types of application domains constrained devices would be applied (sensors controlling everything from home automation to medical devices).  With this risk should come a more strict understanding of the attack vectors and vulnerabilities of any and all protocols in use in constrained networks, especially those protocols tasked with the management of a device. The CoOL working group will attempt to reuse applicable ideas and technology originating from other IETF working groups to address the problem of security. The initial focus of security will involve the integrity and trustworthiness of information originating from CoOL managed endpoints. The confidentiality of this information will also be considered.</p>
+<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#roadmap" id="roadmap">Roadmap</a></h1>
+<p id="rfc.section.4.p.1">Within the CORE group, there is currently two thread of development of a management interface for constrained devices and networks, one based on unmanaged identifiers (YANG hash) and one based on managed identifiers (SID). Some aspects of these solutions are shared (Problem statement and Data representation) and some are distinct (Identifiers and Function set).</p>
+<p id="rfc.section.4.p.2">The following drafts are currently available:</p>
+<p id="rfc.section.4.p.3">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+ |                   | Managed, Unmanaged                               | +&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+ | Problem statement | I-D.turner-core-cool-problem-statement           | +&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+ | Data presentation | I-D.veillette-core-yang-cbor-mapping             | +&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+ | Identifiers       | I-D.somaraju-core-sid, I-D.bierman-core-yang-hash| +&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+ | Function set      | I-D.veillette-core-cool, I-D.vanderstok-core-comi| +&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+</p>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
+<p id="rfc.section.5.p.1">The security considerations applicable to network management of enterprise networks is similar but different to that of constrained networks given the potential risk involved.  The risk involved to enterprise networks could be local to an organization (assets, reputation). However, in the case of constrained networks, it is reasonable to assume significant risk due to the types of application domains constrained devices would be applied (sensors controlling everything from home automation to medical devices).  With this risk should come a more strict understanding of the attack vectors and vulnerabilities of any and all protocols in use in constrained networks, especially those protocols tasked with the management of a device. The CoOL working group will attempt to reuse applicable ideas and technology originating from other IETF working groups to address the problem of security. The initial focus of security will involve the integrity and trustworthiness of information originating from CoOL managed endpoints. The confidentiality of this information will also be considered.</p>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Author's Address</a>
 </h1>

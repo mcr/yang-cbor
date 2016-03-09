@@ -63,7 +63,8 @@ Table of Contents
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
    2.  Problem Statement . . . . . . . . . . . . . . . . . . . . . .   2
    3.  Why CoOL ?  . . . . . . . . . . . . . . . . . . . . . . . . .   3
-   4.  Security Considerations . . . . . . . . . . . . . . . . . . .   3
+   4.  Roadmap . . . . . . . . . . . . . . . . . . . . . . . . . . .   3
+   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   4
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   4
 
 1.  Introduction
@@ -105,7 +106,6 @@ Table of Contents
    management problems.  Therefore, any constrained device/network
    management solution should attempt to reuse this information when and
    where possible.
-
 
 
 
@@ -153,15 +153,15 @@ Internet-Draft                CoOL Problem                    March 2016
    the pub/sub design pattern will assist in the application of CoOL
    into larger scale networks (both constrained and non-constrained).
 
-   QUESTION: We need text here that describes the applicability of CoOL
-   to different types of networks (different levels of administrative
-   management or domain knowledge)
+4.  Roadmap
 
-4.  Security Considerations
+   Within the CORE group, there is currently two thread of development
+   of a management interface for constrained devices and networks, one
+   based on unmanaged identifiers (YANG hash) and one based on managed
+   identifiers (SID).  Some aspects of these solutions are shared
+   (Problem statement and Data representation) and some are distinct
+   (Identifiers and Function set).
 
-   The security considerations applicable to network management of
-   enterprise networks is similar but different to that of constrained
-   networks given the potential risk involved.  The risk involved to
 
 
 
@@ -170,6 +170,24 @@ Turner                 Expires September 10, 2016               [Page 3]
 Internet-Draft                CoOL Problem                    March 2016
 
 
+   The following drafts are currently available:
+
+   +-------------+---------------------------------+ | | Managed,
+   Unmanaged | +-------------+---------------------------------+ |
+   Problem statement | I-D.turner-core-cool-problem-statement |
+   +-------------+---------------------------------+ | Data
+   presentation | I-D.veillette-core-yang-cbor-mapping |
+   +-------------+---------------------------------+ | Identifiers | I-
+   D.somaraju-core-sid, I-D.bierman-core-yang-hash|
+   +-------------+---------------------------------+ | Function set | I-
+   D.veillette-core-cool, I-D.vanderstok-core-comi|
+   +-------------+---------------------------------+
+
+5.  Security Considerations
+
+   The security considerations applicable to network management of
+   enterprise networks is similar but different to that of constrained
+   networks given the potential risk involved.  The risk involved to
    enterprise networks could be local to an organization (assets,
    reputation).  However, in the case of constrained networks, it is
    reasonable to assume significant risk due to the types of application
@@ -195,24 +213,6 @@ Author's Address
 
    Phone: 678-258-1292
    Email: randy.turner@landisgyr.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

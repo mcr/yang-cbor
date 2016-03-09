@@ -7,7 +7,7 @@
 
   <title>Structure Identifier (SID)</title>
 
-<style type="text/css">/*<![CDATA[*/
+  <style type="text/css">/*<![CDATA[*/
 @viewport {
   zoom: 1.0;
   width: extend-to-zoom;
@@ -265,7 +265,7 @@ li, p {
   .github-fork-ribbon-wrapper {
     position: fixed;
   }
-/*]]>*/</style>
+  /*]]>*/</style>
 
   <link href="#rfc.toc" rel="Contents"/>
 <link href="#rfc.section.1" rel="Chapter" title="1 Introduction"/>
@@ -490,10 +490,10 @@ li, p {
               +---------------------+---------------------+
 </pre>
 <p id="rfc.section.4.p.2">YANG modules are not necessary created in the context of constrained applications. YANG modules can be implemented using NETCONF or RESTCONF without the need to assign SIDs.</p>
-<p id="rfc.section.4.p.3">As needed, authors of YANG modules need to assign SIDs their modules. This process starts by the registration of a SID range. Once a SID range is registered, the owner of this range assign sub-ranges to each YANG module in order to generate the associated &#8220;.sid&#8221; files. Generation of &#8220;.sid&#8221; files SHOULD be performed using an automated tool.</p>
+<p id="rfc.section.4.p.3">As needed, authors of YANG modules can assign SIDs to their modules. This process starts by the registration of a SID range. Once a SID range is registered, the owner of this range assign sub-ranges to each YANG module in order to generate the associated &#8220;.sid&#8221; files. Generation of &#8220;.sid&#8221; files SHOULD be performed using an automated tool.</p>
 <p id="rfc.section.4.p.4">Registration of the .sid file associated to a YANG module is optional but recommended to promote interoperability between devices and to avoid duplicate allocation of SIDs to a single YANG module.</p>
 <p id="rfc.section.4.p.5">Each time a YANG module or one of its imported module(s) or included sub-module(s) is updated, the &#8220;.sid&#8221; file MAY need to be updated. This update SHOULD also be performed using an automated tool.</p>
-<p id="rfc.section.4.p.6">If a new revision requires more SIDs than initially allocated, a new SID range MUST be added to the assignment ranges as defined in the &#8220;.sid&#8221; file header. These extra SIDs are used for subsequent assignment.</p>
+<p id="rfc.section.4.p.6">If a new revision requires more SIDs than initially allocated, a new SID range MUST be added to the assignment ranges as defined in the &#8220;.sid&#8221; file header. These extra SIDs are used for subsequent assignments.</p>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#sid-file-format" id="sid-file-format">&#8220;.sid&#8221; file format</a></h1>
 <p id="rfc.section.5.p.1">&#8220;.sid&#8221; files are used to persist and publish SIDs assigned to the different YANG items of a specific YANG module. The following YANG module defined the structure of this file, encoding is performed using the rules defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a>.</p>
 <pre>
@@ -649,7 +649,7 @@ module sid-file {
 </pre>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
 <p id="rfc.section.6.p.1">The security considerations of <a href="#RFC7049">[RFC7049]</a> and <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> apply.</p>
-<p id="rfc.section.6.p.2">This document defines an new type of identifier used to encode data models defined in YANG <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a>. As such, this identifier does not contribute to any new security issues in addition of those identified for the specific protocol or context for which it is used.</p>
+<p id="rfc.section.6.p.2">This document defines an new type of identifier used to encode data models defined in YANG <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a>. As such, this identifier does not contribute to any new security issues in addition of those identified for the specific protocols or contexts for which it is used.</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#IANA" id="IANA">IANA Considerations</a></h1>
 <h1 id="rfc.section.7.1"><a href="#rfc.section.7.1">7.1.</a> <a href="#sid-range-registry" id="sid-range-registry">&#8220;SID&#8221; range registry</a></h1>
 <p id="rfc.section.7.1.p.1">IANA is requested to create a registry for Structure Identifier (SID) ranges. This registry needs to guarantee that the ranges registered do not overlap. The registry SHALL record for each entry:</p>
@@ -1343,5 +1343,6 @@ module sid-file {
   </address>
 </div>
 
+  <div class="github-fork-ribbon-wrapper"><div class="github-fork-ribbon"><a href="https://github.com/core-wg/yang-cbor">Fork me on GitHub</a></div></div>
 </body>
 </html>

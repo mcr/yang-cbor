@@ -286,7 +286,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
    applications.  YANG modules can be implemented using NETCONF or
    RESTCONF without the need to assign SIDs.
 
-   As needed, authors of YANG modules need to assign SIDs their modules.
+   As needed, authors of YANG modules can assign SIDs to their modules.
    This process starts by the registration of a SID range.  Once a SID
    range is registered, the owner of this range assign sub-ranges to
    each YANG module in order to generate the associated ".sid" files.
@@ -304,7 +304,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
    If a new revision requires more SIDs than initially allocated, a new
    SID range MUST be added to the assignment ranges as defined in the
    ".sid" file header.  These extra SIDs are used for subsequent
-   assignment.
+   assignments.
 
 5.  ".sid" file format
 
@@ -495,8 +495,8 @@ Internet-Draft         Structure Identifier (SID)             March 2016
    This document defines an new type of identifier used to encode data
    models defined in YANG [I-D.ietf-netmod-rfc6020bis].  As such, this
    identifier does not contribute to any new security issues in addition
-   of those identified for the specific protocol or context for which it
-   is used.
+   of those identified for the specific protocols or contexts for which
+   it is used.
 
 
 

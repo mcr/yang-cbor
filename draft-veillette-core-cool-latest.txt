@@ -1017,18 +1017,19 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 5.6.  Event stream
 
-  WARNING
-  This section require more works to address the following issues:
+WARNING
+This section requires more works to address the following identified issues:
 
-  * Retrieval of past events (e.g. start-time, stop-time)
-  * Retrieval of specific events (e.g. filter)
-  * Configuration persistence
-  * Configuration of by a third entity (configuration tool)
-  * Support of multicast
-  * Events congestion
+* Retrieval of past events (e.g. start-time, stop-time)
+* Retrieval of specific events (e.g. filter)
+* Configuration persistence
+* Configuration of by a third entity (configuration tool)
+* Support of multicast
+* Event congestion-avoidance
+* Transfer reliability
 
-  The current solution based on the observe CoAP option can be augmented
-  or completely replaced by a future version of this draft.
+The current solution based on the observe CoAP option can be augmented
+or completely replaced by a future version of this draft.
 
    Notifications are defined using the YANG "notification" statement.
    Subscriptions to an event stream and notification reporting are
@@ -1056,8 +1057,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    The CoAP response payload is encoded using the rules defined for the
    PUT request.  When multiple notifications are reported, the CoAP
-   response payload carries a CBOR array, with each entry containing a
-   notification.
+
 
 
 
@@ -1065,6 +1065,9 @@ Veillette, et al.      Expires September 10, 2016              [Page 19]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
+
+   response payload carries a CBOR array, with each entry containing a
+   notification.
 
    This example is based on the "link-failure" and "interface-enabled"
    notifications defined in [I-D.ietf-netmod-rfc6020bis] assuming the
@@ -1111,9 +1114,6 @@ Internet-Draft        Constrained Objects Language            March 2016
      }
    }
 
-   In this example, a CoOL client starts by registering to the default
-   event stream resource "/c/e".
-
 
 
 
@@ -1121,6 +1121,9 @@ Veillette, et al.      Expires September 10, 2016              [Page 20]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
+
+   In this example, a CoOL client starts by registering to the default
+   event stream resource "/c/e".
 
    CoAP request:
 
@@ -1154,9 +1157,6 @@ Internet-Draft        Constrained Objects Language            March 2016
    response.
 
    CoAP response:
-
-
-
 
 
 

@@ -1613,11 +1613,11 @@ Internet-Draft        Constrained Objects Language            March 2016
         2000 UTC (Universal Coordinated Time).";
     }
 
-    typedef anydata {
-      type empty;
-      description "Temporary fix.";
-    }
+    // Error payload
 
+    container error-payload {
+      description
+        "Optional payload of a client error (CoAP response 4.xx)
 
 
 
@@ -1626,11 +1626,6 @@ Veillette, et al.      Expires September 10, 2016              [Page 29]
 Internet-Draft        Constrained Objects Language            March 2016
 
 
-    // Error payload
-
-    container error-payload {
-      description
-        "Optional payload of a client error (CoAP response 4.xx)
          or server error (CoAP response 5.xx).";
 
       leaf error-code {
@@ -1674,6 +1669,11 @@ Internet-Draft        Constrained Objects Language            March 2016
             value 6;
             description "Attempt to update a read-only data node.";
           }
+        }
+      }
+
+      leaf error-text {
+        mandatory false;
 
 
 
@@ -1682,11 +1682,6 @@ Veillette, et al.      Expires September 10, 2016              [Page 30]
 Internet-Draft        Constrained Objects Language            March 2016
 
 
-        }
-      }
-
-      leaf error-text {
-        mandatory false;
         type string;
         description "Textual descriptions of the error.";
       }
@@ -1730,6 +1725,11 @@ Internet-Draft        Constrained Objects Language            March 2016
           "Identifier associated to the notification reported.";
       }
 
+      leaf timestamp {
+        mandatory false;
+        type utc-time;
+        description
+          "Event timestamp. Support of this field is optional
 
 
 
@@ -1738,11 +1738,6 @@ Veillette, et al.      Expires September 10, 2016              [Page 31]
 Internet-Draft        Constrained Objects Language            March 2016
 
 
-      leaf timestamp {
-        mandatory false;
-        type utc-time;
-        description
-          "Event timestamp. Support of this field is optional
           since its not expected that all implementations have
           implement a real time clock and if so, this clock is
           available at all time.";
@@ -1786,6 +1781,11 @@ Internet-Draft        Constrained Objects Language            March 2016
               "May indicate that an error will occur if action is
               not taken.";
           }
+          enum notice {
+            value 5;
+            description
+              "Events that are unusual, but not error conditions.";
+          }
 
 
 
@@ -1794,11 +1794,6 @@ Veillette, et al.      Expires September 10, 2016              [Page 32]
 Internet-Draft        Constrained Objects Language            March 2016
 
 
-          enum notice {
-            value 5;
-            description
-              "Events that are unusual, but not error conditions.";
-          }
           enum informational {
             value 6;
             description
@@ -1842,6 +1837,11 @@ Internet-Draft        Constrained Objects Language            March 2016
       input {
         leaf datastore {
           description
+            "Path of the datastore resource used as the source of the
+            commit operation. When not present, the default candidate
+            datastore resource is used.";
+          type string;
+          mandatory false;
 
 
 
@@ -1850,11 +1850,6 @@ Veillette, et al.      Expires September 10, 2016              [Page 33]
 Internet-Draft        Constrained Objects Language            March 2016
 
 
-            "Path of the datastore resource used as the source of the
-            commit operation. When not present, the default candidate
-            datastore resource is used.";
-          type string;
-          mandatory false;
         }
 
         leaf commit-date-time {
@@ -1898,6 +1893,11 @@ Appendix B.  File "ietf-cool@2016-01-01.sid"
          "entry-point": 1000,
          "size": 100
        }
+     ],
+     "module-name": "ietf-cool",
+     "module-revision": "2016-01-01",
+     "items": [
+       {
 
 
 
@@ -1906,11 +1906,6 @@ Veillette, et al.      Expires September 10, 2016              [Page 34]
 Internet-Draft        Constrained Objects Language            March 2016
 
 
-     ],
-     "module-name": "ietf-cool",
-     "module-revision": "2016-01-01",
-     "items": [
-       {
          "type": "identity",
          "assigned": "2016-03-08T21:59:45Z",
          "label": "ietf-cool:application",
@@ -1954,6 +1949,11 @@ Internet-Draft        Constrained Objects Language            March 2016
        },
        {
          "type": "node",
+         "assigned": "2016-03-08T21:59:45Z",
+         "label": "/error-payload/error-code",
+         "sid": 1007
+       },
+       {
 
 
 
@@ -1962,11 +1962,6 @@ Veillette, et al.      Expires September 10, 2016              [Page 35]
 Internet-Draft        Constrained Objects Language            March 2016
 
 
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "/error-payload/error-code",
-         "sid": 1007
-       },
-       {
          "type": "node",
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/error-payload/error-text",
@@ -2010,6 +2005,11 @@ Internet-Draft        Constrained Objects Language            March 2016
        },
        {
          "type": "node",
+         "assigned": "2016-03-08T21:59:45Z",
+         "label": "/notification-payload/timestamp",
+         "sid": 1015
+       },
+       {
 
 
 
@@ -2018,11 +2018,6 @@ Veillette, et al.      Expires September 10, 2016              [Page 36]
 Internet-Draft        Constrained Objects Language            March 2016
 
 
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "/notification-payload/timestamp",
-         "sid": 1015
-       },
-       {
          "type": "rpc",
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/cancel-commit",
@@ -2065,6 +2060,11 @@ Authors' Addresses
 
    Phone: +14503750556
    Email: michel.veillette@trilliantinc.com
+
+
+
+
+
 
 
 

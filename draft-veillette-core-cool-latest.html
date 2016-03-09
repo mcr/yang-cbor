@@ -883,6 +883,20 @@ POST /c Content-Format(application/cool+cbor)
 }
 </pre>
 <h1 id="rfc.section.5.6"><a href="#rfc.section.5.6">5.6.</a> <a href="#event-stream" id="event-stream">Event stream</a></h1>
+<pre>
+WARNING
+This section require more works to address the following issues:
+
+* Retrieval of past events (e.g. start-time, stop-time)
+* Retrieval of specific events (e.g. filter)
+* Configuration persistence
+* Configuration of by a third entity (configuration tool)
+* Support of multicast
+* Events congestion
+
+The current solution based on the observe CoAP option can be augmented
+or completely replaced by a future version of this draft.
+</pre>
 <p id="rfc.section.5.6.p.1">Notifications are defined using the YANG &#8220;notification&#8221; statement. Subscriptions to an event stream and notification reporting are performed using an event stream resource. When multiple event stream resources are supported, the list of notifications associated with each stream is either pre-defined or configured in the CoOL server. CoOL clients MAY subscribe to one or more event stream resources.</p>
 <p id="rfc.section.5.6.p.2">To subscribe to an event stream resource, a CoOL client MUST send a CoAP GET with the Observe CoAP option set to 0. To unsubscribe, a CoOL client MAY send a CoAP reset or a CoAP GET with the Observe option set to 1. For more information on the observe mechanism, see <a href="#RFC7641">[RFC7641]</a>.</p>
 <p id="rfc.section.5.6.p.3">Each notification transferred by a CoOL server to each of the registered CoOL client is carried in a CoAP response with a response code set to 2.05 (Content). Each CoAP response MUST carry in its payload at least one notification but MAY carry multiple. Each notification is carries in a notification-payload defined in ietf-cool, see <a href="#cool-module">Appendix A</a>. The notification-payload support different meta-data associated to this notification such the notification identifier, event timestamp, sequence number, severity level and facility. All these meta information are optional at the exception of the notification identifier.</p>

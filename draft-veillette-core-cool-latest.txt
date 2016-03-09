@@ -97,15 +97,15 @@ Table of Contents
        5.5.1.  Example #1 - RPC  . . . . . . . . . . . . . . . . . .  17
        5.5.2.  Example #2 - Action . . . . . . . . . . . . . . . . .  18
      5.6.  Event stream  . . . . . . . . . . . . . . . . . . . . . .  19
-   6.  CoAP compatibility  . . . . . . . . . . . . . . . . . . . . .  21
-     6.1.  Working with Uri-Host, Uri-Port, Uri-Path, and Uri-Query   21
+   6.  CoAP compatibility  . . . . . . . . . . . . . . . . . . . . .  22
+     6.1.  Working with Uri-Host, Uri-Port, Uri-Path, and Uri-Query   22
      6.2.  Working with Location-Path and Location-Query . . . . . .  22
      6.3.  Working with Accept . . . . . . . . . . . . . . . . . . .  22
      6.4.  Working with Max-Age  . . . . . . . . . . . . . . . . . .  22
      6.5.  Working with Proxy-Uri and Proxy-Scheme . . . . . . . . .  22
-     6.6.  Working with If-Match, If-None-Match and ETag . . . . . .  22
-     6.7.  Working with Size1, Size2, Block1 and Block2  . . . . . .  22
-     6.8.  Working with resource discovery . . . . . . . . . . . . .  23
+     6.6.  Working with If-Match, If-None-Match and ETag . . . . . .  23
+     6.7.  Working with Size1, Size2, Block1 and Block2  . . . . . .  23
+     6.8.  Working with resource discovery . . . . . . . . . . . . .  24
 
 
 
@@ -114,18 +114,18 @@ Veillette, et al.      Expires September 10, 2016               [Page 2]
 Internet-Draft        Constrained Objects Language            March 2016
 
 
-   7.  Error Handling  . . . . . . . . . . . . . . . . . . . . . . .  24
-   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  25
-   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  25
-     9.1.  "FETCH" CoAP Method Code  . . . . . . . . . . . . . . . .  25
+   7.  Error Handling  . . . . . . . . . . . . . . . . . . . . . . .  25
+   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  26
+   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  26
+     9.1.  "FETCH" CoAP Method Code  . . . . . . . . . . . . . . . .  26
      9.2.  "PATCH" CoAP Method Code  . . . . . . . . . . . . . . . .  26
    10. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  26
-   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  26
-     11.1.  Normative References . . . . . . . . . . . . . . . . . .  26
-     11.2.  Informative References . . . . . . . . . . . . . . . . .  27
-   Appendix A.  File "ietf-cool.yang"  . . . . . . . . . . . . . . .  28
-   Appendix B.  File "ietf-cool@2016-01-01.sid"  . . . . . . . . . .  34
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  37
+   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  27
+     11.1.  Normative References . . . . . . . . . . . . . . . . . .  27
+     11.2.  Informative References . . . . . . . . . . . . . . . . .  28
+   Appendix A.  File "ietf-cool.yang"  . . . . . . . . . . . . . . .  29
+   Appendix B.  File "ietf-cool@2016-01-01.sid"  . . . . . . . . . .  35
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  38
 
 1.  Introduction
 
@@ -1017,6 +1017,19 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 5.6.  Event stream
 
+  WARNING
+  This section require more works to address the following issues:
+
+  * Retrieval of past events (e.g. start-time, stop-time)
+  * Retrieval of specific events (e.g. filter)
+  * Configuration persistence
+  * Configuration of by a third entity (configuration tool)
+  * Support of multicast
+  * Events congestion
+
+  The current solution based on the observe CoAP option can be augmented
+  or completely replaced by a future version of this draft.
+
    Notifications are defined using the YANG "notification" statement.
    Subscriptions to an event stream and notification reporting are
    performed using an event stream resource.  When multiple event stream
@@ -1046,6 +1059,13 @@ Internet-Draft        Constrained Objects Language            March 2016
    response payload carries a CBOR array, with each entry containing a
    notification.
 
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 19]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
    This example is based on the "link-failure" and "interface-enabled"
    notifications defined in [I-D.ietf-netmod-rfc6020bis] assuming the
    following SID assignment:
@@ -1057,14 +1077,6 @@ Internet-Draft        Constrained Objects Language            March 2016
    o  "/link-failure/admin-status" (SID 1944)
 
    o  "/interfaces/interface/interface-enabled" (SID 1538)
-
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 19]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
 
    o  "/interfaces/interface/interface-enabled/by-user" (SID 1539)
 
@@ -1102,6 +1114,14 @@ Internet-Draft        Constrained Objects Language            March 2016
    In this example, a CoOL client starts by registering to the default
    event stream resource "/c/e".
 
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 20]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
    CoAP request:
 
    GET /c/e observe(0) Token(0x9372)
@@ -1113,14 +1133,6 @@ Internet-Draft        Constrained Objects Language            March 2016
    CoAP response:
 
    2.05 Content Observe(52) Token(0xD937)
-
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 20]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
 
    After detecting an event, the CoOL server sends its first
    notification to the registered CoOL client.
@@ -1142,6 +1154,29 @@ Internet-Draft        Constrained Objects Language            March 2016
    response.
 
    CoAP response:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 21]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
    2.05 Content Observe(52) Token(0xD937)
    Content-Format(application/cool+cbor)
@@ -1171,13 +1206,6 @@ Internet-Draft        Constrained Objects Language            March 2016
    and Uri-Path MUST be used as specified by [RFC6690] to target the
    CoOL resources as defined by section 3.
 
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 21]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
 6.2.  Working with Location-Path and Location-Query
 
    This version of CoOL does't support the creation of resources
@@ -1196,6 +1224,15 @@ Internet-Draft        Constrained Objects Language            March 2016
 6.5.  Working with Proxy-Uri and Proxy-Scheme
 
    This option MUST be supported as specified by [RFC6690].
+
+
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 22]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
 6.6.  Working with If-Match, If-None-Match and ETag
 
@@ -1227,13 +1264,6 @@ Internet-Draft        Constrained Objects Language            March 2016
    values are included in each notification reported, but changes to
    these extra data nodes MUST not trigger notification messages.
 
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 22]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
    A subscription can be terminated by the CoOL client by returning a
    CoAP Reset message or by sending a GET request with an Observe CoAP
    option set to deregister (1).  More details are available in
@@ -1251,6 +1281,14 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    Subsequent responses are returned by the CoOL server each time the
    state of data node "/system/ntp/enabled" changes.
+
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 23]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
    CoAP request:
 
@@ -1282,14 +1320,6 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    Resource discovery can be performed using a CoAP GET request.  If
    successful, the CoAP response MUST have a response code set to 2.05
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 23]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
    (Content), a Content-Format set to "application/link-format", and a
    payload containing a list of web links.
 
@@ -1306,6 +1336,15 @@ Internet-Draft        Constrained Objects Language            March 2016
    GET /.well-known/core
 
    CoAP response:
+
+
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 24]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
    2.05 Content Content-Format(application/link-format)
    </c>;rt="cool.datastore",
@@ -1339,13 +1378,6 @@ Internet-Draft        Constrained Objects Language            March 2016
    container (SID 1006) defined in the "ietf-cool" YANG module, see
    Appendix A.
 
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 24]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
    Example:
 
    CoAP response:
@@ -1357,6 +1389,18 @@ Internet-Draft        Constrained Objects Language            March 2016
        2 : "Unknown data node 69687"           # error-text, SID 1008
      }
    ]
+
+
+
+
+
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 25]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
 8.  Security Considerations
 
@@ -1390,18 +1434,6 @@ Internet-Draft        Constrained Objects Language            March 2016
    the CoAP Method Codes sub-registry as defined in [RFC7252] section
    12.1.1.
 
-
-
-
-
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 25]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
 9.2.  "PATCH" CoAP Method Code
 
    This draft makes use of the PATCH CoAP method as defined in
@@ -1416,6 +1448,15 @@ Internet-Draft        Constrained Objects Language            March 2016
    [I-D.ietf-netconf-restconf] have also been a critical input to this
    work.  The authors would like to thank the authors and contributors
    to these two drafts.
+
+
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 26]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
    The authors would also like to thank Carsten Bormann for its help
    during the development of this document and its useful comments
@@ -1449,15 +1490,6 @@ Internet-Draft        Constrained Objects Language            March 2016
               DOI 10.17487/RFC2119, March 1997,
               <http://www.rfc-editor.org/info/rfc2119>.
 
-
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 26]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
    [RFC6020]  Bjorklund, M., Ed., "YANG - A Data Modeling Language for
               the Network Configuration Protocol (NETCONF)", RFC 6020,
               DOI 10.17487/RFC6020, October 2010,
@@ -1470,6 +1502,17 @@ Internet-Draft        Constrained Objects Language            March 2016
    [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
               October 2013, <http://www.rfc-editor.org/info/rfc7049>.
+
+
+
+
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 27]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
    [RFC7252]  Shelby, Z., Hartke, K., and C. Bormann, "The Constrained
               Application Protocol (CoAP)", RFC 7252,
@@ -1503,17 +1546,6 @@ Internet-Draft        Constrained Objects Language            March 2016
               Application Protocol (CoAP)", draft-ietf-core-coap-tcp-
               tls-01 (work in progress), November 2015.
 
-
-
-
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 27]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
    [I-D.ietf-netconf-restconf]
               Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
               Protocol", draft-ietf-netconf-restconf-09 (work in
@@ -1528,6 +1560,15 @@ Internet-Draft        Constrained Objects Language            March 2016
               Attribute Certificate Profile for Authorization",
               RFC 5755, DOI 10.17487/RFC5755, January 2010,
               <http://www.rfc-editor.org/info/rfc5755>.
+
+
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 28]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
    [RFC6021]  Schoenwaelder, J., Ed., "Common YANG Data Types",
               RFC 6021, DOI 10.17487/RFC6021, October 2010,
@@ -1562,14 +1603,6 @@ Appendix A.  File "ietf-cool.yang"
     organization
       "IETF Core Working Group";
 
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 28]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
     contact
       "Ana Minaburo
        <mailto:ana@ackl.io>
@@ -1585,6 +1618,13 @@ Internet-Draft        Constrained Objects Language            March 2016
 
        Randy Turner
        <mailto:Randy.Turner@landisgyr.com>";
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 29]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
     description
       "This module contains the different definitions required
@@ -1618,14 +1658,6 @@ Internet-Draft        Constrained Objects Language            March 2016
     container error-payload {
       description
         "Optional payload of a client error (CoAP response 4.xx)
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 29]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
          or server error (CoAP response 5.xx).";
 
       leaf error-code {
@@ -1641,6 +1673,14 @@ Internet-Draft        Constrained Objects Language            March 2016
             value 1;
             description "Unspecified error.";
           }
+
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 30]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
           enum malformed {
             value 2;
@@ -1674,14 +1714,6 @@ Internet-Draft        Constrained Objects Language            March 2016
 
       leaf error-text {
         mandatory false;
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 30]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
         type string;
         description "Textual descriptions of the error.";
       }
@@ -1698,6 +1730,14 @@ Internet-Draft        Constrained Objects Language            March 2016
     }
 
     identity os {
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 31]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
       base facility-type;
     }
 
@@ -1730,14 +1770,6 @@ Internet-Draft        Constrained Objects Language            March 2016
         type utc-time;
         description
           "Event timestamp. Support of this field is optional
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 31]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
           since its not expected that all implementations have
           implement a real time clock and if so, this clock is
           available at all time.";
@@ -1754,6 +1786,14 @@ Internet-Draft        Constrained Objects Language            March 2016
       leaf severity-level {
         reference "RFC 5424";
         mandatory false;
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 32]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
         type enumeration {
           enum emergency {
             value 0;
@@ -1786,14 +1826,6 @@ Internet-Draft        Constrained Objects Language            March 2016
             description
               "Events that are unusual, but not error conditions.";
           }
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 32]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
           enum informational {
             value 6;
             description
@@ -1809,6 +1841,14 @@ Internet-Draft        Constrained Objects Language            March 2016
         description
           "Severity associated with this event.";
       }
+
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 33]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
       leaf facility {
         mandatory false;
@@ -1842,14 +1882,6 @@ Internet-Draft        Constrained Objects Language            March 2016
             datastore resource is used.";
           type string;
           mandatory false;
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 33]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
         }
 
         leaf commit-date-time {
@@ -1866,6 +1898,14 @@ Internet-Draft        Constrained Objects Language            March 2016
           description
             "When present, a confirming commit MUST be received within
             this period after the start of the commit process.
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 34]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
             A confirming commit is a commit RPC without the
             confirm-timeout field presents. Supports of this feature
             is optional.";
@@ -1898,14 +1938,6 @@ Appendix B.  File "ietf-cool@2016-01-01.sid"
      "module-revision": "2016-01-01",
      "items": [
        {
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 34]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
          "type": "identity",
          "assigned": "2016-03-08T21:59:45Z",
          "label": "ietf-cool:application",
@@ -1922,6 +1954,14 @@ Internet-Draft        Constrained Objects Language            March 2016
          "assigned": "2016-03-08T21:59:45Z",
          "label": "ietf-cool:hardware-monitoring",
          "sid": 1002
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 35]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
        },
        {
          "type": "identity",
@@ -1954,14 +1994,6 @@ Internet-Draft        Constrained Objects Language            March 2016
          "sid": 1007
        },
        {
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 35]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
          "type": "node",
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/error-payload/error-text",
@@ -1978,6 +2010,14 @@ Internet-Draft        Constrained Objects Language            March 2016
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/notification-payload/_id",
          "sid": 1010
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 36]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
        },
        {
          "type": "node",
@@ -2010,14 +2050,6 @@ Internet-Draft        Constrained Objects Language            March 2016
          "sid": 1015
        },
        {
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 36]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
          "type": "rpc",
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/cancel-commit",
@@ -2034,6 +2066,14 @@ Internet-Draft        Constrained Objects Language            March 2016
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/commit/input/commit-date-time",
          "sid": 1018
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 37]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
        },
        {
          "type": "rpc",
@@ -2062,18 +2102,6 @@ Authors' Addresses
    Email: michel.veillette@trilliantinc.com
 
 
-
-
-
-
-
-
-
-Veillette, et al.      Expires September 10, 2016              [Page 37]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
    Alexander Pelov (editor)
    Acklio
    2bis rue de la Chataigneraie
@@ -2091,6 +2119,15 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    Phone: +43664808926169
    Email: abhinav.somaraju@tridonic.com
+
+
+
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 38]
+
+Internet-Draft        Constrained Objects Language            March 2016
 
 
    Randy Turner
@@ -2125,4 +2162,23 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 10, 2016              [Page 38]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Veillette, et al.      Expires September 10, 2016              [Page 39]

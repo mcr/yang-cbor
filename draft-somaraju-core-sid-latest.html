@@ -658,7 +658,12 @@ module sid-file {
 <ul>
   <li>The entry point (first entry) of the registered SID range.</li>
   <li>The size of the registered SID range.</li>
-  <li>The contact information of the owner of the range such as name, email address, and phone number.  The IANA policy for this registry is split into four tiers as follows:</li>
+  <li>The contact information of the owner of the range such as name, email address, and phone number.</li>
+</ul>
+<p id="rfc.section.7.1.p.3">The IANA policy for this registry is split into four tiers as follows:</p>
+<p/>
+
+<ul>
   <li>The range of 0 to 9999 and 0x40000000 to 0xFFFFFFFFFFFFFFFF are reserved for future extensions of this protocol. Allocation within these ranges require IETF review or IESG approval.</li>
   <li>The range of 1000 to 59999 is reserved for standardized YANG modules. Allocation within this range requires publishing of the associated &#8220;.yang&#8221; and &#8220;.sid&#8221; files.  (Specification required.)</li>
   <li>The range of 60000 to 99999 is reserved for experimental YANG modules. Use of this range MUST NOT be used in operational deployments since these SIDs are not globally unique which limit their interoperability.</li>

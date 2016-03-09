@@ -519,8 +519,10 @@ Internet-Draft         Structure Identifier (SID)             March 2016
    o  The size of the registered SID range.
 
    o  The contact information of the owner of the range such as name,
-      email address, and phone number.  The IANA policy for this
-      registry is split into four tiers as follows:
+      email address, and phone number.
+
+   The IANA policy for this registry is split into four tiers as
+   follows:
 
    o  The range of 0 to 9999 and 0x40000000 to 0xFFFFFFFFFFFFFFFF are
       reserved for future extensions of this protocol.  Allocation
@@ -545,8 +547,6 @@ Internet-Draft         Structure Identifier (SID)             March 2016
       review or IESG approval.  IANA MAY delegate this registration
       process to one or multiple sub-registries.  The recommended size
       of the SID range allocation for a sub-registry is 1,000,000.
-
-
 
 
 

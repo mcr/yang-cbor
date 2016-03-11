@@ -20,15 +20,15 @@ Expires: September 12, 2016                                       Acklio
 
 Abstract
 
-   This document describes a management interface adapted to constrained
-   devices and constrained networks (e.g., low-power, lossy).  CoOL
-   objects (datastores, RPCs, actions and notifications) are defined
-   using the YANG modelling language [I-D.ietf-netmod-rfc6020bis].
-   Interactions with these objects are performed using the CoAP web
-   transfer protocol [RFC7252].  Payloads are encoded using the CBOR
-   data format [RFC7049].  The mapping between YANG data models and the
-   CBOR data format is defined in [I-D.veillette-core-yang-cbor-
-   mapping].
+   This document describes a management function set adapted to
+   constrained devices and constrained networks (e.g., low-power,
+   lossy).  CoOL objects (datastores, RPCs, actions and notifications)
+   are defined using the YANG modelling language
+   [I-D.ietf-netmod-rfc6020bis].  Interactions with these objects are
+   performed using the CoAP web transfer protocol [RFC7252].  Payloads
+   are encoded using the CBOR data format [RFC7049].  The mapping
+   between YANG data models and the CBOR data format is defined in [I-
+   D.veillette-core-yang-cbor-mapping].
 
    This document defines encoding rules for serializing configuration
    data, state data, RPC input and RPC output, Action input, Action
@@ -81,7 +81,7 @@ Table of Contents
    2.  Terminology and Notation  . . . . . . . . . . . . . . . . . .   3
    3.  Architecture  . . . . . . . . . . . . . . . . . . . . . . . .   5
    4.  Resources . . . . . . . . . . . . . . . . . . . . . . . . . .   5
-   5.  Operations  . . . . . . . . . . . . . . . . . . . . . . . . .   6
+   5.  Operations  . . . . . . . . . . . . . . . . . . . . . . . . .   7
      5.1.  GET - Retrieving all data nodes of a datastore  . . . . .   7
      5.2.  FETCH - Retrieving specific data nodes  . . . . . . . . .   8
        5.2.1.  Example #1 - Simple data node . . . . . . . . . . . .   9
@@ -211,13 +211,13 @@ Internet-Draft        Constrained Objects Language            March 2016
       CoOL server.  Events are defined using the YANG notification
       statement.
 
+   o  function set: A group of well-known resources that provides a
+      particular service.
+
    o  object: Within CoOL, an object is a data node, an RPC or an action
       within a datastore resource or a notification within an event
       stream resource.
 
-   o  parent: The collection in which a schema node is defined.
-
-   o  resource: Content identified by a URI.
 
 
 
@@ -225,6 +225,10 @@ Veillette, et al.      Expires September 12, 2016               [Page 4]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
+
+   o  parent: The collection in which a schema node is defined.
+
+   o  resource: Content identified by a URI.
 
    o  running configuration datastore: A configuration datastore holding
       the complete configuration currently active on the device.  The
@@ -271,16 +275,16 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    o  /c - The default datastore resource
 
-   o  /c/c - The candidate configuration datastore resource
-
-   o  /c/r - The running configuration datastore resource
-
 
 
 Veillette, et al.      Expires September 12, 2016               [Page 5]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
+
+   o  /c/c - The candidate configuration datastore resource
+
+   o  /c/r - The running configuration datastore resource
 
    o  /c/b - The backup configuration datastore (use to implement
       rollbacks)
@@ -324,10 +328,6 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    o  Cancel of a different or confirmed commit.
 
-5.  Operations
-
-   This section defines the different interactions supported between a
-   CoOL client and a CoOL server.
 
 
 
@@ -337,6 +337,11 @@ Veillette, et al.      Expires September 12, 2016               [Page 6]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
+
+5.  Operations
+
+   This section defines the different interactions supported between a
+   CoOL client and a CoOL server.
 
 5.1.  GET - Retrieving all data nodes of a datastore
 
@@ -380,12 +385,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    o  "/system-state/clock/current-datetime" (SID 1710)
 
-   o  "/system/clock/timezone/timezone-utc-offset/timezone-utc-offset"
-      (SID 1721)
 
-   CoAP Request:
-
-   GET /c
 
 
 
@@ -393,6 +393,13 @@ Veillette, et al.      Expires September 12, 2016               [Page 7]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
+
+   o  "/system/clock/timezone/timezone-utc-offset/timezone-utc-offset"
+      (SID 1721)
+
+   CoAP Request:
+
+   GET /c
 
    CoAP response:
 
@@ -436,13 +443,6 @@ Internet-Draft        Constrained Objects Language            March 2016
    On successful processing of the CoAP request, the CoOL server MUST
    return a CoAP response with a response code 2.05 (Content).
 
-   When a single data node is requested, the payload of the GET response
-   MUST carry the data node instance requested encoded using the rules
-   defined in [I-D.veillette-core-yang-cbor-mapping].
-
-   When a multiple data nodes are requested, the payload of the GET
-   response MUST carry a CBOR array containing the data node instance(s)
-
 
 
 Veillette, et al.      Expires September 12, 2016               [Page 8]
@@ -450,6 +450,12 @@ Veillette, et al.      Expires September 12, 2016               [Page 8]
 Internet-Draft        Constrained Objects Language            March 2016
 
 
+   When a single data node is requested, the payload of the GET response
+   MUST carry the data node instance requested encoded using the rules
+   defined in [I-D.veillette-core-yang-cbor-mapping].
+
+   When a multiple data nodes are requested, the payload of the GET
+   response MUST carry a CBOR array containing the data node instance(s)
    requested.  Each entry within this array MUST be encoding using the
    rules defined in [I-D.veillette-core-yang-cbor-mapping].
 
@@ -487,12 +493,6 @@ Internet-Draft        Constrained Objects Language            March 2016
    shown below:
 
    CoAP request:
-
-
-
-
-
-
 
 
 

@@ -4,7 +4,7 @@
 
 Internet Engineering Task Force                         A. Somaraju, Ed.
 Internet-Draft                                     Tridonic GmbH & Co KG
-Intended status: Informational                         M. Veillette, Ed.
+Intended status: Standards Track                       M. Veillette, Ed.
 Expires: September 12, 2016                      Trilliant Networks Inc.
                                                                 A. Pelov
                                                                   Acklio

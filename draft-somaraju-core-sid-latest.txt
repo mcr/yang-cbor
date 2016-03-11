@@ -80,7 +80,7 @@ Table of Contents
    8.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  12
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  12
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  12
-     9.2.  Informative References  . . . . . . . . . . . . . . . . .  13
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  12
    Appendix A.  ".sid" file example  . . . . . . . . . . . . . . . .  13
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  22
 
@@ -618,22 +618,15 @@ Somaraju, et al.       Expires September 12, 2016              [Page 11]
 Internet-Draft         Structure Identifier (SID)             March 2016
 
 
-   +------+-----+----------------+-----------+-------------------------+
-   | Entr | Siz | Module name    | Revision  | Reference               |
-   | y Po | e   |                |           |                         |
-   | int  |     |                |           |                         |
-   +------+-----+----------------+-----------+-------------------------+
-   | 1000 | 100 | ietf-cool      | 2016-01-0 | [I-D.veillette-core-coo |
-   |      |     |                | 1         | l]                      |
-   | 1100 | 400 | iana-if-type   | 2014-05-0 | [RFC7224]               |
-   |      |     |                | 8         |                         |
-   | 1500 | 100 | ietf-          | 2014-05-0 | [RFC7223]               |
-   |      |     | interfaces     | 8         |                         |
-   | 1600 | 100 | ietf-ip        | 2014-06-1 | [RFC7277]               |
-   |      |     |                | 6         |                         |
-   | 1700 | 100 | ietf-system    | 2014-08-0 | [RFC7317]               |
-   |      |     |                | 6         |                         |
-   +------+-----+----------------+-----------+-------------------------+
+   +-------------+------+-----------------+---------------------------+
+   | Entry Point | Size | Module name     | Reference                 |
+   +-------------+------+-----------------+---------------------------+
+   | 1000        | 100  | ietf-cool       | [I-D.veillette-core-cool] |
+   | 1100        | 400  | iana-if-type    | [RFC7224]                 |
+   | 1500        | 100  | ietf-interfaces | [RFC7223]                 |
+   | 1600        | 100  | ietf-ip         | [RFC7277]                 |
+   | 1700        | 100  | ietf-system     | [RFC7317]                 |
+   +-------------+------+-----------------+---------------------------+
 
 8.  Acknowledgments
 
@@ -664,6 +657,13 @@ Internet-Draft         Structure Identifier (SID)             March 2016
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
               October 2013, <http://www.rfc-editor.org/info/rfc7049>.
 
+9.2.  Informative References
+
+   [I-D.veillette-core-cool]
+              Veillette, M. and A. Pelov, "Constrained Objects
+              Language", draft-veillette-core-cool-00 (work in
+              progress), November 2015.
+
 
 
 
@@ -673,13 +673,6 @@ Somaraju, et al.       Expires September 12, 2016              [Page 12]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
-
-9.2.  Informative References
-
-   [I-D.veillette-core-cool]
-              Veillette, M. and A. Pelov, "Constrained Objects
-              Language", draft-veillette-core-cool-00 (work in
-              progress), November 2015.
 
    [RFC7223]  Bjorklund, M., "A YANG Data Model for Interface
               Management", RFC 7223, DOI 10.17487/RFC7223, May 2014,
@@ -722,6 +715,13 @@ Appendix A.  ".sid" file example
    "module-name": "ietf-system",
    "module-revision": "2014-08-06",
    "items": [
+     {
+       "type": "identity",
+       "assigned": "2016-01-13T21:00:19Z",
+       "label": "ietf-system:authentication-method",
+       "sid": 1700
+     },
+     {
 
 
 
@@ -730,13 +730,6 @@ Somaraju, et al.       Expires September 12, 2016              [Page 13]
 Internet-Draft         Structure Identifier (SID)             March 2016
 
 
-     {
-       "type": "identity",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "ietf-system:authentication-method",
-       "sid": 1700
-     },
-     {
        "type": "identity",
        "assigned": "2016-01-13T21:00:19Z",
        "label": "ietf-system:local-users",
@@ -778,6 +771,13 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "label": "/system-state",
        "sid": 1707
      },
+     {
+       "type": "node",
+       "assigned": "2016-01-13T21:00:19Z",
+       "label": "/system-state/clock",
+       "sid": 1708
+     },
+     {
 
 
 
@@ -786,13 +786,6 @@ Somaraju, et al.       Expires September 12, 2016              [Page 14]
 Internet-Draft         Structure Identifier (SID)             March 2016
 
 
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system-state/clock",
-       "sid": 1708
-     },
-     {
        "type": "node",
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system-state/clock/boot-datetime",
@@ -834,6 +827,13 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "label": "/system-state/platform/os-version",
        "sid": 1715
      },
+     {
+       "type": "node",
+       "assigned": "2016-01-13T21:00:19Z",
+       "label": "/system/authentication",
+       "sid": 1716
+     },
+     {
 
 
 
@@ -842,13 +842,6 @@ Somaraju, et al.       Expires September 12, 2016              [Page 15]
 Internet-Draft         Structure Identifier (SID)             March 2016
 
 
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/authentication",
-       "sid": 1716
-     },
-     {
        "type": "node",
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/authentication/user",
@@ -890,6 +883,13 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "label": "/system/authentication/user/name",
        "sid": 1723
      },
+     {
+       "type": "node",
+       "assigned": "2016-01-13T21:00:19Z",
+       "label": "/system/authentication/user/password",
+       "sid": 1724
+     },
+     {
 
 
 
@@ -898,13 +898,6 @@ Somaraju, et al.       Expires September 12, 2016              [Page 16]
 Internet-Draft         Structure Identifier (SID)             March 2016
 
 
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/authentication/user/password",
-       "sid": 1724
-     },
-     {
        "type": "node",
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/clock",
@@ -946,6 +939,13 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/dns-resolver/options/attempts",
        "sid": 1731
+     },
+     {
+       "type": "node",
+       "assigned": "2016-01-13T21:00:19Z",
+       "label": "/system/dns-resolver/options/timeout",
+       "sid": 1732
+     },
 
 
 
@@ -954,13 +954,6 @@ Somaraju, et al.       Expires September 12, 2016              [Page 17]
 Internet-Draft         Structure Identifier (SID)             March 2016
 
 
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/dns-resolver/options/timeout",
-       "sid": 1732
-     },
      {
        "type": "node",
        "assigned": "2016-01-13T21:00:19Z",
@@ -1002,6 +995,13 @@ Internet-Draft         Structure Identifier (SID)             March 2016
      },
      {
        "type": "node",
+       "assigned": "2016-01-13T21:00:19Z",
+       "label": "/system/hostname",
+       "sid": 1739
+     },
+     {
+       "type": "node",
+       "assigned": "2016-01-13T21:00:19Z",
 
 
 
@@ -1010,13 +1010,6 @@ Somaraju, et al.       Expires September 12, 2016              [Page 18]
 Internet-Draft         Structure Identifier (SID)             March 2016
 
 
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/hostname",
-       "sid": 1739
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/location",
        "sid": 1740
      },
@@ -1058,6 +1051,13 @@ Internet-Draft         Structure Identifier (SID)             March 2016
      },
      {
        "type": "node",
+       "assigned": "2016-01-13T21:00:19Z",
+       "label": "/system/ntp/server/prefer",
+       "sid": 1747
+     },
+     {
+       "type": "node",
+       "assigned": "2016-01-13T21:00:19Z",
 
 
 
@@ -1066,13 +1066,6 @@ Somaraju, et al.       Expires September 12, 2016              [Page 19]
 Internet-Draft         Structure Identifier (SID)             March 2016
 
 
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/ntp/server/prefer",
-       "sid": 1747
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/ntp/server/transport/udp/udp",
        "sid": 1748
      },
@@ -1114,6 +1107,13 @@ Internet-Draft         Structure Identifier (SID)             March 2016
      },
      {
        "type": "node",
+       "assigned": "2016-01-13T21:00:19Z",
+       "label": "/system/radius/server",
+       "sid": 1755
+     },
+     {
+       "type": "node",
+       "assigned": "2016-01-13T21:00:19Z",
 
 
 
@@ -1122,13 +1122,6 @@ Somaraju, et al.       Expires September 12, 2016              [Page 20]
 Internet-Draft         Structure Identifier (SID)             March 2016
 
 
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/radius/server",
-       "sid": 1755
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/radius/server/authentication-type",
        "sid": 1756
      },
@@ -1170,6 +1163,13 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "sid": 1762
      },
      {
+       "type": "rpc",
+       "assigned": "2016-01-13T21:00:19Z",
+       "label": "/set-current-datetime/input/current-datetime",
+       "sid": 1763
+     },
+     {
+       "type": "rpc",
 
 
 
@@ -1178,13 +1178,6 @@ Somaraju, et al.       Expires September 12, 2016              [Page 21]
 Internet-Draft         Structure Identifier (SID)             March 2016
 
 
-       "type": "rpc",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/set-current-datetime/input/current-datetime",
-       "sid": 1763
-     },
-     {
-       "type": "rpc",
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system-restart",
        "sid": 1764
@@ -1220,6 +1213,13 @@ Authors' Addresses
    Email: michel.veillette@trilliantinc.com
 
 
+   Alexander Pelov
+   Acklio
+   2bis rue de la Chataigneraie
+   Cesson-Sevigne, Bretagne  35510
+   France
+
+   Email: a@ackl.io
 
 
 
@@ -1232,15 +1232,6 @@ Authors' Addresses
 Somaraju, et al.       Expires September 12, 2016              [Page 22]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
-
-
-   Alexander Pelov
-   Acklio
-   2bis rue de la Chataigneraie
-   Cesson-Sevigne, Bretagne  35510
-   France
-
-   Email: a@ackl.io
 
 
    Randy Turner
@@ -1262,6 +1253,15 @@ Internet-Draft         Structure Identifier (SID)             March 2016
    France
 
    Email: ana@ackl.io
+
+
+
+
+
+
+
+
+
 
 
 

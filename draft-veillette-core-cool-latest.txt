@@ -132,13 +132,13 @@ Internet-Draft        Constrained Objects Language            March 2016
    This document defines a CoAP function set for accessing YANG defined
    resources.  YANG data models are encoded in CBOR based on the mapping
    rules defined in [I-D.veillette-core-yang-cbor-mapping].  YANG items
-   are identify using a compact identifier called Structured Identifiers
-   (SIDs) as defined in [I-D.somaraju-core-sid].
+   are identified using a compact identifier called Structured
+   Identifiers (SIDs) as defined in [I-D.somaraju-core-sid].
 
    The resulting protocol based on CoAP, CBOR encoded data and
-   structured identifiers (SID) have a low implementation footprint and
+   structured identifiers (SID) has a low implementation footprint and
    low network bandwidth requirements and is suitable for both
-   constrained devices and constrained networks as define by [RFC7228].
+   constrained devices and constrained networks as defined by [RFC7228].
    This protocol is applicable to the different management topology
    options described by [I-D.ersue-constrained-mgmt]; centralized,
    distributed and hierarchical.
@@ -316,7 +316,7 @@ Internet-Draft        Constrained Objects Language            March 2016
    unavailable.
 
    RPCs commit and cancel-commit defined in ietf-cool YANG module are
-   available to perform the following operation on datastores:
+   available to perform the following operations on datastores:
 
    o  Immediate or differed commit of a candidate or backup datastore.
 
@@ -340,21 +340,21 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 5.1.  GET - Retrieving all data nodes of a datastore
 
-   The GET method is used by CoOL clients to retrieve the entire content
-   of a datastore.  Implementation of this function is optional and
-   dependent of the capability of the CoOL server to transfer a
+   The GET method is used by CoOL clients to retrieve the entire
+   contents of a datastore.  Implementation of this function is optional
+   and dependent of the capability of the CoOL server to transfer a
    relatively large response.
 
    To retrieve all instantiated data nodes of a datastore resource, a
-   CoOL client sent a CoAP GET request to the URI of the targeted
+   CoOL client sends a CoAP GET request to the URI of the targeted
    datastore.  If the request is accepted by the CoOL server, a 2.05
-   (Content) response code.  The payload of the GET response MUST carry
-   a CBOR array containing the content of the targeted datastore.  The
-   CBOR array MUST contain a list of pairs of delta and associated
-   value.  A delta represents the different between the current SID and
-   the SID of the previous pair within the CBOR array.  Each value is
-   encoded using the rules defined by [I-D.veillette-core-yang-cbor-
-   mapping].
+   (Content) response code is returned.  The payload of the GET response
+   MUST carry a CBOR array containing the contents of the targeted
+   datastore.  The CBOR array MUST contain a list of pairs of delta and
+   associated value.  A delta represents the difference between the
+   current SID and the SID of the previous pair within the CBOR array.
+   Each value is encoded using the rules defined by [I-D.veillette-core-
+   yang-cbor-mapping].
 
    If the request is rejected by the CoOL server, a 5.01 Not implemented
    or 4.13 Request Entity Too Large response code is returned.
@@ -418,9 +418,9 @@ Internet-Draft        Constrained Objects Language            March 2016
    The FETCH method is used by the CoOL client of retrieve a subset of
    the data nodes within a datastore.
 
-   To retrieve a list of data node instances, the CoOL client send a
+   To retrieve a list of data node instances, the CoOL client sends a
    CoAP FETCH request to the URI of the targeted datastore.  The payload
-   of the FETCH request contains the list of data node instance to be
+   of the FETCH request contains the list of data node(s) instance to be
    retrieved.  This list is encoded using a CBOR array, each entry
    containing an "instance-identifier" as defined by [I-D.veillette-
    core-yang-cbor-mapping].  Within each "instance-identifier", data
@@ -454,7 +454,7 @@ Internet-Draft        Constrained Objects Language            March 2016
    rules defined in [I-D.veillette-core-yang-cbor-mapping].
 
    When a collection is returned (YANG container, YANG list or YANG list
-   instance), delta are computed using the requested SID as parent.
+   instance), delta(s) are computed using the requested SID as parent.
 
    The CBOR value undefined (0xf7) must be returned for each data node
    requested but not currently available.
@@ -584,13 +584,13 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 5.2.3.  Example #3 - YANG list
 
-   To retrieve all instances of a list, the CoOL client exclude form the
-   "instance-identifier" the key(s) of the targeted list.  The list
+   To retrieve all instances of a list, the CoOL client excludes from
+   the "instance-identifier" the key(s) of the targeted list.  The list
    returned is encoded using the rules defined in [I-D.veillette-core-
    yang-cbor-mapping] section 4.4.
 
    In this example, a CoOL client retrieves the list "/interfaces/
-   interface" (SID 1529).  The response returned contain two instances,
+   interface" (SID 1529).  The response returns contain two instances,
    one for an Ethernet adaptor and one for a WIFI interface.
 
    CoAP request:
@@ -675,20 +675,21 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
    entry within this CBOR array is set to the delta between the current
-   SID of the SID of targeted container as specified in the first entry
+   SID and the SID of targeted container as specified in the first entry
    of the "instance-identifier".
 
    CoOL servers SHOULD implement this "instance-identifier" extension.
    When this extension is not supported, the CoOL server MUST ignore the
    third element of the "instance-identifier" and return the list
-   instance as specified by the first tow elements of the "instance-
+   instance as specified by the first two elements of the "instance-
    identifier".
 
-   In this example, a CoOL client retrieves within the "/interfaces/
-   interface" list (SID 1528) the leafs "/interfaces/interface/type"
-   (SID 1533) and "/interfaces/interface/enabled" (SID 1530).  The CoOL
-   client also include in this request the selection of the leaf
-   "/system/hostname" defined in "ietf-system".
+   In this example, a CoOL client retrieves from within the
+   "/interfaces/interface" list (SID 1528) the leafs
+   "/interfaces/interface/type" (SID 1533) and "/interfaces/interface/
+   enabled" (SID 1530).  The CoOL client also includes in this request
+   the selection of the leaf "/system/hostname" defined in "ietf-
+   system".
 
    For example:
 
@@ -712,13 +713,12 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    This "instance-identifier" extension allows the efficient transfer of
    all instances of a data node within a YANG list.  To retrieve all
-   instances, the CoOL client exclude form the "instance-identifier" the
-   key(s) of the list containing the targeted data node.
+   instances, the CoOL client excludes form the "instance-identifier"
+   the key(s) of the list containing the targeted data node.
 
-   The response of such request MUST be encoded as a CBOR ARRAY
-   containing the available instances of the requested data node.  This
-   special encoding minimizes significantly this commonly used type of
-   request.
+   The response MUST be encoded as a CBOR ARRAY containing the available
+   instances of the requested data node.  This special encoding
+   minimizes significantly this commonly used type of request.
 
    In this example, a CoOL client retrieves all instances of data node
    "/interfaces-state/interface/name" (SID 1532).
@@ -760,15 +760,15 @@ Internet-Draft        Constrained Objects Language            March 2016
    On successful processing of the CoAP request, the CoOL server MUST
    return a CoAP response with a response code 2.04 (Changed).
 
-   A PUT request MUST be processed as an atomic transaction, any of the
-   data node transferred is rejected for any reasons, the entire PUT
+   A PUT request MUST be processed as an atomic transaction, if any of
+   the data node transferred is rejected for any reason, the entire PUT
    request MUST be rejected and the CoOL server MUST return an
    appropriate error response as defined in section 6.
 
    Example:
 
-   In this example, a CoOL client set the default runtime datastore with
-   these data nodes:
+   In this example, a CoOL client sets the default runtime datastore
+   with these data nodes:
 
    o  "/system/clock/timezone/timezone-utc-offset/timezone-utc-offset"
       (SID 1721)
@@ -828,10 +828,10 @@ Internet-Draft        Constrained Objects Language            March 2016
    The PATCH method is used by CoOL clients to modify a subset of a
    datastore.
 
-   To modify a datastore, the CoOL client send a CoAP PATH request to
+   To modify a datastore, the CoOL client sends a CoAP PATH request to
    the URI of the targeted datastore.  The payload of the FETCH request
-   contains the list of data node instance to be updated, inserted or
-   deleted.  This list is encoded using a CBOR array and contain a
+   contains the list of data node instance(s) to be updated, inserted or
+   deleted.  This list is encoded using a CBOR array and contains a
    sequence of pairs of "instance-identifier" and associated values.
 
 
@@ -844,9 +844,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    Within each "instance-identifier", data nodes are identified using
    SIDs as defined by [I-D.somaraju-core-sid].  SIDs within the list are
-   encode as delta.
+   encoded as delta.
 
-   On reception, the list is processed by the CoOL server as follow:
+   On reception, the list is processed by the CoOL server as follows:
 
    o  If the targeted data instance already exists, this instance is
       replaced by the associated value (not merged).  To update only
@@ -922,30 +922,30 @@ Internet-Draft        Constrained Objects Language            March 2016
    Protocol operations are defined using the YANG "rpc" or YANG "action"
    statements.
 
-   To execute a protocol operation, the CoOL client sent a CoAP POST
+   To execute a protocol operation, the CoOL client sents a CoAP POST
    request to the URI of the targeted datastore.
 
    The payload of the POST request carries a CBOR array with up to two
-   entries.  This first entry carries the instance-identifier
-   identifying the targeted protocol operation.  The second entry
-   carries the protocol operation input(s).  Input(s) are present only
-   if defined for the invoked protocol operation and used by the CoOL
-   client.  Input(s) are encoding using the rules defined for a YANG
-   container, deltas are relative to the SID assigned to the protocol
-   operation.
+   entries.  The first entry carries the instance-identifier identifying
+   the targeted protocol operation.  The second entry carries the
+   protocol operation input(s).  Input(s) are present only if defined
+   for the invoked protocol operation and used by the CoOL client.
+   Input(s) are encoded using the rules defined for a YANG container,
+   deltas are relative to the SID assigned to the protocol operation.
 
    On successful completion on the protocol operation, the CoOL server
-   return a CoAP response with the response code set to 2.05 (Content).
+   returns a CoAP response with the response code set to 2.05 (Content).
    When output parameters are returned by the CoOL server, these
    parameter(s) are carried in the CoAP response payload.  Output(s) are
-   encoding using the rules defined for a YANG container, delta are
+   encoded using the rules defined for a YANG container, deltas are
    relative to the SID assigned to the protocol operation.
 
 5.5.1.  Example #1 - RPC
 
    This example is based on the "activate-software-image" RPC defined in
    [I-D.ietf-netmod-rfc6020bis], assuming that this RPC is assigned to
-
+   SID 1932, leaf image-name to SID 1933 and leaf status to SID 1934.
+   These SIDs are defined strictly for the purpose of this example.
 
 
 
@@ -953,9 +953,6 @@ Veillette, et al.      Expires September 12, 2016              [Page 17]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
-
-   SID 1932, leaf image-name to SID 1933 and leaf status to SID 1934.
-   These SIDs are defined strictly for the purpose of this example.
 
    rpc activate-software-image { input { leaf image-name { type string;
    } } output { leaf status { type string; } } }
@@ -1005,6 +1002,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
+
+
+
 Veillette, et al.      Expires September 12, 2016              [Page 18]
 
 Internet-Draft        Constrained Objects Language            March 2016
@@ -1018,7 +1018,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 5.6.  Event stream
 
 WARNING
-This section requires more works to address the following identified issues:
+This section requires more work to address the following identified issues:
 
 * Retrieval of past events (e.g. start-time, stop-time)
 * Retrieval of specific events (e.g. filter)
@@ -1045,15 +1045,15 @@ or completely replaced by a future version of this draft.
    [RFC7641].
 
    Each notification transferred by a CoOL server to each of the
-   registered CoOL client is carried in a CoAP response with a response
+   registered CoOL clients is carried in a CoAP response with a response
    code set to 2.05 (Content).  Each CoAP response MUST carry in its
    payload at least one notification but MAY carry multiple.  Each
-   notification is carries in a notification-payload defined in ietf-
-   cool, see Appendix A.  The notification-payload support different
-   meta-data associated to this notification such the notification
+   notification is carried in a notification-payload defined in ietf-
+   cool, see Appendix A.  The notification-payload supports different
+   meta-data associated to this notification, such as the notification
    identifier, event timestamp, sequence number, severity level and
-   facility.  All these meta information are optional at the exception
-   of the notification identifier.
+   facility.  All of these meta information are optional with the
+   exception of the notification identifier.
 
    The CoAP response payload is encoded using the rules defined for the
    PUT request.  When multiple notifications are reported, the CoAP
@@ -1152,7 +1152,7 @@ Internet-Draft        Constrained Objects Language            March 2016
      5 , "2016-03-08T14:10:08Z09:00",   # timestamp (SID 1015)
    ]
 
-   To optimize communications or because of other constrains, the CoOL
+   To optimize communications or because of other constraints, the CoOL
    server might transfer multiple notifications in a single CoAP
    response.
 
@@ -1202,13 +1202,13 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 6.1.  Working with Uri-Host, Uri-Port, Uri-Path, and Uri-Query
 
-   Uri-Query is not currently use by this protocol.  Uri-Host, Uri-Port
+   Uri-Query is not currently used by this protocol.  Uri-Host, Uri-Port
    and Uri-Path MUST be used as specified by [RFC6690] to target the
    CoOL resources as defined by section 3.
 
 6.2.  Working with Location-Path and Location-Query
 
-   This version of CoOL does't support the creation of resources
+   This version of CoOL doesn't support the creation of resources
    (datastore or event stream).  For this reason, the use of Location-
    Path and Location-Query is not required.
 
@@ -1241,8 +1241,8 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 6.7.  Working with Size1, Size2, Block1 and Block2
 
-   When the UDP transport is used and large payload need to be
-   transfered, support of the CoAP block transfer as defined by
+   When the UDP transport is used and a large payload need to be
+   transferred, support of the CoAP block transfer as defined by
    [I-D.ietf-core-block] is recommended.
 
    6.8.  Working with Observe
@@ -1259,7 +1259,7 @@ Internet-Draft        Constrained Objects Language            March 2016
    The payload of the FETCH request carries a CBOR array of instance-
    identifier.  The first entry MUST be set to the "instance-identifier"
    of the data node instance observed.  The following entries are
-   optional and allows the selection of coincidental values, data nodes
+   optional and allow the selection of coincidental values, data nodes
    reported at the same time as the observed data node.  Coincidental
    values are included in each notification reported, but changes to
    these extra data nodes MUST not trigger notification messages.
@@ -1458,8 +1458,8 @@ Veillette, et al.      Expires September 12, 2016              [Page 26]
 Internet-Draft        Constrained Objects Language            March 2016
 
 
-   The authors would also like to thank Carsten Bormann for its help
-   during the development of this document and its useful comments
+   The authors would also like to thank Carsten Bormann for his help
+   during the development of this document and his useful comments
    during the review process.
 
 11.  References

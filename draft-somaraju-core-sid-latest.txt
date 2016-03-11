@@ -84,13 +84,6 @@ Table of Contents
 
 1.  Introduction
 
-   [I.D-veillette-core-yang-cbor-mapping] defines a set of encoding
-   rules to encode data models defined in YANG
-   [I-D.ietf-netmod-rfc6020bis] using the Concise Binary Object
-   Representation (CBOR) [RFC7049].  One type of identifier supported by
-   this specification is a registered unsigned integer called Structured
-   IDentifier (SID).
-
    This document describes the registries required to manage SIDs and a
    file format used to persist and publish the assigned SIDs.
 
@@ -106,14 +99,6 @@ Table of Contents
 
    o  module
 
-
-
-
-Somaraju, et al.       Expires September 12, 2016               [Page 2]
-
-Internet-Draft         Structure Identifier (SID)             March 2016
-
-
    o  notification
 
    o  RPC
@@ -121,6 +106,13 @@ Internet-Draft         Structure Identifier (SID)             March 2016
    o  schema node
 
    o  schema tree
+
+
+
+Somaraju, et al.       Expires September 12, 2016               [Page 2]
+
+Internet-Draft         Structure Identifier (SID)             March 2016
+
 
    o  submodule
 
@@ -162,14 +154,6 @@ Internet-Draft         Structure Identifier (SID)             March 2016
    assigned to YANG module(s) is recommended.  Section 7.2 provide more
    details about the registration process of YANG modules.
 
-
-
-
-Somaraju, et al.       Expires September 12, 2016               [Page 3]
-
-Internet-Draft         Structure Identifier (SID)             March 2016
-
-
    The following items are identified using SIDs:
 
    o  identities
@@ -177,6 +161,14 @@ Internet-Draft         Structure Identifier (SID)             March 2016
    o  data nodes
 
    o  RPCs and associated input(s) and output(s)
+
+
+
+
+Somaraju, et al.       Expires September 12, 2016               [Page 3]
+
+Internet-Draft         Structure Identifier (SID)             March 2016
+
 
    o  actions and associated input(s) and output(s)
 
@@ -207,6 +199,14 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
    The following activity diagram summarize the life cycle of ".sid"
    files.
+
+
+
+
+
+
+
+
 
 
 

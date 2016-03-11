@@ -114,7 +114,7 @@ Veillette, et al.      Expires September 12, 2016               [Page 2]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
-   A new set of encoding rules have been defined to allow the use of the
+   A new set of encoding rules has been defined to allow the use of the
    same data models in environments based on the JavaScript Object
    Notation (JSON) Data Interchange Format [RFC7159].  This is
    accomplished in the JSON Encoding of Data Modeled with YANG
@@ -177,7 +177,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    This specification also makes use of the following terminology:
 
    o  child: A schema node defined within a collection such as a
-      container, a list, a case, a notification, a RPC input, a RPC
+      container, a list, a case, a notification, an RPC input, an RPC
       output, an action input, an action output.
 
    o  delta : Difference between the SID assigned to the current schema
@@ -241,10 +241,10 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    | Text     | 3    | String of Unicode        | "txt"     | 63       |
    | string   |      | characters enclosed      |           | 747874   |
    |          |      | between double quotes    |           |          |
-   | Array    | 4    | Comma separated list of  | [ 1, 2 ]  | 82 01 02 |
+   | Array    | 4    | Comma-separated list of  | [ 1, 2 ]  | 82 01 02 |
    |          |      | values within square     |           |          |
    |          |      | brackets                 |           |          |
-   | Map      | 5    | Comma separated list of  | { 1: 123, | a2       |
+   | Map      | 5    | Comma-separated list of  | { 1: 123, | a2       |
    |          |      | key : value pairs within | 2: 456 }  | 01187b   |
    |          |      | curly braces             |           | 021901c8 |
    | Boolean  | 7/20 | false                    | false     | f4       |
@@ -899,13 +899,13 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 
    o  Keys MUST be set to valid SIDs, member names or YANG hashes.  This
-      rule apply to the key of the anydata node and the key of any inner
-      schema node.
+      rule applies to the key of the anydata node and the key of any
+      inner schema node.
 
    o  The CBOR array MUST contain either unique scalar values (as a
       leaf-list, see Section 4.3), or maps (as a list, see Section 4.4).
 
-   o  Values MUST follow the encoding rules of one of the datatype
+   o  Values MUST follow the encoding rules of one of the datatypes
       listed in Section 5.
 
 4.6.  The "anyxml" Schema Node
@@ -969,7 +969,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    Leafs of type decimal64 MUST be encoded using either CBOR unsigned
    integer (major type 0) or CBOR signed integer (major type 1),
    depending on the actual value.  The position of the decimal point is
-   defined by the fraction-digits YANG statement and not available in
+   defined by the fraction-digits YANG statement and is not available in
    the CBOR encoding.
 
    Definition example [RFC7317]:
@@ -1146,22 +1146,22 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 5.10.  The "identityref" Type
 
-   This specification support two approaches for encoding identityref, a
-   SID as defined in [I.D-somaraju-core-sid] or a name as defined in
+   This specification supports two approaches for encoding identityref,
+   a SID as defined in [I.D-somaraju-core-sid] or a name as defined in
    [I-D.ietf-netmod-yang-json] section 6.8.
 
    *SIDs as identityref*
 
    SIDs are globally unique and may be used as identityref.  This
-   approach is both compact and simple to implement.  When SID are used,
-   identityref MUST be encoded using a CBOR unsigned integer data item
-   (major type 0) and set to a SID allocated from a registered SID
+   approach is both compact and simple to implement.  When SIDs are
+   used, identityref MUST be encoded using a CBOR unsigned integer data
+   item (major type 0) and set to a SID allocated from a registered SID
    range.
 
    *Name as identityref*
 
    Alternatively, an identityref may be encoded using a name as defined
-   in [I-D.ietf-netmod-yang-json] section 6.8.  When a names are used,
+   in [I-D.ietf-netmod-yang-json] section 6.8.  When names are used,
    identityref MUST be encoded using a CBOR text string data item (major
    type 3).  If the identity is defined in another module than the leaf
    node containing the identityref value, the namespace-qualified form
@@ -1197,7 +1197,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
    *SIDs as identityref*
 
-   Assuming that the identity "iana-if-type:ethernetCsmacd" have been
+   Assuming that the identity "iana-if-type:ethernetCsmacd" has been
    assigned to the SID value 1179.
 
    CBOR diagnostic notation: 1179
@@ -1277,11 +1277,11 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 5.13.  The "instance-identifier" Type
 
-   This specification support three approaches for encoding an instance-
-   identifier, one based on SIDs as defined in [I.D-somaraju-core-sid],
-   one based on names as defined in [I-D.ietf-netmod-yang-json] section
-   6.13 and one based on YANG hashes as defined in
-   [I-D.vanderstok-core-comi].
+   This specification supports three approaches for encoding an
+   instance-identifier, one based on SIDs as defined in [I.D-somaraju-
+   core-sid], one based on names as defined in
+   [I-D.ietf-netmod-yang-json] section 6.13 and one based on YANG hashes
+   as defined in [I-D.vanderstok-core-comi].
 
 
 
@@ -1292,14 +1292,14 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
    *SIDs as instance-identifier*
 
-   SIDs uniquely identify a data node.  For single instance data node,
+   SIDs uniquely identify a data node.  For a single instance data node,
    the SID is sufficient to identify this instance.  For a multi-
    instance data node, a SID is combined with the list key(s) to
    identify each instance of this data node within the YANG list(s).
 
-   Single instance data nodes MUST be encoded using either a CBOR
-   unsigned integer data item (major type 0) and set to the targeted
-   data node SID.
+   Single instance data nodes MUST be encoded using a CBOR unsigned
+   integer data item (major type 0) and set to the targeted data node
+   SID.
 
    Multi-instances data nodes MUST be encoded using a CBOR array data
    item (major type 4) containing the following entries:
@@ -1313,10 +1313,10 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
       from top level list, and follow by each of the subordinate
       list(s).
 
-   When the SID identify a YANG list, the presence of the key(s) for
-   this list is optional.  When the key(s) are present, the targeted
-   instance within this list is selected.  When the key(s) are absent,
-   the entire YANG list is selected.
+   When SIDs identify a YANG list, the presence of the key(s) for this
+   list is optional.  When the key(s) are present, the targeted instance
+   within this list is selected.  When the key(s) are absent, the entire
+   YANG list is selected.
 
    *Names as instance-identifier*
 
@@ -1359,7 +1359,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
    *First example based on SID*
 
-   In this example, a field of type instance-identifier identify the
+   In this example, a field of type instance-identifier identifies the
    data node "/system/contact" (SID 1728).
 
    1728
@@ -1549,9 +1549,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
 7.  Acknowledgments
 
-   This document have been largely inspired by the extensive works done
+   This document has been largely inspired by the extensive works done
    by Andy Bierman and Peter van der Stok on [I-D.vanderstok-core-comi].
-   [I-D.ietf-netmod-yang-json] have also been a critical input to this
+   [I-D.ietf-netmod-yang-json] has also been a critical input to this
    work.  The authors would like to thank the authors and contributors
    to these two drafts.
 

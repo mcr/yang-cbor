@@ -4,8 +4,8 @@
 
 CoRE                                                      R. Turner, Ed.
 Internet-Draft                                                Landis+Gyr
-Intended status: Best Current Practice                    March 10, 2016
-Expires: September 11, 2016
+Intended status: Best Current Practice                    March 11, 2016
+Expires: September 12, 2016
 
 
                          CoOL Problem Statement
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 11, 2016.
+   This Internet-Draft will expire on September 12, 2016.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Turner                 Expires September 11, 2016               [Page 1]
+Turner                 Expires September 12, 2016               [Page 1]
 
 Internet-Draft                CoOL Problem                    March 2016
 
@@ -92,7 +92,7 @@ Table of Contents
    required in order to fulfill network management functions.  In
    addition, a solution should support "traditional" network management
    functions that have been useful in a variety of legacy use-cases, as
-   well as new functionality that address the evolving constrained
+   well as new functionalities that address the evolving constrained
    device and constrained device scenarios.  In this context, the term
    "constrained" implies limited resources (RAM, FLASH), as well as
    limited CPU resources.  Therefore, the amount of code necessary to
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Turner                 Expires September 11, 2016               [Page 2]
+Turner                 Expires September 12, 2016               [Page 2]
 
 Internet-Draft                CoOL Problem                    March 2016
 
@@ -165,7 +165,7 @@ Internet-Draft                CoOL Problem                    March 2016
 
 
 
-Turner                 Expires September 11, 2016               [Page 3]
+Turner                 Expires September 12, 2016               [Page 3]
 
 Internet-Draft                CoOL Problem                    March 2016
 
@@ -221,7 +221,7 @@ Internet-Draft                CoOL Problem                    March 2016
 
 
 
-Turner                 Expires September 11, 2016               [Page 4]
+Turner                 Expires September 12, 2016               [Page 4]
 
 Internet-Draft                CoOL Problem                    March 2016
 
@@ -252,22 +252,22 @@ Internet-Draft                CoOL Problem                    March 2016
 5.  Security Considerations
 
    The security considerations applicable to network management of
-   enterprise networks is similar but different to that of constrained
-   networks given the potential risk involved.  The risk involved to
-   enterprise networks could be local to an organization (assets,
-   reputation).  However, in the case of constrained networks, it is
-   reasonable to assume significant risk due to the types of application
-   domains constrained devices would be applied (sensors controlling
-   everything from home automation to medical devices).  With this risk
-   should come a more strict understanding of the attack vectors and
-   vulnerabilities of any and all protocols in use in constrained
-   networks, especially those protocols tasked with the management of a
-   device.  The CoOL working group will attempt to reuse applicable
-   ideas and technology originating from other IETF working groups to
-   address the problem of security.  The initial focus of security will
-   involve the integrity and trustworthiness of information originating
-   from CoOL managed endpoints.  The confidentiality of this information
-   will also be considered.
+   enterprise networks is similar to, but different than that of
+   constrained networks given the potential risk involved.  The risk
+   involved to enterprise networks could be local to an organization
+   (assets, reputation).  However, in the case of constrained networks,
+   it is reasonable to assume significant risk due to the types of
+   application domains constrained devices would be applied to (sensors
+   controlling everything from home automation to medical devices).
+   With this risk should come a more strict understanding of the attack
+   vectors and vulnerabilities of any and all protocols in use in
+   constrained networks, especially those protocols tasked with the
+   management of a device.  The CoOL working group will attempt to reuse
+   applicable ideas and technology originating from other IETF working
+   groups to address the problem of security.  The initial focus of
+   security will involve the integrity and trustworthiness of
+   information originating from CoOL managed endpoints.  The
+   confidentiality of this information will also be considered.
 
 Author's Address
 
@@ -277,7 +277,7 @@ Author's Address
 
 
 
-Turner                 Expires September 11, 2016               [Page 5]
+Turner                 Expires September 12, 2016               [Page 5]
 
 Internet-Draft                CoOL Problem                    March 2016
 
@@ -333,4 +333,4 @@ Internet-Draft                CoOL Problem                    March 2016
 
 
 
-Turner                 Expires September 11, 2016               [Page 6]
+Turner                 Expires September 12, 2016               [Page 6]

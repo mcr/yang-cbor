@@ -72,7 +72,7 @@ Table of Contents
    3.  Why CoOL? . . . . . . . . . . . . . . . . . . . . . . . . . .   4
    4.  Roadmap . . . . . . . . . . . . . . . . . . . . . . . . . . .   4
    5.  Security Considerations . . . . . . . . . . . . . . . . . . .   5
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   5
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   6
 
 1.  Introduction
 
@@ -214,10 +214,10 @@ Internet-Draft                CoOL Problem                    March 2016
    Both solutions converge around the YANG data representation expressed
    in CBOR, as well as the common comprehension of the problem
    statement.  The managed and unmanaged identifier spaces have their
-   specific underlaying function sets.  A function set is the
-   specification of CoAP method mapping to NETCONF/RESTCONF functions.
+   specific underlaying function sets.  These function set drafts define
+   the well-known REST resources that provide the device management
+   services.
 
-   The following drafts are currently available:
 
 
 
@@ -225,6 +225,8 @@ Turner                 Expires September 12, 2016               [Page 4]
 
 Internet-Draft                CoOL Problem                    March 2016
 
+
+   The following drafts are currently available:
 
              +----------------------------------------+
              |          Problem statement             |
@@ -269,8 +271,6 @@ Internet-Draft                CoOL Problem                    March 2016
    information originating from CoOL managed endpoints.  The
    confidentiality of this information will also be considered.
 
-Author's Address
-
 
 
 
@@ -282,6 +282,8 @@ Turner                 Expires September 12, 2016               [Page 5]
 Internet-Draft                CoOL Problem                    March 2016
 
 
+Author's Address
+
    Randy Turner (editor)
    Landis+Gyr
    30000 Mill Creek Ave
@@ -290,8 +292,6 @@ Internet-Draft                CoOL Problem                    March 2016
 
    Phone: 678-258-1292
    Email: randy.turner@landisgyr.com
-
-
 
 
 

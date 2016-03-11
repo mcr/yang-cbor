@@ -367,7 +367,8 @@ Internet-Draft        Constrained Objects Language            March 2016
    Example:
 
    In this example, the CoOL server returns a datastore containing the
-   following data nodes:
+   following data nodes defined in the YANG module "ietf-system"
+   [RFC7317] and YANG module "ietf-interfaces" [RFC7223]:
 
    o  "/interfaces/interface" (SID 1529)
 
@@ -384,7 +385,6 @@ Internet-Draft        Constrained Objects Language            March 2016
    o  "/system-state/clock/boot-datetime" (SID 1709)
 
    o  "/system-state/clock/current-datetime" (SID 1710)
-
 
 
 
@@ -471,7 +471,7 @@ Internet-Draft        Constrained Objects Language            March 2016
    state/clock/current-datetime" (SID 1704) and the container "/system/
    clock" (SID 1719) containing the leaf "/system/clock/timezone/
    timezone-utc-offset/timezone-utc-offset" (SID 1721).  These data
-   nodes are defined in the YANG module "ietf-system".
+   nodes are defined in the YANG module "ietf-system" [RFC7317].
 
    CoAP request:
 
@@ -688,8 +688,8 @@ Internet-Draft        Constrained Objects Language            March 2016
    "/interfaces/interface" list (SID 1528) the leafs
    "/interfaces/interface/type" (SID 1533) and "/interfaces/interface/
    enabled" (SID 1530).  The CoOL client also includes in this request
-   the selection of the leaf "/system/hostname" defined in "ietf-
-   system".
+   the selection of the leaf "/system/hostname" defined in "ietf-system"
+   [RFC7317].
 
    For example:
 
@@ -1417,7 +1417,7 @@ Internet-Draft        Constrained Objects Language            March 2016
    protocol operations and notifications) need to be granted to
    different CoOL clients.  Different solutions are possible, such as
    the implementation of Access Control Lists (ACL) using YANG module(s)
-   or the use of an authorization certificate as defined in [RFC7252].
+   or the use of an authorization certificate as defined in [RFC5755].
    These access control mechanisms need to be addressed in complementary
    specifications.
 
@@ -1570,26 +1570,14 @@ Veillette, et al.      Expires September 12, 2016              [Page 28]
 Internet-Draft        Constrained Objects Language            March 2016
 
 
-   [RFC6021]  Schoenwaelder, J., Ed., "Common YANG Data Types",
-              RFC 6021, DOI 10.17487/RFC6021, October 2010,
-              <http://www.rfc-editor.org/info/rfc6021>.
-
    [RFC7223]  Bjorklund, M., "A YANG Data Model for Interface
               Management", RFC 7223, DOI 10.17487/RFC7223, May 2014,
               <http://www.rfc-editor.org/info/rfc7223>.
-
-   [RFC7224]  Bjorklund, M., "IANA Interface Type YANG Module",
-              RFC 7224, DOI 10.17487/RFC7224, May 2014,
-              <http://www.rfc-editor.org/info/rfc7224>.
 
    [RFC7228]  Bormann, C., Ersue, M., and A. Keranen, "Terminology for
               Constrained-Node Networks", RFC 7228,
               DOI 10.17487/RFC7228, May 2014,
               <http://www.rfc-editor.org/info/rfc7228>.
-
-   [RFC7277]  Bjorklund, M., "A YANG Data Model for IP Management",
-              RFC 7277, DOI 10.17487/RFC7277, June 2014,
-              <http://www.rfc-editor.org/info/rfc7277>.
 
 Appendix A.  File "ietf-cool.yang"
 
@@ -1619,13 +1607,6 @@ Appendix A.  File "ietf-cool.yang"
        Randy Turner
        <mailto:Randy.Turner@landisgyr.com>";
 
-
-
-Veillette, et al.      Expires September 12, 2016              [Page 29]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
     description
       "This module contains the different definitions required
        by the CoOL protocol.";
@@ -1636,6 +1617,14 @@ Internet-Draft        Constrained Objects Language            March 2016
       reference
         "draft-veillette-core-cool";
     }
+
+
+
+
+Veillette, et al.      Expires September 12, 2016              [Page 29]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
     // List of useful derived YANG data types for constrained devices
 
@@ -1674,14 +1663,6 @@ Internet-Draft        Constrained Objects Language            March 2016
             description "Unspecified error.";
           }
 
-
-
-
-Veillette, et al.      Expires September 12, 2016              [Page 30]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
           enum malformed {
             value 2;
             description "Malformed CBOR payload.";
@@ -1692,6 +1673,14 @@ Internet-Draft        Constrained Objects Language            March 2016
             description "The value specified in the request can't be
                         apply to the target data node.";
           }
+
+
+
+
+Veillette, et al.      Expires September 12, 2016              [Page 30]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
           enum doesNotExist {
             value 4;
@@ -1730,14 +1719,6 @@ Internet-Draft        Constrained Objects Language            March 2016
     }
 
     identity os {
-
-
-
-Veillette, et al.      Expires September 12, 2016              [Page 31]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
       base facility-type;
     }
 
@@ -1748,6 +1729,14 @@ Internet-Draft        Constrained Objects Language            March 2016
     identity security {
       base facility-type;
     }
+
+
+
+
+Veillette, et al.      Expires September 12, 2016              [Page 31]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
     identity hardware-monitoring {
       base facility-type;
@@ -1786,14 +1775,6 @@ Internet-Draft        Constrained Objects Language            March 2016
       leaf severity-level {
         reference "RFC 5424";
         mandatory false;
-
-
-
-Veillette, et al.      Expires September 12, 2016              [Page 32]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
         type enumeration {
           enum emergency {
             value 0;
@@ -1805,6 +1786,14 @@ Internet-Draft        Constrained Objects Language            March 2016
             description
               "Should be corrected immediately.";
           }
+
+
+
+Veillette, et al.      Expires September 12, 2016              [Page 32]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
           enum critical {
             value 2;
             description
@@ -1842,14 +1831,6 @@ Internet-Draft        Constrained Objects Language            March 2016
           "Severity associated with this event.";
       }
 
-
-
-
-Veillette, et al.      Expires September 12, 2016              [Page 33]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
       leaf facility {
         mandatory false;
         type identityref {
@@ -1861,6 +1842,14 @@ Internet-Draft        Constrained Objects Language            March 2016
       }
 
       leaf content {
+
+
+
+Veillette, et al.      Expires September 12, 2016              [Page 33]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
         mandatory false;
         type anydata;
         description
@@ -1898,14 +1887,6 @@ Internet-Draft        Constrained Objects Language            March 2016
           description
             "When present, a confirming commit MUST be received within
             this period after the start of the commit process.
-
-
-
-Veillette, et al.      Expires September 12, 2016              [Page 34]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
             A confirming commit is a commit RPC without the
             confirm-timeout field presents. Supports of this feature
             is optional.";
@@ -1917,6 +1898,14 @@ Internet-Draft        Constrained Objects Language            March 2016
 
     rpc cancel-commit {
       description
+
+
+
+Veillette, et al.      Expires September 12, 2016              [Page 34]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
         "Cancels an ongoing scheduled or confirmed commit.";
     }
   }
@@ -1954,14 +1943,6 @@ Appendix B.  File "ietf-cool@2016-01-01.sid"
          "assigned": "2016-03-08T21:59:45Z",
          "label": "ietf-cool:hardware-monitoring",
          "sid": 1002
-
-
-
-Veillette, et al.      Expires September 12, 2016              [Page 35]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
        },
        {
          "type": "identity",
@@ -1973,6 +1954,14 @@ Internet-Draft        Constrained Objects Language            March 2016
          "type": "identity",
          "assigned": "2016-03-08T21:59:45Z",
          "label": "ietf-cool:protocol-stack",
+
+
+
+Veillette, et al.      Expires September 12, 2016              [Page 35]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
          "sid": 1004
        },
        {
@@ -2010,14 +1999,6 @@ Internet-Draft        Constrained Objects Language            March 2016
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/notification-payload/_id",
          "sid": 1010
-
-
-
-Veillette, et al.      Expires September 12, 2016              [Page 36]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
        },
        {
          "type": "node",
@@ -2029,6 +2010,14 @@ Internet-Draft        Constrained Objects Language            March 2016
          "type": "node",
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/notification-payload/facility",
+
+
+
+Veillette, et al.      Expires September 12, 2016              [Page 36]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
          "sid": 1012
        },
        {
@@ -2066,14 +2055,6 @@ Internet-Draft        Constrained Objects Language            March 2016
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/commit/input/commit-date-time",
          "sid": 1018
-
-
-
-Veillette, et al.      Expires September 12, 2016              [Page 37]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
        },
        {
          "type": "rpc",
@@ -2085,6 +2066,14 @@ Internet-Draft        Constrained Objects Language            March 2016
          "type": "rpc",
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/commit/input/datastore",
+
+
+
+Veillette, et al.      Expires September 12, 2016              [Page 37]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
          "sid": 1020
        }
      ]
@@ -2121,15 +2110,6 @@ Authors' Addresses
    Email: abhinav.somaraju@tridonic.com
 
 
-
-
-
-
-Veillette, et al.      Expires September 12, 2016              [Page 38]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
    Randy Turner
    Landis+Gyr
    30000 Mill Creek Ave
@@ -2142,6 +2122,14 @@ Internet-Draft        Constrained Objects Language            March 2016
    URI:   http://www.landisgyr.com/
 
 
+
+
+
+Veillette, et al.      Expires September 12, 2016              [Page 38]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
    Ana Minaburo
    Acklio
    2bis rue de la chataigneraie
@@ -2149,6 +2137,18 @@ Internet-Draft        Constrained Objects Language            March 2016
    France
 
    Email: ana@ackl.io
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

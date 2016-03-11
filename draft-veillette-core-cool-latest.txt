@@ -16,7 +16,7 @@ Expires: September 12, 2016                                       Acklio
 
 
                       Constrained Objects Language
-                    draft-veillette-core-cool-latest
+                      draft-veillette-core-cool-01
 
 Abstract
 

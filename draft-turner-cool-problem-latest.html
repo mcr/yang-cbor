@@ -279,8 +279,8 @@ li, p {
   <meta name="generator" content="xml2rfc version 2.5.1 - http://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
-  <meta name="dct.creator" content="Turner, R., Ed." />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-turner-cool-problem-00" />
+  <meta name="dct.creator" content="Turner, R., Ed., Veillette, M., Pelov, A., Somaraju, A., and A. Minaburo" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-turner-core-cool-problem-statement-00" />
   <meta name="dct.issued" scheme="ISO8601" content="2016-3-11" />
   <meta name="dct.abstract" content="A significant part of the next tens of billion of devices that will be connected to the Internet will be constrained devices, connecting over constrained networks. Managing these devices and the networks they form in a consistent, scalable, extensible, secure, energy-efficient manner with low computational and protocol complexity cannot be done in an ad-hoc manner. This document outlines the problem at hand and provides a roadmap of the possible solutions develped at the IETF. The description includes the basic constrained management problem, as well as properties of the solution. Details as to the Constrained Objecs Language (CoOL) protocol itself can be found in companion documents." />
   <meta name="description" content="A significant part of the next tens of billion of devices that will be connected to the Internet will be constrained devices, connecting over constrained networks. Managing these devices and the networks they form in a consistent, scalable, extensible, secure, energy-efficient manner with low computational and protocol complexity cannot be done in an ad-hoc manner. This document outlines the problem at hand and provides a roadmap of the possible solutions develped at the IETF. The description includes the basic constrained management problem, as well as properties of the solution. Details as to the Constrained Objecs Language (CoOL) protocol itself can be found in companion documents." />
@@ -302,11 +302,39 @@ li, p {
 </tr>
 <tr>
   <td class="left">Intended status: Best Current Practice</td>
-  <td class="right">March 11, 2016</td>
+  <td class="right">M. Veillette</td>
 </tr>
 <tr>
   <td class="left">Expires: September 12, 2016</td>
-  <td class="right"></td>
+  <td class="right">Trilliant Networks Inc.</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">A. Pelov</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">Acklio</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">A. Somaraju</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">Tridonic GmbH &amp; Co KG</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">A. Minaburo</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">Acklio</td>
+</tr>
+<tr>
+  <td class="left"></td>
+  <td class="right">March 11, 2016</td>
 </tr>
 
     	
@@ -314,7 +342,7 @@ li, p {
   </table>
 
   <p class="title">CoOL Problem Statement<br />
-  <span class="filename">draft-turner-cool-problem-00</span></p>
+  <span class="filename">draft-turner-core-cool-problem-statement-00</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -343,7 +371,7 @@ li, p {
 <li>3.   <a href="#rfc.section.3">Why CoOL?</a></li>
 <li>4.   <a href="#rfc.section.4">Roadmap</a></li>
 <li>5.   <a href="#rfc.section.5">Security Considerations</a></li>
-<li><a href="#rfc.authors">Author's Address</a></li>
+<li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
   </ul>
@@ -403,7 +431,7 @@ li, p {
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
 <p id="rfc.section.5.p.1">The security considerations applicable to network management of enterprise networks is similar to, but different than that of constrained networks given the potential risk involved.  The risk involved to enterprise networks could be local to an organization (assets, reputation). However, in the case of constrained networks, it is reasonable to assume significant risk due to the types of application domains constrained devices would be applied to (sensors controlling everything from home automation to medical devices).  With this risk should come a more strict understanding of the attack vectors and vulnerabilities of any and all protocols in use in constrained networks, especially those protocols tasked with the management of a device. The CoOL working group will attempt to reuse applicable ideas and technology originating from other IETF working groups to address the problem of security. The initial focus of security will involve the integrity and trustworthiness of information originating from CoOL managed endpoints. The confidentiality of this information will also be considered.</p>
 <h1 id="rfc.authors">
-  <a href="#rfc.authors">Author's Address</a>
+  <a href="#rfc.authors">Authors' Addresses</a>
 </h1>
 <div class="avoidbreak">
   <address class="vcard">
@@ -427,6 +455,98 @@ li, p {
 	<span class="vcardline">Phone: 678-258-1292</span>
 
 <span class="vcardline">EMail: <a href="mailto:randy.turner@landisgyr.com">randy.turner@landisgyr.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Michel Veillette</span> 
+	  <span class="n hidden">
+		<span class="family-name">Veillette</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Trilliant Networks Inc.</span>
+	<span class="adr">
+	  <span class="vcardline">610 Rue du Luxembourg</span>
+
+	  <span class="vcardline">
+		<span class="locality">Granby</span>,  
+		<span class="region">Quebec</span> 
+		<span class="code">J2J 2V2</span>
+	  </span>
+	  <span class="country-name vcardline">Canada</span>
+	</span>
+	<span class="vcardline">Phone: +14503750556</span>
+
+<span class="vcardline">EMail: <a href="mailto:michel.veillette@trilliantinc.com">michel.veillette@trilliantinc.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Alexander Pelov</span> 
+	  <span class="n hidden">
+		<span class="family-name">Pelov</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Acklio</span>
+	<span class="adr">
+	  <span class="vcardline">2bis rue de la Chataigneraie</span>
+
+	  <span class="vcardline">
+		<span class="locality">Cesson-Sevigne</span>,  
+		<span class="region">Bretagne</span> 
+		<span class="code">35510</span>
+	  </span>
+	  <span class="country-name vcardline">France</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:a@ackl.io">a@ackl.io</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Abhinav Somaraju</span> 
+	  <span class="n hidden">
+		<span class="family-name">Somaraju</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Tridonic GmbH & Co KG</span>
+	<span class="adr">
+	  <span class="vcardline">Farbergasse 15</span>
+
+	  <span class="vcardline">
+		<span class="locality">Dornbirn</span>,  
+		<span class="region">Vorarlberg</span> 
+		<span class="code">6850</span>
+	  </span>
+	  <span class="country-name vcardline">Austria</span>
+	</span>
+	<span class="vcardline">Phone: +43664808926169</span>
+
+<span class="vcardline">EMail: <a href="mailto:abhinav.somaraju@tridonic.com">abhinav.somaraju@tridonic.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Ana Minaburo</span> 
+	  <span class="n hidden">
+		<span class="family-name">Minaburo</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Acklio</span>
+	<span class="adr">
+	  <span class="vcardline">2bis rue de la ch&#226;taigneraie</span>
+
+	  <span class="vcardline">
+		<span class="locality">Cesson-S&#233;vign&#233;</span>,  
+		<span class="region">Bretagne</span> 
+		<span class="code">35510</span>
+	  </span>
+	  <span class="country-name vcardline">France</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:ana@ackl.io">ana@ackl.io</a></span>
 
   </address>
 </div>

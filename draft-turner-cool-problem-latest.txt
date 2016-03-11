@@ -4,12 +4,19 @@
 
 CoRE                                                      R. Turner, Ed.
 Internet-Draft                                                Landis+Gyr
-Intended status: Best Current Practice                    March 11, 2016
-Expires: September 12, 2016
+Intended status: Best Current Practice                      M. Veillette
+Expires: September 12, 2016                      Trilliant Networks Inc.
+                                                                A. Pelov
+                                                                  Acklio
+                                                             A. Somaraju
+                                                   Tridonic GmbH & Co KG
+                                                             A. Minaburo
+                                                                  Acklio
+                                                          March 11, 2016
 
 
                          CoOL Problem Statement
-                      draft-turner-cool-problem-00
+              draft-turner-core-cool-problem-statement-00
 
 Abstract
 
@@ -42,6 +49,15 @@ Status of This Memo
 
    This Internet-Draft will expire on September 12, 2016.
 
+
+
+
+
+Turner, et al.         Expires September 12, 2016               [Page 1]
+
+Internet-Draft                CoOL Problem                    March 2016
+
+
 Copyright Notice
 
    Copyright (c) 2016 IETF Trust and the persons identified as the
@@ -50,14 +66,6 @@ Copyright Notice
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents
    (http://trustee.ietf.org/license-info) in effect on the date of
-
-
-
-Turner                 Expires September 12, 2016               [Page 1]
-
-Internet-Draft                CoOL Problem                    March 2016
-
-
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
@@ -72,7 +80,7 @@ Table of Contents
    3.  Why CoOL? . . . . . . . . . . . . . . . . . . . . . . . . . .   4
    4.  Roadmap . . . . . . . . . . . . . . . . . . . . . . . . . . .   4
    5.  Security Considerations . . . . . . . . . . . . . . . . . . .   5
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   6
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   6
 
 1.  Introduction
 
@@ -98,6 +106,14 @@ Table of Contents
    limited CPU resources.  Therefore, the amount of code necessary to
    achieve network management functionality will need to be as small as
    possible, as well as the amount of RAM necessary to achieve the
+
+
+
+Turner, et al.         Expires September 12, 2016               [Page 2]
+
+Internet-Draft                CoOL Problem                    March 2016
+
+
    functionality will be limited.  Likewise, minimal network bandwidth
    should be required to support a solution.
 
@@ -105,14 +121,6 @@ Table of Contents
    characteristics:
 
    o  Simple and efficient
-
-
-
-
-Turner                 Expires September 12, 2016               [Page 2]
-
-Internet-Draft                CoOL Problem                    March 2016
-
 
       *  Low memory footprint (RAM)
 
@@ -154,6 +162,14 @@ Internet-Draft                CoOL Problem                    March 2016
    however, the idea of constrained networks and devices was not a
    factor in the design of NETCONF/YANG.  Any solution that attempts to
    use YANG in a constrained environment should consider constrained
+
+
+
+Turner, et al.         Expires September 12, 2016               [Page 3]
+
+Internet-Draft                CoOL Problem                    March 2016
+
+
    device and networking properties to the application of YANG in these
    scenarios.
 
@@ -162,13 +178,6 @@ Internet-Draft                CoOL Problem                    March 2016
    since some level of semantic interoperability might be expected by
    management systems that mix constrained and non-constrained
    management domains.
-
-
-
-Turner                 Expires September 12, 2016               [Page 3]
-
-Internet-Draft                CoOL Problem                    March 2016
-
 
    One design element that could reduce the amount of traffic "on the
    wire" is requiring less metadata in management transactions.  Instead
@@ -208,6 +217,15 @@ Internet-Draft                CoOL Problem                    March 2016
    identifiers (YANG hashes), which require zero compile-time efforts in
    exchange for decreased runtime efficiency.  The second approach is
    based on managed identifiers (SID), which takes the opposite
+
+
+
+
+Turner, et al.         Expires September 12, 2016               [Page 4]
+
+Internet-Draft                CoOL Problem                    March 2016
+
+
    direction, requiring more upfront preparation, aiming at maximal
    efficiency, deterministic behavior and improved scalability.
 
@@ -217,14 +235,6 @@ Internet-Draft                CoOL Problem                    March 2016
    specific underlaying function sets.  These function set drafts define
    the well-known REST resources that provide the device management
    services.
-
-
-
-
-Turner                 Expires September 12, 2016               [Page 4]
-
-Internet-Draft                CoOL Problem                    March 2016
-
 
    The following drafts are currently available:
 
@@ -264,6 +274,14 @@ Internet-Draft                CoOL Problem                    March 2016
    With this risk should come a more strict understanding of the attack
    vectors and vulnerabilities of any and all protocols in use in
    constrained networks, especially those protocols tasked with the
+
+
+
+Turner, et al.         Expires September 12, 2016               [Page 5]
+
+Internet-Draft                CoOL Problem                    March 2016
+
+
    management of a device.  The CoOL working group will attempt to reuse
    applicable ideas and technology originating from other IETF working
    groups to address the problem of security.  The initial focus of
@@ -271,18 +289,7 @@ Internet-Draft                CoOL Problem                    March 2016
    information originating from CoOL managed endpoints.  The
    confidentiality of this information will also be considered.
 
-
-
-
-
-
-
-Turner                 Expires September 12, 2016               [Page 5]
-
-Internet-Draft                CoOL Problem                    March 2016
-
-
-Author's Address
+Authors' Addresses
 
    Randy Turner (editor)
    Landis+Gyr
@@ -294,6 +301,50 @@ Author's Address
    Email: randy.turner@landisgyr.com
 
 
+   Michel Veillette
+   Trilliant Networks Inc.
+   610 Rue du Luxembourg
+   Granby, Quebec  J2J 2V2
+   Canada
+
+   Phone: +14503750556
+   Email: michel.veillette@trilliantinc.com
+
+
+   Alexander Pelov
+   Acklio
+   2bis rue de la Chataigneraie
+   Cesson-Sevigne, Bretagne  35510
+   France
+
+   Email: a@ackl.io
+
+
+   Abhinav Somaraju
+   Tridonic GmbH & Co KG
+   Farbergasse 15
+   Dornbirn, Vorarlberg  6850
+   Austria
+
+   Phone: +43664808926169
+   Email: abhinav.somaraju@tridonic.com
+
+
+
+
+
+Turner, et al.         Expires September 12, 2016               [Page 6]
+
+Internet-Draft                CoOL Problem                    March 2016
+
+
+   Ana Minaburo
+   Acklio
+   2bis rue de la chataigneraie
+   Cesson-Sevigne, Bretagne  35510
+   France
+
+   Email: ana@ackl.io
 
 
 
@@ -333,4 +384,9 @@ Author's Address
 
 
 
-Turner                 Expires September 12, 2016               [Page 6]
+
+
+
+
+
+Turner, et al.         Expires September 12, 2016               [Page 7]

@@ -16,7 +16,7 @@ Expires: September 12, 2016                                       Acklio
 
 
                 CBOR Encoding of Data Modeled with YANG
-             draft-veillette-core-yang-cbor-mapping-latest
+               draft-veillette-core-yang-cbor-mapping-00
 
 Abstract
 
@@ -272,7 +272,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    input, RPC output, action input and action output is serialized using
    a CBOR map in which each child schema node is encoded using a key and
    a value.  This specification supports three type of keys; SID as
-   defined in [I.D-somaraju-core-sid], member names as defined in
+   defined in [I-D.somaraju-core-sid], member names as defined in
    [I-D.ietf-netmod-yang-json] and YANG hash as defined by
 
 
@@ -317,7 +317,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
    using a CBOR map data item (major type 5).  A map is comprised of
    pairs of data items, with each data item consisting of a key and a
    value.  This specification supports three type of keys; SID as
-   defined in [I.D-somaraju-core-sid], member names as defined in
+   defined in [I-D.somaraju-core-sid], member names as defined in
    [I-D.ietf-netmod-yang-json] and YANG hash as defined by
    [I-D.vanderstok-core-comi].
 
@@ -396,7 +396,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
    *SIDs example*
 
-   This example is encoded using the SIDs defined in [I.D-somaraju-core-
+   This example is encoded using the SIDs defined in [I-D.somaraju-core-
    sid] Appendix C.
 
    CBOR diagnostic notation:
@@ -601,7 +601,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 
    *SIDs example*
 
-   SIDs used in this example are defined in [I.D-somaraju-core-sid]
+   SIDs used in this example are defined in [I-D.somaraju-core-sid]
    Appendix C.  It is important to note that the protocol or method
    using this mapping may carry a parent SID or may have the knowledge
    of this parent SID based on its context.  In these cases, delta
@@ -1147,7 +1147,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 5.10.  The "identityref" Type
 
    This specification supports two approaches for encoding identityref,
-   a SID as defined in [I.D-somaraju-core-sid] or a name as defined in
+   a SID as defined in [I-D.somaraju-core-sid] or a name as defined in
    [I-D.ietf-netmod-yang-json] section 6.8.
 
    *SIDs as identityref*
@@ -1278,7 +1278,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 5.13.  The "instance-identifier" Type
 
    This specification supports three approaches for encoding an
-   instance-identifier, one based on SIDs as defined in [I.D-somaraju-
+   instance-identifier, one based on SIDs as defined in [I-D.somaraju-
    core-sid], one based on names as defined in
    [I-D.ietf-netmod-yang-json] section 6.13 and one based on YANG hashes
    as defined in [I-D.vanderstok-core-comi].

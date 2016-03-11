@@ -289,8 +289,8 @@ li, p {
   <meta name="dct.creator" content="Somaraju, A., Ed., Veillette, M., Ed., Pelov, A., Turner, R., and A. Minaburo" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-somaraju-core-sid-latest" />
   <meta name="dct.issued" scheme="ISO8601" content="2016-3-11" />
-  <meta name="dct.abstract" content="Structured IDentifiers (SID) are used to identify different YANG items when encoded is CBOR. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs." />
-  <meta name="description" content="Structured IDentifiers (SID) are used to identify different YANG items when encoded is CBOR. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs." />
+  <meta name="dct.abstract" content="Structured IDentifiers (SID) are used to identify different YANG items when encoded in CBOR. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs." />
+  <meta name="description" content="Structured IDentifiers (SID) are used to identify different YANG items when encoded in CBOR. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs." />
 
 </head>
 
@@ -354,7 +354,7 @@ li, p {
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>Structured IDentifiers (SID) are used to identify different YANG items when encoded is CBOR. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs.</p>
+<p>Structured IDentifiers (SID) are used to identify different YANG items when encoded in CBOR. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
@@ -490,7 +490,7 @@ li, p {
               +---------------------+---------------------+
 </pre>
 <p id="rfc.section.4.p.2">YANG modules are not necessary created in the context of constrained applications. YANG modules can be implemented using NETCONF or RESTCONF without the need to assign SIDs.</p>
-<p id="rfc.section.4.p.3">As needed, authors of YANG modules can assign SIDs to their modules. This process starts by the registration of a SID range. Once a SID range is registered, the owner of this range assign sub-ranges to each YANG module in order to generate the associated &#8220;.sid&#8221; files. Generation of &#8220;.sid&#8221; files SHOULD be performed using an automated tool.</p>
+<p id="rfc.section.4.p.3">As needed, authors of YANG modules can assign SIDs to their modules. This process starts by the registration of a SID range. Once a SID range is registered, the owner of this range assigns sub-ranges to each YANG module in order to generate the associated &#8220;.sid&#8221; files. Generation of &#8220;.sid&#8221; files SHOULD be performed using an automated tool.</p>
 <p id="rfc.section.4.p.4">Registration of the .sid file associated to a YANG module is optional but recommended to promote interoperability between devices and to avoid duplicate allocation of SIDs to a single YANG module.</p>
 <p id="rfc.section.4.p.5">Each time a YANG module or one of its imported module(s) or included sub-module(s) is updated, the &#8220;.sid&#8221; file MAY need to be updated. This update SHOULD also be performed using an automated tool.</p>
 <p id="rfc.section.4.p.6">If a new revision requires more SIDs than initially allocated, a new SID range MUST be added to the assignment ranges as defined in the &#8220;.sid&#8221; file header. These extra SIDs are used for subsequent assignments.</p>
@@ -706,7 +706,7 @@ module sid-file {
   </tbody>
 </table>
 <h1 id="rfc.section.7.2"><a href="#rfc.section.7.2">7.2.</a> <a href="#module-registry" id="module-registry">YANG module registry</a></h1>
-<p id="rfc.section.7.2.p.1">Each registered SID range can be used to assign SIDs to one or more YANG modules. To track which YANG module have been assigned and to avoid duplicate allocation, IANA is requested to provide a method to register and query the following information:</p>
+<p id="rfc.section.7.2.p.1">Each registered SID range can be used to assign SIDs to one or more YANG modules. To track which YANG modules have been assigned and to avoid duplicate allocation, IANA is requested to provide a method to register and query the following information:</p>
 <p/>
 
 <ul>
@@ -768,7 +768,7 @@ module sid-file {
   </tbody>
 </table>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments</a></h1>
-<p id="rfc.section.8.p.1">The authors would like to thank Carsten Bormann for its help during the development of this document and its useful comments during the review process.</p>
+<p id="rfc.section.8.p.1">The authors would like to thank Carsten Bormann for his help during the development of this document and his useful comments during the review process.</p>
 <h1 id="rfc.references"><a href="#rfc.references">9.</a> Normative References</h1>
 <table>
   <tbody>

@@ -21,7 +21,7 @@ Expires: September 12, 2016                      Trilliant Networks Inc.
 Abstract
 
    Structured IDentifiers (SID) are used to identify different YANG
-   items when encoded is CBOR.  This document defines the registration
+   items when encoded in CBOR.  This document defines the registration
    and assignment processes of SIDs.  To enable the implementation of
    these processes, this document also defines a file format used to
    persist and publish assigned SIDs.
@@ -288,7 +288,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
    As needed, authors of YANG modules can assign SIDs to their modules.
    This process starts by the registration of a SID range.  Once a SID
-   range is registered, the owner of this range assign sub-ranges to
+   range is registered, the owner of this range assigns sub-ranges to
    each YANG module in order to generate the associated ".sid" files.
    Generation of ".sid" files SHOULD be performed using an automated
    tool.
@@ -581,7 +581,7 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 7.2.  YANG module registry
 
    Each registered SID range can be used to assign SIDs to one or more
-   YANG modules.  To track which YANG module have been assigned and to
+   YANG modules.  To track which YANG modules have been assigned and to
    avoid duplicate allocation, IANA is requested to provide a method to
    register and query the following information:
 
@@ -634,8 +634,8 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 8.  Acknowledgments
 
-   The authors would like to thank Carsten Bormann for its help during
-   the development of this document and its useful comments during the
+   The authors would like to thank Carsten Bormann for his help during
+   the development of this document and his useful comments during the
    review process.
 
 9.  Normative References

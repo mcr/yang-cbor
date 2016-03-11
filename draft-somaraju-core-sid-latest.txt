@@ -78,9 +78,11 @@ Table of Contents
      7.1.  "SID" range registry  . . . . . . . . . . . . . . . . . .  10
      7.2.  YANG module registry  . . . . . . . . . . . . . . . . . .  11
    8.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  12
-   9.  Normative References  . . . . . . . . . . . . . . . . . . . .  12
-   Appendix A.  ".sid" file example  . . . . . . . . . . . . . . . .  12
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  21
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  12
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  12
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  12
+   Appendix A.  ".sid" file example  . . . . . . . . . . . . . . . .  13
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  22
 
 1.  Introduction
 
@@ -105,14 +107,14 @@ Table of Contents
 
    o  schema node
 
-   o  schema tree
-
 
 
 Somaraju, et al.       Expires September 12, 2016               [Page 2]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
+
+   o  schema tree
 
    o  submodule
 
@@ -160,8 +162,6 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
    o  data nodes
 
-   o  RPCs and associated input(s) and output(s)
-
 
 
 
@@ -169,6 +169,8 @@ Somaraju, et al.       Expires September 12, 2016               [Page 3]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
+
+   o  RPCs and associated input(s) and output(s)
 
    o  actions and associated input(s) and output(s)
 
@@ -199,8 +201,6 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
    The following activity diagram summarize the life cycle of ".sid"
    files.
-
-
 
 
 
@@ -625,11 +625,11 @@ Internet-Draft         Structure Identifier (SID)             March 2016
    +------+-----+----------------+------------+------------------------+
    | 1000 | 100 | ietf-cool      | 2016-01-01 | I.D-veillette-core-    |
    |      |     |                |            | cool                   |
-   | 1100 | 400 | iana-if-type   | 2014-05-08 | RFC 7224               |
-   | 1500 | 100 | ietf-          | 2014-05-08 | RFC 7223               |
+   | 1100 | 400 | iana-if-type   | 2014-05-08 | [RFC7224]              |
+   | 1500 | 100 | ietf-          | 2014-05-08 | [RFC7223]              |
    |      |     | interfaces     |            |                        |
-   | 1600 | 100 | ietf-ip        | 2014-06-16 | RFC 7277               |
-   | 1700 | 100 | ietf-system    | 2014-08-06 | RFC 7317               |
+   | 1600 | 100 | ietf-ip        | 2014-06-16 | [RFC7277]              |
+   | 1700 | 100 | ietf-system    | 2014-08-06 | [RFC7317]              |
    +------+-----+----------------+------------+------------------------+
 
 8.  Acknowledgments
@@ -638,7 +638,9 @@ Internet-Draft         Structure Identifier (SID)             March 2016
    the development of this document and his useful comments during the
    review process.
 
-9.  Normative References
+9.  References
+
+9.1.  Normative References
 
    [I-D.ietf-netmod-rfc6020bis]
               Bjorklund, M., "The YANG 1.1 Data Modeling Language",
@@ -659,13 +661,11 @@ Internet-Draft         Structure Identifier (SID)             March 2016
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
               October 2013, <http://www.rfc-editor.org/info/rfc7049>.
 
-Appendix A.  ".sid" file example
+9.2.  Informative References
 
-   The following .sid file (ietf-system@2014-08-06.sid) have been
-   generated using the following yang modules:
-
-   o  ietf-system@2014-08-06.yang
-
+   [RFC7223]  Bjorklund, M., "A YANG Data Model for Interface
+              Management", RFC 7223, DOI 10.17487/RFC7223, May 2014,
+              <http://www.rfc-editor.org/info/rfc7223>.
 
 
 
@@ -673,6 +673,25 @@ Somaraju, et al.       Expires September 12, 2016              [Page 12]
 
 Internet-Draft         Structure Identifier (SID)             March 2016
 
+
+   [RFC7224]  Bjorklund, M., "IANA Interface Type YANG Module",
+              RFC 7224, DOI 10.17487/RFC7224, May 2014,
+              <http://www.rfc-editor.org/info/rfc7224>.
+
+   [RFC7277]  Bjorklund, M., "A YANG Data Model for IP Management",
+              RFC 7277, DOI 10.17487/RFC7277, June 2014,
+              <http://www.rfc-editor.org/info/rfc7277>.
+
+   [RFC7317]  Bierman, A. and M. Bjorklund, "A YANG Data Model for
+              System Management", RFC 7317, DOI 10.17487/RFC7317, August
+              2014, <http://www.rfc-editor.org/info/rfc7317>.
+
+Appendix A.  ".sid" file example
+
+   The following .sid file (ietf-system@2014-08-06.sid) have been
+   generated using the following yang modules:
+
+   o  ietf-system@2014-08-06.yang
 
    o  ietf-yang-types@2013-07-15.yang
 
@@ -703,6 +722,14 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "assigned": "2016-01-13T21:00:19Z",
        "label": "ietf-system:local-users",
        "sid": 1701
+
+
+
+Somaraju, et al.       Expires September 12, 2016              [Page 13]
+
+Internet-Draft         Structure Identifier (SID)             March 2016
+
+
      },
      {
        "type": "identity",
@@ -722,14 +749,6 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "label": "ietf-system:radius-chap",
        "sid": 1704
      },
-
-
-
-Somaraju, et al.       Expires September 12, 2016              [Page 13]
-
-Internet-Draft         Structure Identifier (SID)             March 2016
-
-
      {
        "type": "identity",
        "assigned": "2016-01-13T21:00:19Z",
@@ -759,6 +778,14 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system-state/clock/boot-datetime",
        "sid": 1709
+
+
+
+Somaraju, et al.       Expires September 12, 2016              [Page 14]
+
+Internet-Draft         Structure Identifier (SID)             March 2016
+
+
      },
      {
        "type": "node",
@@ -778,14 +805,6 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "label": "/system-state/platform/machine",
        "sid": 1712
      },
-
-
-
-Somaraju, et al.       Expires September 12, 2016              [Page 14]
-
-Internet-Draft         Structure Identifier (SID)             March 2016
-
-
      {
        "type": "node",
        "assigned": "2016-01-13T21:00:19Z",
@@ -815,6 +834,14 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/authentication/user",
        "sid": 1717
+
+
+
+Somaraju, et al.       Expires September 12, 2016              [Page 15]
+
+Internet-Draft         Structure Identifier (SID)             March 2016
+
+
      },
      {
        "type": "node",
@@ -834,14 +861,6 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "label": "/system/authentication/user/authorized-key/algorithm",
        "sid": 1720
      },
-
-
-
-Somaraju, et al.       Expires September 12, 2016              [Page 15]
-
-Internet-Draft         Structure Identifier (SID)             March 2016
-
-
      {
        "type": "node",
        "assigned": "2016-01-13T21:00:19Z",
@@ -871,6 +890,14 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/clock",
        "sid": 1725
+
+
+
+Somaraju, et al.       Expires September 12, 2016              [Page 16]
+
+Internet-Draft         Structure Identifier (SID)             March 2016
+
+
      },
      {
        "type": "node",
@@ -890,14 +917,6 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/contact",
        "sid": 1728
-
-
-
-Somaraju, et al.       Expires September 12, 2016              [Page 16]
-
-Internet-Draft         Structure Identifier (SID)             March 2016
-
-
      },
      {
        "type": "node",
@@ -927,6 +946,14 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "type": "node",
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/dns-resolver/search",
+
+
+
+Somaraju, et al.       Expires September 12, 2016              [Page 17]
+
+Internet-Draft         Structure Identifier (SID)             March 2016
+
+
        "sid": 1733
      },
      {
@@ -946,14 +973,6 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/dns-resolver/server/transport/udp-and-tcp/
        udp-and-tcp",
-
-
-
-Somaraju, et al.       Expires September 12, 2016              [Page 17]
-
-Internet-Draft         Structure Identifier (SID)             March 2016
-
-
        "sid": 1736
      },
      {
@@ -983,6 +1002,14 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "sid": 1740
      },
      {
+
+
+
+Somaraju, et al.       Expires September 12, 2016              [Page 18]
+
+Internet-Draft         Structure Identifier (SID)             March 2016
+
+
        "type": "node",
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/ntp",
@@ -1002,14 +1029,6 @@ Internet-Draft         Structure Identifier (SID)             March 2016
      },
      {
        "type": "node",
-
-
-
-Somaraju, et al.       Expires September 12, 2016              [Page 18]
-
-Internet-Draft         Structure Identifier (SID)             March 2016
-
-
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/ntp/server/association-type",
        "sid": 1744
@@ -1039,6 +1058,14 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "sid": 1748
      },
      {
+
+
+
+Somaraju, et al.       Expires September 12, 2016              [Page 19]
+
+Internet-Draft         Structure Identifier (SID)             March 2016
+
+
        "type": "node",
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/ntp/server/transport/udp/udp/address",
@@ -1058,14 +1085,6 @@ Internet-Draft         Structure Identifier (SID)             March 2016
      },
      {
        "type": "node",
-
-
-
-Somaraju, et al.       Expires September 12, 2016              [Page 19]
-
-Internet-Draft         Structure Identifier (SID)             March 2016
-
-
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/radius/options",
        "sid": 1752
@@ -1095,6 +1114,14 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "sid": 1756
      },
      {
+
+
+
+Somaraju, et al.       Expires September 12, 2016              [Page 20]
+
+Internet-Draft         Structure Identifier (SID)             March 2016
+
+
        "type": "node",
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/radius/server/name",
@@ -1114,14 +1141,6 @@ Internet-Draft         Structure Identifier (SID)             March 2016
      },
      {
        "type": "node",
-
-
-
-Somaraju, et al.       Expires September 12, 2016              [Page 20]
-
-Internet-Draft         Structure Identifier (SID)             March 2016
-
-
        "assigned": "2016-01-13T21:00:19Z",
        "label": "/system/radius/server/transport/udp/udp/
        authentication-port",
@@ -1151,6 +1170,14 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        "label": "/system-restart",
        "sid": 1764
      },
+
+
+
+Somaraju, et al.       Expires September 12, 2016              [Page 21]
+
+Internet-Draft         Structure Identifier (SID)             March 2016
+
+
      {
        "type": "rpc",
        "assigned": "2016-01-13T21:00:19Z",
@@ -1172,12 +1199,6 @@ Authors' Addresses
    Email: abhinav.somaraju@tridonic.com
 
 
-
-Somaraju, et al.       Expires September 12, 2016              [Page 21]
-
-Internet-Draft         Structure Identifier (SID)             March 2016
-
-
    Michel Veillette (editor)
    Trilliant Networks Inc.
    610 Rue du Luxembourg
@@ -1195,6 +1216,22 @@ Internet-Draft         Structure Identifier (SID)             March 2016
    France
 
    Email: a@ackl.io
+
+
+
+
+
+
+
+
+
+
+
+
+
+Somaraju, et al.       Expires September 12, 2016              [Page 22]
+
+Internet-Draft         Structure Identifier (SID)             March 2016
 
 
    Randy Turner
@@ -1229,4 +1266,23 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
 
 
-Somaraju, et al.       Expires September 12, 2016              [Page 22]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Somaraju, et al.       Expires September 12, 2016              [Page 23]

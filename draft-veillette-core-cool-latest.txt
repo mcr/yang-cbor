@@ -30,11 +30,6 @@ Abstract
    between YANG data models and the CBOR data format is defined in [I-
    D.veillette-core-yang-cbor-mapping].
 
-   This document defines encoding rules for serializing configuration
-   data, state data, RPC input and RPC output, Action input, Action
-   output and notifications defined within YANG modules using the
-   Concise Binary Object Representation (CBOR) [RFC7049].
-
 Status of This Memo
 
    This Internet-Draft is submitted in full conformance with the
@@ -50,6 +45,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
+   This Internet-Draft will expire on September 12, 2016.
+
+
+
+
 
 
 
@@ -57,8 +57,6 @@ Veillette, et al.      Expires September 12, 2016               [Page 1]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
-
-   This Internet-Draft will expire on September 12, 2016.
 
 Copyright Notice
 
@@ -106,6 +104,8 @@ Table of Contents
      6.6.  Working with If-Match, If-None-Match and ETag . . . . . .  23
      6.7.  Working with Size1, Size2, Block1 and Block2  . . . . . .  23
      6.8.  Working with resource discovery . . . . . . . . . . . . .  24
+   7.  Error Handling  . . . . . . . . . . . . . . . . . . . . . . .  25
+   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  26
 
 
 
@@ -114,8 +114,6 @@ Veillette, et al.      Expires September 12, 2016               [Page 2]
 Internet-Draft        Constrained Objects Language            March 2016
 
 
-   7.  Error Handling  . . . . . . . . . . . . . . . . . . . . . . .  25
-   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  26
    9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  26
      9.1.  "FETCH" CoAP Method Code  . . . . . . . . . . . . . . . .  26
      9.2.  "PATCH" CoAP Method Code  . . . . . . . . . . . . . . . .  26
@@ -163,14 +161,14 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    o  RPC
 
+   o  schema node
+
 
 
 Veillette, et al.      Expires September 12, 2016               [Page 3]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
-
-   o  schema node
 
    o  schema tree
 
@@ -218,6 +216,8 @@ Internet-Draft        Constrained Objects Language            March 2016
       within a datastore resource or a notification within an event
       stream resource.
 
+   o  parent: The collection in which a schema node is defined.
+
 
 
 
@@ -225,8 +225,6 @@ Veillette, et al.      Expires September 12, 2016               [Page 4]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
-
-   o  parent: The collection in which a schema node is defined.
 
    o  resource: Content identified by a URI.
 
@@ -275,14 +273,14 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    o  /c - The default datastore resource
 
+   o  /c/c - The candidate configuration datastore resource
+
 
 
 Veillette, et al.      Expires September 12, 2016               [Page 5]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
-
-   o  /c/c - The candidate configuration datastore resource
 
    o  /c/r - The running configuration datastore resource
 
@@ -327,6 +325,8 @@ Internet-Draft        Constrained Objects Language            March 2016
    o  Confirmed commit
 
    o  Cancel of a different or confirmed commit.
+
+
 
 
 

@@ -16,7 +16,7 @@ Expires: September 12, 2016                      Trilliant Networks Inc.
 
 
                        Structure Identifier (SID)
-                     draft-somaraju-core-sid-latest
+                       draft-somaraju-core-sid-00
 
 Abstract
 

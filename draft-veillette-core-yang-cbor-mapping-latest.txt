@@ -527,11 +527,11 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2016
 4.4.  The "list" Schema Node
 
    A list MUST be encoded using a CBOR array data item (major type 4).
-   Each entry of this array is encoded using a CBOR map data item (major
-   type 5) based on the same rules as a YANG container, see Section 4.2.
+   Each list instance within this CBOR array is encoded using a CBOR map
+   data item (major type 5) based on the same rules as a YANG container,
+   see Section 4.2.
 
    Definition example [RFC7317]:
-
 
 
 

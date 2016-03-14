@@ -710,7 +710,7 @@ leaf-list search {
 <p id="rfc.section.4.3.p.3">CBOR diagnostic notation: [ &#8220;ietf.org&#8221;, &#8220;ieee.org&#8221; ]</p>
 <p id="rfc.section.4.3.p.4">CBOR encoding: 82  68 696574662e6f7267  68 696565652e6f7267</p>
 <h1 id="rfc.section.4.4"><a href="#rfc.section.4.4">4.4.</a> <a href="#list" id="list">The &#8220;list&#8221; Schema Node</a></h1>
-<p id="rfc.section.4.4.p.1">A list MUST be encoded using a CBOR array data item (major type 4). Each entry of this array is encoded using a CBOR map data item (major type 5) based on the same rules as a YANG container, see <a href="#container">Section 4.2</a>.</p>
+<p id="rfc.section.4.4.p.1">A list MUST be encoded using a CBOR array data item (major type 4). Each list instance within this CBOR array is encoded using a CBOR map data item (major type 5) based on the same rules as a YANG container, see <a href="#container">Section 4.2</a>.</p>
 <p id="rfc.section.4.4.p.2">Definition example <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 list server {

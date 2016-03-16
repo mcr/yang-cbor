@@ -27,8 +27,8 @@ Abstract
    [I-D.ietf-netmod-rfc6020bis].  Interactions with these objects are
    performed using the CoAP web transfer protocol [RFC7252].  Payloads
    are encoded using the CBOR data format [RFC7049].  The mapping
-   between YANG data models and the CBOR data format is defined in [I-
-   D.veillette-core-yang-cbor-mapping].
+   between YANG data models and the CBOR data format is defined in
+   [I-D.veillette-core-yang-cbor-mapping].
 
 Status of This Memo
 
@@ -358,8 +358,8 @@ Internet-Draft        Constrained Objects Language            March 2016
    datastore.  The CBOR array MUST contain a list of pairs of delta and
    associated value.  A delta represents the difference between the
    current SID and the SID of the previous pair within the CBOR array.
-   Each value is encoded using the rules defined by [I-D.veillette-core-
-   yang-cbor-mapping].
+   Each value is encoded using the rules defined by
+   [I-D.veillette-core-yang-cbor-mapping].
 
    If the request is rejected by the CoOL server, a 5.01 Not implemented
    or 4.13 Request Entity Too Large response code is returned.
@@ -429,10 +429,10 @@ Internet-Draft        Constrained Objects Language            March 2016
    CoAP FETCH request to the URI of the targeted datastore.  The payload
    of the FETCH request contains the list of data node(s) instance to be
    retrieved.  This list is encoded using a CBOR array, each entry
-   containing an "instance-identifier" as defined by [I-D.veillette-
-   core-yang-cbor-mapping].  Within each "instance-identifier", data
-   nodes are identified using SIDs as defined by [I-D.somaraju-core-
-   sid].
+   containing an "instance-identifier" as defined by
+   [I-D.veillette-core-yang-cbor-mapping].  Within each "instance-
+   identifier", data nodes are identified using SIDs as defined by
+   [I-D.somaraju-core-sid].
 
    SIDs within the list of "instance-identifier" are encoded using
    delta.  A delta represents the different between the current SID and
@@ -586,8 +586,8 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    To retrieve all instances of a list, the CoOL client excludes from
    the "instance-identifier" the key(s) of the targeted list.  The list
-   returned is encoded using the rules defined in [I-D.veillette-core-
-   yang-cbor-mapping] section 4.4.
+   returned is encoded using the rules defined in
+   [I-D.veillette-core-yang-cbor-mapping] section 4.4.
 
    In this example, a CoOL client retrieves the list "/interfaces/
    interface" (SID 1529).  The response returns contain two instances,
@@ -1551,15 +1551,15 @@ Internet-Draft        Constrained Objects Language            March 2016
               Protocol", draft-ietf-netconf-restconf-09 (work in
               progress), December 2015.
 
+   [I-D.somaraju-core-sid]
+              Somaraju, A., Veillette, M., Pelov, A., Turner, R., and A.
+              Minaburo, "Structure Identifier (SID)", draft-somaraju-
+              core-sid-00 (work in progress), March 2016.
+
    [I-D.vanderstok-core-comi]
               Stok, P. and A. Bierman, "CoAP Management Interface",
               draft-vanderstok-core-comi-09 (work in progress), March
               2016.
-
-   [RFC5755]  Farrell, S., Housley, R., and S. Turner, "An Internet
-              Attribute Certificate Profile for Authorization",
-              RFC 5755, DOI 10.17487/RFC5755, January 2010,
-              <http://www.rfc-editor.org/info/rfc5755>.
 
 
 
@@ -1569,6 +1569,17 @@ Veillette, et al.      Expires September 17, 2016              [Page 28]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
+
+   [I-D.veillette-core-yang-cbor-mapping]
+              Veillette, M., Pelov, A., Somaraju, A., Turner, R., and A.
+              Minaburo, "CBOR Encoding of Data Modeled with YANG",
+              draft-veillette-core-yang-cbor-mapping-00 (work in
+              progress), March 2016.
+
+   [RFC5755]  Farrell, S., Housley, R., and S. Turner, "An Internet
+              Attribute Certificate Profile for Authorization",
+              RFC 5755, DOI 10.17487/RFC5755, January 2010,
+              <http://www.rfc-editor.org/info/rfc5755>.
 
    [RFC7223]  Bjorklund, M., "A YANG Data Model for Interface
               Management", RFC 7223, DOI 10.17487/RFC7223, May 2014,
@@ -1607,6 +1618,14 @@ Appendix A.  File "ietf-cool.yang"
        Randy Turner
        <mailto:Randy.Turner@landisgyr.com>";
 
+
+
+
+Veillette, et al.      Expires September 17, 2016              [Page 29]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
     description
       "This module contains the different definitions required
        by the CoOL protocol.";
@@ -1617,14 +1636,6 @@ Appendix A.  File "ietf-cool.yang"
       reference
         "draft-veillette-core-cool";
     }
-
-
-
-
-Veillette, et al.      Expires September 17, 2016              [Page 29]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
 
     // List of useful derived YANG data types for constrained devices
 
@@ -1663,6 +1674,14 @@ Internet-Draft        Constrained Objects Language            March 2016
             description "Unspecified error.";
           }
 
+
+
+
+Veillette, et al.      Expires September 17, 2016              [Page 30]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
           enum malformed {
             value 2;
             description "Malformed CBOR payload.";
@@ -1673,14 +1692,6 @@ Internet-Draft        Constrained Objects Language            March 2016
             description "The value specified in the request can't be
                         apply to the target data node.";
           }
-
-
-
-
-Veillette, et al.      Expires September 17, 2016              [Page 30]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
 
           enum doesNotExist {
             value 4;
@@ -1719,6 +1730,14 @@ Internet-Draft        Constrained Objects Language            March 2016
     }
 
     identity os {
+
+
+
+Veillette, et al.      Expires September 17, 2016              [Page 31]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
       base facility-type;
     }
 
@@ -1729,14 +1748,6 @@ Internet-Draft        Constrained Objects Language            March 2016
     identity security {
       base facility-type;
     }
-
-
-
-
-Veillette, et al.      Expires September 17, 2016              [Page 31]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
 
     identity hardware-monitoring {
       base facility-type;
@@ -1775,6 +1786,14 @@ Internet-Draft        Constrained Objects Language            March 2016
       leaf severity-level {
         reference "RFC 5424";
         mandatory false;
+
+
+
+Veillette, et al.      Expires September 17, 2016              [Page 32]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
         type enumeration {
           enum emergency {
             value 0;
@@ -1786,14 +1805,6 @@ Internet-Draft        Constrained Objects Language            March 2016
             description
               "Should be corrected immediately.";
           }
-
-
-
-Veillette, et al.      Expires September 17, 2016              [Page 32]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
           enum critical {
             value 2;
             description
@@ -1831,6 +1842,14 @@ Internet-Draft        Constrained Objects Language            March 2016
           "Severity associated with this event.";
       }
 
+
+
+
+Veillette, et al.      Expires September 17, 2016              [Page 33]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
       leaf facility {
         mandatory false;
         type identityref {
@@ -1842,14 +1861,6 @@ Internet-Draft        Constrained Objects Language            March 2016
       }
 
       leaf content {
-
-
-
-Veillette, et al.      Expires September 17, 2016              [Page 33]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
         mandatory false;
         type anydata;
         description
@@ -1887,6 +1898,14 @@ Internet-Draft        Constrained Objects Language            March 2016
           description
             "When present, a confirming commit MUST be received within
             this period after the start of the commit process.
+
+
+
+Veillette, et al.      Expires September 17, 2016              [Page 34]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
             A confirming commit is a commit RPC without the
             confirm-timeout field presents. Supports of this feature
             is optional.";
@@ -1898,14 +1917,6 @@ Internet-Draft        Constrained Objects Language            March 2016
 
     rpc cancel-commit {
       description
-
-
-
-Veillette, et al.      Expires September 17, 2016              [Page 34]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
         "Cancels an ongoing scheduled or confirmed commit.";
     }
   }
@@ -1943,6 +1954,14 @@ Appendix B.  File "ietf-cool@2016-01-01.sid"
          "assigned": "2016-03-08T21:59:45Z",
          "label": "ietf-cool:hardware-monitoring",
          "sid": 1002
+
+
+
+Veillette, et al.      Expires September 17, 2016              [Page 35]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
        },
        {
          "type": "identity",
@@ -1954,14 +1973,6 @@ Appendix B.  File "ietf-cool@2016-01-01.sid"
          "type": "identity",
          "assigned": "2016-03-08T21:59:45Z",
          "label": "ietf-cool:protocol-stack",
-
-
-
-Veillette, et al.      Expires September 17, 2016              [Page 35]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
          "sid": 1004
        },
        {
@@ -1999,6 +2010,14 @@ Internet-Draft        Constrained Objects Language            March 2016
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/notification-payload/_id",
          "sid": 1010
+
+
+
+Veillette, et al.      Expires September 17, 2016              [Page 36]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
        },
        {
          "type": "node",
@@ -2010,14 +2029,6 @@ Internet-Draft        Constrained Objects Language            March 2016
          "type": "node",
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/notification-payload/facility",
-
-
-
-Veillette, et al.      Expires September 17, 2016              [Page 36]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
          "sid": 1012
        },
        {
@@ -2055,6 +2066,14 @@ Internet-Draft        Constrained Objects Language            March 2016
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/commit/input/commit-date-time",
          "sid": 1018
+
+
+
+Veillette, et al.      Expires September 17, 2016              [Page 37]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
        },
        {
          "type": "rpc",
@@ -2066,14 +2085,6 @@ Internet-Draft        Constrained Objects Language            March 2016
          "type": "rpc",
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/commit/input/datastore",
-
-
-
-Veillette, et al.      Expires September 17, 2016              [Page 37]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
          "sid": 1020
        }
      ]
@@ -2110,6 +2121,15 @@ Authors' Addresses
    Email: abhinav.somaraju@tridonic.com
 
 
+
+
+
+
+Veillette, et al.      Expires September 17, 2016              [Page 38]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
    Randy Turner
    Landis+Gyr
    30000 Mill Creek Ave
@@ -2122,14 +2142,6 @@ Authors' Addresses
    URI:   http://www.landisgyr.com/
 
 
-
-
-
-Veillette, et al.      Expires September 17, 2016              [Page 38]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
    Ana Minaburo
    Acklio
    2bis rue de la chataigneraie
@@ -2137,18 +2149,6 @@ Internet-Draft        Constrained Objects Language            March 2016
    France
 
    Email: ana@ackl.io
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

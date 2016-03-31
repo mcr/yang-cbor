@@ -1430,14 +1430,14 @@ Internet-Draft        Constrained Objects Language            March 2016
 9.1.  "FETCH" CoAP Method Code
 
    This draft makes use of the PATCH CoAP method as defined in
-   [I-D.bormann-core-coap-fetch].  This method needs to be registered in
+   [I-D.vanderstok-core-etch].  This method needs to be registered in
    the CoAP Method Codes sub-registry as defined in [RFC7252] section
    12.1.1.
 
 9.2.  "PATCH" CoAP Method Code
 
    This draft makes use of the PATCH CoAP method as defined in
-   [I-D.vanderstok-core-patch].  This method needs to be registered in
+   [I-D.vanderstok-core-etch].  This method needs to be registered in
    the CoAP Method Codes sub-registry as defined in [RFC7252] section
    12.1.1.
 
@@ -1466,10 +1466,6 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 11.1.  Normative References
 
-   [I-D.bormann-core-coap-fetch]
-              Bormann, C., "CoAP FETCH Method", draft-bormann-core-coap-
-              fetch-00 (work in progress), October 2015.
-
    [I-D.ietf-core-block]
               Bormann, C. and Z. Shelby, "Block-wise transfers in CoAP",
               draft-ietf-core-block-19 (work in progress), March 2016.
@@ -1479,10 +1475,11 @@ Internet-Draft        Constrained Objects Language            March 2016
               draft-ietf-netmod-rfc6020bis-11 (work in progress),
               February 2016.
 
-   [I-D.vanderstok-core-patch]
-              Stok, P. and A. Sehgal, "Patch Method for Constrained
-              Application Protocol (CoAP)", draft-vanderstok-core-
-              patch-03 (work in progress), March 2016.
+   [I-D.vanderstok-core-etch]
+              Stok, P., Bormann, C., and A. Sehgal, "Patch and Fetch
+              Methods for Constrained Application Protocol (CoAP)",
+              draft-vanderstok-core-etch-00 (work in progress), March
+              2016.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1506,6 +1503,9 @@ Internet-Draft        Constrained Objects Language            March 2016
               Application Protocol (CoAP)", RFC 7252,
               DOI 10.17487/RFC7252, June 2014,
               <http://www.rfc-editor.org/info/rfc7252>.
+
+
+
 
 
 

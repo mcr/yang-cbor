@@ -5,14 +5,14 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Informational                             A. Pelov, Ed.
-Expires: September 18, 2016                                       Acklio
+Expires: October 2, 2016                                          Acklio
                                                              A. Somaraju
                                                    Tridonic GmbH & Co KG
                                                                R. Turner
                                                               Landis+Gyr
                                                              A. Minaburo
                                                                   Acklio
-                                                          March 17, 2016
+                                                          March 31, 2016
 
 
                       Constrained Objects Language
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 18, 2016.
+   This Internet-Draft will expire on October 2, 2016.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Veillette, et al.      Expires September 18, 2016               [Page 1]
+Veillette, et al.        Expires October 2, 2016                [Page 1]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Veillette, et al.      Expires September 18, 2016               [Page 2]
+Veillette, et al.        Expires October 2, 2016                [Page 2]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -165,7 +165,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016               [Page 3]
+Veillette, et al.        Expires October 2, 2016                [Page 3]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -221,7 +221,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016               [Page 4]
+Veillette, et al.        Expires October 2, 2016                [Page 4]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -277,7 +277,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016               [Page 5]
+Veillette, et al.        Expires October 2, 2016                [Page 5]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -333,7 +333,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016               [Page 6]
+Veillette, et al.        Expires October 2, 2016                [Page 6]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -389,7 +389,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016               [Page 7]
+Veillette, et al.        Expires October 2, 2016                [Page 7]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -445,7 +445,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016               [Page 8]
+Veillette, et al.        Expires October 2, 2016                [Page 8]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -501,7 +501,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016               [Page 9]
+Veillette, et al.        Expires October 2, 2016                [Page 9]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -557,7 +557,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 10]
+Veillette, et al.        Expires October 2, 2016               [Page 10]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -613,7 +613,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 11]
+Veillette, et al.        Expires October 2, 2016               [Page 11]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -669,7 +669,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 12]
+Veillette, et al.        Expires October 2, 2016               [Page 12]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -725,7 +725,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 13]
+Veillette, et al.        Expires October 2, 2016               [Page 13]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -781,7 +781,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 14]
+Veillette, et al.        Expires October 2, 2016               [Page 14]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -837,7 +837,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 15]
+Veillette, et al.        Expires October 2, 2016               [Page 15]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -893,7 +893,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 16]
+Veillette, et al.        Expires October 2, 2016               [Page 16]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -949,7 +949,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 17]
+Veillette, et al.        Expires October 2, 2016               [Page 17]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -1005,7 +1005,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 18]
+Veillette, et al.        Expires October 2, 2016               [Page 18]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -1061,7 +1061,7 @@ or completely replaced by a future version of this draft.
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 19]
+Veillette, et al.        Expires October 2, 2016               [Page 19]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -1117,7 +1117,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 20]
+Veillette, et al.        Expires October 2, 2016               [Page 20]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -1173,7 +1173,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 21]
+Veillette, et al.        Expires October 2, 2016               [Page 21]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -1229,7 +1229,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 22]
+Veillette, et al.        Expires October 2, 2016               [Page 22]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -1285,7 +1285,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 23]
+Veillette, et al.        Expires October 2, 2016               [Page 23]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -1341,7 +1341,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 24]
+Veillette, et al.        Expires October 2, 2016               [Page 24]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -1397,7 +1397,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 25]
+Veillette, et al.        Expires October 2, 2016               [Page 25]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -1453,7 +1453,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 26]
+Veillette, et al.        Expires October 2, 2016               [Page 26]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -1472,8 +1472,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    [I-D.ietf-core-block]
               Bormann, C. and Z. Shelby, "Block-wise transfers in CoAP",
-              draft-ietf-core-block-18 (work in progress), September
-              2015.
+              draft-ietf-core-block-19 (work in progress), March 2016.
 
    [I-D.ietf-netmod-rfc6020bis]
               Bjorklund, M., "The YANG 1.1 Data Modeling Language",
@@ -1503,21 +1502,17 @@ Internet-Draft        Constrained Objects Language            March 2016
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
               October 2013, <http://www.rfc-editor.org/info/rfc7049>.
 
-
-
-
-
-
-
-Veillette, et al.      Expires September 18, 2016              [Page 27]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
    [RFC7252]  Shelby, Z., Hartke, K., and C. Bormann, "The Constrained
               Application Protocol (CoAP)", RFC 7252,
               DOI 10.17487/RFC7252, June 2014,
               <http://www.rfc-editor.org/info/rfc7252>.
+
+
+
+Veillette, et al.        Expires October 2, 2016               [Page 27]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
    [RFC7317]  Bierman, A. and M. Bjorklund, "A YANG Data Model for
               System Management", RFC 7317, DOI 10.17487/RFC7317, August
@@ -1548,8 +1543,8 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    [I-D.ietf-netconf-restconf]
               Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
-              Protocol", draft-ietf-netconf-restconf-09 (work in
-              progress), December 2015.
+              Protocol", draft-ietf-netconf-restconf-10 (work in
+              progress), March 2016.
 
    [I-D.somaraju-core-sid]
               Somaraju, A., Veillette, M., Pelov, A., Turner, R., and A.
@@ -1561,20 +1556,19 @@ Internet-Draft        Constrained Objects Language            March 2016
               draft-vanderstok-core-comi-09 (work in progress), March
               2016.
 
-
-
-
-
-Veillette, et al.      Expires September 18, 2016              [Page 28]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
    [I-D.veillette-core-yang-cbor-mapping]
               Veillette, M., Pelov, A., Somaraju, A., Turner, R., and A.
               Minaburo, "CBOR Encoding of Data Modeled with YANG",
               draft-veillette-core-yang-cbor-mapping-00 (work in
               progress), March 2016.
+
+
+
+
+Veillette, et al.        Expires October 2, 2016               [Page 28]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
    [RFC5755]  Farrell, S., Housley, R., and S. Turner, "An Internet
               Attribute Certificate Profile for Authorization",
@@ -1595,6 +1589,7 @@ Appendix A.  File "ietf-cool.yang"
    Module containing the different definitions required by the CoOL
    protocol.
 
+  <CODE BEGINS> file "ietf-cool@ 2016-01-01.yang"
   module ietf-cool {
     namespace "urn:ietf:ns:cool";
     prefix cool;
@@ -1618,19 +1613,19 @@ Appendix A.  File "ietf-cool.yang"
        Randy Turner
        <mailto:Randy.Turner@landisgyr.com>";
 
-
-
-
-Veillette, et al.      Expires September 18, 2016              [Page 29]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
     description
       "This module contains the different definitions required
        by the CoOL protocol.";
 
     revision 2016-01-01 {
+
+
+
+Veillette, et al.        Expires October 2, 2016               [Page 29]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
        description
         "Initial revision.";
       reference
@@ -1674,18 +1669,18 @@ Internet-Draft        Constrained Objects Language            March 2016
             description "Unspecified error.";
           }
 
-
-
-
-Veillette, et al.      Expires September 18, 2016              [Page 30]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
           enum malformed {
             value 2;
             description "Malformed CBOR payload.";
           }
+
+
+
+
+Veillette, et al.        Expires October 2, 2016               [Page 30]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
 
           enum invalid {
             value 3;
@@ -1730,19 +1725,19 @@ Internet-Draft        Constrained Objects Language            March 2016
     }
 
     identity os {
-
-
-
-Veillette, et al.      Expires September 18, 2016              [Page 31]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
       base facility-type;
     }
 
     identity protocol-stack {
       base facility-type;
+
+
+
+Veillette, et al.        Expires October 2, 2016               [Page 31]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
     }
 
     identity security {
@@ -1786,19 +1781,19 @@ Internet-Draft        Constrained Objects Language            March 2016
       leaf severity-level {
         reference "RFC 5424";
         mandatory false;
-
-
-
-Veillette, et al.      Expires September 18, 2016              [Page 32]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
         type enumeration {
           enum emergency {
             value 0;
             description
               "System is unusable.";
+
+
+
+Veillette, et al.        Expires October 2, 2016               [Page 32]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
           }
           enum alert {
             value 1;
@@ -1842,19 +1837,19 @@ Internet-Draft        Constrained Objects Language            March 2016
           "Severity associated with this event.";
       }
 
-
-
-
-Veillette, et al.      Expires September 18, 2016              [Page 33]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
       leaf facility {
         mandatory false;
         type identityref {
           base facility-type;
         }
+
+
+
+Veillette, et al.        Expires October 2, 2016               [Page 33]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
         description
           "Type of process that is logging the message.";
         reference "RFC 5424";
@@ -1898,19 +1893,19 @@ Internet-Draft        Constrained Objects Language            March 2016
           description
             "When present, a confirming commit MUST be received within
             this period after the start of the commit process.
-
-
-
-Veillette, et al.      Expires September 18, 2016              [Page 34]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
             A confirming commit is a commit RPC without the
             confirm-timeout field presents. Supports of this feature
             is optional.";
           type string;
           mandatory false;
+
+
+
+Veillette, et al.        Expires October 2, 2016               [Page 34]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
         }
       }
     }
@@ -1920,6 +1915,7 @@ Internet-Draft        Constrained Objects Language            March 2016
         "Cancels an ongoing scheduled or confirmed commit.";
     }
   }
+  <CODE ENDS>
 
 Appendix B.  File "ietf-cool@2016-01-01.sid"
 
@@ -1954,18 +1950,18 @@ Appendix B.  File "ietf-cool@2016-01-01.sid"
          "assigned": "2016-03-08T21:59:45Z",
          "label": "ietf-cool:hardware-monitoring",
          "sid": 1002
-
-
-
-Veillette, et al.      Expires September 18, 2016              [Page 35]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
        },
        {
          "type": "identity",
          "assigned": "2016-03-08T21:59:45Z",
+
+
+
+Veillette, et al.        Expires October 2, 2016               [Page 35]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
          "label": "ietf-cool:os",
          "sid": 1003
        },
@@ -2010,18 +2006,18 @@ Internet-Draft        Constrained Objects Language            March 2016
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/notification-payload/_id",
          "sid": 1010
-
-
-
-Veillette, et al.      Expires September 18, 2016              [Page 36]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
        },
        {
          "type": "node",
          "assigned": "2016-03-08T21:59:45Z",
+
+
+
+Veillette, et al.        Expires October 2, 2016               [Page 36]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
          "label": "/notification-payload/content",
          "sid": 1011
        },
@@ -2066,18 +2062,18 @@ Internet-Draft        Constrained Objects Language            March 2016
          "assigned": "2016-03-08T21:59:45Z",
          "label": "/commit/input/commit-date-time",
          "sid": 1018
-
-
-
-Veillette, et al.      Expires September 18, 2016              [Page 37]
-
-Internet-Draft        Constrained Objects Language            March 2016
-
-
        },
        {
          "type": "rpc",
          "assigned": "2016-03-08T21:59:45Z",
+
+
+
+Veillette, et al.        Expires October 2, 2016               [Page 37]
+
+Internet-Draft        Constrained Objects Language            March 2016
+
+
          "label": "/commit/input/confirm-timeout",
          "sid": 1019
        },
@@ -2125,7 +2121,11 @@ Authors' Addresses
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 38]
+
+
+
+
+Veillette, et al.        Expires October 2, 2016               [Page 38]
 
 Internet-Draft        Constrained Objects Language            March 2016
 
@@ -2181,4 +2181,4 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.      Expires September 18, 2016              [Page 39]
+Veillette, et al.        Expires October 2, 2016               [Page 39]

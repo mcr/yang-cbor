@@ -282,7 +282,7 @@ li, p {
 <link href="#rfc.section.5.2.5" rel="Chapter" title="5.2.5 Example #5 - YANG list instance filtering"/>
 <link href="#rfc.section.5.2.6" rel="Chapter" title="5.2.6 Example #6 - All instances of a data node within a YANG list"/>
 <link href="#rfc.section.5.3" rel="Chapter" title="5.3 PUT - Updating all data nodes of a datastore"/>
-<link href="#rfc.section.5.4" rel="Chapter" title="5.4 PATCH - Updating specific data nodes"/>
+<link href="#rfc.section.5.4" rel="Chapter" title="5.4 iPATCH - Updating specific data nodes"/>
 <link href="#rfc.section.5.5" rel="Chapter" title="5.5 POST - Protocol operation"/>
 <link href="#rfc.section.5.5.1" rel="Chapter" title="5.5.1 Example #1 - RPC"/>
 <link href="#rfc.section.5.5.2" rel="Chapter" title="5.5.2 Example #2 - Action"/>
@@ -300,7 +300,7 @@ li, p {
 <link href="#rfc.section.8" rel="Chapter" title="8 Security Considerations"/>
 <link href="#rfc.section.9" rel="Chapter" title="9 IANA Considerations"/>
 <link href="#rfc.section.9.1" rel="Chapter" title="9.1 &#x201C;FETCH&#x201D; CoAP Method Code"/>
-<link href="#rfc.section.9.2" rel="Chapter" title="9.2 &#x201C;PATCH&#x201D; CoAP Method Code"/>
+<link href="#rfc.section.9.2" rel="Chapter" title="9.2 &#x201C;iPATCH&#x201D; CoAP Method Code"/>
 <link href="#rfc.section.10" rel="Chapter" title="10 Acknowledgments"/>
 <link href="#rfc.references" rel="Chapter" title="11 References"/>
 <link href="#rfc.references.1" rel="Chapter" title="11.1 Normative References"/>
@@ -414,7 +414,7 @@ li, p {
 <li>5.2.5.   <a href="#rfc.section.5.2.5">Example #5 - YANG list instance filtering</a></li>
 <li>5.2.6.   <a href="#rfc.section.5.2.6">Example #6 - All instances of a data node within a YANG list</a></li>
 </ul><li>5.3.   <a href="#rfc.section.5.3">PUT - Updating all data nodes of a datastore</a></li>
-<li>5.4.   <a href="#rfc.section.5.4">PATCH - Updating specific data nodes</a></li>
+<li>5.4.   <a href="#rfc.section.5.4">iPATCH - Updating specific data nodes</a></li>
 <li>5.5.   <a href="#rfc.section.5.5">POST - Protocol operation</a></li>
 <ul><li>5.5.1.   <a href="#rfc.section.5.5.1">Example #1 - RPC</a></li>
 <li>5.5.2.   <a href="#rfc.section.5.5.2">Example #2 - Action</a></li>
@@ -432,7 +432,7 @@ li, p {
 <li>8.   <a href="#rfc.section.8">Security Considerations</a></li>
 <li>9.   <a href="#rfc.section.9">IANA Considerations</a></li>
 <ul><li>9.1.   <a href="#rfc.section.9.1">&#8220;FETCH&#8221; CoAP Method Code</a></li>
-<li>9.2.   <a href="#rfc.section.9.2">&#8220;PATCH&#8221; CoAP Method Code</a></li>
+<li>9.2.   <a href="#rfc.section.9.2">&#8220;iPATCH&#8221; CoAP Method Code</a></li>
 </ul><li>10.   <a href="#rfc.section.10">Acknowledgments</a></li>
 <li>11.   <a href="#rfc.references">References</a></li>
 <ul><li>11.1.   <a href="#rfc.references.1">Normative References</a></li>
@@ -792,8 +792,8 @@ PUT /c/r Content-Format(application/cool+cbor)
 <pre>
 2.04 Changed
 </pre>
-<h1 id="rfc.section.5.4"><a href="#rfc.section.5.4">5.4.</a> <a href="#patch-updating-specific-data-nodes" id="patch-updating-specific-data-nodes">PATCH - Updating specific data nodes</a></h1>
-<p id="rfc.section.5.4.p.1">The PATCH method is used by CoOL clients to modify a subset of a datastore.</p>
+<h1 id="rfc.section.5.4"><a href="#rfc.section.5.4">5.4.</a> <a href="#ipatch-updating-specific-data-nodes" id="ipatch-updating-specific-data-nodes">iPATCH - Updating specific data nodes</a></h1>
+<p id="rfc.section.5.4.p.1">The iPATCH method is used by CoOL clients to modify a subset of a datastore.</p>
 <p id="rfc.section.5.4.p.2">To modify a datastore, the CoOL client sends a CoAP PATH request to the URI of the targeted datastore. The payload of the FETCH request contains the list of data node instance(s) to be updated, inserted or deleted. This list is encoded using a CBOR array and contains a sequence of pairs of &#8220;instance-identifier&#8221; and associated values.</p>
 <p id="rfc.section.5.4.p.3">Within each &#8220;instance-identifier&#8221;, data nodes are identified using SIDs as defined by <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a>. SIDs within the list are encoded as delta.</p>
 <p id="rfc.section.5.4.p.4">On reception, the list is processed by the CoOL server as follows:</p>
@@ -805,7 +805,7 @@ PUT /c/r Content-Format(application/cool+cbor)
   <li>If the targeted data instance already exists but is associated with the value &#8220;null&#8221;, this instance is deleted.</li>
 </ul>
 <p id="rfc.section.5.4.p.6">On successful processing of the CoAP request, the CoOL server MUST return a CoAP response with a response code 2.05 (Content).</p>
-<p id="rfc.section.5.4.p.7">A PATCH request MUST be processed as an atomic transaction, if any of the data nodes transferred is rejected for any reasons, the entire PATCH request MUST be rejected and the CoOL server MUST return an appropriate error response as defined in section 6.</p>
+<p id="rfc.section.5.4.p.7">A iPATCH request MUST be processed as an atomic transaction, if any of the data nodes transferred is rejected for any reasons, the entire iPATCH request MUST be rejected and the CoOL server MUST return an appropriate error response as defined in section 6.</p>
 <p id="rfc.section.5.4.p.8">Example:</p>
 <p id="rfc.section.5.4.p.9">In this example, a CoOL client performs the following operations:</p>
 <p/>
@@ -818,7 +818,7 @@ PUT /c/r Content-Format(application/cool+cbor)
 </ul>
 <p id="rfc.section.5.4.p.11">CoAP request:</p>
 <pre>
-PATCH /c/r Content-Format(application/cool+cbor)
+iPATCH /c/r Content-Format(application/cool+cbor)
 [
   1742 , true,                         # enabled (1742)
   [1, "tac.nrc.ca"], null,             # server (SID 1743)
@@ -1083,9 +1083,9 @@ GET /.well-known/core?rt=cool.datastore
 <p id="rfc.section.8.p.3">The Security Considerations section of CoAP <a href="#RFC7252">[RFC7252]</a> is especially relevant to this application protocol and should be reviewed carefully by implementers.</p>
 <h1 id="rfc.section.9"><a href="#rfc.section.9">9.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a></h1>
 <h1 id="rfc.section.9.1"><a href="#rfc.section.9.1">9.1.</a> <a href="#fetch-coap-method-code" id="fetch-coap-method-code">&#8220;FETCH&#8221; CoAP Method Code</a></h1>
-<p id="rfc.section.9.1.p.1">This draft makes use of the PATCH CoAP method as defined in <a href="#I-D.vanderstok-core-etch">[I-D.vanderstok-core-etch]</a>. This method needs to be registered in the CoAP Method Codes sub-registry as defined in <a href="#RFC7252">[RFC7252]</a> section 12.1.1.</p>
-<h1 id="rfc.section.9.2"><a href="#rfc.section.9.2">9.2.</a> <a href="#patch-coap-method-code" id="patch-coap-method-code">&#8220;PATCH&#8221; CoAP Method Code</a></h1>
-<p id="rfc.section.9.2.p.1">This draft makes use of the PATCH CoAP method as defined in <a href="#I-D.vanderstok-core-etch">[I-D.vanderstok-core-etch]</a>. This method needs to be registered in the CoAP Method Codes sub-registry as defined in <a href="#RFC7252">[RFC7252]</a> section 12.1.1.</p>
+<p id="rfc.section.9.1.p.1">This draft makes use of the FETCH CoAP method as defined in <a href="#I-D.vanderstok-core-etch">[I-D.vanderstok-core-etch]</a>. This method needs to be registered in the CoAP Method Codes sub-registry as defined in <a href="#RFC7252">[RFC7252]</a> section 12.1.1.</p>
+<h1 id="rfc.section.9.2"><a href="#rfc.section.9.2">9.2.</a> <a href="#ipatch-coap-method-code" id="ipatch-coap-method-code">&#8220;iPATCH&#8221; CoAP Method Code</a></h1>
+<p id="rfc.section.9.2.p.1">This draft makes use of the iPATCH CoAP method as defined in <a href="#I-D.vanderstok-core-etch">[I-D.vanderstok-core-etch]</a>. This method needs to be registered in the CoAP Method Codes sub-registry as defined in <a href="#RFC7252">[RFC7252]</a> section 12.1.1.</p>
 <h1 id="rfc.section.10"><a href="#rfc.section.10">10.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments</a></h1>
 <p id="rfc.section.10.p.1">This document have been largely inspired by the extensive works done by Andy Bierman and Peter van der Stok on <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a>. <a href="#I-D.ietf-netconf-restconf">[I-D.ietf-netconf-restconf]</a> have also been a critical input to this work. The authors would like to thank the authors and contributors to these two drafts.</p>
 <p id="rfc.section.10.p.2">The authors would also like to thank Carsten Bormann for his help during the development of this document and his useful comments during the review process.</p>

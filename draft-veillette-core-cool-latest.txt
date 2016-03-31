@@ -90,7 +90,7 @@ Table of Contents
        5.2.6.  Example #6 - All instances of a data node within a
                YANG list . . . . . . . . . . . . . . . . . . . . . .  13
      5.3.  PUT - Updating all data nodes of a datastore  . . . . . .  14
-     5.4.  PATCH - Updating specific data nodes  . . . . . . . . . .  15
+     5.4.  iPATCH - Updating specific data nodes . . . . . . . . . .  15
      5.5.  POST - Protocol operation . . . . . . . . . . . . . . . .  17
        5.5.1.  Example #1 - RPC  . . . . . . . . . . . . . . . . . .  17
        5.5.2.  Example #2 - Action . . . . . . . . . . . . . . . . .  18
@@ -116,7 +116,7 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  26
      9.1.  "FETCH" CoAP Method Code  . . . . . . . . . . . . . . . .  26
-     9.2.  "PATCH" CoAP Method Code  . . . . . . . . . . . . . . . .  26
+     9.2.  "iPATCH" CoAP Method Code . . . . . . . . . . . . . . . .  26
    10. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  26
    11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  27
      11.1.  Normative References . . . . . . . . . . . . . . . . . .  27
@@ -823,9 +823,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
    2.04 Changed
 
-5.4.  PATCH - Updating specific data nodes
+5.4.  iPATCH - Updating specific data nodes
 
-   The PATCH method is used by CoOL clients to modify a subset of a
+   The iPATCH method is used by CoOL clients to modify a subset of a
    datastore.
 
    To modify a datastore, the CoOL client sends a CoAP PATH request to
@@ -862,9 +862,9 @@ Internet-Draft        Constrained Objects Language            March 2016
    On successful processing of the CoAP request, the CoOL server MUST
    return a CoAP response with a response code 2.05 (Content).
 
-   A PATCH request MUST be processed as an atomic transaction, if any of
-   the data nodes transferred is rejected for any reasons, the entire
-   PATCH request MUST be rejected and the CoOL server MUST return an
+   A iPATCH request MUST be processed as an atomic transaction, if any
+   of the data nodes transferred is rejected for any reasons, the entire
+   iPATCH request MUST be rejected and the CoOL server MUST return an
    appropriate error response as defined in section 6.
 
    Example:
@@ -898,7 +898,7 @@ Veillette, et al.        Expires October 2, 2016               [Page 16]
 Internet-Draft        Constrained Objects Language            March 2016
 
 
-   PATCH /c/r Content-Format(application/cool+cbor)
+   iPATCH /c/r Content-Format(application/cool+cbor)
    [
      1742 , true,                         # enabled (1742)
      [1, "tac.nrc.ca"], null,             # server (SID 1743)
@@ -1429,14 +1429,14 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 9.1.  "FETCH" CoAP Method Code
 
-   This draft makes use of the PATCH CoAP method as defined in
+   This draft makes use of the FETCH CoAP method as defined in
    [I-D.vanderstok-core-etch].  This method needs to be registered in
    the CoAP Method Codes sub-registry as defined in [RFC7252] section
    12.1.1.
 
-9.2.  "PATCH" CoAP Method Code
+9.2.  "iPATCH" CoAP Method Code
 
-   This draft makes use of the PATCH CoAP method as defined in
+   This draft makes use of the iPATCH CoAP method as defined in
    [I-D.vanderstok-core-etch].  This method needs to be registered in
    the CoAP Method Codes sub-registry as defined in [RFC7252] section
    12.1.1.

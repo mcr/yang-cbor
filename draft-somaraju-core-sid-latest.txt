@@ -313,8 +313,9 @@ Internet-Draft         Structure Identifier (SID)             March 2016
    module defined the structure of this file, encoding is performed
    using the rules defined in [I-D.ietf-netmod-yang-json].
 
-   module sid-file {
-     namespace "urn:ietf:ns:cool:sid-file";
+   <CODE BEGINS> file "ietf-sid-file@2015-12-16.yang"
+   module ietf-sid-file {
+     namespace "urn:ietf:params:xml:ns:yang:ietf-sid-file";
      prefix sid;
 
      organization
@@ -329,7 +330,6 @@ Internet-Draft         Structure Identifier (SID)             March 2016
 
         Abhinav Somaraju
         <mailto:abhinav.somaraju@tridonic.com>
-
 
 
 
@@ -422,15 +422,15 @@ Internet-Draft         Structure Identifier (SID)             March 2016
           different items defined by the associated module.";
 
        leaf entry-point {
-         mandatory true;
          type uint32;
+         mandatory true;
          description
            "Lowest SID available for assignment.";
        }
 
        leaf size {
-         mandatory true;
          type uint16;
+         mandatory true;
          description
            "Number of SIDs available for assignment.";
        }
@@ -450,6 +450,10 @@ Somaraju, et al.         Expires October 2, 2016                [Page 8]
 Internet-Draft         Structure Identifier (SID)             March 2016
 
 
+         type string {
+           pattern 'identity$|node$|notification$|rpc$|action$';
+         }
+         mandatory true;
          description
            "Item type assigned, this field can be set to:
              - 'identity'
@@ -457,22 +461,18 @@ Internet-Draft         Structure Identifier (SID)             March 2016
              - 'notification'
              - 'rpc'
              - 'action'";
-         mandatory true;
-         type string {
-           pattern 'identity$|node$|notification$|rpc$|action$';
-         }
        }
 
        leaf assigned {
-         mandatory true;
          type date-and-time;
+         mandatory true;
          description
            "Date and time when this entry has been created.";
        }
 
        leaf label {
-         mandatory true;
          type string;
+         mandatory true;
          description
            "Label associated to this item, can be set to:
              - an identity encoded as: '<module name>:<entity name>'
@@ -480,12 +480,13 @@ Internet-Draft         Structure Identifier (SID)             March 2016
        }
 
        leaf sid {
-         mandatory true;
          type uint32;
+         mandatory true;
          description "Identifier assigned to this YANG item.";
        }
      }
    }
+   <CODE ENDS>
 
 6.  Security Considerations
 
@@ -497,7 +498,6 @@ Internet-Draft         Structure Identifier (SID)             March 2016
    identifier does not contribute to any new security issues in addition
    of those identified for the specific protocols or contexts for which
    it is used.
-
 
 
 

@@ -500,8 +500,9 @@ li, p {
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#sid-file-format" id="sid-file-format">&#8220;.sid&#8221; file format</a></h1>
 <p id="rfc.section.5.p.1">&#8220;.sid&#8221; files are used to persist and publish SIDs assigned to the different YANG items of a specific YANG module. The following YANG module defined the structure of this file, encoding is performed using the rules defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a>.</p>
 <pre>
-module sid-file {
-  namespace "urn:ietf:ns:cool:sid-file";
+&lt;CODE BEGINS&gt; file "ietf-sid-file@2015-12-16.yang"
+module ietf-sid-file {
+  namespace "urn:ietf:params:xml:ns:yang:ietf-sid-file";
   prefix sid;
 
   organization
@@ -593,15 +594,15 @@ module sid-file {
        different items defined by the associated module.";
 
     leaf entry-point {
-      mandatory true;
       type uint32;
+      mandatory true;
       description
         "Lowest SID available for assignment.";
     }
 
     leaf size {
-      mandatory true;
       type uint16;
+      mandatory true;
       description
         "Number of SIDs available for assignment.";
     }
@@ -613,6 +614,10 @@ module sid-file {
       "List of items defined by the associated YANG module.";
 
     leaf type {
+      type string {
+        pattern 'identity$|node$|notification$|rpc$|action$';
+      }
+      mandatory true;
       description
         "Item type assigned, this field can be set to:
           - 'identity'
@@ -620,22 +625,18 @@ module sid-file {
           - 'notification'
           - 'rpc'
           - 'action'";
-      mandatory true;
-      type string {
-        pattern 'identity$|node$|notification$|rpc$|action$';
-      }
     }
 
     leaf assigned {
-      mandatory true;
       type date-and-time;
+      mandatory true;
       description
         "Date and time when this entry has been created.";
     }
 
     leaf label {
-      mandatory true;
       type string;
+      mandatory true;
       description
         "Label associated to this item, can be set to:
           - an identity encoded as: '&lt;module name&gt;:&lt;entity name&gt;'
@@ -643,12 +644,13 @@ module sid-file {
     }
 
     leaf sid {
-      mandatory true;
       type uint32;
+      mandatory true;
       description "Identifier assigned to this YANG item.";
     }
   }
 }
+&lt;CODE ENDS&gt;
 </pre>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
 <p id="rfc.section.6.p.1">The security considerations of <a href="#RFC7049">[RFC7049]</a> and <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> apply.</p>

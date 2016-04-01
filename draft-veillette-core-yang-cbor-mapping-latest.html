@@ -306,7 +306,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Somaraju, A., Turner, R., and A. Minaburo" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-yang-cbor-mapping-00" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-3-31" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-4-01" />
   <meta name="dct.abstract" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
   <meta name="description" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
 
@@ -330,7 +330,7 @@ li, p {
   <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: October 2, 2016</td>
+  <td class="left">Expires: October 3, 2016</td>
   <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -359,7 +359,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">March 31, 2016</td>
+  <td class="right">April 01, 2016</td>
 </tr>
 
     	
@@ -379,7 +379,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on October 2, 2016.</p>
+<p>This Internet-Draft will expire on October 3, 2016.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -618,8 +618,8 @@ container system {
 <pre>
 {
   1708 : {                              # clock
-    2 : "2015-10-02T14:47:24Z-05:00",   # current-datetime, SID 1710
-    1 : "2015-09-15T09:12:58Z-05:00"    # boot-datetime, SID 1709
+    +2 : "2015-10-02T14:47:24Z-05:00",  # current-datetime, SID 1710
+    +1 : "2015-09-15T09:12:58Z-05:00"   # boot-datetime, SID 1709
   }
 }
 </pre>
@@ -760,8 +760,8 @@ list server {
   {
     1746 : "NRC TIC server",          # name
     1748 : {                          # udp
-      1 : "tic.nrc.ca",               # address, SID 1749
-      2 : 123                         # port, SID 1750
+      +1 : "tic.nrc.ca",              # address, SID 1749
+      +2 : 123                        # port, SID 1750
     },
     1744 : 0,                         # association-type
     1745 : false,                     # iburst
@@ -770,7 +770,7 @@ list server {
   {
     1746 : "NRC TAC server",          # name
     1748 : {                          # udp
-      1 : "tac.nrc.ca"                # address, SID 1749
+      +1 : "tac.nrc.ca"               # address, SID 1749
     }
   }
 ]

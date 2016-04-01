@@ -5,14 +5,14 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Informational                             A. Pelov, Ed.
-Expires: October 2, 2016                                          Acklio
+Expires: October 3, 2016                                          Acklio
                                                              A. Somaraju
                                                    Tridonic GmbH & Co KG
                                                                R. Turner
                                                               Landis+Gyr
                                                              A. Minaburo
                                                                   Acklio
-                                                          March 31, 2016
+                                                          April 01, 2016
 
 
                       Constrained Objects Language
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 2, 2016.
+   This Internet-Draft will expire on October 3, 2016.
 
 
 
@@ -53,9 +53,9 @@ Status of This Memo
 
 
 
-Veillette, et al.        Expires October 2, 2016                [Page 1]
+Veillette, et al.        Expires October 3, 2016                [Page 1]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
 Copyright Notice
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Veillette, et al.        Expires October 2, 2016                [Page 2]
+Veillette, et al.        Expires October 3, 2016                [Page 2]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  26
@@ -165,9 +165,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016                [Page 3]
+Veillette, et al.        Expires October 3, 2016                [Page 3]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    o  schema tree
@@ -221,9 +221,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016                [Page 4]
+Veillette, et al.        Expires October 3, 2016                [Page 4]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    o  resource: Content identified by a URI.
@@ -277,9 +277,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016                [Page 5]
+Veillette, et al.        Expires October 3, 2016                [Page 5]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    o  /c/r - The running configuration datastore resource
@@ -333,9 +333,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016                [Page 6]
+Veillette, et al.        Expires October 3, 2016                [Page 6]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
 5.  Operations
@@ -389,9 +389,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016                [Page 7]
+Veillette, et al.        Expires October 3, 2016                [Page 7]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    o  "/system/clock/timezone/timezone-utc-offset/timezone-utc-offset"
@@ -445,9 +445,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016                [Page 8]
+Veillette, et al.        Expires October 3, 2016                [Page 8]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    When a single data node is requested, the payload of the GET response
@@ -501,9 +501,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016                [Page 9]
+Veillette, et al.        Expires October 3, 2016                [Page 9]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
     0                   1                   2                   3
@@ -557,9 +557,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 10]
+Veillette, et al.        Expires October 3, 2016               [Page 10]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
 5.2.2.  Example #2 - Data node instance within a YANG list
@@ -613,9 +613,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 11]
+Veillette, et al.        Expires October 3, 2016               [Page 11]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
   2.05 Content Content-Format(application/cool+cbor)
@@ -669,9 +669,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 12]
+Veillette, et al.        Expires October 3, 2016               [Page 12]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    entry within this CBOR array is set to the delta between the current
@@ -725,9 +725,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 13]
+Veillette, et al.        Expires October 3, 2016               [Page 13]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    Example:
@@ -781,9 +781,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 14]
+Veillette, et al.        Expires October 3, 2016               [Page 14]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    o  "/system/ntp/server/prefer" (SID 1747)
@@ -837,9 +837,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 15]
+Veillette, et al.        Expires October 3, 2016               [Page 15]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    Within each "instance-identifier", data nodes are identified using
@@ -893,9 +893,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 16]
+Veillette, et al.        Expires October 3, 2016               [Page 16]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    iPATCH /c/r Content-Format(application/cool+cbor)
@@ -949,9 +949,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 17]
+Veillette, et al.        Expires October 3, 2016               [Page 17]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    rpc activate-software-image { input { leaf image-name { type string;
@@ -1005,9 +1005,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 18]
+Veillette, et al.        Expires October 3, 2016               [Page 18]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    2.05 Content
@@ -1061,9 +1061,9 @@ or completely replaced by a future version of this draft.
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 19]
+Veillette, et al.        Expires October 3, 2016               [Page 19]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    response payload carries a CBOR array, with each entry containing a
@@ -1117,9 +1117,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 20]
+Veillette, et al.        Expires October 3, 2016               [Page 20]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    In this example, a CoOL client starts by registering to the default
@@ -1173,9 +1173,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 21]
+Veillette, et al.        Expires October 3, 2016               [Page 21]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    2.05 Content Observe(52) Token(0xD937)
@@ -1229,9 +1229,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 22]
+Veillette, et al.        Expires October 3, 2016               [Page 22]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
 6.6.  Working with If-Match, If-None-Match and ETag
@@ -1285,9 +1285,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 23]
+Veillette, et al.        Expires October 3, 2016               [Page 23]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    CoAP request:
@@ -1341,9 +1341,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 24]
+Veillette, et al.        Expires October 3, 2016               [Page 24]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    2.05 Content Content-Format(application/link-format)
@@ -1397,9 +1397,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 25]
+Veillette, et al.        Expires October 3, 2016               [Page 25]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
 8.  Security Considerations
@@ -1453,9 +1453,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 26]
+Veillette, et al.        Expires October 3, 2016               [Page 26]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    The authors would also like to thank Carsten Bormann for his help
@@ -1509,9 +1509,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 27]
+Veillette, et al.        Expires October 3, 2016               [Page 27]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    [RFC7317]  Bierman, A. and M. Bjorklund, "A YANG Data Model for
@@ -1565,9 +1565,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 28]
+Veillette, et al.        Expires October 3, 2016               [Page 28]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    [RFC5755]  Farrell, S., Housley, R., and S. Turner, "An Internet
@@ -1621,9 +1621,9 @@ module ietf-cool {
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 29]
+Veillette, et al.        Expires October 3, 2016               [Page 29]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
      description
@@ -1677,9 +1677,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 30]
+Veillette, et al.        Expires October 3, 2016               [Page 30]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
           value 4;
@@ -1733,9 +1733,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 31]
+Veillette, et al.        Expires October 3, 2016               [Page 31]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
   identity security {
@@ -1789,9 +1789,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 32]
+Veillette, et al.        Expires October 3, 2016               [Page 32]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
           value 0;
@@ -1845,9 +1845,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 33]
+Veillette, et al.        Expires October 3, 2016               [Page 33]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
       type identityref {
@@ -1901,9 +1901,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 34]
+Veillette, et al.        Expires October 3, 2016               [Page 34]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
     }
@@ -1957,9 +1957,9 @@ Appendix B.  File "ietf-cool@2016-01-01.sid"
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 35]
+Veillette, et al.        Expires October 3, 2016               [Page 35]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
          "sid": 1003
@@ -2013,9 +2013,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 36]
+Veillette, et al.        Expires October 3, 2016               [Page 36]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
          "sid": 1011
@@ -2069,9 +2069,9 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 37]
+Veillette, et al.        Expires October 3, 2016               [Page 37]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
          "sid": 1019
@@ -2125,9 +2125,9 @@ Authors' Addresses
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 38]
+Veillette, et al.        Expires October 3, 2016               [Page 38]
 
-Internet-Draft        Constrained Objects Language            March 2016
+Internet-Draft        Constrained Objects Language            April 2016
 
 
    Randy Turner
@@ -2181,4 +2181,4 @@ Internet-Draft        Constrained Objects Language            March 2016
 
 
 
-Veillette, et al.        Expires October 2, 2016               [Page 39]
+Veillette, et al.        Expires October 3, 2016               [Page 39]

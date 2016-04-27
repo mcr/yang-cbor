@@ -295,7 +295,8 @@ li, p {
 <link href="#rfc.section.6.5" rel="Chapter" title="6.5 Working with Proxy-Uri and Proxy-Scheme"/>
 <link href="#rfc.section.6.6" rel="Chapter" title="6.6 Working with If-Match, If-None-Match and ETag"/>
 <link href="#rfc.section.6.7" rel="Chapter" title="6.7 Working with Size1, Size2, Block1 and Block2"/>
-<link href="#rfc.section.6.8" rel="Chapter" title="6.8 Working with resource discovery"/>
+<link href="#rfc.section.6.8" rel="Chapter" title="6.8 Working with Observe"/>
+<link href="#rfc.section.6.9" rel="Chapter" title="6.9 Working with resource discovery"/>
 <link href="#rfc.section.7" rel="Chapter" title="7 Error Handling"/>
 <link href="#rfc.section.8" rel="Chapter" title="8 Security Considerations"/>
 <link href="#rfc.section.9" rel="Chapter" title="9 IANA Considerations"/>
@@ -315,7 +316,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Somaraju, A., Turner, R., and A. Minaburo" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-cool-01" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-4-08" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-4-27" />
   <meta name="dct.abstract" content="This document describes a management function set adapted to constrained devices and constrained networks (e.g., low-power, lossy). CoOL objects (datastores, RPCs, actions and notifications) are defined using the YANG modelling language " />
   <meta name="description" content="This document describes a management function set adapted to constrained devices and constrained networks (e.g., low-power, lossy). CoOL objects (datastores, RPCs, actions and notifications) are defined using the YANG modelling language " />
 
@@ -339,7 +340,7 @@ li, p {
   <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: October 10, 2016</td>
+  <td class="left">Expires: October 29, 2016</td>
   <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -368,7 +369,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">April 08, 2016</td>
+  <td class="right">April 27, 2016</td>
 </tr>
 
     	
@@ -388,7 +389,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on October 10, 2016.</p>
+<p>This Internet-Draft will expire on October 29, 2016.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -427,7 +428,8 @@ li, p {
 <li>6.5.   <a href="#rfc.section.6.5">Working with Proxy-Uri and Proxy-Scheme</a></li>
 <li>6.6.   <a href="#rfc.section.6.6">Working with If-Match, If-None-Match and ETag</a></li>
 <li>6.7.   <a href="#rfc.section.6.7">Working with Size1, Size2, Block1 and Block2</a></li>
-<li>6.8.   <a href="#rfc.section.6.8">Working with resource discovery</a></li>
+<li>6.8.   <a href="#rfc.section.6.8">Working with Observe</a></li>
+<li>6.9.   <a href="#rfc.section.6.9">Working with resource discovery</a></li>
 </ul><li>7.   <a href="#rfc.section.7">Error Handling</a></li>
 <li>8.   <a href="#rfc.section.8">Security Considerations</a></li>
 <li>9.   <a href="#rfc.section.9">IANA Considerations</a></li>
@@ -1005,21 +1007,21 @@ Content-Format(application/cool+cbor)
 <p id="rfc.section.6.6.p.1">This option MUST be supported as specified by <a href="#RFC6690">[RFC6690]</a>. Each ETag is associated to all schema nodes within a datastore.</p>
 <h1 id="rfc.section.6.7"><a href="#rfc.section.6.7">6.7.</a> <a href="#working-with-size1-size2-block1-and-block2" id="working-with-size1-size2-block1-and-block2">Working with Size1, Size2, Block1 and Block2</a></h1>
 <p id="rfc.section.6.7.p.1">When the UDP transport is used and a large payload need to be transferred, support of the CoAP block transfer as defined by <a href="#I-D.ietf-core-block">[I-D.ietf-core-block]</a> is recommended.</p>
-<p id="rfc.section.6.7.p.2">6.8. Working with Observe</p>
-<p id="rfc.section.6.7.p.3">A CoOL server MAY support state change notifications to some or all its leaf data nodes. When supported the CoOL server MUST implement the Server-Side requirements defined in <a href="#RFC7641">[RFC7641]</a> section 3 and the CoOL client MUST implement the Client-Side requirements defined in <a href="#RFC7641">[RFC7641]</a> section 4.</p>
-<p id="rfc.section.6.7.p.4">To start observing a leaf data node, a CoOL client MUST send a CoAP FETCH with the Observe CoAP option set to 0.</p>
-<p id="rfc.section.6.7.p.5">The payload of the FETCH request carries a CBOR array of instance-identifier.  The first entry MUST be set to the &#8220;instance-identifier&#8221; of the data node instance observed. The following entries are optional and allow the selection of coincidental values, data nodes reported at the same time as the observed data node. Coincidental values are included in each notification reported, but changes to these extra data nodes MUST not trigger notification messages.</p>
-<p id="rfc.section.6.7.p.6">A subscription can be terminated by the CoOL client by returning a CoAP Reset message or by sending a GET request with an Observe CoAP option set to deregister (1). More details are available in <a href="#RFC7641">[RFC7641]</a>.</p>
-<p id="rfc.section.6.7.p.7">Example:</p>
-<p id="rfc.section.6.7.p.8">In this example, a CoOL client subscribes to state changes of the data node &#8220;/system/ntp/enabled&#8221; (SID = 1742) and requests that data node &#8220;/system/hostname&#8221; (SID 1739) is reported as coincidental value.</p>
-<p id="rfc.section.6.7.p.9">A first response is immediately returned by the CoOL server to confirm the subscription and to report the current values of the requested data nodes.</p>
-<p id="rfc.section.6.7.p.10">Subsequent responses are returned by the CoOL server each time the state of data node &#8220;/system/ntp/enabled&#8221; changes.</p>
-<p id="rfc.section.6.7.p.11">CoAP request:</p>
+<h1 id="rfc.section.6.8"><a href="#rfc.section.6.8">6.8.</a> <a href="#working-with-observe" id="working-with-observe">Working with Observe</a></h1>
+<p id="rfc.section.6.8.p.1">A CoOL server MAY support state change notifications to some or all its leaf data nodes. When supported the CoOL server MUST implement the Server-Side requirements defined in <a href="#RFC7641">[RFC7641]</a> section 3 and the CoOL client MUST implement the Client-Side requirements defined in <a href="#RFC7641">[RFC7641]</a> section 4.</p>
+<p id="rfc.section.6.8.p.2">To start observing a leaf data node, a CoOL client MUST send a CoAP FETCH with the Observe CoAP option set to 0.</p>
+<p id="rfc.section.6.8.p.3">The payload of the FETCH request carries a CBOR array of instance-identifier.  The first entry MUST be set to the &#8220;instance-identifier&#8221; of the data node instance observed. The following entries are optional and allow the selection of coincidental values, data nodes reported at the same time as the observed data node. Coincidental values are included in each notification reported, but changes to these extra data nodes MUST not trigger notification messages.</p>
+<p id="rfc.section.6.8.p.4">A subscription can be terminated by the CoOL client by returning a CoAP Reset message or by sending a GET request with an Observe CoAP option set to deregister (1). More details are available in <a href="#RFC7641">[RFC7641]</a>.</p>
+<p id="rfc.section.6.8.p.5">Example:</p>
+<p id="rfc.section.6.8.p.6">In this example, a CoOL client subscribes to state changes of the data node &#8220;/system/ntp/enabled&#8221; (SID = 1742) and requests that data node &#8220;/system/hostname&#8221; (SID 1739) is reported as coincidental value.</p>
+<p id="rfc.section.6.8.p.7">A first response is immediately returned by the CoOL server to confirm the subscription and to report the current values of the requested data nodes.</p>
+<p id="rfc.section.6.8.p.8">Subsequent responses are returned by the CoOL server each time the state of data node &#8220;/system/ntp/enabled&#8221; changes.</p>
+<p id="rfc.section.6.8.p.9">CoAP request:</p>
 <pre>
 FETCH /c Content-Format(application/cool+cbor) Observe(0)
 [ [1742, "tic.nrc.ca"], -3 ]
 </pre>
-<p id="rfc.section.6.7.p.12">CoAP response:</p>
+<p id="rfc.section.6.8.p.10">CoAP response:</p>
 <pre>
 2.05 Content Content-Format(application/cool+cbor) Observe(2631)
 [
@@ -1027,7 +1029,7 @@ FETCH /c Content-Format(application/cool+cbor) Observe(0)
   "tic"                      # hostname (SID 1739)
 ]
 </pre>
-<p id="rfc.section.6.7.p.13">CoAP response:</p>
+<p id="rfc.section.6.8.p.11">CoAP response:</p>
 <pre>
 2.05 Content Content-Format(application/cool+cbor) Observe(2632)
 [
@@ -1035,17 +1037,17 @@ FETCH /c Content-Format(application/cool+cbor) Observe(0)
   "tic"                      # hostname (SID 1739)
 ]
 </pre>
-<h1 id="rfc.section.6.8"><a href="#rfc.section.6.8">6.8.</a> <a href="#working-with-resource-discovery" id="working-with-resource-discovery">Working with resource discovery</a></h1>
-<p id="rfc.section.6.8.p.1">The &#8220;/.well-known/core&#8221; resource is used by CoOL clients to discover resources implemented by CoOL servers. Each CoOL server MUST have an entry in the &#8220;/.well-known/core&#8221; resource for each datastore resource and event stream resource supported.</p>
-<p id="rfc.section.6.8.p.2">Resource discovery can be performed using a CoAP GET request. If successful, the CoAP response MUST have a response code set to 2.05 (Content), a Content-Format set to &#8220;application/link-format&#8221;, and a payload containing a list of web links.</p>
-<p id="rfc.section.6.8.p.3">To enable discovery of specific resource types, the CoAP server MUST support the query string &#8220;rt&#8221;.</p>
-<p id="rfc.section.6.8.p.4">Link format and the &#8220;/.well-known/core&#8221; resource are defined in <a href="#RFC6690">[RFC6690]</a>.</p>
-<p id="rfc.section.6.8.p.5">Example:</p>
-<p id="rfc.section.6.8.p.6">CoAP request:</p>
+<h1 id="rfc.section.6.9"><a href="#rfc.section.6.9">6.9.</a> <a href="#working-with-resource-discovery" id="working-with-resource-discovery">Working with resource discovery</a></h1>
+<p id="rfc.section.6.9.p.1">The &#8220;/.well-known/core&#8221; resource is used by CoOL clients to discover resources implemented by CoOL servers. Each CoOL server MUST have an entry in the &#8220;/.well-known/core&#8221; resource for each datastore resource and event stream resource supported.</p>
+<p id="rfc.section.6.9.p.2">Resource discovery can be performed using a CoAP GET request. If successful, the CoAP response MUST have a response code set to 2.05 (Content), a Content-Format set to &#8220;application/link-format&#8221;, and a payload containing a list of web links.</p>
+<p id="rfc.section.6.9.p.3">To enable discovery of specific resource types, the CoAP server MUST support the query string &#8220;rt&#8221;.</p>
+<p id="rfc.section.6.9.p.4">Link format and the &#8220;/.well-known/core&#8221; resource are defined in <a href="#RFC6690">[RFC6690]</a>.</p>
+<p id="rfc.section.6.9.p.5">Example:</p>
+<p id="rfc.section.6.9.p.6">CoAP request:</p>
 <pre>
 GET /.well-known/core
 </pre>
-<p id="rfc.section.6.8.p.7">CoAP response:</p>
+<p id="rfc.section.6.9.p.7">CoAP response:</p>
 <pre>
 2.05 Content Content-Format(application/link-format)
 &lt;/c&gt;;rt="cool.datastore",
@@ -1053,13 +1055,13 @@ GET /.well-known/core
 &lt;/c/b&gt;;rt="cool.datastore",
 &lt;/c/e&gt;;rt="cool.event-stream",
 </pre>
-<p id="rfc.section.6.8.p.8">In this example, a CoOL client retrieves the list of all resources available on a CoOL server.</p>
-<p id="rfc.section.6.8.p.9">Alternatively, the CoOL client may query for a specific resource type. In this example, the CoOL client queries for resource type (rt) &#8220;cool.datastore&#8221;.</p>
-<p id="rfc.section.6.8.p.10">CoAP request:</p>
+<p id="rfc.section.6.9.p.8">In this example, a CoOL client retrieves the list of all resources available on a CoOL server.</p>
+<p id="rfc.section.6.9.p.9">Alternatively, the CoOL client may query for a specific resource type. In this example, the CoOL client queries for resource type (rt) &#8220;cool.datastore&#8221;.</p>
+<p id="rfc.section.6.9.p.10">CoAP request:</p>
 <pre>
 GET /.well-known/core?rt=cool.datastore
 </pre>
-<p id="rfc.section.6.8.p.11">CoAP response:</p>
+<p id="rfc.section.6.9.p.11">CoAP response:</p>
 <pre>
 2.05 Content Content-Format(application/link-format)
 &lt;/c&gt;;rt="cool.datastore",
@@ -1180,7 +1182,7 @@ GET /.well-known/core?rt=cool.datastore
       <td class="reference">
         <b id="I-D.ietf-netconf-restconf">[I-D.ietf-netconf-restconf]</b>
       </td>
-      <td class="top"><a>Bierman, A.</a>, <a>Bjorklund, M.</a> and <a>K. Watsen</a>, "<a href="http://tools.ietf.org/html/draft-ietf-netconf-restconf-10">RESTCONF Protocol</a>", Internet-Draft draft-ietf-netconf-restconf-10, March 2016.</td>
+      <td class="top"><a>Bierman, A.</a>, <a>Bjorklund, M.</a> and <a>K. Watsen</a>, "<a href="http://tools.ietf.org/html/draft-ietf-netconf-restconf-12">RESTCONF Protocol</a>", Internet-Draft draft-ietf-netconf-restconf-12, April 2016.</td>
     </tr>
     <tr>
       <td class="reference">

@@ -91,7 +91,7 @@ Table of Contents
      5.10. The "identityref" Type  . . . . . . . . . . . . . . . . .  21
      5.11. The "empty" Type  . . . . . . . . . . . . . . . . . . . .  22
      5.12. The "union" Type  . . . . . . . . . . . . . . . . . . . .  23
-     5.13. The "instance-identifier" Type  . . . . . . . . . . . . .  23
+     5.13. The "instance-identifier" Type  . . . . . . . . . . . . .  24
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  28
    7.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  28
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  29
@@ -1178,40 +1178,42 @@ Veillette, et al.       Expires October 30, 2016               [Page 21]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
 
 
-   Definition example [RFC7223]:
+   Definition example [RFC7317]:
 
-   identity interface-type {
+   identity radius-authentication-type {
+     description
+       "Base identity for RADIUS authentication types.";
    }
 
-   identity iana-interface-type {
-     base interface-type;
+   identity radius-chap {
+     base radius-authentication-type;
    }
 
-   identity ethernetCsmacd {
-     base iana-interface-type;
+   identity radius-pap {
+     base radius-authentication-type;
    }
 
-   leaf type {
+   leaf authentication-type {
      type identityref {
-       base interface-type;
+       base radius-authentication-type;
      }
    }
 
    *SIDs as identityref*
 
-   This example represents the encoding of identity "ethernetCsmacd"
-   (SID 1179) assuming the base identity "interface-type"(SID 1500).
+   This example represents the encoding of identity "radius-pap" (SID
+   1705) assuming the base identity "radius-authentication-type"(SID
+   1703).
 
-   CBOR diagnostic notation: -349
+   CBOR diagnostic notation: 2
 
-   CBOR encoding: 39 015c
+   CBOR encoding: 02
 
    *Name as identityref*
 
-   CBOR diagnostic notation: "iana-if-type:ethernetCsmacd"
+   CBOR diagnostic notation: "ietf-system:radius-pap"
 
-   CBOR encoding: 78 1b
-   69616e612d69662d747970653a65746865726e657443736d616364
+   CBOR encoding: 76 696574662d73797374656d3a7261646975732d706170
 
 5.11.  The "empty" Type
 
@@ -1224,8 +1226,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
      type empty;
    }
 
-   CBOR diagnostic notation: null
-
 
 
 
@@ -1233,6 +1233,8 @@ Veillette, et al.       Expires October 30, 2016               [Page 22]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
 
+
+   CBOR diagnostic notation: null
 
    CBOR encoding: f6
 
@@ -1277,11 +1279,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
 
    CBOR encoding: 74 323030313a6462383a6130623a313266303a3a31
 
-5.13.  The "instance-identifier" Type
 
-   This specification supports three approaches for encoding an
-   instance-identifier, one based on SIDs as defined in
-   [I-D.somaraju-core-sid], one based on names as defined in
+
+
 
 
 
@@ -1290,6 +1290,11 @@ Veillette, et al.       Expires October 30, 2016               [Page 23]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
 
 
+5.13.  The "instance-identifier" Type
+
+   This specification supports three approaches for encoding an
+   instance-identifier, one based on SIDs as defined in
+   [I-D.somaraju-core-sid], one based on names as defined in
    [I-D.ietf-netmod-yang-json] section 6.13 and one based on YANG hashes
    as defined in [I-D.vanderstok-core-comi].
 
@@ -1333,11 +1338,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
    method defined by [I-D.vanderstok-core-comi] sections 4.1.4.1 and
    4.1.4.2.
 
-   Definition example [RFC7317]:
-
-
-
-
 
 
 
@@ -1345,6 +1345,8 @@ Veillette, et al.       Expires October 30, 2016               [Page 24]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
 
+
+   Definition example [RFC7317]:
 
    container system {
 
@@ -1392,8 +1394,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
    66 2f4a73473058
 
    Definition example [RFC7317]:
-
-
 
 
 

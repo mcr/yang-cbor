@@ -1156,8 +1156,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
    approach is both compact and simple to implement.  When SIDs are
    used, identityref MUST be encoded using a CBOR unsigned integer data
    item (major type 0) or CBOR signed integer (major type 1), depending
-   on the actual value.  The value represents the delta between the
-   identity SID and the SID of the assigned leaf.
+   on the actual value.  The value represents the delta between the SID
+   of the identity assigned to the leaf and the SID of the base identity
+   defined for this leaf.
 
    *Name as identityref*
 
@@ -1169,7 +1170,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
    MUST be used.  Otherwise, both the simple and namespace-qualified
    forms are permitted.
 
-   Definition example [RFC7223]:
 
 
 
@@ -1177,6 +1177,8 @@ Veillette, et al.       Expires October 30, 2016               [Page 21]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
 
+
+   Definition example [RFC7223]:
 
    identity interface-type {
    }
@@ -1197,8 +1199,8 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
 
    *SIDs as identityref*
 
-   Assuming that the identity "iana-if-type:ethernetCsmacd" (SID 1179)
-   is assigned to leaf "/interfaces-state/interface/type" (SID 1528).
+   This example represents the encoding of identity "ethernetCsmacd"
+   (SID 1179) assuming the base identity "interface-type"(SID 1500).
 
    CBOR diagnostic notation: -349
 
@@ -1224,8 +1226,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
 
    CBOR diagnostic notation: null
 
-   CBOR encoding: f6
-
 
 
 
@@ -1233,6 +1233,8 @@ Veillette, et al.       Expires October 30, 2016               [Page 22]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
 
+
+   CBOR encoding: f6
 
 5.12.  The "union" Type
 
@@ -1280,8 +1282,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
    This specification supports three approaches for encoding an
    instance-identifier, one based on SIDs as defined in
    [I-D.somaraju-core-sid], one based on names as defined in
-   [I-D.ietf-netmod-yang-json] section 6.13 and one based on YANG hashes
-   as defined in [I-D.vanderstok-core-comi].
 
 
 
@@ -1289,6 +1289,9 @@ Veillette, et al.       Expires October 30, 2016               [Page 23]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
 
+
+   [I-D.ietf-netmod-yang-json] section 6.13 and one based on YANG hashes
+   as defined in [I-D.vanderstok-core-comi].
 
    *SIDs as instance-identifier*
 
@@ -1331,9 +1334,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2016
    4.1.4.2.
 
    Definition example [RFC7317]:
-
-
-
 
 
 

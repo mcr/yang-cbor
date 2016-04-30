@@ -316,7 +316,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Somaraju, A., Turner, R., and A. Minaburo" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-cool-01" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-4-29" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-4-30" />
   <meta name="dct.abstract" content="This document describes a management function set adapted to constrained devices and constrained networks (e.g., low-power, lossy). CoOL objects (datastores, RPCs, actions and notifications) are defined using the YANG modelling language " />
   <meta name="description" content="This document describes a management function set adapted to constrained devices and constrained networks (e.g., low-power, lossy). CoOL objects (datastores, RPCs, actions and notifications) are defined using the YANG modelling language " />
 
@@ -340,7 +340,7 @@ li, p {
   <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: October 31, 2016</td>
+  <td class="left">Expires: November 1, 2016</td>
   <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -369,7 +369,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">April 29, 2016</td>
+  <td class="right">April 30, 2016</td>
 </tr>
 
     	
@@ -389,7 +389,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on October 31, 2016.</p>
+<p>This Internet-Draft will expire on November 1, 2016.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -583,8 +583,8 @@ GET /c
 <p id="rfc.section.5.2.p.2">To retrieve a list of data node instances, the CoOL client sends a CoAP FETCH request to the URI of the targeted datastore. The payload of the FETCH request contains the list of data node(s) instance to be retrieved. This list is encoded using a CBOR array, each entry containing an &#8220;instance-identifier&#8221; as defined by <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>. Within each &#8220;instance-identifier&#8221;, data nodes are identified using SIDs as defined by <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a>.</p>
 <p id="rfc.section.5.2.p.3">SIDs within the list of &#8220;instance-identifier&#8221; are encoded using delta. A delta represents the different between the current SID and the SID of the previous entry within this list. The delta of the first entry within the list is set to the absolute SID value (current SID minus zero).</p>
 <p id="rfc.section.5.2.p.4">On successful processing of the CoAP request, the CoOL server MUST return a CoAP response with a response code 2.05 (Content).</p>
-<p id="rfc.section.5.2.p.5">When a single data node is requested, the payload of the GET response MUST carry the data node instance requested encoded using the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>.</p>
-<p id="rfc.section.5.2.p.6">When a multiple data nodes are requested, the payload of the GET response MUST carry a CBOR array containing the data node instance(s) requested. Each entry within this array MUST be encoding using the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>.</p>
+<p id="rfc.section.5.2.p.5">When a single data node is requested, the payload of the FETCH response MUST carry the data node instance requested encoded using the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>.</p>
+<p id="rfc.section.5.2.p.6">When a multiple data nodes are requested, the payload of the FETCH response MUST carry a CBOR array containing the data node instance(s) requested. Each entry within this array MUST be encoding using the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>.</p>
 <p id="rfc.section.5.2.p.7">When a collection is returned (YANG container, YANG list or YANG list instance), delta(s) are computed using the requested SID as parent.</p>
 <p id="rfc.section.5.2.p.8">The CBOR value undefined (0xf7) must be returned for each data node requested but not currently available.</p>
 <h1 id="rfc.section.5.2.1"><a href="#rfc.section.5.2.1">5.2.1.</a> <a href="#example-1-simple-data-node" id="example-1-simple-data-node">Example #1 - Simple data node</a></h1>

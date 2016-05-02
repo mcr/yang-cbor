@@ -316,7 +316,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Somaraju, A., Turner, R., and A. Minaburo" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-cool-01" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-4-30" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-5-02" />
   <meta name="dct.abstract" content="This document describes a management function set adapted to constrained devices and constrained networks (e.g., low-power, lossy). CoOL objects (datastores, RPCs, actions and notifications) are defined using the YANG modelling language " />
   <meta name="description" content="This document describes a management function set adapted to constrained devices and constrained networks (e.g., low-power, lossy). CoOL objects (datastores, RPCs, actions and notifications) are defined using the YANG modelling language " />
 
@@ -340,7 +340,7 @@ li, p {
   <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: November 1, 2016</td>
+  <td class="left">Expires: November 3, 2016</td>
   <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -369,7 +369,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">April 30, 2016</td>
+  <td class="right">May 02, 2016</td>
 </tr>
 
     	
@@ -389,7 +389,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on November 1, 2016.</p>
+<p>This Internet-Draft will expire on November 3, 2016.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -553,7 +553,7 @@ li, p {
   <li>&#8220;/system-state/clock&#8221; (SID 1708)</li>
   <li>&#8220;/system-state/clock/boot-datetime&#8221; (SID 1709)</li>
   <li>&#8220;/system-state/clock/current-datetime&#8221; (SID 1710)</li>
-  <li>&#8220;/system/clock/timezone/timezone-utc-offset/timezone-utc-offset&#8221; (SID 1721)</li>
+  <li>&#8220;/system/clock/timezone/timezone-utc-offset/timezone-utc-offset&#8221; (SID 1727)</li>
 </ul>
 <p id="rfc.section.5.1.p.7">CoAP Request:</p>
 <pre>
@@ -575,7 +575,7 @@ GET /c
       +1 : "2015-02-08T14:10:08Z09:00",  # boot-datetime (SID 1709)
       +2 : "2015-04-04T09:32:51Z09:00"   # current-datetime (SID 1710)
     }
-  +13, 60                     # timezone-utc-offset (SID 1721)
+  +19, 60                     # timezone-utc-offset (SID 1727)
 ]
 </pre>
 <h1 id="rfc.section.5.2"><a href="#rfc.section.5.2">5.2.</a> <a href="#fetch-retrieving-specific-data-nodes" id="fetch-retrieving-specific-data-nodes">FETCH - Retrieving specific data nodes</a></h1>
@@ -588,7 +588,7 @@ GET /c
 <p id="rfc.section.5.2.p.7">When a collection is returned (YANG container, YANG list or YANG list instance), delta(s) are computed using the requested SID as parent.</p>
 <p id="rfc.section.5.2.p.8">The CBOR value undefined (0xf7) must be returned for each data node requested but not currently available.</p>
 <h1 id="rfc.section.5.2.1"><a href="#rfc.section.5.2.1">5.2.1.</a> <a href="#example-1-simple-data-node" id="example-1-simple-data-node">Example #1 - Simple data node</a></h1>
-<p id="rfc.section.5.2.1.p.1">In this example, a CoOL client retrieves the leaf &#8220;/system-state/clock/current-datetime&#8221; (SID 1704) and the container &#8220;/system/clock&#8221; (SID 1719) containing the leaf &#8220;/system/clock/timezone/timezone-utc-offset/timezone-utc-offset&#8221; (SID 1721). These data nodes are defined in the YANG module &#8220;ietf-system&#8221; <a href="#RFC7317">[RFC7317]</a>.</p>
+<p id="rfc.section.5.2.1.p.1">In this example, a CoOL client retrieves the leaf &#8220;/system-state/clock/current-datetime&#8221; (SID 1704) and the container &#8220;/system/clock&#8221; (SID 1719) containing the leaf &#8220;/system/clock/timezone/timezone-utc-offset/timezone-utc-offset&#8221; (SID 1727). These data nodes are defined in the YANG module &#8220;ietf-system&#8221; <a href="#RFC7317">[RFC7317]</a>.</p>
 <p id="rfc.section.5.2.1.p.2">CoAP request:</p>
 <pre>
 FETCH /c Content-Format(application/cool+cbor)
@@ -600,7 +600,7 @@ FETCH /c Content-Format(application/cool+cbor)
 [
   "2015-10-08T14:10:08Z09:00",    # current-datetime (SID 1704)
   {                               # clock (SID 1719)
-    +2 : 540                     # timezone-utc-offset (SID 1721)
+    +8 : 540                     # timezone-utc-offset (SID 1727)
   }
 ]
 </pre>
@@ -610,7 +610,7 @@ FETCH /c Content-Format(application/cool+cbor)
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|Ver| T |  TKL  |  Code (0x01)  |          Message ID           |
+|Ver| T |  TKL  |  Code (0x05)  |          Message ID           |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |   Token (0 to 8 bytes) ...
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -654,11 +654,11 @@ FETCH /c Content-Format(application/cool+cbor)
 +-+-+-+-+-+-+-+-+
 </pre>
 <h1 id="rfc.section.5.2.2"><a href="#rfc.section.5.2.2">5.2.2.</a> <a href="#example-2-data-node-instance-within-a-yang-list" id="example-2-data-node-instance-within-a-yang-list">Example #2 - Data node instance within a YANG list</a></h1>
-<p id="rfc.section.5.2.2.p.1">The data type &#8220;instance-identifier&#8221; allows the selection of an instance of a specific data node within a list. In this example, a CoOL client retrieves the &#8220;/interfaces/interface/type&#8221; (SID 1529) leaf from the &#8220;/interfaces/interface&#8221; list. The &#8220;/interfaces/interface/name&#8221; associated to this interface is equal to &#8220;eth0&#8221;. This example is based on the YANG module &#8220;ietf-interfaces&#8221; <a href="#RFC7223">[RFC7223]</a>.</p>
+<p id="rfc.section.5.2.2.p.1">The data type &#8220;instance-identifier&#8221; allows the selection of an instance of a specific data node within a list. In this example, a CoOL client retrieves the &#8220;/interfaces/interface/description&#8221; (SID 1530) leaf from the &#8220;/interfaces/interface&#8221; list. The &#8220;/interfaces/interface/name&#8221; associated to this interface is equal to &#8220;eth0&#8221;. This example is based on the YANG module &#8220;ietf-interfaces&#8221; <a href="#RFC7223">[RFC7223]</a>.</p>
 <p id="rfc.section.5.2.2.p.2">CoAP request:</p>
 <pre>
 FETCH /c Content-Format(application/cool+cbor)
-[[1529, "eth0"]]
+[[1530, "eth0"]]
 </pre>
 <p id="rfc.section.5.2.2.p.3">CoAP response:</p>
 <pre>
@@ -693,11 +693,11 @@ FETCH /c Content-Format(application/cool+cbor)
 </pre>
 <h1 id="rfc.section.5.2.4"><a href="#rfc.section.5.2.4">5.2.4.</a> <a href="#example-4-yang-list-instance" id="example-4-yang-list-instance">Example #4 - YANG list instance</a></h1>
 <p id="rfc.section.5.2.4.p.1">To retrieve a list instance, the CoOL client MUST use an &#8220;instance-identifier&#8221; with a SID set to the targeted list and the key(s) set to the value(s) associated to the targeted instance.</p>
-<p id="rfc.section.5.2.4.p.2">In this example, the CoOL client requests the instance of the list &#8220;/interfaces/interface&#8221; (SID 1529) associated to the name &#8220;eth1&#8221;. The response returned by the CoOL server contains the targeted list instance formatted as YANG container.</p>
+<p id="rfc.section.5.2.4.p.2">In this example, the CoOL client requests the instance of the list &#8220;/interfaces/interface&#8221; (SID 1529) associated to the name &#8220;eth0&#8221;. The response returned by the CoOL server contains the targeted list instance formatted as YANG container.</p>
 <p id="rfc.section.5.2.4.p.3">CoAP request:</p>
 <pre>
 FETCH /c Content-Format(application/cool+cbor)
-[[1529, "eth1"]
+[[1529, "eth0"]
 </pre>
 <p id="rfc.section.5.2.4.p.4">CoAP response:</p>
 <pre>
@@ -712,20 +712,20 @@ FETCH /c Content-Format(application/cool+cbor)
 <h1 id="rfc.section.5.2.5"><a href="#rfc.section.5.2.5">5.2.5.</a> <a href="#example-5-yang-list-instance-filtering" id="example-5-yang-list-instance-filtering">Example #5 - YANG list instance filtering</a></h1>
 <p id="rfc.section.5.2.5.p.1">This &#8220;instance-identifier&#8221; extension allows the selection of a subset of data nodes within a list. This is accomplished by adding an extra element to the &#8220;instance-identifier&#8221;. This element contains the subset of data nodes to be returned encoded as CBOR array. Each entry within this CBOR array is set to the delta between the current SID and the SID of targeted container as specified in the first entry of the &#8220;instance-identifier&#8221;.</p>
 <p id="rfc.section.5.2.5.p.2">CoOL servers SHOULD implement this &#8220;instance-identifier&#8221; extension. When this extension is not supported, the CoOL server MUST ignore the third element of the &#8220;instance-identifier&#8221; and return the list instance as specified by the first two elements of the &#8220;instance-identifier&#8221;.</p>
-<p id="rfc.section.5.2.5.p.3">In this example, a CoOL client retrieves from within the &#8220;/interfaces/interface&#8221; list (SID 1528) the leafs &#8220;/interfaces/interface/type&#8221; (SID 1533) and &#8220;/interfaces/interface/enabled&#8221; (SID 1530). The CoOL client also includes in this request the selection of the leaf &#8220;/system/hostname&#8221; defined in &#8220;ietf-system&#8221; <a href="#RFC7317">[RFC7317]</a>.</p>
+<p id="rfc.section.5.2.5.p.3">In this example, a CoOL client retrieves from within the &#8220;/interfaces/interface&#8221; list (SID 1529) the leafs &#8220;/interfaces/interface/type&#8221; (SID 1534) and &#8220;/interfaces/interface/enabled&#8221; (SID 1531). The CoOL client also includes in this request the selection of the leaf &#8220;/system/hostname&#8221; (SID 1739) defined in &#8220;ietf-system&#8221; <a href="#RFC7317">[RFC7317]</a>.</p>
 <p id="rfc.section.5.2.5.p.4">For example:</p>
 <p id="rfc.section.5.2.5.p.5">CoAP request:</p>
 <pre>
 FETCH /c Content-Format(application/cool+cbor)
-[ [1528, ["eth0"], [+5, +2]], +211]
+[ [1529, "eth0", [+5, +2]], +210]
 </pre>
 <p id="rfc.section.5.2.5.p.6">CoAP response:</p>
 <pre>
 2.05 Content Content-Format(application/cool+cbor)
 [
   {
-    +5 : 1179,             # type (SID 1533), identity ethernetCsmacd
-    +2 : true              # enabled (SID 1530)
+    +5 : 1179,             # type (SID 1534), identity ethernetCsmacd
+    +2 : true              # enabled (SID 1531)
   },
   "datatracker.ietf.org",  # hostname (SID 1739)
 ]
@@ -733,12 +733,12 @@ FETCH /c Content-Format(application/cool+cbor)
 <h1 id="rfc.section.5.2.6"><a href="#rfc.section.5.2.6">5.2.6.</a> <a href="#example-6-all-instances-of-a-data-node-within-a-yang-list" id="example-6-all-instances-of-a-data-node-within-a-yang-list">Example #6 - All instances of a data node within a YANG list</a></h1>
 <p id="rfc.section.5.2.6.p.1">This &#8220;instance-identifier&#8221; extension allows the efficient transfer of all instances of a data node within a YANG list. To retrieve all instances, the CoOL client excludes form the &#8220;instance-identifier&#8221; the key(s) of the list containing the targeted data node.</p>
 <p id="rfc.section.5.2.6.p.2">The response MUST be encoded as a CBOR ARRAY containing the available instances of the requested data node. This special encoding minimizes significantly this commonly used type of request.</p>
-<p id="rfc.section.5.2.6.p.3">In this example, a CoOL client retrieves all instances of data node &#8220;/interfaces-state/interface/name&#8221; (SID 1532).</p>
+<p id="rfc.section.5.2.6.p.3">In this example, a CoOL client retrieves all instances of data node &#8220;/interfaces/interface/name&#8221; (SID 1533).</p>
 <p id="rfc.section.5.2.6.p.4">Example:</p>
 <p id="rfc.section.5.2.6.p.5">CoAP request:</p>
 <pre>
 FETCH /c Content-Format(application/cool+cbor)
-[1532]
+[1533]
 </pre>
 <p id="rfc.section.5.2.6.p.6">CoAP response:</p>
 <pre>
@@ -756,7 +756,7 @@ FETCH /c Content-Format(application/cool+cbor)
 <p/>
 
 <ul>
-  <li>&#8220;/system/clock/timezone/timezone-utc-offset/timezone-utc-offset&#8221; (SID 1721)</li>
+  <li>&#8220;/system/clock/timezone/timezone-utc-offset/timezone-utc-offset&#8221; (SID 1727)</li>
   <li>&#8220;/system/ntp/enabled&#8221; (SID 1742)</li>
   <li>&#8220;/system/ntp/server&#8221; (SID 1743)</li>
   <li>&#8220;/system/ntp/server/name&#8221; (SID 1746)</li>
@@ -776,15 +776,15 @@ PUT /c/r Content-Format(application/cool+cbor)
       +3 : "tic.nrc.ca",         # name (SID 1746)
       +4 : true,                 # prefer (SID 1747)
       +5 : {                     # udp (SID 1748)
-        +6 : "132.246.11.231",   # address (SID 1749)
-        +7 : 123                 # port (SID 1750)
+        +1 : "132.246.11.231",   # address (SID 1749)
+        +2 : 123                 # port (SID 1750)
       }
     },
     {
       +3 : "tac.nrc.ca",         # name (SID 1746)
       +4 : false,                # prefer (SID 1747)
       +5 : {                     # udp (SID 1748)
-        +6 : "132.246.11.232"    # address (SID 1749)
+        +1 : "132.246.11.232"    # address (SID 1749)
       }
     }
   ] 
@@ -829,7 +829,7 @@ iPATCH /c/r Content-Format(application/cool+cbor)
       +3 : "NTP Pool server 2",         # name (SID 1746)
       +4 : true,                        # prefer (SID 1747)
       +5 : {                            # udp (SID 1748)
-        +6 : "2620:10a:800f::11",       # address (SID 1749)
+        +1 : "2620:10a:800f::11",       # address (SID 1749)
       }
     }
   [+4, "tic.nrc.ca"], false             # prefer (SID 1747)

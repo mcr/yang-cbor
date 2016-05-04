@@ -195,8 +195,8 @@ Internet-Draft         Structure Identifier (SID)               May 2016
    SIDs are assigned permanently, items introduced by a new revision of
    a YANG module are added to the list of SIDs already assigned.  This
    process can also be automated using the same method described above
-   except that the assignment restart for the highest SID already
-   assigned.
+   except that the assignment need to be restarted from the highest SID
+   already assigned.
 
    Section 5 defines a standard file format used to store and publish
    SIDs.

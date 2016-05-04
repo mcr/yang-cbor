@@ -290,7 +290,7 @@ li, p {
 
   <meta name="dct.creator" content="Somaraju, A., Ed., Veillette, M., Ed., Pelov, A., Turner, R., and A. Minaburo" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-somaraju-core-sid-00" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-5-02" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-5-04" />
   <meta name="dct.abstract" content="Structured IDentifiers (SID) are used to identify different YANG items when encoded in CBOR. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs." />
   <meta name="description" content="Structured IDentifiers (SID) are used to identify different YANG items when encoded in CBOR. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs." />
 
@@ -314,7 +314,7 @@ li, p {
   <td class="right">M. Veillette, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: November 3, 2016</td>
+  <td class="left">Expires: November 5, 2016</td>
   <td class="right">Trilliant Networks Inc.</td>
 </tr>
 <tr>
@@ -343,7 +343,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">May 02, 2016</td>
+  <td class="right">May 04, 2016</td>
 </tr>
 
     	
@@ -363,7 +363,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on November 3, 2016.</p>
+<p>This Internet-Draft will expire on November 5, 2016.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -439,10 +439,11 @@ li, p {
 <ul>
   <li>A tool extracts the different items defined for a specific YANG module.</li>
   <li>The list of items is ordered by type and label.</li>
-  <li>SIDs are assigned sequentially for the entry point up to the size of the registered SID range. It is important to note that sequentially assigning SIDs optimizes the CBOR serialization due to the use of delta encoding.</li>
+  <li>SIDs are assigned sequentially for the entry point up to the size of the registered SID range. When multiple ranges are assigned to a YANG module, SIDs need to be assigned sequentially within all these ranges. It is important to note that sequentially assigning SIDs optimizes the CBOR serialization due to the use of delta encoding.</li>
   <li>If the number of items exceeds the SID range(s) allocated to a YANG module, an extra range is added for subsequent assignments.</li>
-  <li>SIDs are assigned permanently, items introduced by a new revision of a YANG module are added to the list of SIDs already assigned. <a href="#sid-file-format">Section 5</a> defines a standard file format used to store and publish SIDs.</li>
 </ul>
+<p id="rfc.section.3.p.8">SIDs are assigned permanently, items introduced by a new revision of a YANG module are added to the list of SIDs already assigned. This process can also be automated using the same method described above except that the assignment restart for the highest SID already assigned.</p>
+<p><a href="#sid-file-format">Section 5</a> defines a standard file format used to store and publish SIDs.</p>
 <h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#sid-lifecycle" id="sid-lifecycle">&#8220;.sid&#8221; file lifecycle</a></h1>
 <p id="rfc.section.4.p.1">The following activity diagram summarize the life cycle of &#8220;.sid&#8221; files.</p>
 <pre>
@@ -639,7 +640,8 @@ module ietf-sid-file {
       mandatory true;
       description
         "Label associated to this item, can be set to:
-          - an identity encoded as: '&lt;module name&gt;:&lt;entity name&gt;'
+          - a base identity encoded as '/&lt;base identity name&gt;'
+          - an identity encoded as '/&lt;base identity name&gt;/&lt;identity name&gt;'
           - a schema node path";
     }
 
@@ -868,37 +870,37 @@ module ietf-sid-file {
     {
       "type": "identity",
       "assigned": "2016-01-13T21:00:19Z",
-      "label": "ietf-system:authentication-method",
+      "label": "/authentication-method",
       "sid": 1700
     },
     {
       "type": "identity",
       "assigned": "2016-01-13T21:00:19Z",
-      "label": "ietf-system:local-users",
+      "label": "/authentication-method/local-users",
       "sid": 1701
     },
     {
       "type": "identity",
       "assigned": "2016-01-13T21:00:19Z",
-      "label": "ietf-system:radius",
+      "label": "/authentication-method/radius",
       "sid": 1702
     },
     {
       "type": "identity",
       "assigned": "2016-01-13T21:00:19Z",
-      "label": "ietf-system:radius-authentication-type",
+      "label": "/radius-authentication-type",
       "sid": 1703
     },
     {
       "type": "identity",
       "assigned": "2016-01-13T21:00:19Z",
-      "label": "ietf-system:radius-chap",
+      "label": "/radius-authentication-type/radius-chap",
       "sid": 1704
     },
     {
       "type": "identity",
       "assigned": "2016-01-13T21:00:19Z",
-      "label": "ietf-system:radius-pap",
+      "label": "/radius-authentication-type/radius-pap",
       "sid": 1705
     },
     {

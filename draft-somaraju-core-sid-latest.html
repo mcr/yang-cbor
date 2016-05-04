@@ -439,7 +439,7 @@ li, p {
 <ul>
   <li>A tool extracts the different items defined for a specific YANG module.</li>
   <li>The list of items is ordered by type and label.</li>
-  <li>SIDs are assigned sequentially for the entry point up to the size of the registered SID range. When multiple ranges are assigned to a YANG module, SIDs need to be assigned sequentially within all these ranges. It is important to note that sequentially assigning SIDs optimizes the CBOR serialization due to the use of delta encoding.</li>
+  <li>SIDs are assigned sequentially for the entry point up to the size of the registered SID range. It is important to note that sequentially assigning SIDs optimizes the CBOR serialization due to the use of delta encoding.</li>
   <li>If the number of items exceeds the SID range(s) allocated to a YANG module, an extra range is added for subsequent assignments.</li>
 </ul>
 <p id="rfc.section.3.p.8">SIDs are assigned permanently, items introduced by a new revision of a YANG module are added to the list of SIDs already assigned. This process can also be automated using the same method described above except that the assignment restart for the highest SID already assigned.</p>

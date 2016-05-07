@@ -306,7 +306,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Somaraju, A., Turner, R., and A. Minaburo" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-yang-cbor-mapping-00" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-5-04" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-5-07" />
   <meta name="dct.abstract" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
   <meta name="description" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
 
@@ -330,7 +330,7 @@ li, p {
   <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: November 5, 2016</td>
+  <td class="left">Expires: November 8, 2016</td>
   <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -359,7 +359,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">May 04, 2016</td>
+  <td class="right">May 07, 2016</td>
 </tr>
 
     	
@@ -379,7 +379,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on November 5, 2016.</p>
+<p>This Internet-Draft will expire on November 8, 2016.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -576,7 +576,7 @@ li, p {
 <p>
   <strong>SIDs as keys</strong>
 </p>
-<p id="rfc.section.4.2.p.3">Keys implemented using SIDs MUST be encoded using a CBOR unsigned integer (major type 0) and set to the delta value of the associated SID. Delta values are computed as follows:</p>
+<p id="rfc.section.4.2.p.3">Keys implemented using SIDs MUST be encoded using a CBOR unsigned integer (major type 0) or CBOR signed integer (major type 1), depending on the actual value. Keys are set to the delta of the associated SID, delta values are computed as follows:</p>
 <p/>
 
 <ul>

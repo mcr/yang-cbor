@@ -295,14 +295,17 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG        May 2016
    key types.
 
    In order to minimize the size of the encoded data, the proposed
-   mapping does not make use of any meta-information beyond those
-   natively supported by CBOR.  For instance, CBOR tags are not used for
-   any of the proposed mapping.  It is expected that entities generating
-   and decoding CBOR contents have enough knowledge about the
-   information processed in order to perform the expected task without
-   the need of such extra meta-information.  The CoAP Content-Format
-   Option, or an HTTP Content-Type header field, conveys that the data
-   is YANG-encoded CBOR in the first place.
+   mapping avoid any unnecessary meta-information beyond those natively
+   supported by CBOR.  For instance, CBOR tags are use sorely in the
+   case of the union datatype to distinguish explicitly the use a YANG
+   datatypes encoded using the same CBOR major type.
+
+   It is expected that entities generating and decoding CBOR contents
+   have enough knowledge about the information processed in order to
+   perform the expected task without the need of such extra meta-
+   information.  The CoAP Content-Format Option, or an HTTP Content-Type
+   header field, conveys that the data is YANG-encoded CBOR in the first
+   place.
 
 4.  Encoding of YANG Schema Node Instances
 
@@ -326,10 +329,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG        May 2016
    identifier, each value is set to the value of this data node
    instance.
 
-   This specification supports three type of keys; SID as defined in
-   [I-D.somaraju-core-sid], member names as defined in
-   [I-D.ietf-netmod-yang-json] and YANG hash as defined by
-   [I-D.vanderstok-core-comi].
+
 
 
 
@@ -337,6 +337,11 @@ Veillette, et al.       Expires November 19, 2016               [Page 6]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG        May 2016
 
+
+   This specification supports three type of keys; SID as defined in
+   [I-D.somaraju-core-sid], member names as defined in
+   [I-D.ietf-netmod-yang-json] and YANG hash as defined by
+   [I-D.vanderstok-core-comi].
 
    *SIDs as keys*
 
@@ -373,11 +378,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG        May 2016
    Section 4 and Section 5.
 
    Definition example [RFC7317]:
-
-
-
-
-
 
 
 

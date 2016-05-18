@@ -1256,18 +1256,18 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG        May 2016
    YANG datatypes are prefixed by CBOR tag to avoid confusion between
    different YANG datatypes encoded using the same CBOR major type.
 
-   o bits
+   o  bits
 
-   o decimal64
+   o  decimal64
 
-   o enumeration
+   o  enumeration
 
-   o identityref
+   o  identityref
 
-   o instance-identifier
+   o  instance-identifier
 
-   o leafref (Only if the datatype of the leaf referenced using the
-   "path" YANG statement require a CBOR tag)
+   o  leafref (Only when the datatype of the leaf referenced using the
+      "path" YANG statement require a CBOR tag)
 
    See Section 7.1 for more information about these CBOR tags.
 

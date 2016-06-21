@@ -700,7 +700,11 @@ module ietf-cool-library {
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a></h1>
 <h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#yang-module-registry" id="yang-module-registry">YANG Module Registry</a></h1>
 <p id="rfc.section.5.1.p.1">This document registers one YANG module in the YANG Module Names registry <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a>.</p>
-<p id="rfc.section.5.1.p.2">name:         ietf-cool-library namespace:    urn:ietf:params:xml:ns:yang:ietf-cool-library prefix:       coollib // RFC Ed.: replace XXXX with RFC number and remove this note reference:    RFC XXXX</p>
+<p id="rfc.section.5.1.p.2">name:         ietf-cool-library</p>
+<p id="rfc.section.5.1.p.3">namespace:    urn:ietf:params:xml:ns:yang:ietf-cool-library</p>
+<p id="rfc.section.5.1.p.4">prefix:       coollib</p>
+<p id="rfc.section.5.1.p.5">// RFC Ed.: replace XXXX with RFC number and remove this note</p>
+<p id="rfc.section.5.1.p.6">reference:    RFC XXXX</p>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
 <p id="rfc.section.6.p.1">This YANG module is designed to be accessed via the CoOL protocol <a href="#I-D.veillette-core-cool">[I-D.veillette-core-cool]</a>.  Some of the readable data nodes in this YANG module may be considered sensitive or vulnerable in some network environments.  It is thus important to control read access to these data nodes.</p>
 <p id="rfc.section.6.p.2">Specifically, the &#8216;module&#8217; list may help an attacker identify the server capabilities and server implementations with known bugs. Server vulnerabilities may be specific to particular modules, module revisions, module features, or even module deviations.  This information is included in each module entry.  For example, if a particular operation on a particular data node is known to cause a server to crash or significantly degrade device performance, then the module list information will help an attacker identify server implementations with such a defect, in order to launch a denial of service attack on the device.</p>

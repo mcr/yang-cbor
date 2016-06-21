@@ -527,9 +527,15 @@ Internet-Draft       Constrained YANG Module Library           June 2016
    This document registers one YANG module in the YANG Module Names
    registry [I-D.ietf-netmod-rfc6020bis].
 
-   name: ietf-cool-library namespace: urn:ietf:params:xml:ns:yang:ietf-
-   cool-library prefix: coollib // RFC Ed.: replace XXXX with RFC number
-   and remove this note reference: RFC XXXX
+   name: ietf-cool-library
+
+   namespace: urn:ietf:params:xml:ns:yang:ietf-cool-library
+
+   prefix: coollib
+
+   // RFC Ed.: replace XXXX with RFC number and remove this note
+
+   reference: RFC XXXX
 
 6.  Security Considerations
 
@@ -547,12 +553,6 @@ Internet-Draft       Constrained YANG Module Library           June 2016
    particular operation on a particular data node is known to cause a
    server to crash or significantly degrade device performance, then the
    module list information will help an attacker identify server
-   implementations with such a defect, in order to launch a denial of
-   service attack on the device.
-
-
-
-
 
 
 
@@ -561,6 +561,9 @@ Veillette               Expires December 23, 2016              [Page 10]
 
 Internet-Draft       Constrained YANG Module Library           June 2016
 
+
+   implementations with such a defect, in order to launch a denial of
+   service attack on the device.
 
 7.  Acknowledgments
 
@@ -604,10 +607,7 @@ Internet-Draft       Constrained YANG Module Library           June 2016
               Library", draft-ietf-netconf-yang-library-06 (work in
               progress), April 2016.
 
-   [I-D.veillette-core-cool]
-              Veillette, M., Pelov, A., Somaraju, A., Turner, R., and A.
-              Minaburo, "Constrained Objects Language", draft-veillette-
-              core-cool-01 (work in progress), March 2016.
+
 
 
 
@@ -617,6 +617,11 @@ Veillette               Expires December 23, 2016              [Page 11]
 
 Internet-Draft       Constrained YANG Module Library           June 2016
 
+
+   [I-D.veillette-core-cool]
+              Veillette, M., Pelov, A., Somaraju, A., Turner, R., and A.
+              Minaburo, "Constrained Objects Language", draft-veillette-
+              core-cool-01 (work in progress), March 2016.
 
 Author's Address
 
@@ -628,11 +633,6 @@ Author's Address
 
    Phone: +14503750556
    Email: michel.veillette@trilliantinc.com
-
-
-
-
-
 
 
 

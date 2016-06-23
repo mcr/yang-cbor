@@ -72,26 +72,26 @@ Table of Contents
      2.1.  CBOR diagnostic notation  . . . . . . . . . . . . . . . .   4
    3.  Properties of the CBOR Encoding . . . . . . . . . . . . . . .   5
    4.  Encoding of YANG Schema Node Instances  . . . . . . . . . . .   6
-     4.1.  The "leaf" Schema Node  . . . . . . . . . . . . . . . . .   6
-     4.2.  The "container" Schema Node . . . . . . . . . . . . . . .   6
-     4.3.  The "leaf-list" Schema Node . . . . . . . . . . . . . . .  10
-     4.4.  The "list" Schema Node  . . . . . . . . . . . . . . . . .  10
-     4.5.  The "anydata" Schema Node . . . . . . . . . . . . . . . .  16
-     4.6.  The "anyxml" Schema Node  . . . . . . . . . . . . . . . .  17
+     4.1.  The 'leaf' Schema Node  . . . . . . . . . . . . . . . . .   6
+     4.2.  The 'container' Schema Node . . . . . . . . . . . . . . .   6
+     4.3.  The 'leaf-list' Schema Node . . . . . . . . . . . . . . .  10
+     4.4.  The 'list' Schema Node  . . . . . . . . . . . . . . . . .  10
+     4.5.  The 'anydata' Schema Node . . . . . . . . . . . . . . . .  16
+     4.6.  The 'anyxml' Schema Node  . . . . . . . . . . . . . . . .  17
    5.  Representing YANG Data Types in CBOR  . . . . . . . . . . . .  17
      5.1.  The unsigned integer Types  . . . . . . . . . . . . . . .  17
      5.2.  The integer Types . . . . . . . . . . . . . . . . . . . .  17
-     5.3.  The "decimal64" Type  . . . . . . . . . . . . . . . . . .  18
-     5.4.  The "string" Type . . . . . . . . . . . . . . . . . . . .  18
-     5.5.  The "boolean" Type  . . . . . . . . . . . . . . . . . . .  19
-     5.6.  The "enumeration" Type  . . . . . . . . . . . . . . . . .  19
-     5.7.  The "bits" Type . . . . . . . . . . . . . . . . . . . . .  19
-     5.8.  The "binary" Type . . . . . . . . . . . . . . . . . . . .  20
-     5.9.  The "leafref" Type  . . . . . . . . . . . . . . . . . . .  21
-     5.10. The "identityref" Type  . . . . . . . . . . . . . . . . .  21
-     5.11. The "empty" Type  . . . . . . . . . . . . . . . . . . . .  23
-     5.12. The "union" Type  . . . . . . . . . . . . . . . . . . . .  23
-     5.13. The "instance-identifier" Type  . . . . . . . . . . . . .  24
+     5.3.  The 'decimal64' Type  . . . . . . . . . . . . . . . . . .  18
+     5.4.  The 'string' Type . . . . . . . . . . . . . . . . . . . .  18
+     5.5.  The 'boolean' Type  . . . . . . . . . . . . . . . . . . .  19
+     5.6.  The 'enumeration' Type  . . . . . . . . . . . . . . . . .  19
+     5.7.  The 'bits' Type . . . . . . . . . . . . . . . . . . . . .  19
+     5.8.  The 'binary' Type . . . . . . . . . . . . . . . . . . . .  20
+     5.9.  The 'leafref' Type  . . . . . . . . . . . . . . . . . . .  21
+     5.10. The 'identityref' Type  . . . . . . . . . . . . . . . . .  21
+     5.11. The 'empty' Type  . . . . . . . . . . . . . . . . . . . .  23
+     5.12. The 'union' Type  . . . . . . . . . . . . . . . . . . . .  23
+     5.13. The 'instance-identifier' Type  . . . . . . . . . . . . .  24
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  29
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  29
      7.1.  Tags Registry . . . . . . . . . . . . . . . . . . . . . .  29
@@ -296,9 +296,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
    In order to minimize the size of the encoded data, the proposed
    mapping avoid any unnecessary meta-information beyond those natively
-   supported by CBOR.  For instance, CBOR tags are use sorely in the
-   case of the union datatype to distinguish explicitly the use a YANG
-   datatypes encoded using the same CBOR major type.
+   supported by CBOR.  For instance, CBOR tags are used sorely in the
+   case of the union datatype to distinguish explicitly the use of
+   different YANG datatypes encoded using the same CBOR major type.
 
    It is expected that entities generating and decoding CBOR contents
    have enough knowledge about the information processed in order to
@@ -314,12 +314,12 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
    section.  We assume that the reader is already familiar with both
    YANG [I-D.ietf-netmod-rfc6020bis] and CBOR [RFC7049].
 
-4.1.  The "leaf" Schema Node
+4.1.  The 'leaf' Schema Node
 
    Leafs MUST be encoded based on the encoding rules specified in
    Section 5.
 
-4.2.  The "container" Schema Node
+4.2.  The 'container' Schema Node
 
    Collections such as containers, list instances, notifications, RPC
    inputs, RPC outputs, action inputs and action outputs MUST be encoded
@@ -519,7 +519,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
          78 1a                             # text(26)
             323031352d30392d31355430393a31323a35385a2d30353a3030
 
-4.3.  The "leaf-list" Schema Node
+4.3.  The 'leaf-list' Schema Node
 
    A leaf-list MUST be encoded using a CBOR array data item (major type
    4).  Each entry of this array MUST be encoded using the rules defined
@@ -545,12 +545,12 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
    CBOR encoding: 82 68 696574662e6f7267 68 696565652e6f7267
 
-4.4.  The "list" Schema Node
+4.4.  The 'list' Schema Node
 
    A list MUST be encoded using a CBOR array data item (major type 4).
    Each list instance within this CBOR array is encoded using a CBOR map
-   data item (major type 5) based on the same rules as a YANG container,
-   see Section 4.2.
+   data item (major type 5) based on the same rules as a YANG container
+   as defined in Section 4.2.
 
    Definition example [RFC7317]:
 
@@ -880,7 +880,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
             6a                           # text(10)
                7461632e6e72632e6361      # "tac.nrc.ca"
 
-4.5.  The "anydata" Schema Node
+4.5.  The 'anydata' Schema Node
 
    An anydata serves as a container for an arbitrary set of schema nodes
    that otherwise appear as normal YANG-modeled data.  An anydata
@@ -908,7 +908,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
    o  Values MUST follow the encoding rules of one of the datatypes
       listed in Section 5.
 
-4.6.  The "anyxml" Schema Node
+4.6.  The 'anyxml' Schema Node
 
    An anyxml instance is encoded as a CBOR key/value pair.  The key of
    the anyxml schema node MUST be a valid SID, member name or YANG hash
@@ -964,11 +964,11 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
    CBOR encoding: 39 012b
 
-5.3.  The "decimal64" Type
+5.3.  The 'decimal64' Type
 
-   Leafs of type decimal64 MUST be encoded using either CBOR unsigned
-   integer (major type 0) or CBOR signed integer (major type 1),
-   depending on the actual value.  The position of the decimal point is
+   f type decimal64 MUST be encoded using either CBOR unsigned integer
+   (major type 0) or CBOR signed integer (major type 1), depending on
+   the actual value.  Leafs oThe position of the decimal point is
    defined by the fraction-digits YANG statement and is not available in
    the CBOR encoding.
 
@@ -985,7 +985,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
    CBOR encoding: 19 0101
 
-5.4.  The "string" Type
+5.4.  The 'string' Type
 
    Leafs of type string MUST be encoded using a CBOR text string data
    item (major type 3).
@@ -1010,7 +1010,7 @@ Veillette, et al.       Expires December 25, 2016              [Page 18]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
 
-5.5.  The "boolean" Type
+5.5.  The 'boolean' Type
 
    Leafs of type boolean MUST be encoded using a CBOR true (major type
    7, additional information 21) or false data item (major type 7,
@@ -1026,12 +1026,12 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
    CBOR encoding: f5
 
-5.6.  The "enumeration" Type
+5.6.  The 'enumeration' Type
 
    Leafs of type enumeration MUST be encoded using a CBOR unsigned
    integer (major type 0) or CBOR signed integer (major type 1),
    depending on the actual value.  Enumeration values are either
-   explicitly assigned using the YANG statement "value" or automatically
+   explicitly assigned using the YANG statement 'value' or automatically
    assigned based on the algorithm defined in
    [I-D.ietf-netmod-rfc6020bis] section 9.6.4.2.
 
@@ -1049,14 +1049,14 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
      }
    }
 
-   CBOR diagnostic notation: 3 (Represents enumeration value "testing")
+   CBOR diagnostic notation: 3 (Represents enumeration value 'testing')
 
    CBOR encoding: 03
 
-5.7.  The "bits" Type
+5.7.  The 'bits' Type
 
    Leafs of type bits MUST be encoded using a CBOR byte string data item
-   (major type 2).  TBits position are either explicitly assigned using
+   (major type 2).  Bits position are either explicitly assigned using
 
 
 
@@ -1066,7 +1066,7 @@ Veillette, et al.       Expires December 25, 2016              [Page 19]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
 
-   the YANG statement "position" or automatically assigned based on the
+   the YANG statement 'position' or automatically assigned based on the
    algorithm defined in [I-D.ietf-netmod-rfc6020bis] section 9.7.4.2.
 
    Bits position 0 to 7 are assigned to the first byte within the byte
@@ -1095,7 +1095,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
    CBOR encoding: 41 05
 
-5.8.  The "binary" Type
+5.8.  The 'binary' Type
 
    Leafs of type binary MUST be encoded using a CBOR byte string data
    item (major type 2).
@@ -1122,10 +1122,10 @@ Veillette, et al.       Expires December 25, 2016              [Page 20]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
 
-5.9.  The "leafref" Type
+5.9.  The 'leafref' Type
 
    Leafs of type leafref MUST be encoded using the rules of the schema
-   node referenced by the "path" YANG statement.
+   node referenced by the 'path' YANG statement.
 
    Definition example [RFC7223]:
 
@@ -1151,7 +1151,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
    CBOR encoding: 64 65746831
 
-5.10.  The "identityref" Type
+5.10.  The 'identityref' Type
 
    This specification supports two approaches for encoding identityref,
    a SID as defined in [I-D.somaraju-core-sid] or a name as defined in
@@ -1210,7 +1210,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
    *SIDs as identityref*
 
    This example represents the encoding of identity "radius-pap" (SID
-   1705) assuming the base identity "radius-authentication-type"(SID
+   1705) assuming the base identity "radius-authentication-type" (SID
    1703).
 
    CBOR diagnostic notation: 2
@@ -1234,7 +1234,7 @@ Veillette, et al.       Expires December 25, 2016              [Page 22]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
 
-5.11.  The "empty" Type
+5.11.  The 'empty' Type
 
    Leafs of type empty MUST be encoded using the CBOR null value (major
    type 7, additional information 22).
@@ -1249,11 +1249,11 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
    CBOR encoding: f6
 
-5.12.  The "union" Type
+5.12.  The 'union' Type
 
    Leafs of type union MUST be encoded using the rules associated with
-   one of the types listed.  When use in a union, the following list of
-   YANG datatypes are prefixed by CBOR tag to avoid confusion between
+   one of the types listed.  When used in a union, the following YANG
+   datatypes are prefixed by CBOR tag to avoid confusion between
    different YANG datatypes encoded using the same CBOR major type.
 
    o  bits
@@ -1267,7 +1267,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
    o  instance-identifier
 
    o  leafref (Only when the datatype of the leaf referenced using the
-      "path" YANG statement require a CBOR tag)
+      'path' YANG statement require a CBOR tag)
 
    See Section 7.1 for more information about these CBOR tags.
 
@@ -1324,7 +1324,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
    CBOR encoding: 74 323030313a6462383a6130623a313266303a3a31
 
-5.13.  The "instance-identifier" Type
+5.13.  The 'instance-identifier' Type
 
    This specification supports three approaches for encoding an
    instance-identifier, one based on SIDs as defined in
@@ -1358,7 +1358,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
    o  The following entries MUST contain the value of each key required
       to identify the instance of the targeted data node.  These keys
-      MUST be ordered as defined in the "key" YANG statement, starting
+      MUST be ordered as defined in the 'key' YANG statement, starting
       from top level list, and follow by each of the subordinate
       list(s).
 
@@ -1583,7 +1583,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
    CBOR diagnostic notation:
 
-   "/md8bB?keys=\"bob\""
+   "/md8bB?keys=\"bob\"
 
    CBOR encoding:
 
@@ -1626,23 +1626,20 @@ Veillette, et al.       Expires December 25, 2016              [Page 29]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
 
 
-   +-------------------+-------------------+---------------------------+
-   | Data Item         | Semantics         | Reference                 |
-   +-------------------+-------------------+---------------------------+
-   | bits              | YANG bits         | [I-D.ietf-netmod-rfc6020b |
-   |                   | datatype          | is]                       |
-   | decimal64         | YANG decimal64    | [I-D.ietf-netmod-rfc6020b |
-   |                   | datatype          | is]                       |
-   | enumeration       | YANG enumeration  | [I-D.ietf-netmod-rfc6020b |
-   |                   | datatype          | is]                       |
-   | identityref       | YANG identityref  | [I-D.ietf-netmod-rfc6020b |
-   |                   | datatype          | is]                       |
-   | instance-         | YANG instance-    | [I-D.ietf-netmod-rfc6020b |
-   | identifier        | identifier        | is]                       |
-   |                   | datatype          |                           |
-   | leafref           | YANG leafref      | [I-D.ietf-netmod-rfc6020b |
-   |                   | datatype          | is]                       |
-   +-------------------+-------------------+---------------------------+
+   +-----+---------------------+---------------------------+-----------+
+   | Tag | Data Item           | Semantics                 | Reference |
+   +-----+---------------------+---------------------------+-----------+
+   | 40  | bits                | YANG bits datatype        | RFC XXXX  |
+   | 41  | decimal64           | YANG decimal64 datatype   | RFC XXXX  |
+   | 42  | enumeration         | YANG enumeration datatype | RFC XXXX  |
+   | 43  | identityref         | YANG identityref datatype | RFC XXXX  |
+   | 44  | instance-identifier | YANG instance-identifier  | RFC XXXX  |
+   |     |                     | datatype                  |           |
+   +-----+---------------------+---------------------------+-----------+
+
+   // RFC Ed.: update Tag values using allocated tags if needed and
+   remove this note // RFC Ed.: replace XXXX with RFC number and remove
+   this note
 
 8.  Acknowledgments
 
@@ -1672,6 +1669,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       June 2016
    [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
               October 2013, <http://www.rfc-editor.org/info/rfc7049>.
+
+
+
 
 
 

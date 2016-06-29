@@ -300,8 +300,9 @@ li, p {
 <link href="#rfc.section.7" rel="Chapter" title="7 Error Handling"/>
 <link href="#rfc.section.8" rel="Chapter" title="8 Security Considerations"/>
 <link href="#rfc.section.9" rel="Chapter" title="9 IANA Considerations"/>
-<link href="#rfc.section.9.1" rel="Chapter" title="9.1 &#x201C;FETCH&#x201D; CoAP Method Code"/>
-<link href="#rfc.section.9.2" rel="Chapter" title="9.2 &#x201C;iPATCH&#x201D; CoAP Method Code"/>
+<link href="#rfc.section.9.1" rel="Chapter" title="9.1 CoAP Method Code"/>
+<link href="#rfc.section.9.2" rel="Chapter" title="9.2 CoAP Content-Formats"/>
+<link href="#rfc.section.9.3" rel="Chapter" title="9.3 CBOR simple value"/>
 <link href="#rfc.section.10" rel="Chapter" title="10 Acknowledgments"/>
 <link href="#rfc.references" rel="Chapter" title="11 References"/>
 <link href="#rfc.references.1" rel="Chapter" title="11.1 Normative References"/>
@@ -433,8 +434,9 @@ li, p {
 </ul><li>7.   <a href="#rfc.section.7">Error Handling</a></li>
 <li>8.   <a href="#rfc.section.8">Security Considerations</a></li>
 <li>9.   <a href="#rfc.section.9">IANA Considerations</a></li>
-<ul><li>9.1.   <a href="#rfc.section.9.1">&#8220;FETCH&#8221; CoAP Method Code</a></li>
-<li>9.2.   <a href="#rfc.section.9.2">&#8220;iPATCH&#8221; CoAP Method Code</a></li>
+<ul><li>9.1.   <a href="#rfc.section.9.1">CoAP Method Code</a></li>
+<li>9.2.   <a href="#rfc.section.9.2">CoAP Content-Formats</a></li>
+<li>9.3.   <a href="#rfc.section.9.3">CBOR simple value</a></li>
 </ul><li>10.   <a href="#rfc.section.10">Acknowledgments</a></li>
 <li>11.   <a href="#rfc.references">References</a></li>
 <ul><li>11.1.   <a href="#rfc.references.1">Normative References</a></li>
@@ -561,7 +563,7 @@ GET /c
 </pre>
 <p id="rfc.section.5.1.p.8">CoAP response:</p>
 <pre>
-2.05 Content Content-Format(application/cool+cbor)
+2.05 Content Content-Format(application/cool-value-pairs+cbor)
 [
   1533,                       # interface (SID 1533)
     {
@@ -579,24 +581,28 @@ GET /c
 ]
 </pre>
 <h1 id="rfc.section.5.2"><a href="#rfc.section.5.2">5.2.</a> <a href="#fetch-retrieving-specific-data-nodes" id="fetch-retrieving-specific-data-nodes">FETCH - Retrieving specific data nodes</a></h1>
-<p id="rfc.section.5.2.p.1">The FETCH method is used by the CoOL client of retrieve a subset of the data nodes within a datastore.</p>
+<p id="rfc.section.5.2.p.1">The FETCH method is used by the CoOL client of retrieve a subset of the data node instances within a datastore.</p>
 <p id="rfc.section.5.2.p.2">To retrieve a list of data node instances, the CoOL client sends a CoAP FETCH request to the URI of the targeted datastore. The payload of the FETCH request contains the list of data node(s) instance to be retrieved. This list is encoded using a CBOR array, each entry containing an &#8220;instance-identifier&#8221; as defined by <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>. Within each &#8220;instance-identifier&#8221;, data nodes are identified using SIDs as defined by <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a>.</p>
-<p id="rfc.section.5.2.p.3">SIDs within the list of &#8220;instance-identifier&#8221; are encoded using delta. A delta represents the different between the current SID and the SID of the previous entry within this list. The delta of the first entry within the list is set to the absolute SID value (current SID minus zero).</p>
+<p id="rfc.section.5.2.p.3">SIDs within the list of &#8220;instance-identifier&#8221; are encoded using delta. A delta represents the different between the current SID and the SID of the previous entry within this list. The delta of the first entry within the list is set to the absolute SID value.</p>
 <p id="rfc.section.5.2.p.4">On successful processing of the CoAP request, the CoOL server MUST return a CoAP response with a response code 2.05 (Content).</p>
-<p id="rfc.section.5.2.p.5">When a single data node is requested, the payload of the FETCH response MUST carry the data node instance requested encoded using the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>.</p>
-<p id="rfc.section.5.2.p.6">When a multiple data nodes are requested, the payload of the FETCH response MUST carry a CBOR array containing the data node instance(s) requested. Each entry within this array MUST be encoding using the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>.</p>
-<p id="rfc.section.5.2.p.7">When a collection is returned (YANG container, YANG list or YANG list instance), delta(s) are computed using the requested SID as parent.</p>
-<p id="rfc.section.5.2.p.8">The CBOR value undefined (0xf7) must be returned for each data node requested but not currently available.</p>
+<p id="rfc.section.5.2.p.5">When a single data node is requested, the payload of the FETCH response carries the value of the data node instance requested. When a multiple data nodes are requested, the payload of the FETCH response carries a CBOR array containing the value of each data node instance(s) requested. The number of entries in this CBOR array MUST match the number of &#8220;instance-identifier&#8221; requested to allow a proper interpretation of this information.  The following type of values can be returned for each &#8220;instance-identifier&#8221; requested:</p>
+<p/>
+
+<ul>
+  <li>If the data node requested is not implemented or not instantiated, the CBOR simple value &#8216;undefined&#8217; is returned.</li>
+  <li>If the URI-Query parameter &#8216;a&#8217; is not present in the FETCH request and the value of the data node instance is equal to the default value for this data node, the CBOR simple value &#8216;default&#8217; is returned.</li>
+  <li>Otherwise, the data node instance is encoded using the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>.</li>
+</ul>
 <h1 id="rfc.section.5.2.1"><a href="#rfc.section.5.2.1">5.2.1.</a> <a href="#example-1-simple-data-node" id="example-1-simple-data-node">Example #1 - Simple data node</a></h1>
 <p id="rfc.section.5.2.1.p.1">In this example, a CoOL client retrieves the leaf &#8220;/system-state/clock/current-datetime&#8221; (SID 1719) and the container &#8220;/system/clock&#8221; (SID 1734) containing the leaf &#8220;/system/clock/timezone/timezone-utc-offset/timezone-utc-offset&#8221; (SID 1736). These data nodes are defined in the YANG module &#8220;ietf-system&#8221; <a href="#RFC7317">[RFC7317]</a>.</p>
 <p id="rfc.section.5.2.1.p.2">CoAP request:</p>
 <pre>
-FETCH /c Content-Format(application/cool+cbor)
+FETCH /c Content-Format(application/cool-instance-id-list+cbor)
 [1719, +15]
 </pre>
 <p id="rfc.section.5.2.1.p.3">CoAP response:</p>
 <pre>
-2.05 Content Content-Format(application/cool+cbor)
+2.05 Content Content-Format(application/cool-value-list+cbor)
 [
   "2015-10-08T14:10:08Z09:00",    # current-datetime (SID 1719)
   {                               # clock (SID 1734)
@@ -657,25 +663,25 @@ FETCH /c Content-Format(application/cool+cbor)
 <p id="rfc.section.5.2.2.p.1">The data type &#8220;instance-identifier&#8221; allows the selection of an instance of a specific data node within a list. In this example, a CoOL client retrieves the &#8220;/interfaces/interface/description&#8221; (SID 1534) leaf from the &#8220;/interfaces/interface&#8221; list. The &#8220;/interfaces/interface/name&#8221; associated to this interface is equal to &#8220;eth0&#8221;. This example is based on the YANG module &#8220;ietf-interfaces&#8221; <a href="#RFC7223">[RFC7223]</a>.</p>
 <p id="rfc.section.5.2.2.p.2">CoAP request:</p>
 <pre>
-FETCH /c Content-Format(application/cool+cbor)
+FETCH /c Content-Format(application/cool-instance-id-list+cbor)
 [[1534, "eth0"]]
 </pre>
 <p id="rfc.section.5.2.2.p.3">CoAP response:</p>
 <pre>
-2.05 Content Content-Format(application/cool+cbor)
+2.05 Content Content-Format(application/cool-value+cbor)
 "Ethernet adaptor"
 </pre>
 <h1 id="rfc.section.5.2.3"><a href="#rfc.section.5.2.3">5.2.3.</a> <a href="#example-3-yang-list" id="example-3-yang-list">Example #3 - YANG list</a></h1>
-<p id="rfc.section.5.2.3.p.1">To retrieve all instances of a list, the CoOL client excludes from the &#8220;instance-identifier&#8221; the key(s) of the targeted list. The list returned is encoded using the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a> section 4.4.</p>
-<p id="rfc.section.5.2.3.p.2">In this example, a CoOL client retrieves the list &#8220;/interfaces/interface&#8221; (SID 1533). The response returns contain two instances, one for an Ethernet adaptor and one for a WIFI interface.</p>
+<p id="rfc.section.5.2.3.p.1">This &#8220;instance-identifier&#8221; extension allows the retrieval of all instances of a YANG list. To perform this operation, the CoOL client excludes from the &#8220;instance-identifier&#8221; the key(s) of the targeted list. The list returned is encoded using the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a> section 4.4.</p>
+<p id="rfc.section.5.2.3.p.2">In this example, a CoOL client retrieves the list &#8220;/interfaces/interface&#8221; (SID 1533). The response returned contain two instances, one for an Ethernet adaptor and one for a WIFI interface.</p>
 <p id="rfc.section.5.2.3.p.3">CoAP request:</p>
 <pre>
-FETCH /c Content-Format(application/cool+cbor)
+FETCH /c Content-Format(application/cool-instance-id-list+cbor)
 [1533]
 </pre>
 <p id="rfc.section.5.2.3.p.4">CoAP response:</p>
 <pre>
-2.05 Content Content-Format(application/cool+cbor)
+2.05 Content Content-Format(application/cool-value+cbor)
 [
   {
     +4 : "eth0",             # name (SID 1537)
@@ -696,12 +702,12 @@ FETCH /c Content-Format(application/cool+cbor)
 <p id="rfc.section.5.2.4.p.2">In this example, the CoOL client requests the instance of the list &#8220;/interfaces/interface&#8221; (SID 1533) associated to the name &#8220;eth0&#8221;. The response returned by the CoOL server contains the targeted list instance formatted as YANG container.</p>
 <p id="rfc.section.5.2.4.p.3">CoAP request:</p>
 <pre>
-FETCH /c Content-Format(application/cool+cbor)
+FETCH /c Content-Format(application/cool-instance-id-list+cbor)
 [[1533, "eth0"]]
 </pre>
 <p id="rfc.section.5.2.4.p.4">CoAP response:</p>
 <pre>
-2.05 Content Content-Format(application/cool+cbor)
+2.05 Content Content-Format(application/cool-value+cbor)
 {
   +4 : "eth0"               # name (SID 1537)
   +1 : "Ethernet adaptor"   # description (SID 1534)
@@ -716,12 +722,12 @@ FETCH /c Content-Format(application/cool+cbor)
 <p id="rfc.section.5.2.5.p.4">For example:</p>
 <p id="rfc.section.5.2.5.p.5">CoAP request:</p>
 <pre>
-FETCH /c Content-Format(application/cool+cbor)
+FETCH /c Content-Format(application/cool-instance-id-list+cbor)
 [ [1533, "eth0", [+5, +2]], +215]
 </pre>
 <p id="rfc.section.5.2.5.p.6">CoAP response:</p>
 <pre>
-2.05 Content Content-Format(application/cool+cbor)
+2.05 Content Content-Format(application/cool-value-list+cbor)
 [
   {
     +5 : 1179,             # type (SID 1538), identity ethernetCsmacd
@@ -737,12 +743,12 @@ FETCH /c Content-Format(application/cool+cbor)
 <p id="rfc.section.5.2.6.p.4">Example:</p>
 <p id="rfc.section.5.2.6.p.5">CoAP request:</p>
 <pre>
-FETCH /c Content-Format(application/cool+cbor)
+FETCH /c Content-Format(application/cool-instance-id-list+cbor)
 [1537]
 </pre>
 <p id="rfc.section.5.2.6.p.6">CoAP response:</p>
 <pre>
-2.05 Content Content-Format(application/cool+cbor)
+2.05 Content Content-Format(application/cool-value+cbor)
 ["eth0", "eth1", "wlan0"]
 </pre>
 <h1 id="rfc.section.5.3"><a href="#rfc.section.5.3">5.3.</a> <a href="#put-updating-all-data-nodes-of-a-datastore" id="put-updating-all-data-nodes-of-a-datastore">PUT - Updating all data nodes of a datastore</a></h1>
@@ -767,7 +773,7 @@ FETCH /c Content-Format(application/cool+cbor)
 </ul>
 <p id="rfc.section.5.3.p.9">CoAP request:</p>
 <pre>
-PUT /c/r Content-Format(application/cool+cbor)
+PUT /c/r Content-Format(application/cool-value-pairs+cbor)
 [
   1736, 540,                     # timezone-utc-offset (SID 1736)
   +15, true,                     # enabled (SID 1751)
@@ -820,7 +826,7 @@ PUT /c/r Content-Format(application/cool+cbor)
 </ul>
 <p id="rfc.section.5.4.p.11">CoAP request:</p>
 <pre>
-iPATCH /c/r Content-Format(application/cool+cbor)
+iPATCH /c/r Content-Format(application/cool-value-pairs+cbor)
 [
   1751 , true,                          # enabled (1751)
   [+1, "tac.nrc.ca"], null,             # server (SID 1752)
@@ -849,7 +855,7 @@ iPATCH /c/r Content-Format(application/cool+cbor)
 <p id="rfc.section.5.5.1.p.2">rpc activate-software-image { input { leaf image-name { type string; } } output { leaf status { type string; } } }</p>
 <p id="rfc.section.5.5.1.p.3">CoAP request:</p>
 <pre>
-POST /c Content-Format(application/cool+cbor)
+POST /c Content-Format(application/cool-value-pairs+cbor)
 [
   1932,
   {
@@ -859,7 +865,7 @@ POST /c Content-Format(application/cool+cbor)
 </pre>
 <p id="rfc.section.5.5.1.p.4">CoAP response:</p>
 <pre>
-2.05 Content
+2.05 Content Content-Format(application/cool-value+cbor)
 {
   +2 : "installed"                      # status (SID 1934)
 }
@@ -869,7 +875,7 @@ POST /c Content-Format(application/cool+cbor)
 <p id="rfc.section.5.5.2.p.2">list server { key name; leaf name { type string; } action reset { input { leaf reset-at { type yang:date-and-time; mandatory true; } } output { leaf reset-finished-at { type yang:date-and-time; mandatory true; } } } }</p>
 <p id="rfc.section.5.5.2.p.3">CoAP request:</p>
 <pre>
-POST /c Content-Format(application/cool+cbor)
+POST /c Content-Format(application/cool-value-pairs+cbor)
 [
   [1902, "myServer"],
   {
@@ -879,7 +885,7 @@ POST /c Content-Format(application/cool+cbor)
 </pre>
 <p id="rfc.section.5.5.2.p.4">CoAP response:</p>
 <pre>
-2.05 Content
+2.05 Content Content-Format(application/cool-value+cbor)
 {
   +2 : "2016-08T14:10:08Z09:18"         # reset-finished-at (SID 1904)
 }
@@ -960,7 +966,7 @@ GET /c/e observe(0) Token(0x9372)
 <p id="rfc.section.5.6.p.13">CoAP response:</p>
 <pre>
 2.05 Content Observe(53) Token(0xD937)
-Content-Format(application/cool+cbor)
+Content-Format(application/cool-value-pairs+cbor)
 [
   1011 , [1538, "eth0"],              # _id (SID 1011)
   +1,{                                # content (SID 1012)
@@ -973,7 +979,7 @@ Content-Format(application/cool+cbor)
 <p id="rfc.section.5.6.p.15">CoAP response:</p>
 <pre>
 2.05 Content Observe(52) Token(0xD937)
-Content-Format(application/cool+cbor)
+Content-Format(application/cool-value-pairs+cbor)
 [
   [
     1011 , [1538, "eth0"],      # _id = interface-enabled (SID 1011)
@@ -998,7 +1004,7 @@ Content-Format(application/cool+cbor)
 <h1 id="rfc.section.6.2"><a href="#rfc.section.6.2">6.2.</a> <a href="#working-with-location-path-and-location-query" id="working-with-location-path-and-location-query">Working with Location-Path and Location-Query</a></h1>
 <p id="rfc.section.6.2.p.1">This version of CoOL doesn&#8217;t support the creation of resources (datastore or event stream). For this reason, the use of Location-Path and Location-Query is not required.</p>
 <h1 id="rfc.section.6.3"><a href="#rfc.section.6.3">6.3.</a> <a href="#working-with-accept" id="working-with-accept">Working with Accept</a></h1>
-<p id="rfc.section.6.3.p.1">This option is not required since this protocol supports a single content format, &#8220;application/cool+cbor&#8221;.</p>
+<p id="rfc.section.6.3.p.1">This option is not required since this protocol don&#8217;t support multiple choices of Content-Format.</p>
 <h1 id="rfc.section.6.4"><a href="#rfc.section.6.4">6.4.</a> <a href="#working-with-max-age" id="working-with-max-age">Working with Max-Age</a></h1>
 <p id="rfc.section.6.4.p.1">This option MUST be supported as specified by <a href="#RFC6690">[RFC6690]</a>.</p>
 <h1 id="rfc.section.6.5"><a href="#rfc.section.6.5">6.5.</a> <a href="#working-with-proxy-uri-and-proxy-scheme" id="working-with-proxy-uri-and-proxy-scheme">Working with Proxy-Uri and Proxy-Scheme</a></h1>
@@ -1018,12 +1024,12 @@ Content-Format(application/cool+cbor)
 <p id="rfc.section.6.8.p.8">Subsequent responses are returned by the CoOL server each time the state of data node &#8220;/system/ntp/enabled&#8221; changes.</p>
 <p id="rfc.section.6.8.p.9">CoAP request:</p>
 <pre>
-FETCH /c Content-Format(application/cool+cbor) Observe(0)
+FETCH /c Content-Format(application/cool-instance-id-list+cbor) Observe(0)
 [ [1751, "tic.nrc.ca"], -3 ]
 </pre>
 <p id="rfc.section.6.8.p.10">CoAP response:</p>
 <pre>
-2.05 Content Content-Format(application/cool+cbor) Observe(2631)
+2.05 Content Content-Format(application/cool-value-pairs+cbor) Observe(2631)
 [
   false,                     # enabled (SID 1751)
   "tic"                      # hostname (SID 1748)
@@ -1031,7 +1037,7 @@ FETCH /c Content-Format(application/cool+cbor) Observe(0)
 </pre>
 <p id="rfc.section.6.8.p.11">CoAP response:</p>
 <pre>
-2.05 Content Content-Format(application/cool+cbor) Observe(2632)
+2.05 Content Content-Format(application/cool-value-pairs+cbor) Observe(2632)
 [
   true,                      # enabled (SID 1751)
   "tic"                      # hostname (SID 1748)
@@ -1071,7 +1077,7 @@ GET /.well-known/core?rt=cool.datastore
 <p id="rfc.section.7.p.2">Example:</p>
 <p id="rfc.section.7.p.3">CoAP response:</p>
 <pre>
-4.00 Bad Request (Content-Format: application/cool+cbor)
+4.00 Bad Request (Content-Format: application/cool-value-pairs+cbor)
 [
   1007 , {                                   # error-payload (SID 1007)
     +1 : 2,                                  # error-code (SID 1008)
@@ -1084,10 +1090,41 @@ GET /.well-known/core?rt=cool.datastore
 <p id="rfc.section.8.p.2">In some applications, different access rights to objects (data nodes, protocol operations and notifications) need to be granted to different CoOL clients. Different solutions are possible, such as the implementation of Access Control Lists (ACL) using YANG module(s) or the use of an authorization certificate as defined in <a href="#RFC5755">[RFC5755]</a>. These access control mechanisms need to be addressed in complementary specifications.</p>
 <p id="rfc.section.8.p.3">The Security Considerations section of CoAP <a href="#RFC7252">[RFC7252]</a> is especially relevant to this application protocol and should be reviewed carefully by implementers.</p>
 <h1 id="rfc.section.9"><a href="#rfc.section.9">9.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a></h1>
-<h1 id="rfc.section.9.1"><a href="#rfc.section.9.1">9.1.</a> <a href="#fetch-coap-method-code" id="fetch-coap-method-code">&#8220;FETCH&#8221; CoAP Method Code</a></h1>
-<p id="rfc.section.9.1.p.1">This draft makes use of the FETCH CoAP method as defined in <a href="#I-D.vanderstok-core-etch">[I-D.vanderstok-core-etch]</a>. This method needs to be registered in the CoAP Method Codes sub-registry as defined in <a href="#RFC7252">[RFC7252]</a> section 12.1.1.</p>
-<h1 id="rfc.section.9.2"><a href="#rfc.section.9.2">9.2.</a> <a href="#ipatch-coap-method-code" id="ipatch-coap-method-code">&#8220;iPATCH&#8221; CoAP Method Code</a></h1>
-<p id="rfc.section.9.2.p.1">This draft makes use of the iPATCH CoAP method as defined in <a href="#I-D.vanderstok-core-etch">[I-D.vanderstok-core-etch]</a>. This method needs to be registered in the CoAP Method Codes sub-registry as defined in <a href="#RFC7252">[RFC7252]</a> section 12.1.1.</p>
+<h1 id="rfc.section.9.1"><a href="#rfc.section.9.1">9.1.</a> <a href="#coap-method-code" id="coap-method-code">CoAP Method Code</a></h1>
+<p id="rfc.section.9.1.p.1">This draft makes use of the FETCH and  iPATCH CoAP methods as defined in <a href="#I-D.vanderstok-core-etch">[I-D.vanderstok-core-etch]</a>. These methods need to be registered in the CoAP Method Codes sub-registry as defined in <a href="#RFC7252">[RFC7252]</a> section 12.1.1.</p>
+<h1 id="rfc.section.9.2"><a href="#rfc.section.9.2">9.2.</a> <a href="#coap-content-formats" id="coap-content-formats">CoAP Content-Formats</a></h1>
+<p id="rfc.section.9.2.p.1">This draft introduces the following CoAP Content-Formats. These entries need to be registered in the CoAP Content-Formats Registry as defined in <a href="#RFC7252">[RFC7252]</a> section 12.3.</p>
+<p/>
+
+<ul>
+  <li>Media type = application/cool-instance-id-list</li>
+  <li>Encoding = CBOR</li>
+  <li>ID = 61</li>
+  <li>Reference = RFC XXXX</li>
+  <li>Media type = application/cool-value</li>
+  <li>Encoding = CBOR</li>
+  <li>ID = 62</li>
+  <li>Reference = RFC XXXX</li>
+  <li>Media type = application/cool-value-list</li>
+  <li>Encoding = CBOR</li>
+  <li>ID = 63</li>
+  <li>Reference = RFC XXXX</li>
+  <li>Media type = application/cool-value-pairs+cbor</li>
+  <li>Encoding = CBOR</li>
+  <li>ID = 64</li>
+  <li>Reference = RFC XXXX</li>
+</ul>
+<p id="rfc.section.9.2.p.3">RFC Ed.: update ID with allocated value and Reference with RFC number and remove this note.</p>
+<h1 id="rfc.section.9.3"><a href="#rfc.section.9.3">9.3.</a> <a href="#cbor-simple-value" id="cbor-simple-value">CBOR simple value</a></h1>
+<p id="rfc.section.9.3.p.1">This draft introduces the following CBOR simple value. This entry needs to be registered in the Simple Values Registry as defined in <a href="#RFC7049">[RFC7049]</a> section 7.1.</p>
+<p/>
+
+<ul>
+  <li>Value = 19</li>
+  <li>Semantics = Default value</li>
+  <li>Reference = RFC XXXX</li>
+</ul>
+<p id="rfc.section.9.3.p.3">RFC Ed.: update XXXX and the values using the RFC number for this draft and allocated values and remove this note.</p>
 <h1 id="rfc.section.10"><a href="#rfc.section.10">10.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments</a></h1>
 <p id="rfc.section.10.p.1">This document have been largely inspired by the extensive works done by Andy Bierman and Peter van der Stok on <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a>. <a href="#I-D.ietf-netconf-restconf">[I-D.ietf-netconf-restconf]</a> have also been a critical input to this work. The authors would like to thank the authors and contributors to these two drafts.</p>
 <p id="rfc.section.10.p.2">The authors would also like to thank Carsten Bormann for his help during the development of this document and his useful comments during the review process.</p>

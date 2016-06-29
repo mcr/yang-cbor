@@ -629,16 +629,16 @@ container system {
 <p id="rfc.section.4.2.p.14">CBOR diagnostic notation:</p>
 <pre>
 {
-  1708 : {                              # clock
-    +2 : "2015-10-02T14:47:24Z-05:00",  # current-datetime, SID 1710
-    +1 : "2015-09-15T09:12:58Z-05:00"   # boot-datetime, SID 1709
+  1717 : {                              # clock  (SID 1717)
+    +2 : "2015-10-02T14:47:24Z-05:00",  # current-datetime (SID 1719)
+    +1 : "2015-09-15T09:12:58Z-05:00"   # boot-datetime (SID 1718)
   }
 }
 </pre>
 <p id="rfc.section.4.2.p.15">CBOR encoding:</p>
 <pre>
 a1                                      # map(1)
-   19 06ac                              # unsigned(1708)
+   19 06b5                              # unsigned(1717)
    a2                                   # map(2)
       02                                # unsigned(2)
       78 1a                             # text(26)
@@ -770,19 +770,19 @@ list server {
 <pre>
 [
   {
-    1746 : "NRC TIC server",          # name
-    1748 : {                          # udp
-      +1 : "tic.nrc.ca",              # address, SID 1749
-      +2 : 123                        # port, SID 1750
+    1755 : "NRC TIC server",          # name (SID 1755)
+    1757 : {                          # udp (SID 1757)
+      +1 : "tic.nrc.ca",              # address (SID 1758)
+      +2 : 123                        # port (SID 1759)
     },
-    1744 : 0,                         # association-type
-    1745 : false,                     # iburst
-    1747 : true                       # prefer
+    1753 : 0,                         # association-type (SID 1753)
+    1754 : false,                     # iburst (SID 1754)
+    1756 : true                       # prefer (SID 1756)
   },
   {
-    1746 : "NRC TAC server",          # name
-    1748 : {                          # udp
-      +1 : "tac.nrc.ca"               # address, SID 1749
+    1755 : "NRC TAC server",          # name (SID 1755)
+    1757 : {                          # udp (SID 1757)
+      +1 : "tac.nrc.ca"               # address (SID 1758)
     }
   }
 ]
@@ -791,27 +791,27 @@ list server {
 <pre>
 82                                    # array(2)
    a5                                 # map(5)
-      19 06d2                         # unsigned(1746)
+      19 06db                         # unsigned(1755)
       6e                              # text(14)
          4e52432054494320736572766572 # "NRC TIC server"
-      19 06d4                         # unsigned(1748)
+      19 06dd                         # unsigned(1757)
       a2                              # map(2)
          01                           # unsigned(1)
          6a                           # text(10)
             7469632e6e72632e6361      # "tic.nrc.ca"
          02                           # unsigned(2)
          18 7b                        # unsigned(123)
-      19 06d0                         # unsigned(1744)
+      19 06d9                         # unsigned(1753)
       00                              # unsigned(0)
-      19 06d1                         # unsigned(1745)
+      19 06da                         # unsigned(1754)
       f4                              # primitive(20)
-      19 06d3                         # unsigned(1747)
+      19 06dc                         # unsigned(1756)
       f5                              # primitive(21)
    a2                                 # map(2)
-      19 06d2                         # unsigned(1746)
+      19 06db                         # unsigned(1755)
       6e                              # text(14)
          4e52432054414320736572766572 # "NRC TAC server"
-      19 06d4                         # unsigned(1748)
+      19 06dd                         # unsigned(1757)
       a1                              # map(1)
          01                           # unsigned(1)
          6a                           # text(10)
@@ -1126,9 +1126,9 @@ leaf type {
 <p>
   <strong>SIDs as identityref</strong>
 </p>
-<p id="rfc.section.5.10.p.11">Assuming that the identity &#8220;iana-if-type:ethernetCsmacd&#8221; has been assigned to the SID value 1179.</p>
-<p id="rfc.section.5.10.p.12">CBOR diagnostic notation: 1179</p>
-<p id="rfc.section.5.10.p.13">CBOR encoding: 19 049b</p>
+<p id="rfc.section.5.10.p.11">Assuming that the identity &#8220;iana-if-type:ethernetCsmacd&#8221; has been assigned to the SID value 1180.</p>
+<p id="rfc.section.5.10.p.12">CBOR diagnostic notation: 1180</p>
+<p id="rfc.section.5.10.p.13">CBOR encoding: 19 049c</p>
 <h1 id="rfc.section.5.11"><a href="#rfc.section.5.11">5.11.</a> <a href="#the-empty-type" id="the-empty-type">The &#8216;empty&#8217; Type</a></h1>
 <p id="rfc.section.5.11.p.1">Leafs of type empty MUST be encoded using the CBOR null value (major type 7, additional information 22).</p>
 <p id="rfc.section.5.11.p.2">Definition example <a href="#RFC7277">[RFC7277]</a>:</p>
@@ -1224,13 +1224,13 @@ container system {
 <p>
   <strong>First example based on SID</strong>
 </p>
-<p id="rfc.section.5.13.p.13">In this example, a field of type instance-identifier identifies the data node &#8220;/system/contact&#8221; (SID 1728).</p>
+<p id="rfc.section.5.13.p.13">In this example, a field of type instance-identifier identifies the data node &#8220;/system/contact&#8221; (SID 1737).</p>
 <pre>
-1728
+1737
 </pre>
 <p id="rfc.section.5.13.p.14">CBOR encoding:</p>
 <pre>
-19 06c0
+19 06c9
 </pre>
 <p>
   <strong>First example based on name</strong>
@@ -1284,15 +1284,15 @@ list user {
 <p>
   <strong>Second example based on SID</strong>
 </p>
-<p id="rfc.section.5.13.p.24">In this example, a field of type instance-identifier identify the data node &#8220;/system/authentication/user/authorized-key/key-data&#8221; (SID 1721) for the user name &#8220;bob&#8221; and the authorized-key name &#8220;admin&#8221;.</p>
+<p id="rfc.section.5.13.p.24">In this example, a field of type instance-identifier identify the data node &#8220;/system/authentication/user/authorized-key/key-data&#8221; (SID 1730) for the user name &#8220;bob&#8221; and the authorized-key name &#8220;admin&#8221;.</p>
 <p id="rfc.section.5.13.p.25">CBOR diagnostic notation:</p>
 <pre>
-[1721, "bob", "admin"]
+[1730, "bob", "admin"]
 </pre>
 <p id="rfc.section.5.13.p.26">CBOR encoding:</p>
 <pre>
 83                      # array(3)
-   19 06b9              # unsigned(1721)
+   19 06c2              # unsigned(1730)
    63                   # text(3)
       626f62            # "bob"
    65                   # text(5)
@@ -1329,15 +1329,15 @@ list user {
 <p>
   <strong>Third example based on SID</strong>
 </p>
-<p id="rfc.section.5.13.p.36">This third example identify an instance within the list &#8220;/system/authentication/user&#8221; (SID 1717) corresponding to the user name &#8220;jack&#8221;.</p>
+<p id="rfc.section.5.13.p.36">This third example identify an instance within the list &#8220;/system/authentication/user&#8221; (SID 1726) corresponding to the user name &#8220;jack&#8221;.</p>
 <p id="rfc.section.5.13.p.37">CBOR diagnostic notation:</p>
 <pre>
-[1717, "jack"]
+[1726, "jack"]
 </pre>
 <p id="rfc.section.5.13.p.38">CBOR encoding:</p>
 <pre>
 82                      # array(2)
-   19 06b5              # unsigned(1717)
+   19 06be              # unsigned(1726)
    64                   # text(4)
       6a61636b          # "jack"
 </pre>

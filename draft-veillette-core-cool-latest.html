@@ -545,10 +545,10 @@ li, p {
 <h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#get-retrieving-all-data-nodes-of-a-datastore" id="get-retrieving-all-data-nodes-of-a-datastore">GET - Retrieving all data nodes of a datastore</a></h1>
 <p id="rfc.section.5.1.p.1">The GET method is used by CoOL clients to retrieve the entire contents of a datastore. Implementation of this function is optional and dependent of the capability of the CoOL server to transfer a relatively large response.</p>
 <p id="rfc.section.5.1.p.2">To retrieve all instantiated data nodes of a datastore resource, a CoOL client sends a CoAP GET request to the URI of the targeted datastore. If the request is accepted by the CoOL server, a 2.05 (Content) response code is returned. The payload of the GET response MUST carry a CBOR array containing the contents of the targeted datastore. The CBOR array MUST contain a list of pairs of delta and associated value. A delta represents the difference between the current SID and the SID of the previous pair within the CBOR array. Each value is encoded using the rules defined by <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>.</p>
-<p id="rfc.section.5.1.p.3">The normal behaviour of a CoOL server is to exclude from the GET response, any data node with a value equal to the default value for this data node as defined by the YANG &#8220;default&#8221; statement. When this behaviour is not appropriate for the CoOL client, this client can force the retrieval of all data nodes by adding to its CoAP request a Uri-Query option containing the &#8220;a&#8221; parameter. See section <a href="#a-uri-query">Section 6.1</a> form more details.</p>
+<p id="rfc.section.5.1.p.3">The normal behaviour of a CoOL server is to exclude from the GET response, any data node with a value equal to the default value for this data node as defined by the YANG &#8216;default&#8217; statement. When this behaviour is not appropriate for the CoOL client, this client can force the retrieval of all data nodes by adding to its CoAP request a Uri-Query option containing the &#8216;a&#8217; parameter. See  <a href="#a-uri-query">Section 6.1</a> form more details.</p>
 <p id="rfc.section.5.1.p.4">If the request is rejected by the CoOL server, a 5.01 Not implemented or 4.13 Request Entity Too Large response code is returned.</p>
 <p id="rfc.section.5.1.p.5">Example:</p>
-<p id="rfc.section.5.1.p.6">In this example, the CoOL server returns a datastore containing the following data nodes defined in the YANG module &#8220;ietf-system&#8221; <a href="#RFC7317">[RFC7317]</a> and YANG module &#8220;ietf-interfaces&#8221; <a href="#RFC7223">[RFC7223]</a>:</p>
+<p id="rfc.section.5.1.p.6">In this example, the CoOL server returns a datastore containing the following data nodes defined in the YANG module &#8220;ietf-system&#8221; <a href="#RFC7317">[RFC7317]</a> and YANG module &#8216;ietf-interfaces&#8217; <a href="#RFC7223">[RFC7223]</a>:</p>
 <p/>
 
 <ul>
@@ -587,10 +587,10 @@ GET /c
 </pre>
 <h1 id="rfc.section.5.2"><a href="#rfc.section.5.2">5.2.</a> <a href="#fetch-retrieving-specific-data-nodes" id="fetch-retrieving-specific-data-nodes">FETCH - Retrieving specific data nodes</a></h1>
 <p id="rfc.section.5.2.p.1">The FETCH method is used by the CoOL client of retrieve a subset of the data node instances within a datastore.</p>
-<p id="rfc.section.5.2.p.2">To retrieve a list of data node instances, the CoOL client sends a CoAP FETCH request to the URI of the targeted datastore. The payload of the FETCH request contains the list of data node(s) instance to be retrieved. This list is encoded using a CBOR array, each entry containing an &#8220;instance-identifier&#8221; as defined by <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>. Within each &#8220;instance-identifier&#8221;, data nodes are identified using SIDs as defined by <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a>.</p>
-<p id="rfc.section.5.2.p.3">SIDs within the list of &#8220;instance-identifier&#8221; are encoded using delta. A delta represents the different between the current SID and the SID of the previous entry within this list. The delta of the first entry within the list is set to the absolute SID value.</p>
+<p id="rfc.section.5.2.p.2">To retrieve a list of data node instances, the CoOL client sends a CoAP FETCH request to the URI of the targeted datastore. The payload of the FETCH request contains the list of data node(s) instance to be retrieved. This list is encoded using a CBOR array, each entry containing an &#8216;instance-identifier&#8217; as defined by <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>. Within each &#8216;instance-identifier&#8217;, data nodes are identified using SIDs as defined by <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a>.</p>
+<p id="rfc.section.5.2.p.3">SIDs within the list of &#8216;instance-identifier&#8217; are encoded using delta. A delta represents the different between the current SID and the SID of the previous entry within this list. The delta of the first entry within the list is set to the absolute SID value.</p>
 <p id="rfc.section.5.2.p.4">On successful processing of the CoAP request, the CoOL server MUST return a CoAP response with a response code 2.05 (Content).</p>
-<p id="rfc.section.5.2.p.5">When a single data node is requested, the payload of the FETCH response carries the value of the data node instance requested. When a multiple data nodes are requested, the payload of the FETCH response carries a CBOR array containing the value of each data node instance(s) requested. The number of entries in this CBOR array MUST match the number of &#8220;instance-identifier&#8221; requested to allow a proper interpretation of this information.  The following type of values can be returned for each &#8220;instance-identifier&#8221; requested:</p>
+<p id="rfc.section.5.2.p.5">When a single data node is requested, the payload of the FETCH response carries the value of the data node instance requested. When a multiple data nodes are requested, the payload of the FETCH response carries a CBOR array containing the value of each data node instance(s) requested. The number of entries in this CBOR array MUST match the number of &#8220;instance-identifier&#8221; requested to allow a proper interpretation of this information.  The following type of values can be returned for each &#8216;instance-identifier&#8217; requested:</p>
 <p/>
 
 <ul>
@@ -598,7 +598,7 @@ GET /c
   <li>If the URI-Query parameter &#8216;a&#8217; is not present in the FETCH request and the value of the data node instance is equal to the default value for this data node, the CBOR simple value &#8216;default&#8217; is returned.</li>
   <li>Otherwise, the data node instance is encoded using the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>.</li>
 </ul>
-<p id="rfc.section.5.2.p.7">The normal behaviour of a CoOL server is to exclude from containers and list instances of a FETCH response, any data node with a value equal to the default value for this data node as defined by the YANG &#8220;default&#8221; statement. When this behaviour is not appropriate for the CoOL client, this client can force the retrieval of all data nodes by adding to its CoAP request a Uri-Query option containing the &#8220;a&#8221; parameter. See section <a href="#a-uri-query">Section 6.1</a> form more details.</p>
+<p id="rfc.section.5.2.p.7">The normal behaviour of a CoOL server is to exclude from containers and list instances of a FETCH response, any data node with a value equal to the default value for this data node as defined by the YANG &#8216;default&#8217; statement. When this behaviour is not appropriate for the CoOL client, this client can force the retrieval of all data nodes by adding to its CoAP request a Uri-Query option containing the &#8216;a&#8217; parameter. See <a href="#a-uri-query">Section 6.1</a> form more details.</p>
 <h1 id="rfc.section.5.2.1"><a href="#rfc.section.5.2.1">5.2.1.</a> <a href="#example-1-simple-data-node" id="example-1-simple-data-node">Example #1 - Simple data node</a></h1>
 <p id="rfc.section.5.2.1.p.1">In this example, a CoOL client retrieves the leaf &#8220;/system-state/clock/current-datetime&#8221; (SID 1719) and the container &#8220;/system/clock&#8221; (SID 1734) containing the leaf &#8220;/system/clock/timezone/timezone-utc-offset/timezone-utc-offset&#8221; (SID 1736). These data nodes are defined in the YANG module &#8220;ietf-system&#8221; <a href="#RFC7317">[RFC7317]</a>.</p>
 <p id="rfc.section.5.2.1.p.2">CoAP request:</p>
@@ -666,7 +666,7 @@ FETCH /c Content-Format(application/cool-instance-id-list+cbor)
 +-+-+-+-+-+-+-+-+
 </pre>
 <h1 id="rfc.section.5.2.2"><a href="#rfc.section.5.2.2">5.2.2.</a> <a href="#example-2-data-node-instance-within-a-yang-list" id="example-2-data-node-instance-within-a-yang-list">Example #2 - Data node instance within a YANG list</a></h1>
-<p id="rfc.section.5.2.2.p.1">The data type &#8220;instance-identifier&#8221; allows the selection of an instance of a specific data node within a list. In this example, a CoOL client retrieves the &#8220;/interfaces/interface/description&#8221; (SID 1534) leaf from the &#8220;/interfaces/interface&#8221; list. The &#8220;/interfaces/interface/name&#8221; associated to this interface is equal to &#8220;eth0&#8221;. This example is based on the YANG module &#8220;ietf-interfaces&#8221; <a href="#RFC7223">[RFC7223]</a>.</p>
+<p id="rfc.section.5.2.2.p.1">The data type &#8216;instance-identifier&#8217; allows the selection of an instance of a specific data node within a list. In this example, a CoOL client retrieves the &#8220;/interfaces/interface/description&#8221; (SID 1534) leaf from the &#8220;/interfaces/interface&#8221; list. The &#8220;/interfaces/interface/name&#8221; associated to this interface is equal to &#8220;eth0&#8221;. This example is based on the YANG module &#8220;ietf-interfaces&#8221; <a href="#RFC7223">[RFC7223]</a>.</p>
 <p id="rfc.section.5.2.2.p.2">CoAP request:</p>
 <pre>
 FETCH /c Content-Format(application/cool-instance-id-list+cbor)
@@ -678,7 +678,7 @@ FETCH /c Content-Format(application/cool-instance-id-list+cbor)
 "Ethernet adaptor"
 </pre>
 <h1 id="rfc.section.5.2.3"><a href="#rfc.section.5.2.3">5.2.3.</a> <a href="#example-3-yang-list" id="example-3-yang-list">Example #3 - YANG list</a></h1>
-<p id="rfc.section.5.2.3.p.1">This &#8220;instance-identifier&#8221; extension allows the retrieval of all instances of a YANG list. To perform this operation, the CoOL client excludes from the &#8220;instance-identifier&#8221; the key(s) of the targeted list. The list returned is encoded using the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a> section 4.4.</p>
+<p id="rfc.section.5.2.3.p.1">This &#8220;instance-identifier&#8221; extension allows the retrieval of all instances of a YANG list. To perform this operation, the CoOL client excludes from the &#8216;instance-identifier&#8217; the key(s) of the targeted list. The list returned is encoded using the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a> section 4.4.</p>
 <p id="rfc.section.5.2.3.p.2">In this example, a CoOL client retrieves the list &#8220;/interfaces/interface&#8221; (SID 1533). The response returned contain two instances, one for an Ethernet adaptor and one for a WIFI interface.</p>
 <p id="rfc.section.5.2.3.p.3">CoAP request:</p>
 <pre>
@@ -704,7 +704,7 @@ FETCH /c Content-Format(application/cool-instance-id-list+cbor)
 ]
 </pre>
 <h1 id="rfc.section.5.2.4"><a href="#rfc.section.5.2.4">5.2.4.</a> <a href="#example-4-yang-list-instance" id="example-4-yang-list-instance">Example #4 - YANG list instance</a></h1>
-<p id="rfc.section.5.2.4.p.1">To retrieve a list instance, the CoOL client MUST use an &#8220;instance-identifier&#8221; with a SID set to the targeted list and the key(s) set to the value(s) associated to the targeted instance.</p>
+<p id="rfc.section.5.2.4.p.1">To retrieve a list instance, the CoOL client MUST use an &#8216;instance-identifier&#8217; with a SID set to the targeted list and the key(s) set to the value(s) associated to the targeted instance.</p>
 <p id="rfc.section.5.2.4.p.2">In this example, the CoOL client requests the instance of the list &#8220;/interfaces/interface&#8221; (SID 1533) associated to the name &#8220;eth0&#8221;. The response returned by the CoOL server contains the targeted list instance formatted as YANG container.</p>
 <p id="rfc.section.5.2.4.p.3">CoAP request:</p>
 <pre>
@@ -722,8 +722,8 @@ FETCH /c Content-Format(application/cool-instance-id-list+cbor)
 }
 </pre>
 <h1 id="rfc.section.5.2.5"><a href="#rfc.section.5.2.5">5.2.5.</a> <a href="#example-5-yang-list-instance-filtering" id="example-5-yang-list-instance-filtering">Example #5 - YANG list instance filtering</a></h1>
-<p id="rfc.section.5.2.5.p.1">This &#8220;instance-identifier&#8221; extension allows the selection of a subset of data nodes within a list. This is accomplished by adding an extra element to the &#8220;instance-identifier&#8221;. This element contains the subset of data nodes to be returned encoded as CBOR array. Each entry within this CBOR array is set to the delta between the current SID and the SID of targeted container as specified in the first entry of the &#8220;instance-identifier&#8221;.</p>
-<p id="rfc.section.5.2.5.p.2">CoOL servers SHOULD implement this &#8220;instance-identifier&#8221; extension. When this extension is not supported, the CoOL server MUST ignore the third element of the &#8220;instance-identifier&#8221; and return the list instance as specified by the first two elements of the &#8220;instance-identifier&#8221;.</p>
+<p id="rfc.section.5.2.5.p.1">This &#8216;instance-identifier&#8217; extension allows the selection of a subset of data nodes within a list. This is accomplished by adding an extra element to the &#8216;instance-identifier&#8217;. This element contains the subset of data nodes to be returned encoded as CBOR array. Each entry within this CBOR array is set to the delta between the current SID and the SID of targeted container as specified in the first entry of the &#8216;instance-identifier&#8217;.</p>
+<p id="rfc.section.5.2.5.p.2">CoOL servers SHOULD implement this &#8216;instance-identifier&#8217; extension. When this extension is not supported, the CoOL server MUST ignore the third element of the &#8216;instance-identifier&#8217; and return the list instance as specified by the first two elements of the &#8216;instance-identifier&#8217;.</p>
 <p id="rfc.section.5.2.5.p.3">In this example, a CoOL client retrieves from within the &#8220;/interfaces/interface&#8221; list (SID 1533) the leafs &#8220;/interfaces/interface/type&#8221; (SID 1538) and &#8220;/interfaces/interface/enabled&#8221; (SID 1535). The CoOL client also includes in this request the selection of the leaf &#8220;/system/hostname&#8221; (SID 1748) defined in &#8220;ietf-system&#8221; <a href="#RFC7317">[RFC7317]</a>.</p>
 <p id="rfc.section.5.2.5.p.4">For example:</p>
 <p id="rfc.section.5.2.5.p.5">CoAP request:</p>
@@ -743,7 +743,7 @@ FETCH /c Content-Format(application/cool-instance-id-list+cbor)
 ]
 </pre>
 <h1 id="rfc.section.5.2.6"><a href="#rfc.section.5.2.6">5.2.6.</a> <a href="#example-6-all-instances-of-a-data-node-within-a-yang-list" id="example-6-all-instances-of-a-data-node-within-a-yang-list">Example #6 - All instances of a data node within a YANG list</a></h1>
-<p id="rfc.section.5.2.6.p.1">This &#8220;instance-identifier&#8221; extension allows the efficient transfer of all instances of a data node within a YANG list. To retrieve all instances, the CoOL client excludes form the &#8220;instance-identifier&#8221; the key(s) of the list containing the targeted data node.</p>
+<p id="rfc.section.5.2.6.p.1">This &#8216;instance-identifier&#8217; extension allows the efficient transfer of all instances of a data node within a YANG list. To retrieve all instances, the CoOL client excludes form the &#8216;instance-identifier&#8217; the key(s) of the list containing the targeted data node.</p>
 <p id="rfc.section.5.2.6.p.2">The response MUST be encoded as a CBOR ARRAY containing the available instances of the requested data node. This special encoding minimizes significantly this commonly used type of request.</p>
 <p id="rfc.section.5.2.6.p.3">In this example, a CoOL client retrieves all instances of data node &#8220;/interfaces/interface/name&#8221; (SID 1537).</p>
 <p id="rfc.section.5.2.6.p.4">Example:</p>
@@ -808,15 +808,15 @@ PUT /c/r Content-Format(application/cool-value-pairs+cbor)
 </pre>
 <h1 id="rfc.section.5.4"><a href="#rfc.section.5.4">5.4.</a> <a href="#ipatch-updating-specific-data-nodes" id="ipatch-updating-specific-data-nodes">iPATCH - Updating specific data nodes</a></h1>
 <p id="rfc.section.5.4.p.1">The iPATCH method is used by CoOL clients to modify a subset of a datastore.</p>
-<p id="rfc.section.5.4.p.2">To modify a datastore, the CoOL client sends a CoAP PATH request to the URI of the targeted datastore. The payload of the FETCH request contains the list of data node instance(s) to be updated, inserted or deleted. This list is encoded using a CBOR array and contains a sequence of pairs of &#8220;instance-identifier&#8221; and associated values.</p>
-<p id="rfc.section.5.4.p.3">Within each &#8220;instance-identifier&#8221;, data nodes are identified using SIDs as defined by <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a>. SIDs within the list are encoded as delta.</p>
+<p id="rfc.section.5.4.p.2">To modify a datastore, the CoOL client sends a CoAP PATH request to the URI of the targeted datastore. The payload of the FETCH request contains the list of data node instance(s) to be updated, inserted or deleted. This list is encoded using a CBOR array and contains a sequence of pairs of &#8216;instance-identifier&#8217; and associated values.</p>
+<p id="rfc.section.5.4.p.3">Within each &#8216;instance-identifier&#8217;, data nodes are identified using SIDs as defined by <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a>. SIDs within the list are encoded as delta.</p>
 <p id="rfc.section.5.4.p.4">On reception, the list is processed by the CoOL server as follows:</p>
 <p/>
 
 <ul>
   <li>If the targeted data instance already exists, this instance is replaced by the associated value (not merged). To update only some children of a collection, each child data node MUST be provided individually.</li>
   <li>If the targeted data instance doesn&#8217;t exist, this instance is created.</li>
-  <li>If the targeted data instance already exists but is associated with the value &#8220;null&#8221;, this instance is deleted.</li>
+  <li>If the targeted data instance already exists but is associated with the value &#8216;null&#8217;, this instance is deleted.</li>
 </ul>
 <p id="rfc.section.5.4.p.6">On successful processing of the CoAP request, the CoOL server MUST return a CoAP response with a response code 2.05 (Content).</p>
 <p id="rfc.section.5.4.p.7">A iPATCH request MUST be processed as an atomic transaction, if any of the data nodes transferred is rejected for any reasons, the entire iPATCH request MUST be rejected and the CoOL server MUST return an appropriate error response as defined in section 6.</p>
@@ -852,12 +852,12 @@ iPATCH /c/r Content-Format(application/cool-value-pairs+cbor)
 2.04 Changed
 </pre>
 <h1 id="rfc.section.5.5"><a href="#rfc.section.5.5">5.5.</a> <a href="#post-protocol-operation" id="post-protocol-operation">POST - Protocol operation</a></h1>
-<p id="rfc.section.5.5.p.1">Protocol operations are defined using the YANG &#8220;rpc&#8221; or YANG &#8220;action&#8221; statements.</p>
+<p id="rfc.section.5.5.p.1">Protocol operations are defined using the YANG &#8216;rpc&#8217; or YANG &#8216;action&#8217; statements.</p>
 <p id="rfc.section.5.5.p.2">To execute a protocol operation, the CoOL client sents a CoAP POST request to the URI of the targeted datastore.</p>
 <p id="rfc.section.5.5.p.3">The payload of the POST request carries a CBOR array with up to two entries. The first entry carries the instance-identifier identifying the targeted protocol operation. The second entry carries the protocol operation input(s). Input(s) are present only if defined for the invoked protocol operation and used by the CoOL client. Input(s) are encoded using the rules defined for a YANG container, deltas are relative to the SID assigned to the protocol operation.</p>
 <p id="rfc.section.5.5.p.4">On successful completion on the protocol operation, the CoOL server returns a CoAP response with the response code set to 2.05 (Content). When output parameters are returned by the CoOL server, these parameter(s) are carried in the CoAP response payload. Output(s) are encoded using the rules defined for a YANG container, deltas are relative to the SID assigned to the protocol operation.</p>
 <h1 id="rfc.section.5.5.1"><a href="#rfc.section.5.5.1">5.5.1.</a> <a href="#example-1-rpc" id="example-1-rpc">Example #1 - RPC</a></h1>
-<p id="rfc.section.5.5.1.p.1">This example is based on the &#8220;activate-software-image&#8221; RPC defined in <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a>, assuming that this RPC is assigned to SID 1932, leaf image-name to SID 1933 and leaf status to SID 1934. These SIDs are defined strictly for the purpose of this example.</p>
+<p id="rfc.section.5.5.1.p.1">This example is based on the &#8216;activate-software-image&#8217; RPC defined in <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a>, assuming that this RPC is assigned to SID 1932, leaf image-name to SID 1933 and leaf status to SID 1934. These SIDs are defined strictly for the purpose of this example.</p>
 <p id="rfc.section.5.5.1.p.2">rpc activate-software-image { input { leaf image-name { type string; } } output { leaf status { type string; } } }</p>
 <p id="rfc.section.5.5.1.p.3">CoAP request:</p>
 <pre>
@@ -877,7 +877,7 @@ POST /c Content-Format(application/cool-value-pairs+cbor)
 }
 </pre>
 <h1 id="rfc.section.5.5.2"><a href="#rfc.section.5.5.2">5.5.2.</a> <a href="#example-2-action" id="example-2-action">Example #2 - Action</a></h1>
-<p id="rfc.section.5.5.2.p.1">This example is based on the &#8220;reset&#8221; action defined in <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> assuming that this action is assigned to SID 1902, leaf reset-at to SID 1903 and leaf reset-finished-at to SID 1904. These SIDs are defined strictly for the purpose of this example.</p>
+<p id="rfc.section.5.5.2.p.1">This example is based on the &#8216;reset&#8217; action defined in <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> assuming that this action is assigned to SID 1902, leaf reset-at to SID 1903 and leaf reset-finished-at to SID 1904. These SIDs are defined strictly for the purpose of this example.</p>
 <p id="rfc.section.5.5.2.p.2">list server { key name; leaf name { type string; } action reset { input { leaf reset-at { type yang:date-and-time; mandatory true; } } output { leaf reset-finished-at { type yang:date-and-time; mandatory true; } } } }</p>
 <p id="rfc.section.5.5.2.p.3">CoAP request:</p>
 <pre>
@@ -912,11 +912,11 @@ This section requires more work to address the following identified issues:
 The current solution based on the observe CoAP option can be augmented
 or completely replaced by a future version of this draft.
 </pre>
-<p id="rfc.section.5.6.p.1">Notifications are defined using the YANG &#8220;notification&#8221; statement. Subscriptions to an event stream and notification reporting are performed using an event stream resource. When multiple event stream resources are supported, the list of notifications associated with each stream is either pre-defined or configured in the CoOL server. CoOL clients MAY subscribe to one or more event stream resources.</p>
+<p id="rfc.section.5.6.p.1">Notifications are defined using the YANG &#8216;notification&#8217; statement. Subscriptions to an event stream and notification reporting are performed using an event stream resource. When multiple event stream resources are supported, the list of notifications associated with each stream is either pre-defined or configured in the CoOL server. CoOL clients MAY subscribe to one or more event stream resources.</p>
 <p id="rfc.section.5.6.p.2">To subscribe to an event stream resource, a CoOL client MUST send a CoAP GET with the Observe CoAP option set to 0. To unsubscribe, a CoOL client MAY send a CoAP reset or a CoAP GET with the Observe option set to 1. For more information on the observe mechanism, see <a href="#RFC7641">[RFC7641]</a>.</p>
 <p id="rfc.section.5.6.p.3">Each notification transferred by a CoOL server to each of the registered CoOL clients is carried in a CoAP response with a response code set to 2.05 (Content). Each CoAP response MUST carry in its payload at least one notification but MAY carry multiple. Each notification is carried in a notification-payload defined in ietf-cool, see <a href="#cool-module">Appendix A</a>. The notification-payload supports different meta-data associated to this notification, such as the notification identifier, event timestamp, sequence number, severity level and facility. All of these meta information are optional with the exception of the notification identifier.</p>
 <p id="rfc.section.5.6.p.4">The CoAP response payload is encoded using the rules defined for the PUT request. When multiple notifications are reported, the CoAP response payload carries a CBOR array, with each entry containing a notification.</p>
-<p id="rfc.section.5.6.p.5">This example is based on the &#8220;link-failure&#8221; and &#8220;interface-enabled&#8221; notifications defined in <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> assuming the following SID assignment:</p>
+<p id="rfc.section.5.6.p.5">This example is based on the &#8216;link-failure&#8217; and &#8216;interface-enabled&#8217; notifications defined in <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> assuming the following SID assignment:</p>
 <p/>
 
 <ul>
@@ -1006,7 +1006,7 @@ Content-Format(application/cool-value-pairs+cbor)
 </pre>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#uri-query" id="uri-query">Uri-Query</a></h1>
 <h1 id="rfc.section.6.1"><a href="#rfc.section.6.1">6.1.</a> <a href="#a-uri-query" id="a-uri-query">The &#8216;a&#8217; Query Parameter</a></h1>
-<p id="rfc.section.6.1.p.1">When performing a GET, the normal behaviour of a CoOL server is to exclude from the GET response, data nodes currently set to the default value as defined by the YANG &#8220;default&#8221; statement. This behaviour called &#8216;trim&#8217; is defined in <a href="#RFC6243">[RFC6243]</a> section 3.2.</p>
+<p id="rfc.section.6.1.p.1">When performing a GET, the normal behaviour of a CoOL server is to exclude from the GET response, data nodes currently set to the default value as defined by the YANG &#8216;default&#8217; statement. This behaviour called &#8216;trim&#8217; is defined in <a href="#RFC6243">[RFC6243]</a> section 3.2.</p>
 <p id="rfc.section.6.1.p.2">This rule also applies to the FETCH for containers and list instances but not for the root data nodes. To minimize the payload size of the FETCH responses, root data nodes are returned in a CBOR array without associated SID. To keep the symmetry between the FETCH request and the FETCH response, a CBOR content must be returned for each data node requested as follows:</p>
 <p/>
 
@@ -1025,10 +1025,10 @@ Content-Format(application/cool-value-pairs+cbor)
   <li>Human users might want to understand the received data without consultation of the documentation.</li>
 </ul>
 <p id="rfc.section.6.1.p.6">In all these cases, the CoOL client will need a mechanism to retrieve default data from a CoOL server.</p>
-<p id="rfc.section.6.1.p.7">This is accomplished by including the &#8220;a&#8221; Uri-Query parameter in the GET or FETCH request. This behaviour called &#8216;report-all&#8217; is defined in <a href="#RFC6243">[RFC6243]</a> section 3.1.</p>
+<p id="rfc.section.6.1.p.7">This is accomplished by including the &#8216;a&#8217; Uri-Query parameter in the GET or FETCH request. This behaviour called &#8216;report-all&#8217; is defined in <a href="#RFC6243">[RFC6243]</a> section 3.1.</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#coap-compatibility" id="coap-compatibility">CoAP compatibility</a></h1>
 <h1 id="rfc.section.7.1"><a href="#rfc.section.7.1">7.1.</a> <a href="#working-with-uri-host-uri-port-uri-path-and-uri-query" id="working-with-uri-host-uri-port-uri-path-and-uri-query">Working with Uri-Host, Uri-Port, Uri-Path, and Uri-Query</a></h1>
-<p id="rfc.section.7.1.p.1">Supported Uri-Query parameters are defined in section <a href="#uri-query">Section 6</a>. Uri-Host, Uri-Port and Uri-Path MUST be used as specified by <a href="#RFC6690">[RFC6690]</a> to target the CoOL resources as defined by section 3.</p>
+<p id="rfc.section.7.1.p.1">Supported Uri-Query parameters are defined in <a href="#uri-query">Section 6</a>. Uri-Host, Uri-Port and Uri-Path MUST be used as specified by <a href="#RFC6690">[RFC6690]</a> to target the CoOL resources as defined by section 3.</p>
 <h1 id="rfc.section.7.2"><a href="#rfc.section.7.2">7.2.</a> <a href="#working-with-location-path-and-location-query" id="working-with-location-path-and-location-query">Working with Location-Path and Location-Query</a></h1>
 <p id="rfc.section.7.2.p.1">This version of CoOL doesn&#8217;t support the creation of resources (datastore or event stream). For this reason, the use of Location-Path and Location-Query is not required.</p>
 <h1 id="rfc.section.7.3"><a href="#rfc.section.7.3">7.3.</a> <a href="#working-with-accept" id="working-with-accept">Working with Accept</a></h1>
@@ -1044,7 +1044,7 @@ Content-Format(application/cool-value-pairs+cbor)
 <h1 id="rfc.section.7.8"><a href="#rfc.section.7.8">7.8.</a> <a href="#working-with-observe" id="working-with-observe">Working with Observe</a></h1>
 <p id="rfc.section.7.8.p.1">A CoOL server MAY support state change notifications to some or all its leaf data nodes. When supported the CoOL server MUST implement the Server-Side requirements defined in <a href="#RFC7641">[RFC7641]</a> section 3 and the CoOL client MUST implement the Client-Side requirements defined in <a href="#RFC7641">[RFC7641]</a> section 4.</p>
 <p id="rfc.section.7.8.p.2">To start observing a leaf data node, a CoOL client MUST send a CoAP FETCH with the Observe CoAP option set to 0.</p>
-<p id="rfc.section.7.8.p.3">The payload of the FETCH request carries a CBOR array of instance-identifier.  The first entry MUST be set to the &#8220;instance-identifier&#8221; of the data node instance observed. The following entries are optional and allow the selection of coincidental values, data nodes reported at the same time as the observed data node. Coincidental values are included in each notification reported, but changes to these extra data nodes MUST not trigger notification messages.</p>
+<p id="rfc.section.7.8.p.3">The payload of the FETCH request carries a CBOR array of instance-identifier.  The first entry MUST be set to the &#8216;instance-identifier&#8217; of the data node instance observed. The following entries are optional and allow the selection of coincidental values, data nodes reported at the same time as the observed data node. Coincidental values are included in each notification reported, but changes to these extra data nodes MUST not trigger notification messages.</p>
 <p id="rfc.section.7.8.p.4">A subscription can be terminated by the CoOL client by returning a CoAP Reset message or by sending a GET request with an Observe CoAP option set to deregister (1). More details are available in <a href="#RFC7641">[RFC7641]</a>.</p>
 <p id="rfc.section.7.8.p.5">Example:</p>
 <p id="rfc.section.7.8.p.6">In this example, a CoOL client subscribes to state changes of the data node &#8220;/system/ntp/enabled&#8221; (SID = 1751) and requests that data node &#8220;/system/hostname&#8221; (SID 1748) is reported as coincidental value.</p>

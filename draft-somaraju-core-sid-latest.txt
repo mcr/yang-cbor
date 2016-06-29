@@ -74,15 +74,15 @@ Table of Contents
    4.  ".sid" file lifecycle . . . . . . . . . . . . . . . . . . . .   4
    5.  ".sid" file format  . . . . . . . . . . . . . . . . . . . . .   6
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .   9
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  10
-     7.1.  "SID" range registry  . . . . . . . . . . . . . . . . . .  10
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   9
+     7.1.  "SID" range registry  . . . . . . . . . . . . . . . . . .   9
      7.2.  YANG module registry  . . . . . . . . . . . . . . . . . .  11
-   8.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  12
+   8.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  11
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  12
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  12
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  12
    Appendix A.  ".sid" file example  . . . . . . . . . . . . . . . .  13
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  22
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  21
 
 1.  Introduction
 
@@ -99,13 +99,13 @@ Table of Contents
 
    o  action
 
+   o  feature
+
    o  module
 
    o  notification
 
    o  RPC
-
-   o  schema node
 
 
 
@@ -113,6 +113,8 @@ Somaraju, et al.        Expires December 31, 2016               [Page 2]
 
 Internet-Draft         Structure Identifier (SID)              June 2016
 
+
+   o  schema node
 
    o  schema tree
 
@@ -124,10 +126,12 @@ Internet-Draft         Structure Identifier (SID)              June 2016
       distinguish what is being identified from all other things within
       its scope of identification.
 
-   o  delta : Difference between the SID assigned to the current schema
-      node and the SID assigned to the parent.
+   o  delta : Difference between the current SID and a reference SID.  A
+      reference SID is defined for each context for which deltas are
+      used.
 
-   o  item: A schema node or identity which has been allocated a SID.
+   o  item: A schema node, an identity, a module, a submodule or a
+      feature defined using the YANG modeling language.
 
    o  path: A path is a string that identifies a schema node within the
       schema tree.  A path consists of the list of schema node
@@ -158,10 +162,6 @@ Internet-Draft         Structure Identifier (SID)              June 2016
 
    The following items are identified using SIDs:
 
-   o  identities
-
-   o  data nodes
-
 
 
 
@@ -170,11 +170,17 @@ Somaraju, et al.        Expires December 31, 2016               [Page 3]
 Internet-Draft         Structure Identifier (SID)              June 2016
 
 
+   o  identities
+
+   o  data nodes
+
    o  RPCs and associated input(s) and output(s)
 
    o  actions and associated input(s) and output(s)
 
    o  notifications and associated information
+
+   o  YANG modules, submodules and features
 
    Assignment of SIDs can be automated, the recommended process to
    assign SIDs is as follows:
@@ -205,12 +211,6 @@ Internet-Draft         Structure Identifier (SID)              June 2016
 
    The following activity diagram summarize the life cycle of ".sid"
    files.
-
-
-
-
-
-
 
 
 
@@ -358,7 +358,8 @@ Internet-Draft         Structure Identifier (SID)              June 2016
     description
       "Initial revision.";
     reference
-      "draft-veillette-core-yang-cbor-mapping";
+      "RFC XXXX";
+      // RFC Ed.: replace XXXX with RFC number assigned to draft-ietf-core-yang-cbor and remove this note
   }
 
   typedef yang-identifier {
@@ -380,12 +381,11 @@ Internet-Draft         Structure Identifier (SID)              June 2016
       "Represents a date in YYYY-MM-DD format.";
   }
 
-
-  typedef date-and-time {
-    type string {
-      pattern '\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?' +
-              '(Z|[\+\-]\d{2}:\d{2})';
-    }
+  leaf module-name {
+    type yang-identifier;
+    description
+      "Name of the module associated with this .sid file.";
+  }
 
 
 
@@ -393,19 +393,6 @@ Somaraju, et al.        Expires December 31, 2016               [Page 7]
 
 Internet-Draft         Structure Identifier (SID)              June 2016
 
-
-    description
-      "The date-and-time type is a profile of the ISO 8601
-      standard for representation of dates and times using the
-      Gregorian calendar.  The profile is defined by the
-      date-time production in section 5.6 of RFC 3339.";
-  }
-
-  leaf module-name {
-    type yang-identifier;
-    description
-      "Name of the module associated with this .sid file.";
-  }
 
   leaf module-revision {
     type revision-identifier;
@@ -437,11 +424,24 @@ Internet-Draft         Structure Identifier (SID)              June 2016
   }
 
   list items {
-    key "type assigned label";
+    key "type label";
     description
       "List of items defined by the associated YANG module.";
 
     leaf type {
+      type string {
+        pattern 'Module|Submodule|feature|' +
+                'identity$|node$|notification$|rpc$|action$';
+      }
+      mandatory true;
+      description
+        "Item type assigned, this field can be set to:
+          - 'Module'
+          - 'Submodule'
+          - 'feature'
+          - 'identity'
+          - 'node'
+          - 'notification'
 
 
 
@@ -450,24 +450,8 @@ Somaraju, et al.        Expires December 31, 2016               [Page 8]
 Internet-Draft         Structure Identifier (SID)              June 2016
 
 
-      type string {
-        pattern 'identity$|node$|notification$|rpc$|action$';
-      }
-      mandatory true;
-      description
-        "Item type assigned, this field can be set to:
-          - 'identity'
-          - 'node'
-          - 'notification'
           - 'rpc'
           - 'action'";
-    }
-
-    leaf assigned {
-      type date-and-time;
-      mandatory true;
-      description
-        "Date and time when this entry has been created.";
     }
 
     leaf label {
@@ -475,6 +459,9 @@ Internet-Draft         Structure Identifier (SID)              June 2016
       mandatory true;
       description
         "Label associated to this item, can be set to:
+          - a module name
+          - a submodule name
+          - a feature name
           - a base identity encoded as '/<base identity name>'
           - an identity encoded as '/<base identity name>/<identity name>'
           - a schema node path";
@@ -497,15 +484,6 @@ Internet-Draft         Structure Identifier (SID)              June 2016
    This document defines an new type of identifier used to encode data
    models defined in YANG [I-D.ietf-netmod-rfc6020bis].  As such, this
    identifier does not contribute to any new security issues in addition
-
-
-
-
-Somaraju, et al.        Expires December 31, 2016               [Page 9]
-
-Internet-Draft         Structure Identifier (SID)              June 2016
-
-
    of those identified for the specific protocols or contexts for which
    it is used.
 
@@ -520,6 +498,13 @@ Internet-Draft         Structure Identifier (SID)              June 2016
    o  The entry point (first entry) of the registered SID range.
 
    o  The size of the registered SID range.
+
+
+
+Somaraju, et al.        Expires December 31, 2016               [Page 9]
+
+Internet-Draft         Structure Identifier (SID)              June 2016
+
 
    o  The contact information of the owner of the range such as name,
       email address, and phone number.
@@ -551,17 +536,6 @@ Internet-Draft         Structure Identifier (SID)              June 2016
       process to one or multiple sub-registries.  The recommended size
       of the SID range allocation for a sub-registry is 1,000,000.
 
-
-
-
-
-
-
-Somaraju, et al.        Expires December 31, 2016              [Page 10]
-
-Internet-Draft         Structure Identifier (SID)              June 2016
-
-
    +------------+-----------------+------------------------------------+
    | Entry      | Size            | Registration Procedures            |
    | Point      |                 |                                    |
@@ -577,6 +551,16 @@ Internet-Draft         Structure Identifier (SID)              June 2016
    | 0x40000000 | 2^64-0x40000000 | Specification required, expert     |
    |            |                 | review                             |
    +------------+-----------------+------------------------------------+
+
+
+
+
+
+
+Somaraju, et al.        Expires December 31, 2016              [Page 10]
+
+Internet-Draft         Structure Identifier (SID)              June 2016
+
 
 7.2.  YANG module registry
 
@@ -609,15 +593,6 @@ Internet-Draft         Structure Identifier (SID)              June 2016
 
    Initial entries in this registry are as follows:
 
-
-
-
-
-Somaraju, et al.        Expires December 31, 2016              [Page 11]
-
-Internet-Draft         Structure Identifier (SID)              June 2016
-
-
    +-------------+------+-----------------+---------------------------+
    | Entry Point | Size | Module name     | Reference                 |
    +-------------+------+-----------------+---------------------------+
@@ -633,6 +608,15 @@ Internet-Draft         Structure Identifier (SID)              June 2016
    The authors would like to thank Carsten Bormann for his help during
    the development of this document and his useful comments during the
    review process.
+
+
+
+
+
+Somaraju, et al.        Expires December 31, 2016              [Page 11]
+
+Internet-Draft         Structure Identifier (SID)              June 2016
+
 
 9.  References
 
@@ -664,16 +648,6 @@ Internet-Draft         Structure Identifier (SID)              June 2016
               Minaburo, "Constrained Objects Language", draft-veillette-
               core-cool-01 (work in progress), March 2016.
 
-
-
-
-
-
-Somaraju, et al.        Expires December 31, 2016              [Page 12]
-
-Internet-Draft         Structure Identifier (SID)              June 2016
-
-
    [RFC7223]  Bjorklund, M., "A YANG Data Model for Interface
               Management", RFC 7223, DOI 10.17487/RFC7223, May 2014,
               <http://www.rfc-editor.org/info/rfc7223>.
@@ -690,6 +664,16 @@ Internet-Draft         Structure Identifier (SID)              June 2016
               System Management", RFC 7317, DOI 10.17487/RFC7317, August
               2014, <http://www.rfc-editor.org/info/rfc7317>.
 
+
+
+
+
+
+Somaraju, et al.        Expires December 31, 2016              [Page 12]
+
+Internet-Draft         Structure Identifier (SID)              June 2016
+
+
 Appendix A.  ".sid" file example
 
    The following .sid file (ietf-system@2014-08-06.sid) have been
@@ -705,23 +689,39 @@ Appendix A.  ".sid" file example
 
    o  iana-crypt-hash@2014-04-04.yang
 
- {
-   "assignment-ranges": [
-     {
-       "entry-point": 1700,
-       "size": 100
-     }
-   ],
-   "module-name": "ietf-system",
-   "module-revision": "2014-08-06",
-   "items": [
-     {
-       "type": "identity",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/authentication-method",
-       "sid": 1700
-     },
-     {
+{
+  "assignment-ranges": [
+    {
+      "entry-point": 1700,
+      "size": 100
+    }
+  ],
+  "module-name": "ietf-system",
+  "module-revision": "2014-08-06",
+  "items": [
+    {
+      "type": "Module",
+      "label": "ietf-system",
+      "sid": 1700
+    },
+    {
+      "type": "feature",
+      "label": "authentication",
+      "sid": 1701
+    },
+    {
+      "type": "feature",
+      "label": "dns-udp-tcp-port",
+      "sid": 1702
+    },
+    {
+      "type": "feature",
+      "label": "local-users",
+      "sid": 1703
+    },
+    {
+      "type": "feature",
+      "label": "ntp",
 
 
 
@@ -730,54 +730,54 @@ Somaraju, et al.        Expires December 31, 2016              [Page 13]
 Internet-Draft         Structure Identifier (SID)              June 2016
 
 
-       "type": "identity",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/authentication-method/local-users",
-       "sid": 1701
-     },
-     {
-       "type": "identity",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/authentication-method/radius",
-       "sid": 1702
-     },
-     {
-       "type": "identity",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/radius-authentication-type",
-       "sid": 1703
-     },
-     {
-       "type": "identity",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/radius-authentication-type/radius-chap",
-       "sid": 1704
-     },
-     {
-       "type": "identity",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/radius-authentication-type/radius-pap",
-       "sid": 1705
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system",
-       "sid": 1706
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system-state",
-       "sid": 1707
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system-state/clock",
-       "sid": 1708
-     },
-     {
+      "sid": 1704
+    },
+    {
+      "type": "feature",
+      "label": "ntp-udp-port",
+      "sid": 1705
+    },
+    {
+      "type": "feature",
+      "label": "radius",
+      "sid": 1706
+    },
+    {
+      "type": "feature",
+      "label": "radius-authentication",
+      "sid": 1707
+    },
+    {
+      "type": "feature",
+      "label": "timezone-name",
+      "sid": 1708
+    },
+    {
+      "type": "identity",
+      "label": "/authentication-method",
+      "sid": 1709
+    },
+    {
+      "type": "identity",
+      "label": "/authentication-method/local-users",
+      "sid": 1710
+    },
+    {
+      "type": "identity",
+      "label": "/authentication-method/radius",
+      "sid": 1711
+    },
+    {
+      "type": "identity",
+      "label": "/radius-authentication-type",
+      "sid": 1712
+    },
+    {
+      "type": "identity",
+      "label": "/radius-authentication-type/radius-chap",
+      "sid": 1713
+    },
+    {
 
 
 
@@ -786,54 +786,54 @@ Somaraju, et al.        Expires December 31, 2016              [Page 14]
 Internet-Draft         Structure Identifier (SID)              June 2016
 
 
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system-state/clock/boot-datetime",
-       "sid": 1709
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system-state/clock/current-datetime",
-       "sid": 1710
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system-state/platform",
-       "sid": 1711
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system-state/platform/machine",
-       "sid": 1712
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system-state/platform/os-name",
-       "sid": 1713
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system-state/platform/os-release",
-       "sid": 1714
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system-state/platform/os-version",
-       "sid": 1715
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/authentication",
-       "sid": 1716
-     },
-     {
+      "type": "identity",
+      "label": "/radius-authentication-type/radius-pap",
+      "sid": 1714
+    },
+    {
+      "type": "node",
+      "label": "/system",
+      "sid": 1715
+    },
+    {
+      "type": "node",
+      "label": "/system-state",
+      "sid": 1716
+    },
+    {
+      "type": "node",
+      "label": "/system-state/clock",
+      "sid": 1717
+    },
+    {
+      "type": "node",
+      "label": "/system-state/clock/boot-datetime",
+      "sid": 1718
+    },
+    {
+      "type": "node",
+      "label": "/system-state/clock/current-datetime",
+      "sid": 1719
+    },
+    {
+      "type": "node",
+      "label": "/system-state/platform",
+      "sid": 1720
+    },
+    {
+      "type": "node",
+      "label": "/system-state/platform/machine",
+      "sid": 1721
+    },
+    {
+      "type": "node",
+      "label": "/system-state/platform/os-name",
+      "sid": 1722
+    },
+    {
+      "type": "node",
+      "label": "/system-state/platform/os-release",
+      "sid": 1723
 
 
 
@@ -842,54 +842,54 @@ Somaraju, et al.        Expires December 31, 2016              [Page 15]
 Internet-Draft         Structure Identifier (SID)              June 2016
 
 
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/authentication/user",
-       "sid": 1717
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/authentication/user-authentication-order",
-       "sid": 1718
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/authentication/user/authorized-key",
-       "sid": 1719
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/authentication/user/authorized-key/algorithm",
-       "sid": 1720
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/authentication/user/authorized-key/key-data",
-       "sid": 1721
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/authentication/user/authorized-key/name",
-       "sid": 1722
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/authentication/user/name",
-       "sid": 1723
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/authentication/user/password",
-       "sid": 1724
-     },
-     {
+    },
+    {
+      "type": "node",
+      "label": "/system-state/platform/os-version",
+      "sid": 1724
+    },
+    {
+      "type": "node",
+      "label": "/system/authentication",
+      "sid": 1725
+    },
+    {
+      "type": "node",
+      "label": "/system/authentication/user",
+      "sid": 1726
+    },
+    {
+      "type": "node",
+      "label": "/system/authentication/user-authentication-order",
+      "sid": 1727
+    },
+    {
+      "type": "node",
+      "label": "/system/authentication/user/authorized-key",
+      "sid": 1728
+    },
+    {
+      "type": "node",
+      "label": "/system/authentication/user/authorized-key/algorithm",
+      "sid": 1729
+    },
+    {
+      "type": "node",
+      "label": "/system/authentication/user/authorized-key/key-data",
+      "sid": 1730
+    },
+    {
+      "type": "node",
+      "label": "/system/authentication/user/authorized-key/name",
+      "sid": 1731
+    },
+    {
+      "type": "node",
+      "label": "/system/authentication/user/name",
+      "sid": 1732
+    },
+    {
+      "type": "node",
 
 
 
@@ -898,54 +898,54 @@ Somaraju, et al.        Expires December 31, 2016              [Page 16]
 Internet-Draft         Structure Identifier (SID)              June 2016
 
 
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/clock",
-       "sid": 1725
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/clock/timezone/timezone-name/timezone-name",
-       "sid": 1726
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/clock/timezone/timezone-utc-offset/
-       timezone-utc-offset",
-       "sid": 1727
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/contact",
-       "sid": 1728
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/dns-resolver",
-       "sid": 1729
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/dns-resolver/options",
-       "sid": 1730
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/dns-resolver/options/attempts",
-       "sid": 1731
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/dns-resolver/options/timeout",
-       "sid": 1732
-     },
+      "label": "/system/authentication/user/password",
+      "sid": 1733
+    },
+    {
+      "type": "node",
+      "label": "/system/clock",
+      "sid": 1734
+    },
+    {
+      "type": "node",
+      "label": "/system/clock/timezone/timezone-name/timezone-name",
+      "sid": 1735
+    },
+    {
+      "type": "node",
+      "label": "/system/clock/timezone/timezone-utc-offset/timezone-utc-offset",
+      "sid": 1736
+    },
+    {
+      "type": "node",
+      "label": "/system/contact",
+      "sid": 1737
+    },
+    {
+      "type": "node",
+      "label": "/system/dns-resolver",
+      "sid": 1738
+    },
+    {
+      "type": "node",
+      "label": "/system/dns-resolver/options",
+      "sid": 1739
+    },
+    {
+      "type": "node",
+      "label": "/system/dns-resolver/options/attempts",
+      "sid": 1740
+    },
+    {
+      "type": "node",
+      "label": "/system/dns-resolver/options/timeout",
+      "sid": 1741
+    },
+    {
+      "type": "node",
+      "label": "/system/dns-resolver/search",
+      "sid": 1742
+    },
 
 
 
@@ -954,54 +954,54 @@ Somaraju, et al.        Expires December 31, 2016              [Page 17]
 Internet-Draft         Structure Identifier (SID)              June 2016
 
 
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/dns-resolver/search",
-       "sid": 1733
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/dns-resolver/server",
-       "sid": 1734
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/dns-resolver/server/name",
-       "sid": 1735
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/dns-resolver/server/transport/udp-and-tcp/
-       udp-and-tcp",
-       "sid": 1736
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/dns-resolver/server/transport/udp-and-tcp/
-       udp-and-tcp/address",
-       "sid": 1737
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/dns-resolver/server/transport/udp-and-tcp/
-       udp-and-tcp/port",
-       "sid": 1738
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/hostname",
-       "sid": 1739
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
+    {
+      "type": "node",
+      "label": "/system/dns-resolver/server",
+      "sid": 1743
+    },
+    {
+      "type": "node",
+      "label": "/system/dns-resolver/server/name",
+      "sid": 1744
+    },
+    {
+      "type": "node",
+      "label": "/system/dns-resolver/server/transport/udp-and-tcp/udp-and-tcp",
+      "sid": 1745
+    },
+    {
+      "type": "node",
+      "label": "/system/dns-resolver/server/transport/udp-and-tcp/udp-and-tcp/address",
+      "sid": 1746
+    },
+    {
+      "type": "node",
+      "label": "/system/dns-resolver/server/transport/udp-and-tcp/udp-and-tcp/port",
+      "sid": 1747
+    },
+    {
+      "type": "node",
+      "label": "/system/hostname",
+      "sid": 1748
+    },
+    {
+      "type": "node",
+      "label": "/system/location",
+      "sid": 1749
+    },
+    {
+      "type": "node",
+      "label": "/system/ntp",
+      "sid": 1750
+    },
+    {
+      "type": "node",
+      "label": "/system/ntp/enabled",
+      "sid": 1751
+    },
+    {
+      "type": "node",
+      "label": "/system/ntp/server",
 
 
 
@@ -1010,54 +1010,54 @@ Somaraju, et al.        Expires December 31, 2016              [Page 18]
 Internet-Draft         Structure Identifier (SID)              June 2016
 
 
-       "label": "/system/location",
-       "sid": 1740
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/ntp",
-       "sid": 1741
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/ntp/enabled",
-       "sid": 1742
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/ntp/server",
-       "sid": 1743
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/ntp/server/association-type",
-       "sid": 1744
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/ntp/server/iburst",
-       "sid": 1745
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/ntp/server/name",
-       "sid": 1746
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/ntp/server/prefer",
-       "sid": 1747
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
+      "sid": 1752
+    },
+    {
+      "type": "node",
+      "label": "/system/ntp/server/association-type",
+      "sid": 1753
+    },
+    {
+      "type": "node",
+      "label": "/system/ntp/server/iburst",
+      "sid": 1754
+    },
+    {
+      "type": "node",
+      "label": "/system/ntp/server/name",
+      "sid": 1755
+    },
+    {
+      "type": "node",
+      "label": "/system/ntp/server/prefer",
+      "sid": 1756
+    },
+    {
+      "type": "node",
+      "label": "/system/ntp/server/transport/udp/udp",
+      "sid": 1757
+    },
+    {
+      "type": "node",
+      "label": "/system/ntp/server/transport/udp/udp/address",
+      "sid": 1758
+    },
+    {
+      "type": "node",
+      "label": "/system/ntp/server/transport/udp/udp/port",
+      "sid": 1759
+    },
+    {
+      "type": "node",
+      "label": "/system/radius",
+      "sid": 1760
+    },
+    {
+      "type": "node",
+      "label": "/system/radius/options",
+      "sid": 1761
+    },
+    {
 
 
 
@@ -1066,54 +1066,54 @@ Somaraju, et al.        Expires December 31, 2016              [Page 19]
 Internet-Draft         Structure Identifier (SID)              June 2016
 
 
-       "label": "/system/ntp/server/transport/udp/udp",
-       "sid": 1748
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/ntp/server/transport/udp/udp/address",
-       "sid": 1749
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/ntp/server/transport/udp/udp/port",
-       "sid": 1750
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/radius",
-       "sid": 1751
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/radius/options",
-       "sid": 1752
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/radius/options/attempts",
-       "sid": 1753
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/radius/options/timeout",
-       "sid": 1754
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/radius/server",
-       "sid": 1755
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
+      "type": "node",
+      "label": "/system/radius/options/attempts",
+      "sid": 1762
+    },
+    {
+      "type": "node",
+      "label": "/system/radius/options/timeout",
+      "sid": 1763
+    },
+    {
+      "type": "node",
+      "label": "/system/radius/server",
+      "sid": 1764
+    },
+    {
+      "type": "node",
+      "label": "/system/radius/server/authentication-type",
+      "sid": 1765
+    },
+    {
+      "type": "node",
+      "label": "/system/radius/server/name",
+      "sid": 1766
+    },
+    {
+      "type": "node",
+      "label": "/system/radius/server/transport/udp/udp",
+      "sid": 1767
+    },
+    {
+      "type": "node",
+      "label": "/system/radius/server/transport/udp/udp/address",
+      "sid": 1768
+    },
+    {
+      "type": "node",
+      "label": "/system/radius/server/transport/udp/udp/authentication-port",
+      "sid": 1769
+    },
+    {
+      "type": "node",
+      "label": "/system/radius/server/transport/udp/udp/shared-secret",
+      "sid": 1770
+    },
+    {
+      "type": "rpc",
+      "label": "/set-current-datetime",
+      "sid": 1771
 
 
 
@@ -1122,74 +1122,24 @@ Somaraju, et al.        Expires December 31, 2016              [Page 20]
 Internet-Draft         Structure Identifier (SID)              June 2016
 
 
-       "label": "/system/radius/server/authentication-type",
-       "sid": 1756
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/radius/server/name",
-       "sid": 1757
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/radius/server/transport/udp/udp",
-       "sid": 1758
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/radius/server/transport/udp/udp/address",
-       "sid": 1759
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/radius/server/transport/udp/udp/
-       authentication-port",
-       "sid": 1760
-     },
-     {
-       "type": "node",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system/radius/server/transport/udp/udp/shared-secret",
-       "sid": 1761
-     },
-     {
-       "type": "rpc",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/set-current-datetime",
-       "sid": 1762
-     },
-     {
-       "type": "rpc",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/set-current-datetime/input/current-datetime",
-       "sid": 1763
-     },
-     {
-       "type": "rpc",
-
-
-
-Somaraju, et al.        Expires December 31, 2016              [Page 21]
-
-Internet-Draft         Structure Identifier (SID)              June 2016
-
-
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system-restart",
-       "sid": 1764
-     },
-     {
-       "type": "rpc",
-       "assigned": "2016-01-13T21:00:19Z",
-       "label": "/system-shutdown",
-       "sid": 1765
-     }
-   ]
- }
+    },
+    {
+      "type": "rpc",
+      "label": "/set-current-datetime/input/current-datetime",
+      "sid": 1772
+    },
+    {
+      "type": "rpc",
+      "label": "/system-restart",
+      "sid": 1773
+    },
+    {
+      "type": "rpc",
+      "label": "/system-shutdown",
+      "sid": 1774
+    }
+  ]
+}
 
 Authors' Addresses
 
@@ -1223,13 +1173,7 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-Somaraju, et al.        Expires December 31, 2016              [Page 22]
+Somaraju, et al.        Expires December 31, 2016              [Page 21]
 
 Internet-Draft         Structure Identifier (SID)              June 2016
 
@@ -1285,4 +1229,4 @@ Internet-Draft         Structure Identifier (SID)              June 2016
 
 
 
-Somaraju, et al.        Expires December 31, 2016              [Page 23]
+Somaraju, et al.        Expires December 31, 2016              [Page 22]

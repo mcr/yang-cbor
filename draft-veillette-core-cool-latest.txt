@@ -84,28 +84,28 @@ Table of Contents
      5.2.  FETCH - Retrieving specific data nodes  . . . . . . . . .   8
        5.2.1.  Example #1 - Simple data node . . . . . . . . . . . .   9
        5.2.2.  Example #2 - Data node instance within a YANG list  .  11
-       5.2.3.  Example #3 - YANG list  . . . . . . . . . . . . . . .  11
+       5.2.3.  Example #3 - YANG list  . . . . . . . . . . . . . . .  12
        5.2.4.  Example #4 - YANG list instance . . . . . . . . . . .  12
-       5.2.5.  Example #5 - YANG list instance filtering . . . . . .  12
+       5.2.5.  Example #5 - YANG list instance filtering . . . . . .  13
        5.2.6.  Example #6 - All instances of a data node within a
-               YANG list . . . . . . . . . . . . . . . . . . . . . .  13
+               YANG list . . . . . . . . . . . . . . . . . . . . . .  14
      5.3.  PUT - Updating all data nodes of a datastore  . . . . . .  14
-     5.4.  iPATCH - Updating specific data nodes . . . . . . . . . .  15
-     5.5.  POST - Protocol operation . . . . . . . . . . . . . . . .  17
-       5.5.1.  Example #1 - RPC  . . . . . . . . . . . . . . . . . .  17
-       5.5.2.  Example #2 - Action . . . . . . . . . . . . . . . . .  18
+     5.4.  iPATCH - Updating specific data nodes . . . . . . . . . .  16
+     5.5.  POST - Protocol operation . . . . . . . . . . . . . . . .  18
+       5.5.1.  Example #1 - RPC  . . . . . . . . . . . . . . . . . .  18
+       5.5.2.  Example #2 - Action . . . . . . . . . . . . . . . . .  19
      5.6.  Event stream  . . . . . . . . . . . . . . . . . . . . . .  19
-   6.  CoAP compatibility  . . . . . . . . . . . . . . . . . . . . .  22
-     6.1.  Working with Uri-Host, Uri-Port, Uri-Path, and Uri-Query   22
-     6.2.  Working with Location-Path and Location-Query . . . . . .  22
-     6.3.  Working with Accept . . . . . . . . . . . . . . . . . . .  22
-     6.4.  Working with Max-Age  . . . . . . . . . . . . . . . . . .  22
-     6.5.  Working with Proxy-Uri and Proxy-Scheme . . . . . . . . .  22
-     6.6.  Working with If-Match, If-None-Match and ETag . . . . . .  23
-     6.7.  Working with Size1, Size2, Block1 and Block2  . . . . . .  23
-     6.8.  Working with Observe  . . . . . . . . . . . . . . . . . .  23
-     6.9.  Working with resource discovery . . . . . . . . . . . . .  24
-   7.  Error Handling  . . . . . . . . . . . . . . . . . . . . . . .  25
+   6.  Uri-Query . . . . . . . . . . . . . . . . . . . . . . . . . .  23
+     6.1.  The 'a' Query Parameter . . . . . . . . . . . . . . . . .  23
+   7.  CoAP compatibility  . . . . . . . . . . . . . . . . . . . . .  24
+     7.1.  Working with Uri-Host, Uri-Port, Uri-Path, and Uri-Query   24
+     7.2.  Working with Location-Path and Location-Query . . . . . .  24
+     7.3.  Working with Accept . . . . . . . . . . . . . . . . . . .  24
+     7.4.  Working with Max-Age  . . . . . . . . . . . . . . . . . .  24
+     7.5.  Working with Proxy-Uri and Proxy-Scheme . . . . . . . . .  24
+     7.6.  Working with If-Match, If-None-Match and ETag . . . . . .  24
+     7.7.  Working with Size1, Size2, Block1 and Block2  . . . . . .  24
+     7.8.  Working with Observe  . . . . . . . . . . . . . . . . . .  24
 
 
 
@@ -114,18 +114,20 @@ Veillette, et al.       Expires December 31, 2016               [Page 2]
 Internet-Draft        Constrained Objects Language             June 2016
 
 
-   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  26
-   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  26
-     9.1.  CoAP Method Code  . . . . . . . . . . . . . . . . . . . .  26
-     9.2.  CoAP Content-Formats  . . . . . . . . . . . . . . . . . .  26
-     9.3.  CBOR simple value . . . . . . . . . . . . . . . . . . . .  27
-   10. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  27
-   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  28
-     11.1.  Normative References . . . . . . . . . . . . . . . . . .  28
-     11.2.  Informative References . . . . . . . . . . . . . . . . .  29
-   Appendix A.  File "ietf-cool.yang"  . . . . . . . . . . . . . . .  30
-   Appendix B.  File "ietf-cool@2016-01-01.sid"  . . . . . . . . . .  36
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  38
+     7.9.  Working with resource discovery . . . . . . . . . . . . .  26
+   8.  Error Handling  . . . . . . . . . . . . . . . . . . . . . . .  27
+   9.  Security Considerations . . . . . . . . . . . . . . . . . . .  27
+   10. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  28
+     10.1.  CoAP Method Code . . . . . . . . . . . . . . . . . . . .  28
+     10.2.  CoAP Content-Formats . . . . . . . . . . . . . . . . . .  28
+     10.3.  CBOR simple value  . . . . . . . . . . . . . . . . . . .  29
+   11. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  29
+   12. References  . . . . . . . . . . . . . . . . . . . . . . . . .  29
+     12.1.  Normative References . . . . . . . . . . . . . . . . . .  29
+     12.2.  Informative References . . . . . . . . . . . . . . . . .  30
+   Appendix A.  File "ietf-cool.yang"  . . . . . . . . . . . . . . .  31
+   Appendix B.  File "ietf-cool@2016-01-01.sid"  . . . . . . . . . .  37
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  40
 
 1.  Introduction
 
@@ -161,14 +163,14 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    o  notification
 
-   o  RPC
-
 
 
 Veillette, et al.       Expires December 31, 2016               [Page 3]
 
 Internet-Draft        Constrained Objects Language             June 2016
 
+
+   o  RPC
 
    o  schema node
 
@@ -214,9 +216,7 @@ Internet-Draft        Constrained Objects Language             June 2016
    o  function set: A group of well-known resources that provides a
       particular service.
 
-   o  object: Within CoOL, an object is a data node, an RPC or an action
-      within a datastore resource or a notification within an event
-      stream resource.
+
 
 
 
@@ -225,6 +225,10 @@ Veillette, et al.       Expires December 31, 2016               [Page 4]
 
 Internet-Draft        Constrained Objects Language             June 2016
 
+
+   o  object: Within CoOL, an object is a data node, an RPC or an action
+      within a datastore resource or a notification within an event
+      stream resource.
 
    o  parent: The collection in which a schema node is defined.
 
@@ -270,10 +274,6 @@ Internet-Draft        Constrained Objects Language             June 2016
    This section lists the URIs recommended for the different CoOL
    resources.  A CoOL server MAY implement a different set of URIs.  See
    the Resource discovery section (Section 7.15) for more details on how
-   a CoOL client can discover the list of URIs supported by a CoOL
-   server using the "/.well-known/core" resource.
-
-   o  /c - The default datastore resource
 
 
 
@@ -281,6 +281,11 @@ Veillette, et al.       Expires December 31, 2016               [Page 5]
 
 Internet-Draft        Constrained Objects Language             June 2016
 
+
+   a CoOL client can discover the list of URIs supported by a CoOL
+   server using the "/.well-known/core" resource.
+
+   o  /c - The default datastore resource
 
    o  /c/c - The candidate configuration datastore resource
 
@@ -326,17 +331,14 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    o  Confirmed commit
 
-   o  Cancel of a different or confirmed commit.
-
-
-
-
 
 
 Veillette, et al.       Expires December 31, 2016               [Page 6]
 
 Internet-Draft        Constrained Objects Language             June 2016
 
+
+   o  Cancel of a different or confirmed commit.
 
 5.  Operations
 
@@ -361,6 +363,14 @@ Internet-Draft        Constrained Objects Language             June 2016
    Each value is encoded using the rules defined by
    [I-D.veillette-core-yang-cbor-mapping].
 
+   The normal behaviour of a CoOL server is to exclude from the GET
+   response, any data node with a value equal to the default value for
+   this data node as defined by the YANG "default" statement.  When this
+   behaviour is not appropriate for the CoOL client, this client can
+   force the retrieval of all data nodes by adding to its CoAP request a
+   Uri-Query option containing the "a" parameter.  See section
+   Section 6.1 form more details.
+
    If the request is rejected by the CoOL server, a 5.01 Not implemented
    or 4.13 Request Entity Too Large response code is returned.
 
@@ -376,6 +386,14 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    o  "/interfaces/interface/enabled" (SID 1535)
 
+
+
+
+Veillette, et al.       Expires December 31, 2016               [Page 7]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
    o  "/interfaces/interface/name" (SID 1537)
 
    o  "/interfaces/interface/1538" (SID 1534)
@@ -385,14 +403,6 @@ Internet-Draft        Constrained Objects Language             June 2016
    o  "/system-state/clock/boot-datetime" (SID 1718)
 
    o  "/system-state/clock/current-datetime" (SID 1719)
-
-
-
-
-Veillette, et al.       Expires December 31, 2016               [Page 7]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
 
    o  "/system/clock/timezone/timezone-utc-offset/timezone-utc-offset"
       (SID 1736)
@@ -431,6 +441,15 @@ Internet-Draft        Constrained Objects Language             June 2016
    retrieved.  This list is encoded using a CBOR array, each entry
    containing an "instance-identifier" as defined by
    [I-D.veillette-core-yang-cbor-mapping].  Within each "instance-
+
+
+
+
+Veillette, et al.       Expires December 31, 2016               [Page 8]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
    identifier", data nodes are identified using SIDs as defined by
    [I-D.somaraju-core-sid].
 
@@ -441,14 +460,6 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    On successful processing of the CoAP request, the CoOL server MUST
    return a CoAP response with a response code 2.05 (Content).
-
-
-
-
-Veillette, et al.       Expires December 31, 2016               [Page 8]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
 
    When a single data node is requested, the payload of the FETCH
    response carries the value of the data node instance requested.  When
@@ -470,6 +481,14 @@ Internet-Draft        Constrained Objects Language             June 2016
    o  Otherwise, the data node instance is encoded using the rules
       defined in [I-D.veillette-core-yang-cbor-mapping].
 
+   The normal behaviour of a CoOL server is to exclude from containers
+   and list instances of a FETCH response, any data node with a value
+   equal to the default value for this data node as defined by the YANG
+   "default" statement.  When this behaviour is not appropriate for the
+   CoOL client, this client can force the retrieval of all data nodes by
+   adding to its CoAP request a Uri-Query option containing the "a"
+   parameter.  See section Section 6.1 form more details.
+
 5.2.1.  Example #1 - Simple data node
 
    In this example, a CoOL client retrieves the leaf "/system-
@@ -479,6 +498,13 @@ Internet-Draft        Constrained Objects Language             June 2016
    nodes are defined in the YANG module "ietf-system" [RFC7317].
 
    CoAP request:
+
+
+
+Veillette, et al.       Expires December 31, 2016               [Page 9]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
 
    FETCH /c Content-Format(application/cool-instance-id-list+cbor)
    [1719, +15]
@@ -499,13 +525,6 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    CoAP request:
 
-
-
-Veillette, et al.       Expires December 31, 2016               [Page 9]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
     0                   1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -523,6 +542,25 @@ Internet-Draft        Constrained Objects Language             June 2016
    +-+-+-+-+-+-+-+-+
 
    CoAP response:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 10]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
 
     0                   1                   2                   3
     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -552,16 +590,6 @@ Internet-Draft        Constrained Objects Language             June 2016
    |     0x1c      |
    +-+-+-+-+-+-+-+-+
 
-
-
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 10]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
 5.2.2.  Example #2 - Data node instance within a YANG list
 
    The data type "instance-identifier" allows the selection of an
@@ -582,6 +610,14 @@ Internet-Draft        Constrained Objects Language             June 2016
    2.05 Content Content-Format(application/cool-value+cbor)
    "Ethernet adaptor"
 
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 11]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
 5.2.3.  Example #3 - YANG list
 
    This "instance-identifier" extension allows the retrieval of all
@@ -600,23 +636,6 @@ Internet-Draft        Constrained Objects Language             June 2016
    [1533]
 
    CoAP response:
-
-
-
-
-
-
-
-
-
-
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 11]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
 
  2.05 Content Content-Format(application/cool-value+cbor)
  [
@@ -647,6 +666,14 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    CoAP request:
 
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 12]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
    FETCH /c Content-Format(application/cool-instance-id-list+cbor)
    [[1533, "eth0"]]
 
@@ -666,14 +693,6 @@ Internet-Draft        Constrained Objects Language             June 2016
    of data nodes within a list.  This is accomplished by adding an extra
    element to the "instance-identifier".  This element contains the
    subset of data nodes to be returned encoded as CBOR array.  Each
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 12]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    entry within this CBOR array is set to the delta between the current
    SID and the SID of targeted container as specified in the first entry
    of the "instance-identifier".
@@ -700,6 +719,17 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    CoAP response:
 
+
+
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 13]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
    2.05 Content Content-Format(application/cool-value-list+cbor)
    [
      {
@@ -722,13 +752,6 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    In this example, a CoOL client retrieves all instances of data node
    "/interfaces/interface/name" (SID 1537).
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 13]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
 
    Example:
 
@@ -754,6 +777,15 @@ Internet-Draft        Constrained Objects Language             June 2016
    new content of the datastore.  The CBOR array MUST contain a list of
    pairs of delta and associated value.  A delta represents the
    different between the current SID and the SID of the previous pair
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 14]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
    within the CBOR array.  Each value is encoded using the rules defined
    by [I-D.veillette-core-yang-cbor-mapping].
 
@@ -779,13 +811,6 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    o  "/system/ntp/server/name" (SID 1755)
 
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 14]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    o  "/system/ntp/server/prefer" (SID 1756)
 
    o  "/system/ntp/server/transport/udp/udp" (SID 1757)
@@ -795,6 +820,27 @@ Internet-Draft        Constrained Objects Language             June 2016
    o  "/system/ntp/server/transport/udp/udp/port" (SID 1759)
 
    CoAP request:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 15]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
 
    PUT /c/r Content-Format(application/cool-value-pairs+cbor)
    [
@@ -834,14 +880,6 @@ Internet-Draft        Constrained Objects Language             June 2016
    deleted.  This list is encoded using a CBOR array and contains a
    sequence of pairs of "instance-identifier" and associated values.
 
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 15]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    Within each "instance-identifier", data nodes are identified using
    SIDs as defined by [I-D.somaraju-core-sid].  SIDs within the list are
    encoded as delta.
@@ -852,6 +890,13 @@ Internet-Draft        Constrained Objects Language             June 2016
       replaced by the associated value (not merged).  To update only
       some children of a collection, each child data node MUST be
       provided individually.
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 16]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
 
    o  If the targeted data instance doesn't exist, this instance is
       created.
@@ -884,20 +929,6 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    CoAP request:
 
-
-
-
-
-
-
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 16]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    iPATCH /c/r Content-Format(application/cool-value-pairs+cbor)
    [
      1751 , true,                          # enabled (1751)
@@ -914,6 +945,14 @@ Internet-Draft        Constrained Objects Language             June 2016
    ]
 
    CoAP response:
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 17]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
 
    2.04 Changed
 
@@ -947,13 +986,6 @@ Internet-Draft        Constrained Objects Language             June 2016
    SID 1932, leaf image-name to SID 1933 and leaf status to SID 1934.
    These SIDs are defined strictly for the purpose of this example.
 
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 17]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    rpc activate-software-image { input { leaf image-name { type string;
    } } output { leaf status { type string; } } }
 
@@ -968,6 +1000,15 @@ Internet-Draft        Constrained Objects Language             June 2016
    ]
 
    CoAP response:
+
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 18]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
 
    2.05 Content Content-Format(application/cool-value+cbor)
    {
@@ -999,23 +1040,31 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    CoAP response:
 
-
-
-
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 18]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
   2.05 Content Content-Format(application/cool-value+cbor)
   {
     +2 : "2016-08T14:10:08Z09:18"         # reset-finished-at (SID 1904)
   }
 
 5.6.  Event stream
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 19]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
 
 WARNING
 This section requires more work to address the following identified issues:
@@ -1057,15 +1106,6 @@ or completely replaced by a future version of this draft.
 
    The CoAP response payload is encoded using the rules defined for the
    PUT request.  When multiple notifications are reported, the CoAP
-
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 19]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    response payload carries a CBOR array, with each entry containing a
    notification.
 
@@ -1074,6 +1114,13 @@ Internet-Draft        Constrained Objects Language             June 2016
    following SID assignment:
 
    o  "/link-failure" (SID 1942)
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 20]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
 
    o  "/link-failure/if-name" (SID 1943)
 
@@ -1114,20 +1161,22 @@ Internet-Draft        Constrained Objects Language             June 2016
      }
    }
 
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 20]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    In this example, a CoOL client starts by registering to the default
    event stream resource "/c/e".
 
    CoAP request:
 
    GET /c/e observe(0) Token(0x9372)
+
+
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 21]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
 
    The CoOL server confirms this registration by returning a first CoAP
    response.  The payload of this CoAP response may be empty or may
@@ -1158,26 +1207,6 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    CoAP response:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 21]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    2.05 Content Observe(52) Token(0xD937)
    Content-Format(application/cool-value-pairs+cbor)
    [
@@ -1198,35 +1227,6 @@ Internet-Draft        Constrained Objects Language             June 2016
      ]
    ]
 
-6.  CoAP compatibility
-
-6.1.  Working with Uri-Host, Uri-Port, Uri-Path, and Uri-Query
-
-   Uri-Query is not currently used by this protocol.  Uri-Host, Uri-Port
-   and Uri-Path MUST be used as specified by [RFC6690] to target the
-   CoOL resources as defined by section 3.
-
-6.2.  Working with Location-Path and Location-Query
-
-   This version of CoOL doesn't support the creation of resources
-   (datastore or event stream).  For this reason, the use of Location-
-   Path and Location-Query is not required.
-
-6.3.  Working with Accept
-
-   This option is not required since this protocol don't support
-   multiple choices of Content-Format.
-
-6.4.  Working with Max-Age
-
-   This option MUST be supported as specified by [RFC6690].
-
-6.5.  Working with Proxy-Uri and Proxy-Scheme
-
-   This option MUST be supported as specified by [RFC6690].
-
-
-
 
 
 Veillette, et al.       Expires December 31, 2016              [Page 22]
@@ -1234,18 +1234,101 @@ Veillette, et al.       Expires December 31, 2016              [Page 22]
 Internet-Draft        Constrained Objects Language             June 2016
 
 
-6.6.  Working with If-Match, If-None-Match and ETag
+6.  Uri-Query
+
+6.1.  The 'a' Query Parameter
+
+   When performing a GET, the normal behaviour of a CoOL server is to
+   exclude from the GET response, data nodes currently set to the
+   default value as defined by the YANG "default" statement.  This
+   behaviour called 'trim' is defined in [RFC6243] section 3.2.
+
+   This rule also applies to the FETCH for containers and list instances
+   but not for the root data nodes.  To minimize the payload size of the
+   FETCH responses, root data nodes are returned in a CBOR array without
+   associated SID.  To keep the symmetry between the FETCH request and
+   the FETCH response, a CBOR content must be returned for each data
+   node requested as follows:
+
+   o  a CBOR simple type 'default' is returned for each data node
+      currently set to its default value
+
+   o  a CBOR simple type 'undefined value' is returned for each data
+      node not instantiated or not supported
+
+   o  otherwise, the value is encoded based on the rules defined in
+      [I-D.veillette-core-yang-cbor-mapping]
+
+   There are use-cases when a CoOL client will need the default data
+   from the server, for example:
+
+   o  The management application often needs a single, definitive, and
+      complete set of configuration values that determine how the
+      networking device works.
+
+   o  Documentation about default values can be unreliable or
+      unavailable.
+
+   o  Some management applications might not have the capabilities to
+      correctly parse and interpret formal data models.
+
+   o  Human users might want to understand the received data without
+      consultation of the documentation.
+
+   In all these cases, the CoOL client will need a mechanism to retrieve
+   default data from a CoOL server.
+
+   This is accomplished by including the "a" Uri-Query parameter in the
+   GET or FETCH request.  This behaviour called 'report-all' is defined
+   in [RFC6243] section 3.1.
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 23]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
+7.  CoAP compatibility
+
+7.1.  Working with Uri-Host, Uri-Port, Uri-Path, and Uri-Query
+
+   Supported Uri-Query parameters are defined in section Section 6.
+   Uri-Host, Uri-Port and Uri-Path MUST be used as specified by
+   [RFC6690] to target the CoOL resources as defined by section 3.
+
+7.2.  Working with Location-Path and Location-Query
+
+   This version of CoOL doesn't support the creation of resources
+   (datastore or event stream).  For this reason, the use of Location-
+   Path and Location-Query is not required.
+
+7.3.  Working with Accept
+
+   This option is not required since this protocol don't support
+   multiple choices of Content-Format.
+
+7.4.  Working with Max-Age
+
+   This option MUST be supported as specified by [RFC6690].
+
+7.5.  Working with Proxy-Uri and Proxy-Scheme
+
+   This option MUST be supported as specified by [RFC6690].
+
+7.6.  Working with If-Match, If-None-Match and ETag
 
    This option MUST be supported as specified by [RFC6690].  Each ETag
    is associated to all schema nodes within a datastore.
 
-6.7.  Working with Size1, Size2, Block1 and Block2
+7.7.  Working with Size1, Size2, Block1 and Block2
 
    When the UDP transport is used and a large payload need to be
    transferred, support of the CoAP block transfer as defined by
    [I-D.ietf-core-block] is recommended.
 
-6.8.  Working with Observe
+7.8.  Working with Observe
 
    A CoOL server MAY support state change notifications to some or all
    its leaf data nodes.  When supported the CoOL server MUST implement
@@ -1255,6 +1338,13 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    To start observing a leaf data node, a CoOL client MUST send a CoAP
    FETCH with the Observe CoAP option set to 0.
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 24]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
 
    The payload of the FETCH request carries a CBOR array of instance-
    identifier.  The first entry MUST be set to the "instance-identifier"
@@ -1282,14 +1372,6 @@ Internet-Draft        Constrained Objects Language             June 2016
    Subsequent responses are returned by the CoOL server each time the
    state of data node "/system/ntp/enabled" changes.
 
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 23]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    CoAP request:
 
 FETCH /c Content-Format(application/cool-instance-id-list+cbor) Observe(0)
@@ -1311,7 +1393,16 @@ FETCH /c Content-Format(application/cool-instance-id-list+cbor) Observe(0)
   "tic"                      # hostname (SID 1748)
 ]
 
-6.9.  Working with resource discovery
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 25]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
+7.9.  Working with resource discovery
 
    The "/.well-known/core" resource is used by CoOL clients to discover
    resources implemented by CoOL servers.  Each CoOL server MUST have an
@@ -1337,15 +1428,6 @@ FETCH /c Content-Format(application/cool-instance-id-list+cbor) Observe(0)
 
    CoAP response:
 
-
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 24]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    2.05 Content Content-Format(application/link-format)
    </c>;rt="cool.datastore",
    </c/r>;rt="cool.datastore",
@@ -1368,7 +1450,15 @@ Internet-Draft        Constrained Objects Language             June 2016
    2.05 Content Content-Format(application/link-format)
    </c>;rt="cool.datastore",
 
-7.  Error Handling
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 26]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
+8.  Error Handling
 
    All CoAP response codes defined by [RFC7252] MUST be accepted and
    processed accordingly by CoOL clients.  Optionally, client errors
@@ -1390,19 +1480,7 @@ Internet-Draft        Constrained Objects Language             June 2016
    }
  ]
 
-
-
-
-
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 25]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
-8.  Security Considerations
+9.  Security Considerations
 
    This application protocol relies on the lower layers to provide
    confidentiality, integrity, and availability.  A typical approach to
@@ -1425,16 +1503,27 @@ Internet-Draft        Constrained Objects Language             June 2016
    relevant to this application protocol and should be reviewed
    carefully by implementers.
 
-9.  IANA Considerations
 
-9.1.  CoAP Method Code
+
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 27]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
+10.  IANA Considerations
+
+10.1.  CoAP Method Code
 
    This draft makes use of the FETCH and iPATCH CoAP methods as defined
    in [I-D.vanderstok-core-etch].  These methods need to be registered
    in the CoAP Method Codes sub-registry as defined in [RFC7252] section
    12.1.1.
 
-9.2.  CoAP Content-Formats
+10.2.  CoAP Content-Formats
 
    This draft introduces the following CoAP Content-Formats.  These
    entries need to be registered in the CoAP Content-Formats Registry as
@@ -1449,14 +1538,6 @@ Internet-Draft        Constrained Objects Language             June 2016
    o  Reference = RFC XXXX
 
    o  Media type = application/cool-value
-
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 26]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
 
    o  Encoding = CBOR
 
@@ -1480,10 +1561,19 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    o  Reference = RFC XXXX
 
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 28]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
    RFC Ed.: update ID with allocated value and Reference with RFC number
    and remove this note.
 
-9.3.  CBOR simple value
+10.3.  CBOR simple value
 
    This draft introduces the following CBOR simple value.  This entry
    needs to be registered in the Simple Values Registry as defined in
@@ -1498,7 +1588,7 @@ Internet-Draft        Constrained Objects Language             June 2016
    RFC Ed.: update XXXX and the values using the RFC number for this
    draft and allocated values and remove this note.
 
-10.  Acknowledgments
+11.  Acknowledgments
 
    This document have been largely inspired by the extensive works done
    by Andy Bierman and Peter van der Stok on [I-D.vanderstok-core-comi].
@@ -1506,21 +1596,13 @@ Internet-Draft        Constrained Objects Language             June 2016
    work.  The authors would like to thank the authors and contributors
    to these two drafts.
 
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 27]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    The authors would also like to thank Carsten Bormann for his help
    during the development of this document and his useful comments
    during the review process.
 
-11.  References
+12.  References
 
-11.1.  Normative References
+12.1.  Normative References
 
    [I-D.ietf-core-block]
               Bormann, C. and Z. Shelby, "Block-wise transfers in CoAP",
@@ -1537,6 +1619,13 @@ Internet-Draft        Constrained Objects Language             June 2016
               draft-vanderstok-core-etch-00 (work in progress), March
               2016.
 
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 29]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
@@ -1546,6 +1635,10 @@ Internet-Draft        Constrained Objects Language             June 2016
               the Network Configuration Protocol (NETCONF)", RFC 6020,
               DOI 10.17487/RFC6020, October 2010,
               <http://www.rfc-editor.org/info/rfc6020>.
+
+   [RFC6243]  Bierman, A. and B. Lengyel, "With-defaults Capability for
+              NETCONF", RFC 6243, DOI 10.17487/RFC6243, June 2011,
+              <http://www.rfc-editor.org/info/rfc6243>.
 
    [RFC6690]  Shelby, Z., "Constrained RESTful Environments (CoRE) Link
               Format", RFC 6690, DOI 10.17487/RFC6690, August 2012,
@@ -1560,16 +1653,6 @@ Internet-Draft        Constrained Objects Language             June 2016
               DOI 10.17487/RFC7252, June 2014,
               <http://www.rfc-editor.org/info/rfc7252>.
 
-
-
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 28]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    [RFC7317]  Bierman, A. and M. Bjorklund, "A YANG Data Model for
               System Management", RFC 7317, DOI 10.17487/RFC7317, August
               2014, <http://www.rfc-editor.org/info/rfc7317>.
@@ -1579,7 +1662,7 @@ Internet-Draft        Constrained Objects Language             June 2016
               DOI 10.17487/RFC7641, September 2015,
               <http://www.rfc-editor.org/info/rfc7641>.
 
-11.2.  Informative References
+12.2.  Informative References
 
    [I-D.bormann-core-ipsec-for-coap]
               Bormann, C., "Using CoAP with IPsec", draft-bormann-core-
@@ -1590,6 +1673,14 @@ Internet-Draft        Constrained Objects Language             June 2016
               "Management of Networks with Constrained Devices: Problem
               Statement, Use Cases and Requirements", draft-ersue-
               constrained-mgmt-03 (work in progress), February 2013.
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 30]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
 
    [I-D.ietf-core-coap-tcp-tls]
               Bormann, C., Lemay, S., Technologies, Z., and H.
@@ -1618,14 +1709,6 @@ Internet-Draft        Constrained Objects Language             June 2016
               draft-veillette-core-yang-cbor-mapping-00 (work in
               progress), March 2016.
 
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 29]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    [RFC5755]  Farrell, S., Housley, R., and S. Turner, "An Internet
               Attribute Certificate Profile for Authorization",
               RFC 5755, DOI 10.17487/RFC5755, January 2010,
@@ -1647,6 +1730,14 @@ Appendix A.  File "ietf-cool.yang"
 
 <CODE BEGINS> file "ietf-cool@2016-01-01.yang"
 module ietf-cool {
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 31]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
   namespace "urn:ietf:params:xml:ns:yang:ietf-cool";
   prefix cool;
 
@@ -1674,14 +1765,6 @@ module ietf-cool {
      by the CoOL protocol.";
 
   revision 2016-01-01 {
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 30]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
      description
       "Initial revision.";
     reference
@@ -1703,6 +1786,13 @@ Internet-Draft        Constrained Objects Language             June 2016
       since 0 hours, 0 minutes, 0 seconds, on the 1st of January,
       2000 UTC (Universal Coordinated Time).";
   }
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 32]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
 
   // Error payload
 
@@ -1730,14 +1820,6 @@ Internet-Draft        Constrained Objects Language             June 2016
         }
 
         enum doesNotExist {
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 31]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
           value 4;
           description "The target data node instance specified in
                       the request doesn't exist.";
@@ -1760,6 +1842,14 @@ Internet-Draft        Constrained Objects Language             June 2016
     }
 
     leaf error-text {
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 33]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
       type string;
       description "Textual descriptions of the error.";
     }
@@ -1787,13 +1877,6 @@ Internet-Draft        Constrained Objects Language             June 2016
       "Notification generated by one of the layers of the IP protocol stack.";
   }
 
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 32]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
   identity security {
     base facility-type;
     description
@@ -1815,6 +1898,13 @@ Internet-Draft        Constrained Objects Language             June 2016
   container notification-payload {
     description
       "Definition of the payload of a notification transfered using CoOL.";
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 34]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
 
     leaf _id {
       type instance-identifier;
@@ -1842,14 +1932,6 @@ Internet-Draft        Constrained Objects Language             June 2016
     leaf severity-level {
       type enumeration {
         enum emergency {
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 33]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
           value 0;
           description
             "System is unusable.";
@@ -1872,6 +1954,14 @@ Internet-Draft        Constrained Objects Language             June 2016
         enum warning {
           value 4;
           description
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 35]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
             "May indicate that an error will occur if action is
             not taken.";
         }
@@ -1898,14 +1988,6 @@ Internet-Draft        Constrained Objects Language             June 2016
     }
 
     leaf facility {
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 34]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
       type identityref {
         base facility-type;
       }
@@ -1928,6 +2010,14 @@ Internet-Draft        Constrained Objects Language             June 2016
       the runtime datastore specify by the URI used to execute this
       operation.";
     input {
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 36]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
       leaf datastore {
         type string;
         description
@@ -1954,14 +2044,6 @@ Internet-Draft        Constrained Objects Language             June 2016
           confirm-timeout field presents. Supports of this feature
           is optional.";
       }
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 35]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
     }
   }
 
@@ -1984,6 +2066,14 @@ Appendix B.  File "ietf-cool@2016-01-01.sid"
          "entry-point": 1000,
          "size": 100
        }
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 37]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
      ],
      "module-name": "ietf-cool",
      "module-revision": "2016-01-01",
@@ -2010,14 +2100,6 @@ Appendix B.  File "ietf-cool@2016-01-01.sid"
        },
        {
          "type": "identity",
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 36]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
          "label": "/facility-type/os",
          "sid": 1004
        },
@@ -2040,6 +2122,14 @@ Internet-Draft        Constrained Objects Language             June 2016
          "type": "node",
          "label": "/error-payload/error-code",
          "sid": 1008
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 38]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
        },
        {
          "type": "node",
@@ -2066,14 +2156,6 @@ Internet-Draft        Constrained Objects Language             June 2016
          "label": "/notification-payload/facility",
          "sid": 1013
        },
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 37]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
        {
          "type": "node",
          "label": "/notification-payload/sequence-number",
@@ -2096,6 +2178,14 @@ Internet-Draft        Constrained Objects Language             June 2016
        },
        {
          "type": "rpc",
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 39]
+
+Internet-Draft        Constrained Objects Language             June 2016
+
+
          "label": "/commit",
          "sid": 1018
        },
@@ -2119,17 +2209,6 @@ Internet-Draft        Constrained Objects Language             June 2016
 
 Authors' Addresses
 
-
-
-
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 38]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    Michel Veillette (editor)
    Trilliant Networks Inc.
    610 Rue du Luxembourg
@@ -2147,6 +2226,20 @@ Internet-Draft        Constrained Objects Language             June 2016
    France
 
    Email: a@ackl.io
+
+
+
+
+
+
+
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 40]
+
+Internet-Draft        Constrained Objects Language             June 2016
 
 
    Abhinav Somaraju
@@ -2181,4 +2274,23 @@ Internet-Draft        Constrained Objects Language             June 2016
 
 
 
-Veillette, et al.       Expires December 31, 2016              [Page 39]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Veillette, et al.       Expires December 31, 2016              [Page 41]

@@ -124,7 +124,7 @@ Internet-Draft        Constrained Objects Language             June 2016
      11.2.  Informative References . . . . . . . . . . . . . . . . .  28
    Appendix A.  File "ietf-cool.yang"  . . . . . . . . . . . . . . .  29
    Appendix B.  File "ietf-cool@2016-01-01.sid"  . . . . . . . . . .  35
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  38
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  37
 
 1.  Introduction
 
@@ -370,21 +370,21 @@ Internet-Draft        Constrained Objects Language             June 2016
    following data nodes defined in the YANG module "ietf-system"
    [RFC7317] and YANG module "ietf-interfaces" [RFC7223]:
 
-   o  "/interfaces/interface" (SID 1529)
+   o  "/interfaces/interface" (SID 1533)
 
-   o  "/interfaces/interface/description" (SID 1530)
+   o  "/interfaces/interface/description" (SID 1534)
 
-   o  "/interfaces/interface/enabled" (SID 1531)
+   o  "/interfaces/interface/enabled" (SID 1535)
 
-   o  "/interfaces/interface/name" (SID 1533)
+   o  "/interfaces/interface/name" (SID 1537)
 
-   o  "/interfaces/interface/type" (SID 1534)
+   o  "/interfaces/interface/1538" (SID 1534)
 
-   o  "/system-state/clock" (SID 1708)
+   o  "/system-state/clock" (SID 1717)
 
-   o  "/system-state/clock/boot-datetime" (SID 1709)
+   o  "/system-state/clock/boot-datetime" (SID 1718)
 
-   o  "/system-state/clock/current-datetime" (SID 1710)
+   o  "/system-state/clock/current-datetime" (SID 1719)
 
 
 
@@ -395,7 +395,7 @@ Internet-Draft        Constrained Objects Language             June 2016
 
 
    o  "/system/clock/timezone/timezone-utc-offset/timezone-utc-offset"
-      (SID 1727)
+      (SID 1736)
 
    CoAP Request:
 
@@ -405,19 +405,19 @@ Internet-Draft        Constrained Objects Language             June 2016
 
 2.05 Content Content-Format(application/cool+cbor)
 [
-  1529,
+  1533,                       # interface (SID 1533)
     {
-     +4 : "eth0",             # name (SID 1533)
-     +1 : "Ethernet adaptor", # description (SID 1530)
-     +5 : 1179,               # type (SID 1534), identity ethernetCsmacd
-     +2 : true                # enabled (SID 1531)
+     +4 : "eth0",             # name (SID 1537)
+     +1 : "Ethernet adaptor", # description (SID 1534)
+     +5 : 1179,               # type (SID 1538), identity ethernetCsmacd
+     +2 : true                # enabled (SID 1535)
     },
-  +179,                       # clock (SID 1708)
+  +184,                       # clock (SID 1717)
     {
-      +1 : "2015-02-08T14:10:08Z09:00",  # boot-datetime (SID 1709)
-      +2 : "2015-04-04T09:32:51Z09:00"   # current-datetime (SID 1710)
+      +1 : "2015-02-08T14:10:08Z09:00",  # boot-datetime (SID 1718)
+      +2 : "2015-04-04T09:32:51Z09:00"   # current-datetime (SID 1719)
     },
-  +19, 60                     # timezone-utc-offset (SID 1727)
+  +19, 60                     # timezone-utc-offset (SID 1736)
 ]
 
 5.2.  FETCH - Retrieving specific data nodes
@@ -468,23 +468,23 @@ Internet-Draft        Constrained Objects Language             June 2016
 5.2.1.  Example #1 - Simple data node
 
    In this example, a CoOL client retrieves the leaf "/system-
-   state/clock/current-datetime" (SID 1704) and the container "/system/
-   clock" (SID 1719) containing the leaf "/system/clock/timezone/
-   timezone-utc-offset/timezone-utc-offset" (SID 1727).  These data
+   state/clock/current-datetime" (SID 1719) and the container "/system/
+   clock" (SID 1734) containing the leaf "/system/clock/timezone/
+   timezone-utc-offset/timezone-utc-offset" (SID 1736).  These data
    nodes are defined in the YANG module "ietf-system" [RFC7317].
 
    CoAP request:
 
    FETCH /c Content-Format(application/cool+cbor)
-   [1704, +15]
+   [1719, +15]
 
    CoAP response:
 
    2.05 Content Content-Format(application/cool+cbor)
    [
-     "2015-10-08T14:10:08Z09:00",    # current-datetime (SID 1704)
-     {                               # clock (SID 1719)
-       +8 : 540                     # timezone-utc-offset (SID 1727)
+     "2015-10-08T14:10:08Z09:00",    # current-datetime (SID 1719)
+     {                               # clock (SID 1734)
+       +2 : 540                      # timezone-utc-offset (SID 1736)
      }
    ]
 
@@ -517,7 +517,7 @@ Internet-Draft        Constrained Objects Language             June 2016
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    | Opt Length (2)|     '/'       |      'c'      |1 1 1 1 1 1 1 1|
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |     0x82      |     0x19      |     0x06      |     0xa8      |
+   |     0x82      |     0x19      |     0x06      |     0xb7      |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |     0x0f      |
    +-+-+-+-+-+-+-+-+
@@ -533,7 +533,7 @@ Internet-Draft        Constrained Objects Language             June 2016
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    | Opt Delta (12)| Opt Length (1)|      na       |1 1 1 1 1 1 1 1|
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |     0xa2      |     0x78      |     0x19      |     0x32      |
+   |     0x82      |     0x78      |     0x19      |     0x32      |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |     0x30      |     0x31      |     0x35      |     0x2d      |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -541,7 +541,7 @@ Internet-Draft        Constrained Objects Language             June 2016
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |     0x38      |     0x54      |     0x31      |     0x34      |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |     0x3a      |     0x31      |     0x30      |     0x2d      |
+   |     0x3a      |     0x31      |     0x30      |     0x3a      |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |     0x30      |     0x38      |     0x5a      |     0x30      |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -567,7 +567,7 @@ Internet-Draft        Constrained Objects Language             June 2016
    The data type "instance-identifier" allows the selection of an
    instance of a specific data node within a list.  In this example, a
    CoOL client retrieves the "/interfaces/interface/description" (SID
-   1530) leaf from the "/interfaces/interface" list.  The
+   1534) leaf from the "/interfaces/interface" list.  The
    "/interfaces/interface/name" associated to this interface is equal to
    "eth0".  This example is based on the YANG module "ietf-interfaces"
    [RFC7223].
@@ -575,7 +575,7 @@ Internet-Draft        Constrained Objects Language             June 2016
    CoAP request:
 
    FETCH /c Content-Format(application/cool+cbor)
-   [[1530, "eth0"]]
+   [[1534, "eth0"]]
 
    CoAP response:
 
@@ -590,13 +590,13 @@ Internet-Draft        Constrained Objects Language             June 2016
    [I-D.veillette-core-yang-cbor-mapping] section 4.4.
 
    In this example, a CoOL client retrieves the list "/interfaces/
-   interface" (SID 1529).  The response returns contain two instances,
+   interface" (SID 1533).  The response returns contain two instances,
    one for an Ethernet adaptor and one for a WIFI interface.
 
    CoAP request:
 
    FETCH /c Content-Format(application/cool+cbor)
-   [1529]
+   [1533]
 
    CoAP response:
 
@@ -621,16 +621,16 @@ Internet-Draft        Constrained Objects Language             June 2016
  2.05 Content Content-Format(application/cool+cbor)
  [
    {
-     +4 : "eth0",             # name (SID 1533)
-     +1 : "Ethernet adaptor", # description (SID 1530)
-     +5 : 1179,               # type (SID 1534), identity ethernetCsmacd
-     +2 : true                # enabled (SID 1531)
+     +4 : "eth0",             # name (SID 1537)
+     +1 : "Ethernet adaptor", # description (SID 1534)
+     +5 : 1179,               # type (SID 1538), identity ethernetCsmacd
+     +2 : true                # enabled (SID 1535)
    },
    {
-     +4 : "wlan0",            # name (SID 1533)
-     +1 : "WIFI ",            # description (SID 1530)
-     +5 : 1220,               # type (SID 1534), identity ieee80211
-     +2 : false               # enabled (SID 1531)
+     +4 : "wlan0",            # name (SID 1537)
+     +1 : "WIFI ",            # description (SID 1534)
+     +5 : 1220,               # type (SID 1538), identity ieee80211
+     +2 : false               # enabled (SID 1535)
    }
  ]
 
@@ -641,23 +641,23 @@ Internet-Draft        Constrained Objects Language             June 2016
    the value(s) associated to the targeted instance.
 
    In this example, the CoOL client requests the instance of the list
-   "/interfaces/interface" (SID 1529) associated to the name "eth0".
+   "/interfaces/interface" (SID 1533) associated to the name "eth0".
    The response returned by the CoOL server contains the targeted list
    instance formatted as YANG container.
 
    CoAP request:
 
    FETCH /c Content-Format(application/cool+cbor)
-   [[1529, "eth0"]]
+   [[1533, "eth0"]]
 
    CoAP response:
 
   2.05 Content Content-Format(application/cool+cbor)
   {
-    +4 : "eth0"               # name (SID 1533)
-    +1 : "Ethernet adaptor"   # description (SID 1530)
-    +5 : 1179                 # type (SID 1534), identity ethernetCsmacd
-    +2 : true                 # enabled (SID 1531)
+    +4 : "eth0"               # name (SID 1537)
+    +1 : "Ethernet adaptor"   # description (SID 1534)
+    +5 : 1179                 # type (SID 1538), identity ethernetCsmacd
+    +2 : true                 # enabled (SID 1535)
   }
 
 5.2.5.  Example #5 - YANG list instance filtering
@@ -685,10 +685,10 @@ Internet-Draft        Constrained Objects Language             June 2016
    identifier".
 
    In this example, a CoOL client retrieves from within the
-   "/interfaces/interface" list (SID 1529) the leafs
-   "/interfaces/interface/type" (SID 1534) and "/interfaces/interface/
-   enabled" (SID 1531).  The CoOL client also includes in this request
-   the selection of the leaf "/system/hostname" (SID 1739) defined in
+   "/interfaces/interface" list (SID 1533) the leafs
+   "/interfaces/interface/type" (SID 1538) and "/interfaces/interface/
+   enabled" (SID 1535).  The CoOL client also includes in this request
+   the selection of the leaf "/system/hostname" (SID 1748) defined in
    "ietf-system" [RFC7317].
 
    For example:
@@ -696,17 +696,17 @@ Internet-Draft        Constrained Objects Language             June 2016
    CoAP request:
 
    FETCH /c Content-Format(application/cool+cbor)
-   [ [1529, "eth0", [+5, +2]], +210]
+   [ [1533, "eth0", [+5, +2]], +215]
 
    CoAP response:
 
    2.05 Content Content-Format(application/cool+cbor)
    [
      {
-       +5 : 1179,             # type (SID 1534), identity ethernetCsmacd
-       +2 : true              # enabled (SID 1531)
+       +5 : 1179,             # type (SID 1538), identity ethernetCsmacd
+       +2 : true              # enabled (SID 1535)
      },
-     "datatracker.ietf.org",  # hostname (SID 1739)
+     "datatracker.ietf.org",  # hostname (SID 1748)
    ]
 
 5.2.6.  Example #6 - All instances of a data node within a YANG list
@@ -721,7 +721,7 @@ Internet-Draft        Constrained Objects Language             June 2016
    minimizes significantly this commonly used type of request.
 
    In this example, a CoOL client retrieves all instances of data node
-   "/interfaces/interface/name" (SID 1533).
+   "/interfaces/interface/name" (SID 1537).
 
 
 
@@ -735,7 +735,7 @@ Internet-Draft        Constrained Objects Language             June 2016
    CoAP request:
 
    FETCH /c Content-Format(application/cool+cbor)
-   [1533]
+   [1537]
 
    CoAP response:
 
@@ -771,13 +771,13 @@ Internet-Draft        Constrained Objects Language             June 2016
    with these data nodes:
 
    o  "/system/clock/timezone/timezone-utc-offset/timezone-utc-offset"
-      (SID 1727)
+      (SID 1736)
 
-   o  "/system/ntp/enabled" (SID 1742)
+   o  "/system/ntp/enabled" (SID 1751)
 
-   o  "/system/ntp/server" (SID 1743)
+   o  "/system/ntp/server" (SID 1752)
 
-   o  "/system/ntp/server/name" (SID 1746)
+   o  "/system/ntp/server/name" (SID 1755)
 
 
 
@@ -786,34 +786,34 @@ Veillette, et al.       Expires December 31, 2016              [Page 14]
 Internet-Draft        Constrained Objects Language             June 2016
 
 
-   o  "/system/ntp/server/prefer" (SID 1747)
+   o  "/system/ntp/server/prefer" (SID 1756)
 
-   o  "/system/ntp/server/transport/udp/udp" (SID 1748)
+   o  "/system/ntp/server/transport/udp/udp" (SID 1757)
 
-   o  "/system/ntp/server/transport/udp/udp/address" (SID 1749)
+   o  "/system/ntp/server/transport/udp/udp/address" (SID 1758)
 
-   o  "/system/ntp/server/transport/udp/udp/port" (SID 1750)
+   o  "/system/ntp/server/transport/udp/udp/port" (SID 1759)
 
    CoAP request:
 
    PUT /c/r Content-Format(application/cool+cbor)
    [
-     1727, 540,                     # timezone-utc-offset (SID 1727)
-     +15, true,                     # enabled (SID 1742)
-     +1, [                          # server (SID 1743)
+     1736, 540,                     # timezone-utc-offset (SID 1736)
+     +15, true,                     # enabled (SID 1751)
+     +1, [                          # server (SID 1752)
        {
-         +3 : "tic.nrc.ca",         # name (SID 1746)
-         +4 : true,                 # prefer (SID 1747)
-         +5 : {                     # udp (SID 1748)
-           +1 : "132.246.11.231",   # address (SID 1749)
-           +2 : 123                 # port (SID 1750)
+         +3 : "tic.nrc.ca",         # name (SID 1755)
+         +4 : true,                 # prefer (SID 1756)
+         +5 : {                     # udp (SID 1757)
+           +1 : "132.246.11.231",   # address (SID 1758)
+           +2 : 123                 # port (SID 1759)
          }
        },
        {
-         +3 : "tac.nrc.ca",         # name (SID 1746)
-         +4 : false,                # prefer (SID 1747)
-         +5 : {                     # udp (SID 1748)
-           +1 : "132.246.11.232"    # address (SID 1749)
+         +3 : "tac.nrc.ca",         # name (SID 1755)
+         +4 : false,                # prefer (SID 1756)
+         +5 : {                     # udp (SID 1757)
+           +1 : "132.246.11.232"    # address (SID 1758)
          }
        }
      ]
@@ -871,18 +871,18 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    In this example, a CoOL client performs the following operations:
 
-   o  Set "/system/ntp/enabled" to true.
+   o  Set "/system/ntp/enabled" (SID 1751) to true.
 
-   o  Remove the server "tac.nrc.ca" from the"/system/ntp/server" list.
+   o  Remove the server "tac.nrc.ca" from the"/system/ntp/server" (SID
+      1752) list.
 
    o  Add the server "NTP Pool server 2" to the list "/system/ntp/
-      server".
+      server" (SID 1752).
 
-   o  Set "prefer" to false for the server "tic.nrc.ca".
+   o  Set "/system/ntp/server/prefer" (SID 1756) to false for the server
+      "tic.nrc.ca".
 
    CoAP request:
-
-
 
 
 
@@ -900,17 +900,17 @@ Internet-Draft        Constrained Objects Language             June 2016
 
    iPATCH /c/r Content-Format(application/cool+cbor)
    [
-     1742 , true,                          # enabled (1742)
-     [+1, "tac.nrc.ca"], null,             # server (SID 1743)
-     +0,                                   # server (SID 1743)
+     1751 , true,                          # enabled (1751)
+     [+1, "tac.nrc.ca"], null,             # server (SID 1752)
+     +0,                                   # server (SID 1752)
        {
-         +3 : "NTP Pool server 2",         # name (SID 1746)
-         +4 : true,                        # prefer (SID 1747)
-         +5 : {                            # udp (SID 1748)
-           +1 : "2620:10a:800f::11",       # address (SID 1749)
+         +3 : "NTP Pool server 2",         # name (SID 1755)
+         +4 : true,                        # prefer (SID 1756)
+         +5 : {                            # udp (SID 1757)
+           +1 : "2620:10a:800f::11",       # address (SID 1758)
          }
        }
-     [+4, "tic.nrc.ca"], false             # prefer (SID 1747)
+     [+4, "tic.nrc.ca"], false             # prefer (SID 1756)
    ]
 
    CoAP response:
@@ -1145,11 +1145,11 @@ Internet-Draft        Constrained Objects Language             June 2016
    2.05 Content Observe(53) Token(0xD937)
    Content-Format(application/cool+cbor)
    [
-     1010 , [1538, "eth0"],             # _id (SID 1010)
-     +1,{                                # content (SID 1011)
+     1011 , [1538, "eth0"],              # _id (SID 1011)
+     +1,{                                # content (SID 1012)
        +1 : "bob"                        # by-user  (SID 1539)
      }
-     +5 , "2016-03-08T14:10:08Z09:00",   # timestamp (SID 1015)
+     +5 , "2016-03-08T14:10:08Z09:00",   # timestamp (SID 1016)
    ]
 
    To optimize communications or because of other constraints, the CoOL
@@ -1182,19 +1182,19 @@ Internet-Draft        Constrained Objects Language             June 2016
    Content-Format(application/cool+cbor)
    [
      [
-       1010 , [1538, "eth0"],      # _id = interface-enabled (SID 1010)
-       +1,{                         # content (SID 1011)
+       1011 , [1538, "eth0"],      # _id = interface-enabled (SID 1011)
+       +1,{                         # content (SID 1012)
          +1 : "jack"                # by-user (SID 1539)
        }
-       +5 , "2016-03-12T15:49:51Z09:00",  # timestamp (SID 1015)
+       +5 , "2016-03-12T15:49:51Z09:00",  # timestamp (SID 1016)
      ],
      [
-       +1010 , 1942,                # _id = link-failure (SID 1010)
+       +1011 , 1942,                # _id = link-failure (SID 1011)
        +1,{                         # content (SID 1011)
          +1 : "eth0",               # if-name (SID 1943)
          +1 : 1                     # admin-status = up (SID 1944)
        }
-       +5 , "2016-03-12T15:50:06Z09:00",  # timestamp (SID 1015)
+       +5 , "2016-03-12T15:50:06Z09:00",  # timestamp (SID 1016)
      ]
    ]
 
@@ -1272,8 +1272,8 @@ Internet-Draft        Constrained Objects Language             June 2016
    Example:
 
    In this example, a CoOL client subscribes to state changes of the
-   data node "/system/ntp/enabled" (SID = 1742) and requests that data
-   node "/system/hostname" (SID 1739) is reported as coincidental value.
+   data node "/system/ntp/enabled" (SID = 1751) and requests that data
+   node "/system/hostname" (SID 1748) is reported as coincidental value.
 
    A first response is immediately returned by the CoOL server to
    confirm the subscription and to report the current values of the
@@ -1293,22 +1293,22 @@ Internet-Draft        Constrained Objects Language             June 2016
    CoAP request:
 
    FETCH /c Content-Format(application/cool+cbor) Observe(0)
-   [ [1742, "tic.nrc.ca"], -3 ]
+   [ [1751, "tic.nrc.ca"], -3 ]
 
    CoAP response:
 
    2.05 Content Content-Format(application/cool+cbor) Observe(2631)
    [
-     false,                     # enabled (SID 1742)
-     "tic"                      # hostname (SID 1739)
+     false,                     # enabled (SID 1751)
+     "tic"                      # hostname (SID 1748)
    ]
 
    CoAP response:
 
    2.05 Content Content-Format(application/cool+cbor) Observe(2632)
    [
-     true,                      # enabled (SID 1742)
-     "tic"                      # hostname (SID 1739)
+     true,                      # enabled (SID 1751)
+     "tic"                      # hostname (SID 1748)
    ]
 
 6.9.  Working with resource discovery
@@ -1374,21 +1374,21 @@ Internet-Draft        Constrained Objects Language             June 2016
    processed accordingly by CoOL clients.  Optionally, client errors
    (CoAP response codes 4.xx) or server errors (CoAP response codes
    5.xx) MAY have a payload providing further information about the
-   cause of the error.  This payload contains the " error-payload"
-   container (SID 1006) defined in the "ietf-cool" YANG module, see
+   cause of the error.  This payload contains the "error-payload"
+   container (SID 1007) defined in the "ietf-cool" YANG module, see
    Appendix A.
 
    Example:
 
    CoAP response:
 
-   4.00 Bad Request (Content-Format: application/cool+cbor)
-   [
-     1006 , {
-       +1 : 2,                                  # error-code, SID 1007
-       +2 : "Unknown data node 69687"           # error-text, SID 1008
-     }
-   ]
+ 4.00 Bad Request (Content-Format: application/cool+cbor)
+ [
+   1007 , {                                   # error-payload (SID 1007)
+     +1 : 2,                                  # error-code (SID 1008)
+     +2 : "Unknown data node 69687"           # error-text (SID 1009)
+   }
+ ]
 
 
 
@@ -1933,27 +1933,27 @@ Appendix B.  File "ietf-cool@2016-01-01.sid"
      "module-revision": "2016-01-01",
      "items": [
        {
-         "type": "identity",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "ietf-cool:application",
+         "type": "Module",
+         "label": "ietf-cool",
          "sid": 1000
        },
        {
          "type": "identity",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "ietf-cool:facility-type",
+         "label": "/facility-type",
          "sid": 1001
        },
        {
          "type": "identity",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "ietf-cool:hardware-monitoring",
+         "label": "/facility-type/application",
          "sid": 1002
        },
        {
          "type": "identity",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "ietf-cool:os",
+         "label": "/facility-type/hardware-monitoring",
+         "sid": 1003
+       },
+       {
+         "type": "identity",
 
 
 
@@ -1962,54 +1962,54 @@ Veillette, et al.       Expires December 31, 2016              [Page 35]
 Internet-Draft        Constrained Objects Language             June 2016
 
 
-         "sid": 1003
-       },
-       {
-         "type": "identity",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "ietf-cool:protocol-stack",
+         "label": "/facility-type/os",
          "sid": 1004
        },
        {
          "type": "identity",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "ietf-cool:security",
+         "label": "/facility-type/protocol-stack",
          "sid": 1005
        },
        {
-         "type": "node",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "/error-payload",
+         "type": "identity",
+         "label": "/facility-type/security",
          "sid": 1006
        },
        {
          "type": "node",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "/error-payload/error-code",
+         "label": "/error-payload",
          "sid": 1007
        },
        {
          "type": "node",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "/error-payload/error-text",
+         "label": "/error-payload/error-code",
          "sid": 1008
        },
        {
          "type": "node",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "/notification-payload",
+         "label": "/error-payload/error-text",
          "sid": 1009
        },
        {
          "type": "node",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "/notification-payload/_id",
+         "label": "/notification-payload",
          "sid": 1010
        },
        {
          "type": "node",
-         "assigned": "2016-03-08T21:59:45Z",
+         "label": "/notification-payload/_id",
+         "sid": 1011
+       },
+       {
+         "type": "node",
          "label": "/notification-payload/content",
+         "sid": 1012
+       },
+       {
+         "type": "node",
+         "label": "/notification-payload/facility",
+         "sid": 1013
+       },
 
 
 
@@ -2018,54 +2018,54 @@ Veillette, et al.       Expires December 31, 2016              [Page 36]
 Internet-Draft        Constrained Objects Language             June 2016
 
 
-         "sid": 1011
-       },
        {
          "type": "node",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "/notification-payload/facility",
-         "sid": 1012
-       },
-       {
-         "type": "node",
-         "assigned": "2016-03-08T21:59:45Z",
          "label": "/notification-payload/sequence-number",
-         "sid": 1013
-       },
-       {
-         "type": "node",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "/notification-payload/severity-level",
          "sid": 1014
        },
        {
          "type": "node",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "/notification-payload/timestamp",
+         "label": "/notification-payload/severity-level",
          "sid": 1015
        },
        {
-         "type": "rpc",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "/cancel-commit",
+         "type": "node",
+         "label": "/notification-payload/timestamp",
          "sid": 1016
        },
        {
          "type": "rpc",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "/commit",
+         "label": "/cancel-commit",
          "sid": 1017
        },
        {
          "type": "rpc",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "/commit/input/commit-date-time",
+         "label": "/commit",
          "sid": 1018
        },
        {
          "type": "rpc",
-         "assigned": "2016-03-08T21:59:45Z",
+         "label": "/commit/input/commit-date-time",
+         "sid": 1019
+       },
+       {
+         "type": "rpc",
          "label": "/commit/input/confirm-timeout",
+         "sid": 1020
+       },
+       {
+         "type": "rpc",
+         "label": "/commit/input/datastore",
+         "sid": 1021
+       }
+     ]
+   }
+
+Authors' Addresses
+
+
+
+
 
 
 
@@ -2073,19 +2073,6 @@ Veillette, et al.       Expires December 31, 2016              [Page 37]
 
 Internet-Draft        Constrained Objects Language             June 2016
 
-
-         "sid": 1019
-       },
-       {
-         "type": "rpc",
-         "assigned": "2016-03-08T21:59:45Z",
-         "label": "/commit/input/datastore",
-         "sid": 1020
-       }
-     ]
-   }
-
-Authors' Addresses
 
    Michel Veillette (editor)
    Trilliant Networks Inc.
@@ -2116,20 +2103,6 @@ Authors' Addresses
    Email: abhinav.somaraju@tridonic.com
 
 
-
-
-
-
-
-
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 38]
-
-Internet-Draft        Constrained Objects Language             June 2016
-
-
    Randy Turner
    Landis+Gyr
    30000 Mill Creek Ave
@@ -2152,33 +2125,4 @@ Internet-Draft        Constrained Objects Language             June 2016
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Veillette, et al.       Expires December 31, 2016              [Page 39]
+Veillette, et al.       Expires December 31, 2016              [Page 38]

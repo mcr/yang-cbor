@@ -861,7 +861,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    the CBOR encoding.
 
    The following example shows the encoding of leaf 'my-decimal' set to
-   2.57 minutes.
+   2.57.
 
    Definition example from [RFC7317]:
 
@@ -999,7 +999,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    item (major type 2).
 
    The following example shows the encoding of leaf 'aes128-key' set to
-   the value 0x1f1ce6a3f42660d888d92a4d8030476e.
+   0x1f1ce6a3f42660d888d92a4d8030476e.
 
    Definition example:
 
@@ -1075,8 +1075,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    range.
 
    The following example shows the encoding of leaf 'type' set to the
-   value 'iana-if-type:ethernetCsmacd'.  We assume that this identity is
-   assigned to SID 1180.
+   value 'iana-if-type:ethernetCsmacd' (SID 1180).
 
    Definition example from [RFC7317]:
 
@@ -1112,8 +1111,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    forms are permitted.  Names and namespaces are defined in
    [I-D.ietf-netmod-yang-json] section 4.
 
-   The following example shows the encoding of the same identity using
-   its name.
+   The following example shows the encoding of the identity 'iana-if-
+   type:ethernetCsmacd' using its name.  This example is described in
+   Section 5.10.1.
 
 
 
@@ -1253,7 +1253,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
       from top level list, and follow by each of the subordinate
       list(s).
 
-   *First example*
+   *First example:*
 
    The following example shows the encoding of a leaf of type instance-
    identifier which identify the data node "/system/contact" (SID 1737).
@@ -1275,7 +1275,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
 
    CBOR encoding: 19 06c9
 
-   *Second example*
+   *Second example:*
 
    The following example shows the encoding of a leaf of type instance-
    identifier which identify the data node instance
@@ -1327,7 +1327,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
       65                   # text(5)
          61646d696e        # "admin"
 
-   *Third example*
+   *Third example:*
 
    The following example shows the encoding of a leaf of type instance-
    identifier which identify the list instance "/system/authentication/
@@ -1357,7 +1357,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    [I-D.ietf-netmod-yang-json] section 6.11.  The resulting xpath MUST
    be encoded using a CBOR text string data item (major type 3).
 
-   *First example*
+   *First example:*
 
    This example is described in Section 5.13.1.
 
@@ -1367,7 +1367,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
 
    78 1c 2f20696574662d73797374656d3a73797374656d2f636f6e74616374
 
-   *Second example*
+   *Second example:*
 
    This example is described in Section 5.13.1.
 
@@ -1383,7 +1383,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
       74696f6e2f757365725b6e616d653d27626f62275d2f617574686f72697a
       65642d6b65795b6e616d653d2761646d696e275d2f6b65792d64617461
 
-   *Third example*
+   *Third example:*
 
    This example is described in Section 5.13.1.
 

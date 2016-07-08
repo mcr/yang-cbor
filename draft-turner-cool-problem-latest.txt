@@ -5,14 +5,14 @@
 CoRE                                                      R. Turner, Ed.
 Internet-Draft                                                Landis+Gyr
 Intended status: Best Current Practice                      M. Veillette
-Expires: December 31, 2016                       Trilliant Networks Inc.
+Expires: January 9, 2017                         Trilliant Networks Inc.
                                                                 A. Pelov
                                                                   Acklio
                                                              A. Somaraju
                                                    Tridonic GmbH & Co KG
                                                              A. Minaburo
                                                                   Acklio
-                                                           June 29, 2016
+                                                           July 08, 2016
 
 
                          CoOL Problem Statement
@@ -47,15 +47,15 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 31, 2016.
+   This Internet-Draft will expire on January 9, 2017.
 
 
 
 
 
-Turner, et al.          Expires December 31, 2016               [Page 1]
+Turner, et al.           Expires January 9, 2017                [Page 1]
 
-Internet-Draft                CoOL Problem                     June 2016
+Internet-Draft                CoOL Problem                     July 2016
 
 
 Copyright Notice
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Turner, et al.          Expires December 31, 2016               [Page 2]
+Turner, et al.           Expires January 9, 2017                [Page 2]
 
-Internet-Draft                CoOL Problem                     June 2016
+Internet-Draft                CoOL Problem                     July 2016
 
 
    functionality will be limited.  Likewise, minimal network bandwidth
@@ -165,9 +165,9 @@ Internet-Draft                CoOL Problem                     June 2016
 
 
 
-Turner, et al.          Expires December 31, 2016               [Page 3]
+Turner, et al.           Expires January 9, 2017                [Page 3]
 
-Internet-Draft                CoOL Problem                     June 2016
+Internet-Draft                CoOL Problem                     July 2016
 
 
    device and networking properties to the application of YANG in these
@@ -221,9 +221,9 @@ Internet-Draft                CoOL Problem                     June 2016
 
 
 
-Turner, et al.          Expires December 31, 2016               [Page 4]
+Turner, et al.           Expires January 9, 2017                [Page 4]
 
-Internet-Draft                CoOL Problem                     June 2016
+Internet-Draft                CoOL Problem                     July 2016
 
 
    direction, requiring more upfront preparation, aiming at maximal
@@ -277,9 +277,9 @@ Internet-Draft                CoOL Problem                     June 2016
 
 
 
-Turner, et al.          Expires December 31, 2016               [Page 5]
+Turner, et al.           Expires January 9, 2017                [Page 5]
 
-Internet-Draft                CoOL Problem                     June 2016
+Internet-Draft                CoOL Problem                     July 2016
 
 
    management of a device.  The CoOL working group will attempt to reuse
@@ -333,9 +333,9 @@ Authors' Addresses
 
 
 
-Turner, et al.          Expires December 31, 2016               [Page 6]
+Turner, et al.           Expires January 9, 2017                [Page 6]
 
-Internet-Draft                CoOL Problem                     June 2016
+Internet-Draft                CoOL Problem                     July 2016
 
 
    Ana Minaburo
@@ -389,4 +389,4 @@ Internet-Draft                CoOL Problem                     June 2016
 
 
 
-Turner, et al.          Expires December 31, 2016               [Page 7]
+Turner, et al.           Expires January 9, 2017                [Page 7]

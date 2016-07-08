@@ -4,8 +4,8 @@
 
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
-Intended status: Standards Track                           June 29, 2016
-Expires: December 31, 2016
+Intended status: Standards Track                           July 08, 2016
+Expires: January 9, 2017
 
 
                     Constrained YANG Module Library
@@ -33,7 +33,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 31, 2016.
+   This Internet-Draft will expire on January 9, 2017.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Veillette               Expires December 31, 2016               [Page 1]
+Veillette                Expires January 9, 2017                [Page 1]
 
-Internet-Draft       Constrained YANG Module Library           June 2016
+Internet-Draft       Constrained YANG Module Library           July 2016
 
 
 Table of Contents
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Veillette               Expires December 31, 2016               [Page 2]
+Veillette                Expires January 9, 2017                [Page 2]
 
-Internet-Draft       Constrained YANG Module Library           June 2016
+Internet-Draft       Constrained YANG Module Library           July 2016
 
 
    The following terms are defined in [I-D.ietf-netmod-rfc6020bis]:
@@ -165,9 +165,9 @@ Internet-Draft       Constrained YANG Module Library           June 2016
 
 
 
-Veillette               Expires December 31, 2016               [Page 3]
+Veillette                Expires January 9, 2017                [Page 3]
 
-Internet-Draft       Constrained YANG Module Library           June 2016
+Internet-Draft       Constrained YANG Module Library           July 2016
 
 
    module: ietf-cool-library
@@ -221,9 +221,9 @@ Internet-Draft       Constrained YANG Module Library           June 2016
 
 
 
-Veillette               Expires December 31, 2016               [Page 4]
+Veillette                Expires January 9, 2017                [Page 4]
 
-Internet-Draft       Constrained YANG Module Library           June 2016
+Internet-Draft       Constrained YANG Module Library           July 2016
 
 
 4.  YANG Module "ietf-cool-library"
@@ -277,9 +277,9 @@ Internet-Draft       Constrained YANG Module Library           June 2016
 
 
 
-Veillette               Expires December 31, 2016               [Page 5]
+Veillette                Expires January 9, 2017                [Page 5]
 
-Internet-Draft       Constrained YANG Module Library           June 2016
+Internet-Draft       Constrained YANG Module Library           July 2016
 
 
      // publication and remove this note.
@@ -333,9 +333,9 @@ Internet-Draft       Constrained YANG Module Library           June 2016
 
 
 
-Veillette               Expires December 31, 2016               [Page 6]
+Veillette                Expires January 9, 2017                [Page 6]
 
-Internet-Draft       Constrained YANG Module Library           June 2016
+Internet-Draft       Constrained YANG Module Library           July 2016
 
 
          description
@@ -389,9 +389,9 @@ Internet-Draft       Constrained YANG Module Library           June 2016
 
 
 
-Veillette               Expires December 31, 2016               [Page 7]
+Veillette                Expires January 9, 2017                [Page 7]
 
-Internet-Draft       Constrained YANG Module Library           June 2016
+Internet-Draft       Constrained YANG Module Library           July 2016
 
 
        list module {
@@ -445,9 +445,9 @@ Internet-Draft       Constrained YANG Module Library           June 2016
 
 
 
-Veillette               Expires December 31, 2016               [Page 8]
+Veillette                Expires January 9, 2017                [Page 8]
 
-Internet-Draft       Constrained YANG Module Library           June 2016
+Internet-Draft       Constrained YANG Module Library           July 2016
 
 
                  For YANG version 1 modules, there SHOULD NOT be more
@@ -501,9 +501,9 @@ Internet-Draft       Constrained YANG Module Library           June 2016
 
 
 
-Veillette               Expires December 31, 2016               [Page 9]
+Veillette                Expires January 9, 2017                [Page 9]
 
-Internet-Draft       Constrained YANG Module Library           June 2016
+Internet-Draft       Constrained YANG Module Library           July 2016
 
 
        leaf module-set-id {
@@ -557,9 +557,9 @@ Internet-Draft       Constrained YANG Module Library           June 2016
 
 
 
-Veillette               Expires December 31, 2016              [Page 10]
+Veillette                Expires January 9, 2017               [Page 10]
 
-Internet-Draft       Constrained YANG Module Library           June 2016
+Internet-Draft       Constrained YANG Module Library           July 2016
 
 
    implementations with such a defect, in order to launch a denial of
@@ -599,8 +599,8 @@ Internet-Draft       Constrained YANG Module Library           June 2016
 
    [I-D.ietf-netconf-restconf]
               Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
-              Protocol", draft-ietf-netconf-restconf-13 (work in
-              progress), April 2016.
+              Protocol", draft-ietf-netconf-restconf-14 (work in
+              progress), June 2016.
 
    [I-D.ietf-netconf-yang-library]
               Bierman, A., Bjorklund, M., and K. Watsen, "YANG Module
@@ -613,9 +613,9 @@ Internet-Draft       Constrained YANG Module Library           June 2016
 
 
 
-Veillette               Expires December 31, 2016              [Page 11]
+Veillette                Expires January 9, 2017               [Page 11]
 
-Internet-Draft       Constrained YANG Module Library           June 2016
+Internet-Draft       Constrained YANG Module Library           July 2016
 
 
    [I-D.veillette-core-cool]
@@ -669,4 +669,4 @@ Author's Address
 
 
 
-Veillette               Expires December 31, 2016              [Page 12]
+Veillette                Expires January 9, 2017               [Page 12]

@@ -79,7 +79,7 @@ Table of Contents
      4.3.  The 'leaf-list' Data Node . . . . . . . . . . . . . . . .   9
      4.4.  The 'list' Data Node  . . . . . . . . . . . . . . . . . .   9
        4.4.1.  SIDs as keys  . . . . . . . . . . . . . . . . . . . .  10
-       4.4.2.  Member names as keys  . . . . . . . . . . . . . . . .  12
+       4.4.2.  Member names as keys  . . . . . . . . . . . . . . . .  13
      4.5.  The 'anydata' Data Node . . . . . . . . . . . . . . . . .  14
      4.6.  The 'anyxml' Data Node  . . . . . . . . . . . . . . . . .  15
    5.  Representing YANG Data Types in CBOR  . . . . . . . . . . . .  15
@@ -360,8 +360,8 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    o  Delta values may result in a negative number, clients and servers
       MUST support negative deltas.
 
-   The following example shows the encoding of a container using the
-   SIDs defined in [I-D.somaraju-core-sid] Appendix C.
+   The following example shows the encoding of the 'system' container
+   using the SIDs defined in [I-D.somaraju-core-sid] Appendix C.
 
    Definition example from [RFC7317]:
 
@@ -425,8 +425,8 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    MUST be used.  Names and namespaces are defined in
    [I-D.ietf-netmod-yang-json] section 4.
 
-   The following example shows the encoding of the same container using
-   names.
+   The following example shows the encoding of the the 'system'
+   container using names.
 
    CBOR diagnostic notation:
 
@@ -469,6 +469,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    4).  Each entry of this array MUST be encoded using the rules defined
    by the YANG type specified.
 
+   The following example shows the encoding the 'search' leaf-list
+   containing the two entries, "ietf.org" and "ieee.org".
+
    Definition example [RFC7317]:
 
    typedef domain-name {
@@ -498,9 +501,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
 
 
 
-
-
-
 Veillette, et al.        Expires January 9, 2017                [Page 9]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
@@ -515,7 +515,52 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    context.  In these cases, delta encoding can be performed based on
    this parent SID which minimizes the size of the encoded data.
 
+   The following example shows the encoding of the 'server' list
+   containing two enties.  SIDs used in this example are defined in
+   [I-D.somaraju-core-sid] Appendix C.  It is important to note that the
+   protocol or method using this mapping may carry a parent SID or may
+   have the knowledge of this parent SID based on its context.  In these
+   cases, delta encoding can be performed based on this parent SID which
+   minimizes the size of the encoded data.
+
    Definition example from [RFC7317]:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Veillette, et al.        Expires January 9, 2017               [Page 10]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
+
 
    list server {
      key name;
@@ -554,15 +599,24 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
      }
    }
 
+   CBOR diagnostic notation:
 
 
 
-Veillette, et al.        Expires January 9, 2017               [Page 10]
+
+
+
+
+
+
+
+
+
+
+Veillette, et al.        Expires January 9, 2017               [Page 11]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
 
-
-   CBOR diagnostic notation:
 
    [
      {
@@ -584,39 +638,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    ]
 
    CBOR encoding:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Veillette, et al.        Expires January 9, 2017               [Page 11]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
-
 
    82                                    # array(2)
       a5                                 # map(5)
@@ -646,33 +667,19 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
             6a                           # text(10)
                7461632e6e72632e6361      # "tac.nrc.ca"
 
-4.4.2.  Member names as keys
-
-   The following example shows the encoding of the same list using
-   names.
-
-   CBOR diagnostic notation:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 Veillette, et al.        Expires January 9, 2017               [Page 12]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
 
+
+4.4.2.  Member names as keys
+
+   The following example shows the encoding of the the 'server' list
+   using names.  This example is described in Section 4.4.1.
+
+   CBOR diagnostic notation:
 
    [
      {
@@ -694,13 +701,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    ]
 
    CBOR encoding:
-
-
-
-
-
-
-
 
 
 

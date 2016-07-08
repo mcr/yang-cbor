@@ -601,7 +601,7 @@ li, p {
   <li>The delta value is equal to the SID of the current schema node minus the SID of the parent schema node. When no parent exists in the context of use of this container, the delta is set to the SID of the current schema node (a parent with SID equal to zero is assumed).</li>
   <li>Delta values may result in a negative number, clients and servers MUST support negative deltas.</li>
 </ul>
-<p id="rfc.section.4.2.1.p.3">The following example shows the encoding of a container using the SIDs defined in <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a> Appendix C.</p>
+<p id="rfc.section.4.2.1.p.3">The following example shows the encoding of the &#8216;system&#8217; container using the SIDs defined in <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a> Appendix C.</p>
 <p id="rfc.section.4.2.1.p.4">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 typedef date-and-time {
@@ -649,7 +649,7 @@ a1                                      # map(1)
 </pre>
 <h1 id="rfc.section.4.2.2"><a href="#rfc.section.4.2.2">4.2.2.</a> <a href="#member-names-as-keys" id="member-names-as-keys">Member names as keys</a></h1>
 <p id="rfc.section.4.2.2.p.1">Keys implemented using member names MUST be encoded using a CBOR text string data item (major type 3). A namespace-qualified member name MUST be used for all members of a top-level collection, and then also whenever the namespaces of the schema node and its parent are different. In all other cases, the simple form of the member name MUST be used. Names and namespaces are defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> section 4.</p>
-<p id="rfc.section.4.2.2.p.2">The following example shows the encoding of the same container using names.</p>
+<p id="rfc.section.4.2.2.p.2">The following example shows the encoding of the  the &#8216;system&#8217; container using names.</p>
 <p id="rfc.section.4.2.2.p.3">CBOR diagnostic notation:</p>
 <pre>
 {
@@ -676,7 +676,8 @@ a1                                          # map(1)
 </pre>
 <h1 id="rfc.section.4.3"><a href="#rfc.section.4.3">4.3.</a> <a href="#leaf-list" id="leaf-list">The &#8216;leaf-list&#8217; Data Node</a></h1>
 <p id="rfc.section.4.3.p.1">A leaf-list MUST be encoded using a CBOR array data item (major type 4).  Each entry of this array MUST be encoded using the rules defined by the YANG type specified.</p>
-<p id="rfc.section.4.3.p.2">Definition example <a href="#RFC7317">[RFC7317]</a>:</p>
+<p id="rfc.section.4.3.p.2">The following example shows the encoding the &#8216;search&#8217; leaf-list containing the two entries, &#8220;ietf.org&#8221; and &#8220;ieee.org&#8221;.</p>
+<p id="rfc.section.4.3.p.3">Definition example <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 typedef domain-name {
   type string {
@@ -692,13 +693,14 @@ leaf-list search {
   ordered-by user;
 }
 </pre>
-<p id="rfc.section.4.3.p.3">CBOR diagnostic notation: [ &#8220;ietf.org&#8221;, &#8220;ieee.org&#8221; ]</p>
-<p id="rfc.section.4.3.p.4">CBOR encoding: 82  68 696574662e6f7267  68 696565652e6f7267</p>
+<p id="rfc.section.4.3.p.4">CBOR diagnostic notation: [ &#8220;ietf.org&#8221;, &#8220;ieee.org&#8221; ]</p>
+<p id="rfc.section.4.3.p.5">CBOR encoding: 82  68 696574662e6f7267  68 696565652e6f7267</p>
 <h1 id="rfc.section.4.4"><a href="#rfc.section.4.4">4.4.</a> <a href="#list" id="list">The &#8216;list&#8217; Data Node</a></h1>
 <p id="rfc.section.4.4.p.1">A list MUST be encoded using a CBOR array data item (major type 4). Each list instance within this CBOR array is encoded using a CBOR map data item (major type 5) based on the same rules as a YANG container as defined in <a href="#container">Section 4.2</a>.</p>
-<h1 id="rfc.section.4.4.1"><a href="#rfc.section.4.4.1">4.4.1.</a> <a href="#sids-as-keys-1" id="sids-as-keys-1">SIDs as keys</a></h1>
+<h1 id="rfc.section.4.4.1"><a href="#rfc.section.4.4.1">4.4.1.</a> <a href="#list-example" id="list-example">SIDs as keys</a></h1>
 <p id="rfc.section.4.4.1.p.1">The follwoing example show the encoding a the &#8216;server&#8217; list using the SIDs defined in <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a> Appendix C. It is important to note that the protocol or method using this mapping may carry a parent SID or may have the knowledge of this parent SID based on its context. In these cases, delta encoding can be performed based on this parent SID which minimizes the size of the encoded data.</p>
-<p id="rfc.section.4.4.1.p.2">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
+<p id="rfc.section.4.4.1.p.2">The following example shows the encoding of the &#8216;server&#8217; list containing two enties. SIDs used in this example are defined in <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a> Appendix C. It is important to note that the protocol or method using this mapping may carry a parent SID or may have the knowledge of this parent SID based on its context. In these cases, delta encoding can be performed based on this parent SID which minimizes the size of the encoded data.</p>
+<p id="rfc.section.4.4.1.p.3">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 list server {
   key name;
@@ -737,7 +739,7 @@ list server {
   }
 }
 </pre>
-<p id="rfc.section.4.4.1.p.3">CBOR diagnostic notation:</p>
+<p id="rfc.section.4.4.1.p.4">CBOR diagnostic notation:</p>
 <pre>
 [
   {
@@ -758,7 +760,7 @@ list server {
   }
 ]
 </pre>
-<p id="rfc.section.4.4.1.p.4">CBOR encoding:</p>
+<p id="rfc.section.4.4.1.p.5">CBOR encoding:</p>
 <pre>
 82                                    # array(2)
    a5                                 # map(5)
@@ -789,7 +791,7 @@ list server {
             7461632e6e72632e6361      # "tac.nrc.ca"
 </pre>
 <h1 id="rfc.section.4.4.2"><a href="#rfc.section.4.4.2">4.4.2.</a> <a href="#member-names-as-keys-1" id="member-names-as-keys-1">Member names as keys</a></h1>
-<p id="rfc.section.4.4.2.p.1">The following example shows the encoding of the same list using names.</p>
+<p id="rfc.section.4.4.2.p.1">The following example shows the encoding of the the &#8216;server&#8217; list using names. This example is described in <a href="#list-example">Section 4.4.1</a>.</p>
 <p id="rfc.section.4.4.2.p.2">CBOR diagnostic notation:</p>
 <pre>
 [

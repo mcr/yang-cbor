@@ -230,8 +230,8 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    | CBOR     | CBOR | Diagnostic notation      | Example   | CBOR     |
    | content  | type |                          |           | encoding |
    +----------+------+--------------------------+-----------+----------+
-   | Unsigned | 0    | Decimal digits           | 123 or    | 18 7b    |
-   | integer  |      |                          | +123      |          |
+   | Unsigned | 0    | Decimal digits           | 123       | 18 7b    |
+   | integer  |      |                          |           |          |
    | Negative | 1    | Decimal digits prefixed  | -123      | 38 7a    |
    | integer  |      | by a minus sign          |           |          |
    | Byte     | 2    | Hexadecimal value        | h'f15c'   | 42 f15c  |

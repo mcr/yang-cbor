@@ -16,7 +16,7 @@ Expires: January 9, 2017                                          Acklio
 
 
                 CBOR Encoding of Data Modeled with YANG
-                      draft-ietf-core-yang-cbor-01
+                      draft-ietf-core-yang-cbor-02
 
 Abstract
 

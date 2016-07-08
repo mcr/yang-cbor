@@ -93,6 +93,8 @@ Table of Contents
      5.8.  The 'binary' Type . . . . . . . . . . . . . . . . . . . .  18
      5.9.  The 'leafref' Type  . . . . . . . . . . . . . . . . . . .  19
      5.10. The 'identityref' Type  . . . . . . . . . . . . . . . . .  19
+       5.10.1.  SIDs as identityref  . . . . . . . . . . . . . . . .  20
+       5.10.2.  Name as identityref  . . . . . . . . . . . . . . . .  20
      5.11. The 'empty' Type  . . . . . . . . . . . . . . . . . . . .  21
      5.12. The 'union' Type  . . . . . . . . . . . . . . . . . . . .  21
      5.13. The 'instance-identifier' Type  . . . . . . . . . . . . .  22
@@ -104,8 +106,6 @@ Table of Contents
    8.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  26
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  27
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  27
-     9.2.  Informative References  . . . . . . . . . . . . . . . . .  27
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  28
 
 
 
@@ -113,6 +113,9 @@ Veillette, et al.        Expires January 9, 2017                [Page 2]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
 
+
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  27
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  28
 
 1.  Introduction
 
@@ -160,15 +163,14 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
 
    o  schema node
 
-   o  schema tree
-
-
 
 
 Veillette, et al.        Expires January 9, 2017                [Page 3]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
 
+
+   o  schema tree
 
    o  submodule
 
@@ -201,8 +203,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    [RFC7049] section 6.  This notation is used strictly for
    documentation purposes and is never used in the data serialization.
    Table 1 below provides a summary of this notation.
-
-
 
 
 
@@ -422,7 +422,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    MUST be used for all members of a top-level collection, and then also
    whenever the namespaces of the schema node and its parent are
    different.  In all other cases, the simple form of the member name
-   MUST be used.  Member names and namespaces are defined in
+   MUST be used.  Names and namespaces are defined in
    [I-D.ietf-netmod-yang-json] section 4.
 
    The following example shows the encoding of the same container using
@@ -1066,7 +1066,7 @@ Veillette, et al.        Expires January 9, 2017               [Page 19]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
 
 
-   *SIDs as identityref*
+5.10.1.  SIDs as identityref
 
    SIDs are globally unique and may be used as identityref.  This
    approach is both compact and simple to implement.  When SIDs are
@@ -1101,7 +1101,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
 
    CBOR encoding: 19 049c
 
-   *Name as identityref*
+5.10.2.  Name as identityref
 
    Alternatively, an identityref may be encoded using a name as defined
    in [I-D.ietf-netmod-yang-json] section 6.8.  When names are used,
@@ -1109,11 +1109,11 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    type 3).  If the identity is defined in another module than the leaf
    node containing the identityref value, the namespace-qualified form
    MUST be used.  Otherwise, both the simple and namespace-qualified
-   forms are permitted.
+   forms are permitted.  Names and namespaces are defined in
+   [I-D.ietf-netmod-yang-json] section 4.
 
    The following example shows the encoding of the same identity using
    its name.
-
 
 
 

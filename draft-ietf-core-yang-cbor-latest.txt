@@ -426,7 +426,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
    [I-D.ietf-netmod-yang-json] section 4.
 
    The following example shows the encoding of the the 'system'
-   container using names.
+   container using names.  This example is described in Section 4.2.1.
 
    CBOR diagnostic notation:
 
@@ -1359,7 +1359,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
 
    *First example*
 
-   See Section 5.13.1 for the description of this example.
+   This example is described in Section 5.13.1.
 
    CBOR diagnostic notation: "/ietf-system:system/contact"
 
@@ -1369,7 +1369,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
 
    *Second example*
 
-   See Section 5.13.1 for the description of this example.
+   This example is described in Section 5.13.1.
 
    CBOR diagnostic notation:
 
@@ -1385,7 +1385,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG       July 2016
 
    *Third example*
 
-   See Section 5.13.1 for the description of this example.
+   This example is described in Section 5.13.1.
 
    CBOR diagnostic notation:
 

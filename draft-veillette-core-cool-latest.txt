@@ -2001,8 +2001,7 @@ Internet-Draft        Constrained Objects Language             July 2016
       reference "RFC 5424";
     }
 
-    leaf content {
-      type anydata;
+    anydata content {
       description
         "Notification container as defined by the notification YANG
         statement.";
@@ -2010,6 +2009,7 @@ Internet-Draft        Constrained Objects Language             July 2016
   }
 
   rpc commit {
+    description
 
 
 
@@ -2018,7 +2018,6 @@ Veillette, et al.       Expires January 10, 2017               [Page 36]
 Internet-Draft        Constrained Objects Language             July 2016
 
 
-    description
       "Used to commit the changes present in a candidate datastore on
       the runtime datastore specify by the URI used to execute this
       operation.";
@@ -2066,6 +2065,7 @@ Appendix B.  File "ietf-cool@2016-01-01.sid"
    ".sid" file.
 
    {
+     "assignment-ranges": [
 
 
 
@@ -2074,7 +2074,6 @@ Veillette, et al.       Expires January 10, 2017               [Page 37]
 Internet-Draft        Constrained Objects Language             July 2016
 
 
-     "assignment-ranges": [
        {
          "entry-point": 1000,
          "size": 100
@@ -2122,6 +2121,7 @@ Internet-Draft        Constrained Objects Language             July 2016
          "type": "node",
          "label": "/error-payload",
          "sid": 1007
+       },
 
 
 
@@ -2130,7 +2130,6 @@ Veillette, et al.       Expires January 10, 2017               [Page 38]
 Internet-Draft        Constrained Objects Language             July 2016
 
 
-       },
        {
          "type": "node",
          "label": "/error-payload/error-code",
@@ -2178,6 +2177,7 @@ Internet-Draft        Constrained Objects Language             July 2016
        },
        {
          "type": "rpc",
+         "label": "/cancel-commit",
 
 
 
@@ -2186,7 +2186,6 @@ Veillette, et al.       Expires January 10, 2017               [Page 39]
 Internet-Draft        Constrained Objects Language             July 2016
 
 
-         "label": "/cancel-commit",
          "sid": 1017
        },
        {
@@ -2231,6 +2230,7 @@ Authors' Addresses
    France
 
    Email: a@ackl.io
+
 
 
 

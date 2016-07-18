@@ -181,10 +181,9 @@ Internet-Draft       Constrained YANG Module Library           July 2016
             |  +--ro sid         sid
             |  +--ro revision    revision
             +--ro conformance-type    enumeration
-            +--ro submodules
-               +--ro submodule* [sid revision]
-                  +--ro sid         sid
-                  +--ro revision    revision
+            +--ro submodule* [sid revision]
+               +--ro sid         sid
+               +--ro revision    revision
    notifications:
       +---n yang-library-change
          +--ro module-set-id    -> /modules-state/module-set-id
@@ -218,6 +217,7 @@ Internet-Draft       Constrained YANG Module Library           July 2016
    This mandatory list contains one entry for each YANG module supported
    by the server endpoint.  There MUST be an entry in this list for each
    revision of each YANG module that is used by the server.
+
 
 
 
@@ -473,18 +473,12 @@ Internet-Draft       Constrained YANG Module Library           July 2016
              claiming for the YANG module identified by this entry.";
          }
 
-         container submodules {
+         list submodule {
+           key "sid revision";
            description
-             "Contains information about all the submodules used
-              by the parent module entry";
-
-           list submodule {
-             key "sid revision";
-             description
-               "Each entry represents one submodule within the
-                parent module.";
-             uses identification-info;
-           }
+             "Each entry represents one submodule within the
+              parent module.";
+           uses identification-info;
          }
        }
      }
@@ -498,6 +492,12 @@ Internet-Draft       Constrained YANG Module Library           July 2016
          "Generated when the set of modules and submodules supported
          by the server endpoint has changed.";
 
+       leaf module-set-id {
+         type leafref {
+           path "/coollib:modules-state/coollib:module-set-id";
+         }
+         mandatory true;
+         description
 
 
 
@@ -506,12 +506,6 @@ Veillette               Expires January 19, 2017                [Page 9]
 Internet-Draft       Constrained YANG Module Library           July 2016
 
 
-       leaf module-set-id {
-         type leafref {
-           path "/coollib:modules-state/coollib:module-set-id";
-         }
-         mandatory true;
-         description
            "Contains the module-set-id value representing the
            set of modules and submodules supported at the server
            endpoint at the time the notification is generated.";
@@ -553,6 +547,12 @@ Internet-Draft       Constrained YANG Module Library           July 2016
    particular operation on a particular data node is known to cause a
    server to crash or significantly degrade device performance, then the
    module list information will help an attacker identify server
+   implementations with such a defect, in order to launch a denial of
+   service attack on the device.
+
+
+
+
 
 
 
@@ -561,9 +561,6 @@ Veillette               Expires January 19, 2017               [Page 10]
 
 Internet-Draft       Constrained YANG Module Library           July 2016
 
-
-   implementations with such a defect, in order to launch a denial of
-   service attack on the device.
 
 7.  Acknowledgments
 
@@ -607,7 +604,10 @@ Internet-Draft       Constrained YANG Module Library           July 2016
               Library", draft-ietf-netconf-yang-library-06 (work in
               progress), April 2016.
 
-
+   [I-D.veillette-core-cool]
+              Veillette, M., Pelov, A., Somaraju, A., Turner, R., and A.
+              Minaburo, "Constrained Objects Language", draft-veillette-
+              core-cool-01 (work in progress), March 2016.
 
 
 
@@ -617,11 +617,6 @@ Veillette               Expires January 19, 2017               [Page 11]
 
 Internet-Draft       Constrained YANG Module Library           July 2016
 
-
-   [I-D.veillette-core-cool]
-              Veillette, M., Pelov, A., Somaraju, A., Turner, R., and A.
-              Minaburo, "Constrained Objects Language", draft-veillette-
-              core-cool-01 (work in progress), March 2016.
 
 Author's Address
 
@@ -633,6 +628,11 @@ Author's Address
 
    Phone: +14503750556
    Email: michel.veillette@trilliantinc.com
+
+
+
+
+
 
 
 

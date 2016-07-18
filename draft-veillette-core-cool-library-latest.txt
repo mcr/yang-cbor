@@ -13,9 +13,9 @@ Expires: January 19, 2017
 
 Abstract
 
-   This document describes a YANG library, which provides information
-   about all YANG modules implemented by a CoOL server endpoint.  A
-   simple caching mechanism is provided to minimize retrieval of this
+   This document describes a library, which provides information about
+   all YANG modules implemented by a CoOL server endpoint.  A simple
+   caching mechanism is provided to minimize retrieval of this
    information by CoOL clients.
 
 Status of This Memo
@@ -85,21 +85,19 @@ Table of Contents
    endpoint.  The following YANG module information is needed by client
    applications to fully utilize the YANG data modeling language:
 
-   o  SID: Identifier assigned to a YANG module.
+   o  module list: The list of YANG modules implemented by the CoOL
+      server endpoint, each module is identified by its SID and
+      revision.
 
-   o  revision: Each YANG module and submodule within the library has a
-      revision.  This is derived from the most recent revision statement
-      within the module or submodule.  If no such revision statement
-      exists, the module's or submodule's revision is set to zero.
+   o  submodule list: The list of YANG submodules included by each
+      module, each submodule is identified by its SID and revision.
 
-   o  submodule list: The SID and revision assigned to each submodule
-      used by the module.
+   o  feature list: The list of features supported by each YANG module,
+      each feature is identified by its SID.
 
-   o  feature list: The SID assigned to each YANG feature supported by
-      the server endpoint.
-
-   o  deviation list: The SID and revision assigned to each YANG module
-      used for deviation statements.
+   o  deviation list: The list of YANG modules used for deviation
+      statements associated with each YANG module, each module is
+      identified by its SID and revision.
 
 2.  Terminology and Notation
 
@@ -107,14 +105,14 @@ Table of Contents
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
    document are to be interpreted as described in [RFC2119].
 
+   The following terms are defined in [I-D.ietf-netmod-rfc6020bis]:
+
 
 
 Veillette               Expires January 19, 2017                [Page 2]
 
 Internet-Draft       Constrained YANG Module Library           July 2016
 
-
-   The following terms are defined in [I-D.ietf-netmod-rfc6020bis]:
 
    o  module
 
@@ -138,8 +136,7 @@ Internet-Draft       Constrained YANG Module Library           July 2016
 
    The following terms are used within this document:
 
-   o  YANG library: a collection of YANG modules used by a server
-      endpoint
+   o  library: a collection of YANG modules used by a server endpoint
 
 3.  Overview
 
@@ -149,6 +146,9 @@ Internet-Draft       Constrained YANG Module Library           July 2016
    any revision of YANG.
 
 3.1.  Tree diagram
+
+
+
 
 
 
@@ -185,7 +185,7 @@ Internet-Draft       Constrained YANG Module Library           July 2016
                +--ro sid         sid
                +--ro revision    revision
    notifications:
-      +---n yang-library-change
+      +---n cool-library-change
          +--ro module-set-id    -> /modules-state/module-set-id
 
 3.2.  Description
@@ -202,14 +202,14 @@ Internet-Draft       Constrained YANG Module Library           July 2016
    identifier is endpoint-specific when implemented as unit32 or shared
    between multiple endpoints on one or multiple servers when
    implemented as identityref.  The value of this leaf MUST change
-   whenever the set of modules and submodules in the YANG library
-   changes.  There is no requirement that the same set always results in
-   the same module-set-id value.
+   whenever the set of modules and submodules in the library changes.
+   There is no requirement that the same set always results in the same
+   module-set-id value.
 
    This leaf allows a client to fetch the module list once, cache it,
    and only re-fetch it if the value of this leaf has been changed.
 
-   If the value of this leaf changes, the server also generates a "yang-
+   If the value of this leaf changes, the server also generates a "cool-
    library-change" notification, with the new value of "module-set-id".
 
 3.2.3.  modules-state/module
@@ -487,7 +487,7 @@ Internet-Draft       Constrained YANG Module Library           July 2016
       * Notifications
       */
 
-     notification yang-library-change {
+     notification cool-library-change {
        description
          "Generated when the set of modules and submodules supported
          by the server endpoint has changed.";

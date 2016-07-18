@@ -293,8 +293,8 @@ li, p {
   <meta name="dct.creator" content="Veillette, M., Ed." />
   <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-cool-library-00" />
   <meta name="dct.issued" scheme="ISO8601" content="2016-7-18" />
-  <meta name="dct.abstract" content="This document describes a YANG library, which provides information about all YANG modules implemented by a CoOL server endpoint.  A simple caching mechanism is provided to minimize retrieval of this information by CoOL clients." />
-  <meta name="description" content="This document describes a YANG library, which provides information about all YANG modules implemented by a CoOL server endpoint.  A simple caching mechanism is provided to minimize retrieval of this information by CoOL clients." />
+  <meta name="dct.abstract" content="This document describes a library, which provides information about all YANG modules implemented by a CoOL server endpoint.  A simple caching mechanism is provided to minimize retrieval of this information by CoOL clients." />
+  <meta name="description" content="This document describes a library, which provides information about all YANG modules implemented by a CoOL server endpoint.  A simple caching mechanism is provided to minimize retrieval of this information by CoOL clients." />
 
 </head>
 
@@ -330,7 +330,7 @@ li, p {
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This document describes a YANG library, which provides information about all YANG modules implemented by a CoOL server endpoint.  A simple caching mechanism is provided to minimize retrieval of this information by CoOL clients.</p>
+<p>This document describes a library, which provides information about all YANG modules implemented by a CoOL server endpoint.  A simple caching mechanism is provided to minimize retrieval of this information by CoOL clients.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
@@ -375,11 +375,10 @@ li, p {
 <p/>
 
 <ul>
-  <li>SID: Identifier assigned to a YANG module.</li>
-  <li>revision: Each YANG module and submodule within the library has a revision.  This is derived from the most recent revision statement within the module or submodule. If no such revision statement exists, the module&#8217;s or submodule&#8217;s revision is set to zero.</li>
-  <li>submodule list: The SID and revision assigned to each submodule used by the module.</li>
-  <li>feature list: The SID assigned to each YANG feature supported by the server endpoint.</li>
-  <li>deviation list: The SID and revision assigned to each YANG module used for deviation statements.</li>
+  <li>module list: The list of YANG modules implemented by the CoOL server endpoint, each module is identified by its SID and revision.</li>
+  <li>submodule list: The list of YANG submodules included by each module, each submodule is identified by its SID and revision.</li>
+  <li>feature list: The list of features supported by each YANG module, each feature is identified by its SID.</li>
+  <li>deviation list: The list of YANG modules used for deviation statements associated with each YANG module, each module is identified by its SID and revision.</li>
 </ul>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#terminology-and-notation" id="terminology-and-notation">Terminology and Notation</a></h1>
 <p id="rfc.section.2.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in <a href="#RFC2119">[RFC2119]</a>.</p>
@@ -410,7 +409,7 @@ li, p {
 <p/>
 
 <ul>
-  <li>YANG library: a collection of YANG modules used by a server endpoint</li>
+  <li>library: a collection of YANG modules used by a server endpoint</li>
 </ul>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#overview" id="overview">Overview</a></h1>
 <p id="rfc.section.3.p.1">The &#8220;ietf-cool-library&#8221; module provides information about the YANG library used by a server endpoint.  This module is defined using YANG version 1, but it supports the description of YANG modules written in any revision of YANG.</p>
@@ -431,16 +430,16 @@ module: ietf-cool-library
             +--ro sid         sid
             +--ro revision    revision
 notifications:
-   +---n yang-library-change
+   +---n cool-library-change
       +--ro module-set-id    -&gt; /modules-state/module-set-id
 </pre>
 <h1 id="rfc.section.3.2"><a href="#rfc.section.3.2">3.2.</a> <a href="#description" id="description">Description</a></h1>
 <h1 id="rfc.section.3.2.1"><a href="#rfc.section.3.2.1">3.2.1.</a> <a href="#modules-state" id="modules-state">modules-state</a></h1>
 <p id="rfc.section.3.2.1.p.1">This mandatory container holds the module set identifier and the list of modules supported by the server endpoint.</p>
 <h1 id="rfc.section.3.2.2"><a href="#rfc.section.3.2.2">3.2.2.</a> <a href="#modules-statemodule-set-id" id="modules-statemodule-set-id">modules-state/module-set-id</a></h1>
-<p id="rfc.section.3.2.2.p.1">This mandatory leaf contains an identifier representing the current set of modules and submodules used by a server endpoint. This identifier is endpoint-specific when implemented as unit32 or shared between multiple endpoints on one or multiple servers when implemented as identityref.  The value of this leaf MUST change whenever the set of modules and submodules in the YANG library changes.  There is no requirement that the same set always results in the same module-set-id value.</p>
+<p id="rfc.section.3.2.2.p.1">This mandatory leaf contains an identifier representing the current set of modules and submodules used by a server endpoint. This identifier is endpoint-specific when implemented as unit32 or shared between multiple endpoints on one or multiple servers when implemented as identityref.  The value of this leaf MUST change whenever the set of modules and submodules in the library changes.  There is no requirement that the same set always results in the same module-set-id value.</p>
 <p id="rfc.section.3.2.2.p.2">This leaf allows a client to fetch the module list once, cache it, and only re-fetch it if the value of this leaf has been changed.</p>
-<p id="rfc.section.3.2.2.p.3">If the value of this leaf changes, the server also generates a &#8220;yang-library-change&#8221; notification, with the new value of &#8220;module-set-id&#8221;.</p>
+<p id="rfc.section.3.2.2.p.3">If the value of this leaf changes, the server also generates a &#8220;cool-library-change&#8221; notification, with the new value of &#8220;module-set-id&#8221;.</p>
 <h1 id="rfc.section.3.2.3"><a href="#rfc.section.3.2.3">3.2.3.</a> <a href="#modules-statemodule" id="modules-statemodule">modules-state/module</a></h1>
 <p id="rfc.section.3.2.3.p.1">This mandatory list contains one entry for each YANG module supported by the server endpoint.  There MUST be an entry in this list for each revision of each YANG module that is used by the server.</p>
 <h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#yang-module-ietf-cool-library" id="yang-module-ietf-cool-library">YANG Module &#8220;ietf-cool-library&#8221;</a></h1>
@@ -671,7 +670,7 @@ module ietf-cool-library {
    * Notifications
    */
 
-  notification yang-library-change {
+  notification cool-library-change {
     description
       "Generated when the set of modules and submodules supported
       by the server endpoint has changed.";

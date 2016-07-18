@@ -302,9 +302,8 @@ li, p {
 <link href="#rfc.section.8" rel="Chapter" title="8 Error Handling"/>
 <link href="#rfc.section.9" rel="Chapter" title="9 Security Considerations"/>
 <link href="#rfc.section.10" rel="Chapter" title="10 IANA Considerations"/>
-<link href="#rfc.section.10.1" rel="Chapter" title="10.1 CoAP Method Code"/>
-<link href="#rfc.section.10.2" rel="Chapter" title="10.2 CoAP Content-Formats"/>
-<link href="#rfc.section.10.3" rel="Chapter" title="10.3 CBOR simple value"/>
+<link href="#rfc.section.10.1" rel="Chapter" title="10.1 CoAP Content-Formats"/>
+<link href="#rfc.section.10.2" rel="Chapter" title="10.2 CBOR simple value"/>
 <link href="#rfc.section.11" rel="Chapter" title="11 Acknowledgments"/>
 <link href="#rfc.references" rel="Chapter" title="12 References"/>
 <link href="#rfc.references.1" rel="Chapter" title="12.1 Normative References"/>
@@ -438,9 +437,8 @@ li, p {
 </ul><li>8.   <a href="#rfc.section.8">Error Handling</a></li>
 <li>9.   <a href="#rfc.section.9">Security Considerations</a></li>
 <li>10.   <a href="#rfc.section.10">IANA Considerations</a></li>
-<ul><li>10.1.   <a href="#rfc.section.10.1">CoAP Method Code</a></li>
-<li>10.2.   <a href="#rfc.section.10.2">CoAP Content-Formats</a></li>
-<li>10.3.   <a href="#rfc.section.10.3">CBOR simple value</a></li>
+<ul><li>10.1.   <a href="#rfc.section.10.1">CoAP Content-Formats</a></li>
+<li>10.2.   <a href="#rfc.section.10.2">CBOR simple value</a></li>
 </ul><li>11.   <a href="#rfc.section.11">Acknowledgments</a></li>
 <li>12.   <a href="#rfc.references">References</a></li>
 <ul><li>12.1.   <a href="#rfc.references.1">Normative References</a></li>
@@ -1118,10 +1116,9 @@ GET /.well-known/core?rt=cool.datastore
 <p id="rfc.section.9.p.2">In some applications, different access rights to objects (data nodes, protocol operations and notifications) need to be granted to different CoOL clients. Different solutions are possible, such as the implementation of Access Control Lists (ACL) using YANG module(s) or the use of an authorization certificate as defined in <a href="#RFC5755">[RFC5755]</a>. These access control mechanisms need to be addressed in complementary specifications.</p>
 <p id="rfc.section.9.p.3">The Security Considerations section of CoAP <a href="#RFC7252">[RFC7252]</a> is especially relevant to this application protocol and should be reviewed carefully by implementers.</p>
 <h1 id="rfc.section.10"><a href="#rfc.section.10">10.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a></h1>
-<h1 id="rfc.section.10.1"><a href="#rfc.section.10.1">10.1.</a> <a href="#coap-method-code" id="coap-method-code">CoAP Method Code</a></h1>
-<p id="rfc.section.10.1.p.1">This draft makes use of the FETCH and  iPATCH CoAP methods as defined in <a href="#I-D.vanderstok-core-etch">[I-D.vanderstok-core-etch]</a>. These methods need to be registered in the CoAP Method Codes sub-registry as defined in <a href="#RFC7252">[RFC7252]</a> section 12.1.1.</p>
-<h1 id="rfc.section.10.2"><a href="#rfc.section.10.2">10.2.</a> <a href="#coap-content-formats" id="coap-content-formats">CoAP Content-Formats</a></h1>
-<p id="rfc.section.10.2.p.1">This draft introduces the following CoAP Content-Formats. These entries need to be registered in the CoAP Content-Formats Registry as defined in <a href="#RFC7252">[RFC7252]</a> section 12.3.</p>
+<h1 id="rfc.section.10.1"><a href="#rfc.section.10.1">10.1.</a> <a href="#coap-content-formats" id="coap-content-formats">CoAP Content-Formats</a></h1>
+<p id="rfc.section.10.1.p.1">This draft introduces the following CoAP Content-Formats. These entries need to be registered in the CoAP Content-Formats Registry as defined in <a href="#RFC7252">[RFC7252]</a> section 12.3.</p>
+<p id="rfc.section.10.1.p.2">First entry:</p>
 <p/>
 
 <ul>
@@ -1129,22 +1126,38 @@ GET /.well-known/core?rt=cool.datastore
   <li>Encoding = CBOR</li>
   <li>ID = 61</li>
   <li>Reference = RFC XXXX</li>
+</ul>
+<p id="rfc.section.10.1.p.4">Second entry:</p>
+<p/>
+
+<ul>
   <li>Media type = application/cool-value</li>
   <li>Encoding = CBOR</li>
   <li>ID = 62</li>
   <li>Reference = RFC XXXX</li>
+</ul>
+<p id="rfc.section.10.1.p.6">Third entry:</p>
+<p/>
+
+<ul>
   <li>Media type = application/cool-value-list</li>
   <li>Encoding = CBOR</li>
   <li>ID = 63</li>
   <li>Reference = RFC XXXX</li>
+</ul>
+<p id="rfc.section.10.1.p.8">Fourth entry:</p>
+<p/>
+
+<ul>
   <li>Media type = application/cool-value-pairs+cbor</li>
   <li>Encoding = CBOR</li>
   <li>ID = 64</li>
   <li>Reference = RFC XXXX</li>
 </ul>
-<p id="rfc.section.10.2.p.3">RFC Ed.: update XXXX to the RFC number assigned to this draft, update the ID if different than the one allocated, remove this note.  TO DO : If this set of Content-Formats is accepted, requirements and description need to be added where appropriate.</p>
-<h1 id="rfc.section.10.3"><a href="#rfc.section.10.3">10.3.</a> <a href="#cbor-simple-value" id="cbor-simple-value">CBOR simple value</a></h1>
-<p id="rfc.section.10.3.p.1">This draft introduces the following CBOR simple value. This entry needs to be registered in the Simple Values Registry as defined in <a href="#RFC7049">[RFC7049]</a> section 7.1.</p>
+<p id="rfc.section.10.1.p.10">RFC Ed.: update XXXX to the RFC number assigned to this draft, update the ID if different than the one allocated, remove this note.</p>
+<p id="rfc.section.10.1.p.11">TO DO If this set of Content-Formats is accepted, requirements and description need to be added where appropriate.</p>
+<h1 id="rfc.section.10.2"><a href="#rfc.section.10.2">10.2.</a> <a href="#cbor-simple-value" id="cbor-simple-value">CBOR simple value</a></h1>
+<p id="rfc.section.10.2.p.1">This draft introduces the following CBOR simple value. This entry needs to be registered in the Simple Values Registry as defined in <a href="#RFC7049">[RFC7049]</a> section 7.1.</p>
 <p/>
 
 <ul>
@@ -1152,7 +1165,7 @@ GET /.well-known/core?rt=cool.datastore
   <li>Semantics = Default value</li>
   <li>Reference = RFC XXXX</li>
 </ul>
-<p id="rfc.section.10.3.p.3">RFC Ed.: update XXXX to the RFC number assigned to this draft, update the value if different than the one allocated, remove this note.</p>
+<p id="rfc.section.10.2.p.3">RFC Ed.: update XXXX to the RFC number assigned to this draft, update the value if different than the one allocated, remove this note.</p>
 <h1 id="rfc.section.11"><a href="#rfc.section.11">11.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments</a></h1>
 <p id="rfc.section.11.p.1">This document have been largely inspired by the extensive works done by Andy Bierman and Peter van der Stok on <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a>. <a href="#I-D.ietf-netconf-restconf">[I-D.ietf-netconf-restconf]</a> have also been a critical input to this work. The authors would like to thank the authors and contributors to these two drafts.</p>
 <p id="rfc.section.11.p.2">The authors would also like to thank Carsten Bormann for his help during the development of this document and his useful comments during the review process.</p>

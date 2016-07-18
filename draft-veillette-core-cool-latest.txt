@@ -118,9 +118,8 @@ Internet-Draft        Constrained Objects Language             July 2016
    8.  Error Handling  . . . . . . . . . . . . . . . . . . . . . . .  27
    9.  Security Considerations . . . . . . . . . . . . . . . . . . .  27
    10. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  28
-     10.1.  CoAP Method Code . . . . . . . . . . . . . . . . . . . .  28
-     10.2.  CoAP Content-Formats . . . . . . . . . . . . . . . . . .  28
-     10.3.  CBOR simple value  . . . . . . . . . . . . . . . . . . .  29
+     10.1.  CoAP Content-Formats . . . . . . . . . . . . . . . . . .  28
+     10.2.  CBOR simple value  . . . . . . . . . . . . . . . . . . .  29
    11. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  29
    12. References  . . . . . . . . . . . . . . . . . . . . . . . . .  29
      12.1.  Normative References . . . . . . . . . . . . . . . . . .  29
@@ -162,6 +161,7 @@ Internet-Draft        Constrained Objects Language             July 2016
    o  module
 
    o  notification
+
 
 
 
@@ -1516,18 +1516,13 @@ Internet-Draft        Constrained Objects Language             July 2016
 
 10.  IANA Considerations
 
-10.1.  CoAP Method Code
-
-   This draft makes use of the FETCH and iPATCH CoAP methods as defined
-   in [I-D.vanderstok-core-etch].  These methods need to be registered
-   in the CoAP Method Codes sub-registry as defined in [RFC7252] section
-   12.1.1.
-
-10.2.  CoAP Content-Formats
+10.1.  CoAP Content-Formats
 
    This draft introduces the following CoAP Content-Formats.  These
    entries need to be registered in the CoAP Content-Formats Registry as
    defined in [RFC7252] section 12.3.
+
+   First entry:
 
    o  Media type = application/cool-instance-id-list
 
@@ -1537,6 +1532,8 @@ Internet-Draft        Constrained Objects Language             July 2016
 
    o  Reference = RFC XXXX
 
+   Second entry:
+
    o  Media type = application/cool-value
 
    o  Encoding = CBOR
@@ -1545,6 +1542,8 @@ Internet-Draft        Constrained Objects Language             July 2016
 
    o  Reference = RFC XXXX
 
+   Third entry:
+
    o  Media type = application/cool-value-list
 
    o  Encoding = CBOR
@@ -1552,6 +1551,8 @@ Internet-Draft        Constrained Objects Language             July 2016
    o  ID = 63
 
    o  Reference = RFC XXXX
+
+   Fourth entry:
 
    o  Media type = application/cool-value-pairs+cbor
 
@@ -1564,18 +1565,18 @@ Internet-Draft        Constrained Objects Language             July 2016
 
 
 
-
 Veillette, et al.       Expires January 19, 2017               [Page 28]
 
 Internet-Draft        Constrained Objects Language             July 2016
 
 
    RFC Ed.: update XXXX to the RFC number assigned to this draft, update
-   the ID if different than the one allocated, remove this note.  TO DO
-   : If this set of Content-Formats is accepted, requirements and
+   the ID if different than the one allocated, remove this note.
+
+   TO DO If this set of Content-Formats is accepted, requirements and
    description need to be added where appropriate.
 
-10.3.  CBOR simple value
+10.2.  CBOR simple value
 
    This draft introduces the following CBOR simple value.  This entry
    needs to be registered in the Simple Values Registry as defined in
@@ -1614,7 +1615,6 @@ Internet-Draft        Constrained Objects Language             July 2016
               Bjorklund, M., "The YANG 1.1 Data Modeling Language",
               draft-ietf-netmod-rfc6020bis-14 (work in progress), June
               2016.
-
 
 
 

@@ -319,7 +319,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Somaraju, A., Turner, R., and A. Minaburo" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-cool-02" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-7-12" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-7-18" />
   <meta name="dct.abstract" content="This document describes a management function set adapted to constrained devices and constrained networks (e.g., low-power, lossy). CoOL objects (datastores, RPCs, actions and notifications) are defined using the YANG modelling language " />
   <meta name="description" content="This document describes a management function set adapted to constrained devices and constrained networks (e.g., low-power, lossy). CoOL objects (datastores, RPCs, actions and notifications) are defined using the YANG modelling language " />
 
@@ -343,7 +343,7 @@ li, p {
   <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: January 13, 2017</td>
+  <td class="left">Expires: January 19, 2017</td>
   <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -372,7 +372,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">July 12, 2016</td>
+  <td class="right">July 18, 2016</td>
 </tr>
 
     	
@@ -385,14 +385,14 @@ li, p {
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This document describes a management function set adapted to constrained devices and constrained networks (e.g., low-power, lossy). CoOL objects (datastores, RPCs, actions and notifications) are defined using the YANG modelling language <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a>. Interactions with these objects are performed using the CoAP web transfer protocol <a href="#RFC7252">[RFC7252]</a>. Payloads are encoded using the CBOR data format <a href="#RFC7049">[RFC7049]</a>. The mapping between YANG data models and the CBOR data format is defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>.</p>
+<p>This document describes a management function set adapted to constrained devices and constrained networks (e.g., low-power, lossy). CoOL objects (datastores, RPCs, actions and notifications) are defined using the YANG modelling language <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a>. Interactions with these objects are performed using the CoAP web transfer protocol <a href="#RFC7252">[RFC7252]</a>. Payloads are encoded using the CBOR data format <a href="#RFC7049">[RFC7049]</a>. The mapping between YANG data models and the CBOR data format is defined in <a href="#I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</a>.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on January 13, 2017.</p>
+<p>This Internet-Draft will expire on January 19, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -453,7 +453,7 @@ li, p {
   </ul>
 
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a></h1>
-<p id="rfc.section.1.p.1">This document defines a CoAP function set for accessing YANG defined resources. YANG data models are encoded in CBOR based on the mapping rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>. YANG items are identified using a compact identifier called Structured Identifiers (SIDs) as defined in <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a>.</p>
+<p id="rfc.section.1.p.1">This document defines a CoAP function set for accessing YANG defined resources. YANG data models are encoded in CBOR based on the mapping rules defined in <a href="#I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</a>. YANG items are identified using a compact identifier called Structured Identifiers (SIDs) as defined in <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a>.</p>
 <p id="rfc.section.1.p.2">The resulting protocol based on CoAP, CBOR encoded data and structured identifiers (SID) has a low implementation footprint and low network bandwidth requirements and is suitable for both constrained devices and constrained networks as defined by <a href="#RFC7228">[RFC7228]</a>. This protocol is applicable to the different management topology options described by <a href="#I-D.ersue-constrained-mgmt">[I-D.ersue-constrained-mgmt]</a>; centralized, distributed and hierarchical.</p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#terminology-and-notation" id="terminology-and-notation">Terminology and Notation</a></h1>
 <p id="rfc.section.2.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in <a href="#RFC2119">[RFC2119]</a>.</p>
@@ -544,8 +544,8 @@ li, p {
 <p id="rfc.section.5.p.1">This section defines the different interactions supported between a CoOL client and a CoOL server.</p>
 <h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#get-retrieving-all-data-nodes-of-a-datastore" id="get-retrieving-all-data-nodes-of-a-datastore">GET - Retrieving all data nodes of a datastore</a></h1>
 <p id="rfc.section.5.1.p.1">The GET method is used by CoOL clients to retrieve the entire contents of a datastore. Implementation of this function is optional and dependent of the capability of the CoOL server to transfer a relatively large response.</p>
-<p id="rfc.section.5.1.p.2">To retrieve all instantiated data nodes of a datastore resource, a CoOL client sends a CoAP GET request to the URI of the targeted datastore. If the request is accepted by the CoOL server, a 2.05 (Content) response code is returned. The payload of the GET response MUST carry a CBOR array containing the contents of the targeted datastore. The CBOR array MUST contain a list of pairs of delta and associated value. A delta represents the difference between the current SID and the SID of the previous pair within the CBOR array. Each value is encoded using the rules defined by <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>.</p>
-<p id="rfc.section.5.1.p.3">The normal behaviour of a CoOL server is to exclude from the GET response, any data node with a value equal to the default value for this data node as defined by the YANG &#8216;default&#8217; statement. When this behaviour is not appropriate for the CoOL client, this client can force the retrieval of all data nodes by adding to its CoAP request a Uri-Query option containing the &#8216;a&#8217; parameter. See  <a href="#a-uri-query">Section 6.1</a> form more details.</p>
+<p id="rfc.section.5.1.p.2">To retrieve all instantiated data nodes of a datastore resource, a CoOL client sends a CoAP GET request to the URI of the targeted datastore. If the request is accepted by the CoOL server, a 2.05 (Content) response code is returned. The payload of the GET response MUST carry a CBOR array containing the contents of the targeted datastore. The CBOR array MUST contain a list of pairs of delta and associated value. A delta represents the difference between the current SID and the SID of the previous pair within the CBOR array. Each value is encoded using the rules defined by <a href="#I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</a>.</p>
+<p id="rfc.section.5.1.p.3">The normal behaviour of a CoOL server is to exclude from the GET response, any data node currently set to its default value. When this behaviour is not appropriate for the CoOL client, this client can force the retrieval of all data nodes by using the &#8216;a&#8217; Uri-Query parameter, see <a href="#a-uri-query">Section 6.1</a> for more details.</p>
 <p id="rfc.section.5.1.p.4">If the request is rejected by the CoOL server, a 5.01 Not implemented or 4.13 Request Entity Too Large response code is returned.</p>
 <p id="rfc.section.5.1.p.5">Example:</p>
 <p id="rfc.section.5.1.p.6">In this example, the CoOL server returns a datastore containing the following data nodes defined in the YANG module &#8220;ietf-system&#8221; <a href="#RFC7317">[RFC7317]</a> and YANG module &#8216;ietf-interfaces&#8217; <a href="#RFC7223">[RFC7223]</a>:</p>
@@ -587,18 +587,18 @@ GET /c
 </pre>
 <h1 id="rfc.section.5.2"><a href="#rfc.section.5.2">5.2.</a> <a href="#fetch-retrieving-specific-data-nodes" id="fetch-retrieving-specific-data-nodes">FETCH - Retrieving specific data nodes</a></h1>
 <p id="rfc.section.5.2.p.1">The FETCH method is used by the CoOL client of retrieve a subset of the data node instances within a datastore.</p>
-<p id="rfc.section.5.2.p.2">To retrieve a list of data node instances, the CoOL client sends a CoAP FETCH request to the URI of the targeted datastore. The payload of the FETCH request contains the list of data node(s) instance to be retrieved. This list is encoded using a CBOR array, each entry containing an &#8216;instance-identifier&#8217; as defined by <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>. Within each &#8216;instance-identifier&#8217;, data nodes are identified using SIDs as defined by <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a>.</p>
+<p id="rfc.section.5.2.p.2">To retrieve a list of data node instances, the CoOL client sends a CoAP FETCH request to the URI of the targeted datastore. The payload of the FETCH request contains the list of data node(s) instance to be retrieved. This list is encoded using a CBOR array, each entry containing an &#8216;instance-identifier&#8217; as defined by <a href="#I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</a>. Within each &#8216;instance-identifier&#8217;, data nodes are identified using SIDs as defined by <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a>.</p>
 <p id="rfc.section.5.2.p.3">SIDs within the list of &#8216;instance-identifier&#8217; are encoded using delta. A delta represents the different between the current SID and the SID of the previous entry within this list. The delta of the first entry within the list is set to the absolute SID value.</p>
 <p id="rfc.section.5.2.p.4">On successful processing of the CoAP request, the CoOL server MUST return a CoAP response with a response code 2.05 (Content).</p>
-<p id="rfc.section.5.2.p.5">When a single data node is requested, the payload of the FETCH response carries the value of the data node instance requested. When a multiple data nodes are requested, the payload of the FETCH response carries a CBOR array containing the value of each data node instance(s) requested. The number of entries in this CBOR array MUST match the number of &#8220;instance-identifier&#8221; requested to allow a proper interpretation of this information.  The following type of values can be returned for each &#8216;instance-identifier&#8217; requested:</p>
+<p id="rfc.section.5.2.p.5">When a single data node is requested, the payload of the FETCH response carries the value of the data node instance requested. When multiple data nodes are requested, the payload of the FETCH response carries a CBOR array containing the value of each data node instance(s) requested. The number of entries in this CBOR array MUST match the number of &#8220;instance-identifier&#8221; requested to allow a proper interpretation of this information. The following values can be returned for each &#8216;instance-identifier&#8217; requested:</p>
 <p/>
 
 <ul>
   <li>If the data node requested is not implemented or not instantiated, the CBOR simple value &#8216;undefined&#8217; is returned.</li>
   <li>If the URI-Query parameter &#8216;a&#8217; is not present in the FETCH request and the value of the data node instance is equal to the default value for this data node, the CBOR simple value &#8216;default&#8217; is returned.</li>
-  <li>Otherwise, the data node instance is encoded using the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>.</li>
+  <li>Otherwise, the data node instance is encoded using the rules defined in <a href="#I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</a>.</li>
 </ul>
-<p id="rfc.section.5.2.p.7">The normal behaviour of a CoOL server is to exclude from containers and list instances of a FETCH response, any data node with a value equal to the default value for this data node as defined by the YANG &#8216;default&#8217; statement. When this behaviour is not appropriate for the CoOL client, this client can force the retrieval of all data nodes by adding to its CoAP request a Uri-Query option containing the &#8216;a&#8217; parameter. See <a href="#a-uri-query">Section 6.1</a> form more details.</p>
+<p id="rfc.section.5.2.p.7">The normal behaviour of a CoOL server is to exclude from containers and list instances of a FETCH response, any data node currently set to its default value. When this behaviour is not appropriate for the CoOL client, this client can force the retrieval of all data nodes by using the &#8216;a&#8217; Uri-Query parameter, see <a href="#a-uri-query">Section 6.1</a> for more details.</p>
 <h1 id="rfc.section.5.2.1"><a href="#rfc.section.5.2.1">5.2.1.</a> <a href="#example-1-simple-data-node" id="example-1-simple-data-node">Example #1 - Simple data node</a></h1>
 <p id="rfc.section.5.2.1.p.1">In this example, a CoOL client retrieves the leaf &#8220;/system-state/clock/current-datetime&#8221; (SID 1719) and the container &#8220;/system/clock&#8221; (SID 1734) containing the leaf &#8220;/system/clock/timezone/timezone-utc-offset/timezone-utc-offset&#8221; (SID 1736). These data nodes are defined in the YANG module &#8220;ietf-system&#8221; <a href="#RFC7317">[RFC7317]</a>.</p>
 <p id="rfc.section.5.2.1.p.2">CoAP request:</p>
@@ -678,7 +678,7 @@ FETCH /c Content-Format(application/cool-instance-id-list+cbor)
 "Ethernet adaptor"
 </pre>
 <h1 id="rfc.section.5.2.3"><a href="#rfc.section.5.2.3">5.2.3.</a> <a href="#example-3-yang-list" id="example-3-yang-list">Example #3 - YANG list</a></h1>
-<p id="rfc.section.5.2.3.p.1">This &#8220;instance-identifier&#8221; extension allows the retrieval of all instances of a YANG list. To perform this operation, the CoOL client excludes from the &#8216;instance-identifier&#8217; the key(s) of the targeted list. The list returned is encoded using the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a> section 4.4.</p>
+<p id="rfc.section.5.2.3.p.1">This &#8220;instance-identifier&#8221; extension allows the retrieval of all instances of a YANG list. To perform this operation, the CoOL client excludes from the &#8216;instance-identifier&#8217; the key(s) of the targeted list. The list returned is encoded using the rules defined in <a href="#I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</a> section 4.4.</p>
 <p id="rfc.section.5.2.3.p.2">In this example, a CoOL client retrieves the list &#8220;/interfaces/interface&#8221; (SID 1533). The response returned contain two instances, one for an Ethernet adaptor and one for a WIFI interface.</p>
 <p id="rfc.section.5.2.3.p.3">CoAP request:</p>
 <pre>
@@ -760,7 +760,7 @@ FETCH /c Content-Format(application/cool-instance-id-list+cbor)
 <h1 id="rfc.section.5.3"><a href="#rfc.section.5.3">5.3.</a> <a href="#put-updating-all-data-nodes-of-a-datastore" id="put-updating-all-data-nodes-of-a-datastore">PUT - Updating all data nodes of a datastore</a></h1>
 <p id="rfc.section.5.3.p.1">The CoAP PUT method is used by CoOL clients to update the content of a datastore.</p>
 <p id="rfc.section.5.3.p.2">The URI of the PUT request MUST be set to the URI of the targeted datastore.</p>
-<p id="rfc.section.5.3.p.3">The payload of the PUT request MUST carry a CBOR array containing the new content of the datastore. The CBOR array MUST contain a list of pairs of delta and associated value. A delta represents the different between the current SID and the SID of the previous pair within the CBOR array. Each value is encoded using the rules defined by <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a>.</p>
+<p id="rfc.section.5.3.p.3">The payload of the PUT request MUST carry a CBOR array containing the new content of the datastore. The CBOR array MUST contain a list of pairs of delta and associated value. A delta represents the different between the current SID and the SID of the previous pair within the CBOR array. Each value is encoded using the rules defined by <a href="#I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</a>.</p>
 <p id="rfc.section.5.3.p.4">On successful processing of the CoAP request, the CoOL server MUST return a CoAP response with a response code 2.04 (Changed).</p>
 <p id="rfc.section.5.3.p.5">A PUT request MUST be processed as an atomic transaction, if any of the data node transferred is rejected for any reason, the entire PUT request MUST be rejected and the CoOL server MUST return an appropriate error response as defined in section 6.</p>
 <p id="rfc.section.5.3.p.6">Example:</p>
@@ -1006,14 +1006,14 @@ Content-Format(application/cool-value-pairs+cbor)
 </pre>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#uri-query" id="uri-query">Uri-Query</a></h1>
 <h1 id="rfc.section.6.1"><a href="#rfc.section.6.1">6.1.</a> <a href="#a-uri-query" id="a-uri-query">The &#8216;a&#8217; Query Parameter</a></h1>
-<p id="rfc.section.6.1.p.1">When performing a GET, the normal behaviour of a CoOL server is to exclude from the GET response, data nodes currently set to the default value as defined by the YANG &#8216;default&#8217; statement. This behaviour called &#8216;trim&#8217; is defined in <a href="#RFC6243">[RFC6243]</a> section 3.2.</p>
+<p id="rfc.section.6.1.p.1">When performing a GET, the normal behaviour of a CoOL server is to exclude from the GET response, data nodes currently set to their default values as defined by the YANG &#8216;default&#8217; statement. This behaviour called &#8216;trim&#8217; is defined in <a href="#RFC6243">[RFC6243]</a> section 3.2.</p>
 <p id="rfc.section.6.1.p.2">This rule also applies to the FETCH for containers and list instances but not for the root data nodes. To minimize the payload size of the FETCH responses, root data nodes are returned in a CBOR array without associated SID. To keep the symmetry between the FETCH request and the FETCH response, a CBOR content must be returned for each data node requested as follows:</p>
 <p/>
 
 <ul>
   <li>a CBOR simple type &#8216;default&#8217; is returned for each data node currently set to its default value</li>
   <li>a CBOR simple type &#8216;undefined value&#8217; is returned for each data node not instantiated or not supported</li>
-  <li>otherwise, the value is encoded based on the rules defined in <a href="#I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</a></li>
+  <li>otherwise, the value is encoded based on the rules defined in <a href="#I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</a></li>
 </ul>
 <p id="rfc.section.6.1.p.4">There are use-cases when a CoOL client will need the default data from the server, for example:</p>
 <p/>
@@ -1142,7 +1142,7 @@ GET /.well-known/core?rt=cool.datastore
   <li>ID = 64</li>
   <li>Reference = RFC XXXX</li>
 </ul>
-<p id="rfc.section.10.2.p.3">RFC Ed.: update ID with allocated value and Reference with RFC number and remove this note.</p>
+<p id="rfc.section.10.2.p.3">RFC Ed.: update XXXX to the RFC number assigned to this draft, update the ID if different than the one allocated, remove this note.  TO DO : If this set of Content-Formats is accepted, requirements and description need to be added where appropriate.</p>
 <h1 id="rfc.section.10.3"><a href="#rfc.section.10.3">10.3.</a> <a href="#cbor-simple-value" id="cbor-simple-value">CBOR simple value</a></h1>
 <p id="rfc.section.10.3.p.1">This draft introduces the following CBOR simple value. This entry needs to be registered in the Simple Values Registry as defined in <a href="#RFC7049">[RFC7049]</a> section 7.1.</p>
 <p/>
@@ -1152,7 +1152,7 @@ GET /.well-known/core?rt=cool.datastore
   <li>Semantics = Default value</li>
   <li>Reference = RFC XXXX</li>
 </ul>
-<p id="rfc.section.10.3.p.3">RFC Ed.: update XXXX and the values using the RFC number for this draft and allocated values and remove this note.</p>
+<p id="rfc.section.10.3.p.3">RFC Ed.: update XXXX to the RFC number assigned to this draft, update the value if different than the one allocated, remove this note.</p>
 <h1 id="rfc.section.11"><a href="#rfc.section.11">11.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments</a></h1>
 <p id="rfc.section.11.p.1">This document have been largely inspired by the extensive works done by Andy Bierman and Peter van der Stok on <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a>. <a href="#I-D.ietf-netconf-restconf">[I-D.ietf-netconf-restconf]</a> have also been a critical input to this work. The authors would like to thank the authors and contributors to these two drafts.</p>
 <p id="rfc.section.11.p.2">The authors would also like to thank Carsten Bormann for his help during the development of this document and his useful comments during the review process.</p>
@@ -1251,6 +1251,12 @@ GET /.well-known/core?rt=cool.datastore
     </tr>
     <tr>
       <td class="reference">
+        <b id="I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</b>
+      </td>
+      <td class="top"><a>Veillette, M.</a>, <a>Pelov, A.</a>, <a>Somaraju, A.</a>, <a>Turner, R.</a> and <a>A. Minaburo</a>, "<a href="http://tools.ietf.org/html/draft-ietf-core-yang-cbor-01">CBOR Encoding of Data Modeled with YANG</a>", Internet-Draft draft-ietf-core-yang-cbor-01, June 2016.</td>
+    </tr>
+    <tr>
+      <td class="reference">
         <b id="I-D.ietf-netconf-restconf">[I-D.ietf-netconf-restconf]</b>
       </td>
       <td class="top"><a>Bierman, A.</a>, <a>Bjorklund, M.</a> and <a>K. Watsen</a>, "<a href="http://tools.ietf.org/html/draft-ietf-netconf-restconf-14">RESTCONF Protocol</a>", Internet-Draft draft-ietf-netconf-restconf-14, June 2016.</td>
@@ -1266,12 +1272,6 @@ GET /.well-known/core?rt=cool.datastore
         <b id="I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</b>
       </td>
       <td class="top"><a>Stok, P.</a> and <a>A. Bierman</a>, "<a href="http://tools.ietf.org/html/draft-vanderstok-core-comi-09">CoAP Management Interface</a>", Internet-Draft draft-vanderstok-core-comi-09, March 2016.</td>
-    </tr>
-    <tr>
-      <td class="reference">
-        <b id="I-D.veillette-core-yang-cbor-mapping">[I-D.veillette-core-yang-cbor-mapping]</b>
-      </td>
-      <td class="top"><a>Veillette, M.</a>, <a>Pelov, A.</a>, <a>Somaraju, A.</a>, <a>Turner, R.</a> and <a>A. Minaburo</a>, "<a href="http://tools.ietf.org/html/draft-veillette-core-yang-cbor-mapping-00">CBOR Encoding of Data Modeled with YANG</a>", Internet-Draft draft-veillette-core-yang-cbor-mapping-00, March 2016.</td>
     </tr>
     <tr>
       <td class="reference">

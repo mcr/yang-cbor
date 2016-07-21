@@ -316,7 +316,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Somaraju, A., Turner, R., and A. Minaburo" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-yang-cbor-02" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-7-18" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-7-21" />
   <meta name="dct.abstract" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
   <meta name="description" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
 
@@ -340,7 +340,7 @@ li, p {
   <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: January 19, 2017</td>
+  <td class="left">Expires: January 22, 2017</td>
   <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -369,7 +369,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">July 18, 2016</td>
+  <td class="right">July 21, 2016</td>
 </tr>
 
     	
@@ -389,7 +389,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on January 19, 2017.</p>
+<p>This Internet-Draft will expire on January 22, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -584,7 +584,7 @@ li, p {
 <p id="rfc.section.3.p.1">This document defines CBOR encoding rules for YANG schema trees and their subtrees.</p>
 <p id="rfc.section.3.p.2">Basic schema nodes such as leaf, leaf-list, list, anydata and anyxml can be encoded standalone. In this case, only the value of this schema node is encoded in CBOR. Identification of this value needs to be provided by some external means when required.</p>
 <p id="rfc.section.3.p.3">A collection such as container, list instance, notification, RPC input, RPC output, action input and action output is serialized using a CBOR map in which each child schema node is encoded using a key and a value. This specification supports two type of keys; SID as defined in <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a> and member names as defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a>. Each of these key type is encoded using a specific CBOR type which allows their interpretation during the deserialization process. The end user of this mapping specification can mandate the use of a specific key type or a specific subset of key types.</p>
-<p id="rfc.section.3.p.4">In order to minimize the size of the encoded data, the proposed mapping avoid any unnecessary meta-information beyond those natively supported by CBOR. For instance, CBOR tags are used sorely in the case of the union datatype to distinguish explicitly the use of different YANG datatypes encoded using the same CBOR major type.</p>
+<p id="rfc.section.3.p.4">In order to minimize the size of the encoded data, the proposed mapping avoid any unnecessary meta-information beyond those natively supported by CBOR. For instance, CBOR tags are used solely in the case of the union datatype to distinguish explicitly the use of different YANG datatypes encoded using the same CBOR major type.</p>
 <p id="rfc.section.3.p.5">It is expected that application entities generating and decoding CBOR contents have enough knowledge about the information processed in order to perform the expected task without the need of such extra meta-information.</p>
 <h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#instance-encoding" id="instance-encoding">Encoding of YANG Data Node Instances</a></h1>
 <p id="rfc.section.4.p.1">Schema node instances defined using the YANG modeling language are encoded using CBOR <a href="#RFC7049">[RFC7049]</a> based on the rules defined in this section. We assume that the reader is already familiar with both YANG <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> and CBOR <a href="#RFC7049">[RFC7049]</a>.</p>

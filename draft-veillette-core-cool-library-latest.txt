@@ -4,8 +4,8 @@
 
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
-Intended status: Standards Track                           July 21, 2016
-Expires: January 22, 2017
+Intended status: Standards Track                         August 23, 2016
+Expires: February 24, 2017
 
 
                     Constrained YANG Module Library
@@ -33,7 +33,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on January 22, 2017.
+   This Internet-Draft will expire on February 24, 2017.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Veillette               Expires January 22, 2017                [Page 1]
+Veillette               Expires February 24, 2017               [Page 1]
 
-Internet-Draft       Constrained YANG Module Library           July 2016
+Internet-Draft       Constrained YANG Module Library         August 2016
 
 
 Table of Contents
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Veillette               Expires January 22, 2017                [Page 2]
+Veillette               Expires February 24, 2017               [Page 2]
 
-Internet-Draft       Constrained YANG Module Library           July 2016
+Internet-Draft       Constrained YANG Module Library         August 2016
 
 
    o  module
@@ -147,6 +147,16 @@ Internet-Draft       Constrained YANG Module Library           July 2016
 
 3.1.  Tree diagram
 
+   A simplified graphical representation of the data model is used for
+   the ietf-cool-library YANG module specified in this document.  The
+   meaning of the symbols in these diagrams is as follows:
+      Brackets "[" and "]" enclose list keys.
+
+      Abbreviations before data node names: "rw" means configuration
+      data (read-write) and "ro" state data (read-only).
+
+      Symbols after data node names: "?" means an optional node, "!"
+      means a presence container, and "*" denotes a list and leaf-list.
 
 
 
@@ -155,19 +165,9 @@ Internet-Draft       Constrained YANG Module Library           July 2016
 
 
 
-
-
-
-
-
-
-
-
-
-
-Veillette               Expires January 22, 2017                [Page 3]
+Veillette               Expires February 24, 2017               [Page 3]
 
-Internet-Draft       Constrained YANG Module Library           July 2016
+Internet-Draft       Constrained YANG Module Library         August 2016
 
 
    module: ietf-cool-library
@@ -221,9 +221,9 @@ Internet-Draft       Constrained YANG Module Library           July 2016
 
 
 
-Veillette               Expires January 22, 2017                [Page 4]
+Veillette               Expires February 24, 2017               [Page 4]
 
-Internet-Draft       Constrained YANG Module Library           July 2016
+Internet-Draft       Constrained YANG Module Library         August 2016
 
 
 4.  YANG Module "ietf-cool-library"
@@ -273,13 +273,13 @@ Internet-Draft       Constrained YANG Module Library           July 2016
      // RFC Ed.: replace XXXX with actual RFC number and remove
      // this note.
 
-     // RFC Ed.: update the date below with the date of RFC
+     // RFC Ed.: update the date below with the date of the RFC
 
 
 
-Veillette               Expires January 22, 2017                [Page 5]
+Veillette               Expires February 24, 2017               [Page 5]
 
-Internet-Draft       Constrained YANG Module Library           July 2016
+Internet-Draft       Constrained YANG Module Library         August 2016
 
 
      // publication and remove this note.
@@ -333,11 +333,12 @@ Internet-Draft       Constrained YANG Module Library           July 2016
 
 
 
-Veillette               Expires January 22, 2017                [Page 6]
+Veillette               Expires February 24, 2017               [Page 6]
 
-Internet-Draft       Constrained YANG Module Library           July 2016
+Internet-Draft       Constrained YANG Module Library         August 2016
 
 
+         mandatory true;
          description
            "SID assigned to this module or submodule.";
        }
@@ -346,8 +347,8 @@ Internet-Draft       Constrained YANG Module Library           July 2016
          type revision;
          description
            "Revision date assigned to this module or submodule.
-           Set to 0x00000000 if no revision statement is present
-           in the YANG module.";
+           A zero-length binary string is used if no revision statement
+           is present in the YANG module or submodule.";
        }
      }
 
@@ -388,10 +389,9 @@ Internet-Draft       Constrained YANG Module Library           July 2016
 
 
 
-
-Veillette               Expires January 22, 2017                [Page 7]
+Veillette               Expires February 24, 2017               [Page 7]
 
-Internet-Draft       Constrained YANG Module Library           July 2016
+Internet-Draft       Constrained YANG Module Library         August 2016
 
 
        list module {
@@ -445,9 +445,9 @@ Internet-Draft       Constrained YANG Module Library           July 2016
 
 
 
-Veillette               Expires January 22, 2017                [Page 8]
+Veillette               Expires February 24, 2017               [Page 8]
 
-Internet-Draft       Constrained YANG Module Library           July 2016
+Internet-Draft       Constrained YANG Module Library         August 2016
 
 
                  For YANG version 1 modules, there SHOULD NOT be more
@@ -501,9 +501,9 @@ Internet-Draft       Constrained YANG Module Library           July 2016
 
 
 
-Veillette               Expires January 22, 2017                [Page 9]
+Veillette               Expires February 24, 2017               [Page 9]
 
-Internet-Draft       Constrained YANG Module Library           July 2016
+Internet-Draft       Constrained YANG Module Library         August 2016
 
 
            "Contains the module-set-id value representing the
@@ -527,9 +527,9 @@ Internet-Draft       Constrained YANG Module Library           July 2016
 
    prefix: coollib
 
-   // RFC Ed.: replace XXXX with RFC number and remove this note
-
    reference: RFC XXXX
+
+   // RFC Ed.: replace XXXX with RFC number and remove this note
 
 6.  Security Considerations
 
@@ -557,21 +557,21 @@ Internet-Draft       Constrained YANG Module Library           July 2016
 
 
 
-Veillette               Expires January 22, 2017               [Page 10]
+Veillette               Expires February 24, 2017              [Page 10]
 
-Internet-Draft       Constrained YANG Module Library           July 2016
+Internet-Draft       Constrained YANG Module Library         August 2016
 
 
 7.  Acknowledgments
 
    The YANG module defined by this memo have been derived from an
-   already existing YANG module targetting the RESTconf protocol
+   already existing YANG module targeting the RESTconf protocol
    [I-D.ietf-netconf-restconf].  We will like to thank the authors of
    this prior work [I-D.ietf-netconf-yang-library] which have been
-   essential for the development of "ietf-cool-library" targetting the
+   essential for the development of "ietf-cool-library" targeting the
    Constrained Objects Language [I-D.veillette-core-cool] protocol.  The
    authors would also like to thank Andy Bierman for his recommendations
-   on the appraoch to use and his review of the resulting YANG module.
+   and his review of the resulting YANG module.
 
 8.  References
 
@@ -585,7 +585,7 @@ Internet-Draft       Constrained YANG Module Library           July 2016
    [I-D.somaraju-core-sid]
               Somaraju, A., Veillette, M., Pelov, A., Turner, R., and A.
               Minaburo, "Structure Identifier (SID)", draft-somaraju-
-              core-sid-00 (work in progress), March 2016.
+              core-sid-01 (work in progress), July 2016.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -596,8 +596,8 @@ Internet-Draft       Constrained YANG Module Library           July 2016
 
    [I-D.ietf-netconf-restconf]
               Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
-              Protocol", draft-ietf-netconf-restconf-14 (work in
-              progress), June 2016.
+              Protocol", draft-ietf-netconf-restconf-16 (work in
+              progress), August 2016.
 
    [I-D.ietf-netconf-yang-library]
               Bierman, A., Bjorklund, M., and K. Watsen, "YANG Module
@@ -607,15 +607,15 @@ Internet-Draft       Constrained YANG Module Library           July 2016
    [I-D.veillette-core-cool]
               Veillette, M., Pelov, A., Somaraju, A., Turner, R., and A.
               Minaburo, "Constrained Objects Language", draft-veillette-
-              core-cool-01 (work in progress), March 2016.
+              core-cool-02 (work in progress), July 2016.
 
 
 
 
 
-Veillette               Expires January 22, 2017               [Page 11]
+Veillette               Expires February 24, 2017              [Page 11]
 
-Internet-Draft       Constrained YANG Module Library           July 2016
+Internet-Draft       Constrained YANG Module Library         August 2016
 
 
 Author's Address
@@ -669,4 +669,4 @@ Author's Address
 
 
 
-Veillette               Expires January 22, 2017               [Page 12]
+Veillette               Expires February 24, 2017              [Page 12]

@@ -5,14 +5,14 @@
 Internet Engineering Task Force                         A. Somaraju, Ed.
 Internet-Draft                                     Tridonic GmbH & Co KG
 Intended status: Standards Track                       M. Veillette, Ed.
-Expires: January 22, 2017                        Trilliant Networks Inc.
+Expires: February 24, 2017                       Trilliant Networks Inc.
                                                                 A. Pelov
                                                                   Acklio
                                                                R. Turner
                                                               Landis+Gyr
                                                              A. Minaburo
                                                                   Acklio
-                                                           July 21, 2016
+                                                         August 23, 2016
 
 
                        Structure Identifier (SID)
@@ -41,7 +41,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on January 22, 2017.
+   This Internet-Draft will expire on February 24, 2017.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Somaraju, et al.        Expires January 22, 2017                [Page 1]
+Somaraju, et al.        Expires February 24, 2017               [Page 1]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
    (http://trustee.ietf.org/license-info) in effect on the date of
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Somaraju, et al.        Expires January 22, 2017                [Page 2]
+Somaraju, et al.        Expires February 24, 2017               [Page 2]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
    o  schema node
@@ -165,9 +165,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017                [Page 3]
+Somaraju, et al.        Expires February 24, 2017               [Page 3]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
    o  identities
@@ -221,9 +221,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017                [Page 4]
+Somaraju, et al.        Expires February 24, 2017               [Page 4]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
          +---------------+
@@ -277,9 +277,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017                [Page 5]
+Somaraju, et al.        Expires February 24, 2017               [Page 5]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
    YANG modules are not necessary created in the context of constrained
@@ -333,9 +333,9 @@ module ietf-sid-file {
 
 
 
-Somaraju, et al.        Expires January 22, 2017                [Page 6]
+Somaraju, et al.        Expires February 24, 2017               [Page 6]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
      Laurent Toutain
@@ -389,9 +389,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017                [Page 7]
+Somaraju, et al.        Expires February 24, 2017               [Page 7]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
   leaf module-revision {
@@ -445,9 +445,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017                [Page 8]
+Somaraju, et al.        Expires February 24, 2017               [Page 8]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
           - 'rpc'
@@ -501,9 +501,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017                [Page 9]
+Somaraju, et al.        Expires February 24, 2017               [Page 9]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
    o  The contact information of the owner of the range such as name,
@@ -557,9 +557,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017               [Page 10]
+Somaraju, et al.        Expires February 24, 2017              [Page 10]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
 7.2.  YANG module registry
@@ -613,9 +613,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017               [Page 11]
+Somaraju, et al.        Expires February 24, 2017              [Page 11]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
 9.  References
@@ -646,7 +646,7 @@ Internet-Draft         Structure Identifier (SID)              July 2016
    [I-D.veillette-core-cool]
               Veillette, M., Pelov, A., Somaraju, A., Turner, R., and A.
               Minaburo, "Constrained Objects Language", draft-veillette-
-              core-cool-01 (work in progress), March 2016.
+              core-cool-02 (work in progress), July 2016.
 
    [RFC7223]  Bjorklund, M., "A YANG Data Model for Interface
               Management", RFC 7223, DOI 10.17487/RFC7223, May 2014,
@@ -669,9 +669,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017               [Page 12]
+Somaraju, et al.        Expires February 24, 2017              [Page 12]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
 Appendix A.  ".sid" file example
@@ -725,9 +725,9 @@ Appendix A.  ".sid" file example
 
 
 
-Somaraju, et al.        Expires January 22, 2017               [Page 13]
+Somaraju, et al.        Expires February 24, 2017              [Page 13]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
       "sid": 1704
@@ -781,9 +781,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017               [Page 14]
+Somaraju, et al.        Expires February 24, 2017              [Page 14]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
       "type": "identity",
@@ -837,9 +837,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017               [Page 15]
+Somaraju, et al.        Expires February 24, 2017              [Page 15]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
     },
@@ -893,9 +893,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017               [Page 16]
+Somaraju, et al.        Expires February 24, 2017              [Page 16]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
       "label": "/system/authentication/user/password",
@@ -949,9 +949,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017               [Page 17]
+Somaraju, et al.        Expires February 24, 2017              [Page 17]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
     {
@@ -1005,9 +1005,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017               [Page 18]
+Somaraju, et al.        Expires February 24, 2017              [Page 18]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
       "sid": 1752
@@ -1061,9 +1061,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017               [Page 19]
+Somaraju, et al.        Expires February 24, 2017              [Page 19]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
       "type": "node",
@@ -1117,9 +1117,9 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017               [Page 20]
+Somaraju, et al.        Expires February 24, 2017              [Page 20]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
     },
@@ -1173,9 +1173,9 @@ Authors' Addresses
 
 
 
-Somaraju, et al.        Expires January 22, 2017               [Page 21]
+Somaraju, et al.        Expires February 24, 2017              [Page 21]
 
-Internet-Draft         Structure Identifier (SID)              July 2016
+Internet-Draft         Structure Identifier (SID)            August 2016
 
 
    Randy Turner
@@ -1229,4 +1229,4 @@ Internet-Draft         Structure Identifier (SID)              July 2016
 
 
 
-Somaraju, et al.        Expires January 22, 2017               [Page 22]
+Somaraju, et al.        Expires February 24, 2017              [Page 22]

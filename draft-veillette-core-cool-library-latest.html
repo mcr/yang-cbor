@@ -292,7 +292,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed." />
   <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-cool-library-00" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-7-21" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-8-23" />
   <meta name="dct.abstract" content="This document describes a library, which provides information about all YANG modules implemented by a CoOL server endpoint.  A simple caching mechanism is provided to minimize retrieval of this information by CoOL clients." />
   <meta name="description" content="This document describes a library, which provides information about all YANG modules implemented by a CoOL server endpoint.  A simple caching mechanism is provided to minimize retrieval of this information by CoOL clients." />
 
@@ -313,10 +313,10 @@ li, p {
 </tr>
 <tr>
   <td class="left">Intended status: Standards Track</td>
-  <td class="right">July 21, 2016</td>
+  <td class="right">August 23, 2016</td>
 </tr>
 <tr>
-  <td class="left">Expires: January 22, 2017</td>
+  <td class="left">Expires: February 24, 2017</td>
   <td class="right"></td>
 </tr>
 
@@ -337,7 +337,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on January 22, 2017.</p>
+<p>This Internet-Draft will expire on February 24, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -414,6 +414,16 @@ li, p {
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#overview" id="overview">Overview</a></h1>
 <p id="rfc.section.3.p.1">The &#8220;ietf-cool-library&#8221; module provides information about the YANG library used by a server endpoint.  This module is defined using YANG version 1, but it supports the description of YANG modules written in any revision of YANG.</p>
 <h1 id="rfc.section.3.1"><a href="#rfc.section.3.1">3.1.</a> <a href="#tree-diagram" id="tree-diagram">Tree diagram</a></h1>
+<p/>
+
+<dl>
+  <dt>A simplified graphical representation of the data model is used for the ietf-cool-library YANG module specified in this document. The meaning of the symbols in these diagrams is as follows:</dt>
+  <dd style="margin-left: 8">Brackets &#8220;[&#8221; and &#8220;]&#8221; enclose list keys.</dd>
+  <dt></dt>
+  <dd style="margin-left: 8">Abbreviations before data node names: &#8220;rw&#8221; means configuration data (read-write) and &#8220;ro&#8221; state data (read-only).</dd>
+  <dt></dt>
+  <dd style="margin-left: 8">Symbols after data node names: &#8220;?&#8221; means an optional node, &#8220;!&#8221; means a presence container, and &#8220;*&#8221; denotes a list and leaf-list.</dd>
+</dl>
 <pre>
 module: ietf-cool-library
    +--ro modules-state
@@ -487,7 +497,7 @@ module ietf-cool-library {
   // RFC Ed.: replace XXXX with actual RFC number and remove
   // this note.
 
-  // RFC Ed.: update the date below with the date of RFC
+  // RFC Ed.: update the date below with the date of the RFC
   // publication and remove this note.
 
   // RFC Ed.: update [I-D.somaraju-core-sid] with actual RFC
@@ -536,6 +546,7 @@ module ietf-cool-library {
 
     leaf sid {
       type sid;
+      mandatory true;
       description
         "SID assigned to this module or submodule.";
     }
@@ -544,8 +555,8 @@ module ietf-cool-library {
       type revision;
       description
         "Revision date assigned to this module or submodule.
-        Set to 0x00000000 if no revision statement is present
-        in the YANG module.";
+        A zero-length binary string is used if no revision statement
+        is present in the YANG module or submodule.";
     }
   }
   
@@ -564,7 +575,7 @@ module ietf-cool-library {
     description
       "Contain information about the different data models
       implement by a CoOL endpoint.";
-
+    
     leaf module-set-id {
       type union {
         type uint32;
@@ -695,13 +706,13 @@ module ietf-cool-library {
 <p id="rfc.section.5.1.p.2">name:         ietf-cool-library</p>
 <p id="rfc.section.5.1.p.3">namespace:    urn:ietf:params:xml:ns:yang:ietf-cool-library</p>
 <p id="rfc.section.5.1.p.4">prefix:       coollib</p>
-<p id="rfc.section.5.1.p.5">// RFC Ed.: replace XXXX with RFC number and remove this note</p>
-<p id="rfc.section.5.1.p.6">reference:    RFC XXXX</p>
+<p id="rfc.section.5.1.p.5">reference:    RFC XXXX</p>
+<p id="rfc.section.5.1.p.6">// RFC Ed.: replace XXXX with RFC number and remove this note</p>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
 <p id="rfc.section.6.p.1">This YANG module is designed to be accessed via the CoOL protocol <a href="#I-D.veillette-core-cool">[I-D.veillette-core-cool]</a>.  Some of the readable data nodes in this YANG module may be considered sensitive or vulnerable in some network environments.  It is thus important to control read access to these data nodes.</p>
 <p id="rfc.section.6.p.2">Specifically, the &#8216;module&#8217; list may help an attacker identify the server capabilities and server implementations with known bugs. Server vulnerabilities may be specific to particular modules, module revisions, module features, or even module deviations.  This information is included in each module entry.  For example, if a particular operation on a particular data node is known to cause a server to crash or significantly degrade device performance, then the module list information will help an attacker identify server implementations with such a defect, in order to launch a denial of service attack on the device.</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments</a></h1>
-<p id="rfc.section.7.p.1">The YANG module defined by this memo have been derived from an already existing YANG module targetting the RESTconf protocol <a href="#I-D.ietf-netconf-restconf">[I-D.ietf-netconf-restconf]</a>. We will like to thank the authors of this prior work <a href="#I-D.ietf-netconf-yang-library">[I-D.ietf-netconf-yang-library]</a> which have been essential for the development of &#8220;ietf-cool-library&#8221; targetting the Constrained Objects Language <a href="#I-D.veillette-core-cool">[I-D.veillette-core-cool]</a> protocol. The authors would also like to thank Andy Bierman for his recommendations on the appraoch to use and his review of the resulting YANG module.</p>
+<p id="rfc.section.7.p.1">The YANG module defined by this memo have been derived from an already existing YANG module targeting the RESTconf protocol <a href="#I-D.ietf-netconf-restconf">[I-D.ietf-netconf-restconf]</a>. We will like to thank the authors of this prior work <a href="#I-D.ietf-netconf-yang-library">[I-D.ietf-netconf-yang-library]</a> which have been essential for the development of &#8220;ietf-cool-library&#8221; targeting the Constrained Objects Language <a href="#I-D.veillette-core-cool">[I-D.veillette-core-cool]</a> protocol. The authors would also like to thank Andy Bierman for his recommendations and his review of the resulting YANG module.</p>
 <h1 id="rfc.references"><a href="#rfc.references">8.</a> References</h1>
 <h1 id="rfc.references.1"><a href="#rfc.references.1">8.1.</a> Normative References</h1>
 <table>
@@ -716,7 +727,7 @@ module ietf-cool-library {
       <td class="reference">
         <b id="I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</b>
       </td>
-      <td class="top"><a>Somaraju, A.</a>, <a>Veillette, M.</a>, <a>Pelov, A.</a>, <a>Turner, R.</a> and <a>A. Minaburo</a>, "<a href="http://tools.ietf.org/html/draft-somaraju-core-sid-00">Structure Identifier (SID)</a>", Internet-Draft draft-somaraju-core-sid-00, March 2016.</td>
+      <td class="top"><a>Somaraju, A.</a>, <a>Veillette, M.</a>, <a>Pelov, A.</a>, <a>Turner, R.</a> and <a>A. Minaburo</a>, "<a href="http://tools.ietf.org/html/draft-somaraju-core-sid-01">Structure Identifier (SID)</a>", Internet-Draft draft-somaraju-core-sid-01, July 2016.</td>
     </tr>
     <tr>
       <td class="reference">
@@ -733,7 +744,7 @@ module ietf-cool-library {
       <td class="reference">
         <b id="I-D.ietf-netconf-restconf">[I-D.ietf-netconf-restconf]</b>
       </td>
-      <td class="top"><a>Bierman, A.</a>, <a>Bjorklund, M.</a> and <a>K. Watsen</a>, "<a href="http://tools.ietf.org/html/draft-ietf-netconf-restconf-14">RESTCONF Protocol</a>", Internet-Draft draft-ietf-netconf-restconf-14, June 2016.</td>
+      <td class="top"><a>Bierman, A.</a>, <a>Bjorklund, M.</a> and <a>K. Watsen</a>, "<a href="http://tools.ietf.org/html/draft-ietf-netconf-restconf-16">RESTCONF Protocol</a>", Internet-Draft draft-ietf-netconf-restconf-16, August 2016.</td>
     </tr>
     <tr>
       <td class="reference">
@@ -745,7 +756,7 @@ module ietf-cool-library {
       <td class="reference">
         <b id="I-D.veillette-core-cool">[I-D.veillette-core-cool]</b>
       </td>
-      <td class="top"><a>Veillette, M.</a>, <a>Pelov, A.</a>, <a>Somaraju, A.</a>, <a>Turner, R.</a> and <a>A. Minaburo</a>, "<a href="http://tools.ietf.org/html/draft-veillette-core-cool-01">Constrained Objects Language</a>", Internet-Draft draft-veillette-core-cool-01, March 2016.</td>
+      <td class="top"><a>Veillette, M.</a>, <a>Pelov, A.</a>, <a>Somaraju, A.</a>, <a>Turner, R.</a> and <a>A. Minaburo</a>, "<a href="http://tools.ietf.org/html/draft-veillette-core-cool-02">Constrained Objects Language</a>", Internet-Draft draft-veillette-core-cool-02, July 2016.</td>
     </tr>
   </tbody>
 </table>

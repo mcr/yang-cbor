@@ -4,8 +4,8 @@
 
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
-Intended status: Standards Track                         August 23, 2016
-Expires: February 24, 2017
+Intended status: Standards Track                      September 14, 2016
+Expires: March 18, 2017
 
 
                     Constrained YANG Module Library
@@ -33,7 +33,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 24, 2017.
+   This Internet-Draft will expire on March 18, 2017.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Veillette               Expires February 24, 2017               [Page 1]
+Veillette                Expires March 18, 2017                 [Page 1]
 
-Internet-Draft       Constrained YANG Module Library         August 2016
+Internet-Draft       Constrained YANG Module Library      September 2016
 
 
 Table of Contents
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Veillette               Expires February 24, 2017               [Page 2]
+Veillette                Expires March 18, 2017                 [Page 2]
 
-Internet-Draft       Constrained YANG Module Library         August 2016
+Internet-Draft       Constrained YANG Module Library      September 2016
 
 
    o  module
@@ -165,9 +165,9 @@ Internet-Draft       Constrained YANG Module Library         August 2016
 
 
 
-Veillette               Expires February 24, 2017               [Page 3]
+Veillette                Expires March 18, 2017                 [Page 3]
 
-Internet-Draft       Constrained YANG Module Library         August 2016
+Internet-Draft       Constrained YANG Module Library      September 2016
 
 
    module: ietf-cool-library
@@ -221,9 +221,9 @@ Internet-Draft       Constrained YANG Module Library         August 2016
 
 
 
-Veillette               Expires February 24, 2017               [Page 4]
+Veillette                Expires March 18, 2017                 [Page 4]
 
-Internet-Draft       Constrained YANG Module Library         August 2016
+Internet-Draft       Constrained YANG Module Library      September 2016
 
 
 4.  YANG Module "ietf-cool-library"
@@ -277,9 +277,9 @@ Internet-Draft       Constrained YANG Module Library         August 2016
 
 
 
-Veillette               Expires February 24, 2017               [Page 5]
+Veillette                Expires March 18, 2017                 [Page 5]
 
-Internet-Draft       Constrained YANG Module Library         August 2016
+Internet-Draft       Constrained YANG Module Library      September 2016
 
 
      // publication and remove this note.
@@ -333,9 +333,9 @@ Internet-Draft       Constrained YANG Module Library         August 2016
 
 
 
-Veillette               Expires February 24, 2017               [Page 6]
+Veillette                Expires March 18, 2017                 [Page 6]
 
-Internet-Draft       Constrained YANG Module Library         August 2016
+Internet-Draft       Constrained YANG Module Library      September 2016
 
 
          mandatory true;
@@ -389,9 +389,9 @@ Internet-Draft       Constrained YANG Module Library         August 2016
 
 
 
-Veillette               Expires February 24, 2017               [Page 7]
+Veillette                Expires March 18, 2017                 [Page 7]
 
-Internet-Draft       Constrained YANG Module Library         August 2016
+Internet-Draft       Constrained YANG Module Library      September 2016
 
 
        list module {
@@ -445,9 +445,9 @@ Internet-Draft       Constrained YANG Module Library         August 2016
 
 
 
-Veillette               Expires February 24, 2017               [Page 8]
+Veillette                Expires March 18, 2017                 [Page 8]
 
-Internet-Draft       Constrained YANG Module Library         August 2016
+Internet-Draft       Constrained YANG Module Library      September 2016
 
 
                  For YANG version 1 modules, there SHOULD NOT be more
@@ -501,9 +501,9 @@ Internet-Draft       Constrained YANG Module Library         August 2016
 
 
 
-Veillette               Expires February 24, 2017               [Page 9]
+Veillette                Expires March 18, 2017                 [Page 9]
 
-Internet-Draft       Constrained YANG Module Library         August 2016
+Internet-Draft       Constrained YANG Module Library      September 2016
 
 
            "Contains the module-set-id value representing the
@@ -557,9 +557,9 @@ Internet-Draft       Constrained YANG Module Library         August 2016
 
 
 
-Veillette               Expires February 24, 2017              [Page 10]
+Veillette                Expires March 18, 2017                [Page 10]
 
-Internet-Draft       Constrained YANG Module Library         August 2016
+Internet-Draft       Constrained YANG Module Library      September 2016
 
 
 7.  Acknowledgments
@@ -613,9 +613,9 @@ Internet-Draft       Constrained YANG Module Library         August 2016
 
 
 
-Veillette               Expires February 24, 2017              [Page 11]
+Veillette                Expires March 18, 2017                [Page 11]
 
-Internet-Draft       Constrained YANG Module Library         August 2016
+Internet-Draft       Constrained YANG Module Library      September 2016
 
 
 Author's Address
@@ -669,4 +669,4 @@ Author's Address
 
 
 
-Veillette               Expires February 24, 2017              [Page 12]
+Veillette                Expires March 18, 2017                [Page 12]

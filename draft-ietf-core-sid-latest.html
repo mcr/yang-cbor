@@ -291,8 +291,8 @@ li, p {
   <meta name="dct.creator" content="Somaraju, A., Ed., Veillette, M., Ed., Pelov, A., Turner, R., and A. Minaburo" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-sid-00" />
   <meta name="dct.issued" scheme="ISO8601" content="2016-10-26" />
-  <meta name="dct.abstract" content="YANG Schema Item iDentifiers (SID) are used to identify different YANG items when encoded in CBOR. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs." />
-  <meta name="description" content="YANG Schema Item iDentifiers (SID) are used to identify different YANG items when encoded in CBOR. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs." />
+  <meta name="dct.abstract" content="YANG Schema Item iDentifiers (SID) are used to identify different YANG items using a numeric identifier. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs." />
+  <meta name="description" content="YANG Schema Item iDentifiers (SID) are used to identify different YANG items using a numeric identifier. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs." />
 
 </head>
 
@@ -356,7 +356,7 @@ li, p {
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>YANG Schema Item iDentifiers (SID) are used to identify different YANG items when encoded in CBOR. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs.</p>
+<p>YANG Schema Item iDentifiers (SID) are used to identify different YANG items using a numeric identifier. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
@@ -398,7 +398,7 @@ li, p {
 <p id="rfc.section.1.p.1">This document describes the registries required to manage SIDs and a file format used to persist and publish the assigned SIDs.</p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#terminology-and-notation" id="terminology-and-notation">Terminology and Notation</a></h1>
 <p id="rfc.section.2.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in <a href="#RFC2119">[RFC2119]</a>.</p>
-<p id="rfc.section.2.p.2">The following terms are defined in <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a>:</p>
+<p id="rfc.section.2.p.2">The following terms are defined in [RFC7950]:</p>
 <p/>
 
 <ul>
@@ -421,7 +421,7 @@ li, p {
   <li>path: A path is a string that identifies a schema node within the schema tree. A path consists of the list of schema node identifier(s) separated by slashes (&#8220;/&#8221;). Schema node identifier(s) are always listed from the top-level schema node up to the targeted schema node. (e.g. &#8220;/system-state/clock/current-datetime&#8221;)</li>
 </ul>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#yang-schema-item-identifier-sid" id="yang-schema-item-identifier-sid">YANG Schema Item iDentifier (SID)</a></h1>
-<p id="rfc.section.3.p.1">Some of the items defined in YANG <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> require the use of a unique identifier. In both NETCONF and RESTCONF, these identifiers are implemented using names. To allow the implementation of data models defined in YANG in constrained devices and constrained networks, a more compact method to identify YANG items is required.</p>
+<p id="rfc.section.3.p.1">Some of the items defined in YANG [RFC7950] require the use of a unique identifier. In both NETCONF and RESTCONF, these identifiers are implemented using names. To allow the implementation of data models defined in YANG in constrained devices and constrained networks, a more compact method to identify YANG items is required.</p>
 <p id="rfc.section.3.p.2">This compact identifier, called SID, is encoded using an unsigned integer. To minimize its size, SIDs are often implemented using a delta from a reference SID and the current SID. To guaranty the uniqueness of each assigned SID, SID ranges MUST be registered. <a href="#sid-range-registry">Section 7.1</a> provide more details about the registration process of SID range(s).</p>
 <p id="rfc.section.3.p.3">To avoid duplicate assignment of SIDs, the registration of the SIDs assigned to YANG module(s) is recommended. <a href="#module-registry">Section 7.2</a> provide more details about the registration process of YANG modules.</p>
 <p id="rfc.section.3.p.4">The following items are identified using SIDs:</p>
@@ -441,7 +441,7 @@ li, p {
 <ul>
   <li>A tool extracts the different items defined for a specific YANG module.</li>
   <li>The list of items is ordered by type and label.</li>
-  <li>SIDs are assigned sequentially for the entry point up to the size of the registered SID range. It is important to note that sequentially assigning SIDs optimizes the CBOR serialization due to the use of delta encoding.</li>
+  <li>SIDs are assigned sequentially for the entry point up to the size of the registered SID range. This approach is recommended to minimize the serialization overhead, especially when delta encoding is implemented.</li>
   <li>If the number of items exceeds the SID range(s) allocated to a YANG module, an extra range is added for subsequent assignments.</li>
 </ul>
 <p id="rfc.section.3.p.8">SIDs are assigned permanently, items introduced by a new revision of a YANG module are added to the list of SIDs already assigned. This process can also be automated using the same method described above except that the assignment need to be restarted from the highest SID already assigned.</p>
@@ -501,7 +501,7 @@ li, p {
 <p id="rfc.section.4.p.5">Each time a YANG module or one of its imported module(s) or included sub-module(s) is updated, the &#8220;.sid&#8221; file MAY need to be updated. This update SHOULD also be performed using an automated tool.</p>
 <p id="rfc.section.4.p.6">If a new revision requires more SIDs than initially allocated, a new SID range MUST be added to the assignment ranges as defined in the &#8220;.sid&#8221; file header. These extra SIDs are used for subsequent assignments.</p>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#sid-file-format" id="sid-file-format">&#8220;.sid&#8221; file format</a></h1>
-<p id="rfc.section.5.p.1">&#8220;.sid&#8221; files are used to persist and publish SIDs assigned to the different YANG items of a specific YANG module. The following YANG module defined the structure of this file, encoding is performed using the rules defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a>.</p>
+<p id="rfc.section.5.p.1">&#8220;.sid&#8221; files are used to persist and publish SIDs assigned to the different YANG items of a specific YANG module. The following YANG module defined the structure of this file, encoding is performed using the rules defined in [RFC7951].</p>
 <pre>
 &lt;CODE BEGINS&gt; file "ietf-sid-file@2015-12-16.yang"
 module ietf-sid-file {
@@ -645,8 +645,8 @@ module ietf-sid-file {
 &lt;CODE ENDS&gt;
 </pre>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
-<p id="rfc.section.6.p.1">The security considerations of <a href="#RFC7049">[RFC7049]</a> and <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> apply.</p>
-<p id="rfc.section.6.p.2">This document defines an new type of identifier used to encode data models defined in YANG <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a>. As such, this identifier does not contribute to any new security issues in addition of those identified for the specific protocols or contexts for which it is used.</p>
+<p id="rfc.section.6.p.1">The security considerations of <a href="#RFC7049">[RFC7049]</a> and [RFC7950] apply.</p>
+<p id="rfc.section.6.p.2">This document defines an new type of identifier used to encode data models defined in YANG [RFC7950]. As such, this identifier does not contribute to any new security issues in addition of those identified for the specific protocols or contexts for which it is used.</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#IANA" id="IANA">IANA Considerations</a></h1>
 <h1 id="rfc.section.7.1"><a href="#rfc.section.7.1">7.1.</a> <a href="#sid-range-registry" id="sid-range-registry">&#8220;SID&#8221; range registry</a></h1>
 <p id="rfc.section.7.1.p.1">IANA is requested to create a registry for YANG Schema Item iDentifier (SID) ranges. This registry needs to guarantee that the ranges registered do not overlap. The registry SHALL record for each entry:</p>
@@ -772,18 +772,6 @@ module ietf-sid-file {
 <h1 id="rfc.references.1"><a href="#rfc.references.1">9.1.</a> Normative References</h1>
 <table>
   <tbody>
-    <tr>
-      <td class="reference">
-        <b id="I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</b>
-      </td>
-      <td class="top"><a>Bjorklund, M.</a>, "<a href="http://tools.ietf.org/html/draft-ietf-netmod-rfc6020bis-14">The YANG 1.1 Data Modeling Language</a>", Internet-Draft draft-ietf-netmod-rfc6020bis-14, June 2016.</td>
-    </tr>
-    <tr>
-      <td class="reference">
-        <b id="I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</b>
-      </td>
-      <td class="top"><a>Lhotka, L.</a>, "<a href="http://tools.ietf.org/html/draft-ietf-netmod-yang-json-10">JSON Encoding of Data Modeled with YANG</a>", Internet-Draft draft-ietf-netmod-yang-json-10, March 2016.</td>
-    </tr>
     <tr>
       <td class="reference">
         <b id="RFC2119">[RFC2119]</b>

@@ -21,7 +21,7 @@ Expires: April 29, 2017                          Trilliant Networks Inc.
 Abstract
 
    YANG Schema Item iDentifiers (SID) are used to identify different
-   YANG items when encoded in CBOR.  This document defines the
+   YANG items using a numeric identifier.  This document defines the
    registration and assignment processes of SIDs.  To enable the
    implementation of these processes, this document also defines a file
    format used to persist and publish assigned SIDs.
@@ -95,7 +95,7 @@ Table of Contents
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
    document are to be interpreted as described in [RFC2119].
 
-   The following terms are defined in [I-D.ietf-netmod-rfc6020bis]:
+   The following terms are defined in [RFC7950]:
 
    o  action
 
@@ -142,12 +142,11 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
 
 3.  YANG Schema Item iDentifier (SID)
 
-   Some of the items defined in YANG [I-D.ietf-netmod-rfc6020bis]
-   require the use of a unique identifier.  In both NETCONF and
-   RESTCONF, these identifiers are implemented using names.  To allow
-   the implementation of data models defined in YANG in constrained
-   devices and constrained networks, a more compact method to identify
-   YANG items is required.
+   Some of the items defined in YANG [RFC7950] require the use of a
+   unique identifier.  In both NETCONF and RESTCONF, these identifiers
+   are implemented using names.  To allow the implementation of data
+   models defined in YANG in constrained devices and constrained
+   networks, a more compact method to identify YANG items is required.
 
    This compact identifier, called SID, is encoded using an unsigned
    integer.  To minimize its size, SIDs are often implemented using a
@@ -162,6 +161,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
 
    The following items are identified using SIDs:
 
+   o  identities
 
 
 
@@ -169,8 +169,6 @@ Somaraju, et al.         Expires April 29, 2017                 [Page 3]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
 
-
-   o  identities
 
    o  data nodes
 
@@ -191,9 +189,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
    o  The list of items is ordered by type and label.
 
    o  SIDs are assigned sequentially for the entry point up to the size
-      of the registered SID range.  It is important to note that
-      sequentially assigning SIDs optimizes the CBOR serialization due
-      to the use of delta encoding.
+      of the registered SID range.  This approach is recommended to
+      minimize the serialization overhead, especially when delta
+      encoding is implemented.
 
    o  If the number of items exceeds the SID range(s) allocated to a
       YANG module, an extra range is added for subsequent assignments.
@@ -211,6 +209,8 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
 
    The following activity diagram summarize the life cycle of ".sid"
    files.
+
+
 
 
 
@@ -311,7 +311,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
    ".sid" files are used to persist and publish SIDs assigned to the
    different YANG items of a specific YANG module.  The following YANG
    module defined the structure of this file, encoding is performed
-   using the rules defined in [I-D.ietf-netmod-yang-json].
+   using the rules defined in [RFC7951].
 
 <CODE BEGINS> file "ietf-sid-file@2015-12-16.yang"
 module ietf-sid-file {
@@ -478,14 +478,12 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
 
 6.  Security Considerations
 
-   The security considerations of [RFC7049] and
-   [I-D.ietf-netmod-rfc6020bis] apply.
+   The security considerations of [RFC7049] and [RFC7950] apply.
 
    This document defines an new type of identifier used to encode data
-   models defined in YANG [I-D.ietf-netmod-rfc6020bis].  As such, this
-   identifier does not contribute to any new security issues in addition
-   of those identified for the specific protocols or contexts for which
-   it is used.
+   models defined in YANG [RFC7950].  As such, this identifier does not
+   contribute to any new security issues in addition of those identified
+   for the specific protocols or contexts for which it is used.
 
 7.  IANA Considerations
 
@@ -498,6 +496,8 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
 
    o  The entry point (first entry) of the registered SID range.
 
+   o  The size of the registered SID range.
+
 
 
 
@@ -505,8 +505,6 @@ Somaraju, et al.         Expires April 29, 2017                 [Page 9]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
 
-
-   o  The size of the registered SID range.
 
    o  The contact information of the owner of the range such as name,
       email address, and phone number.
@@ -553,6 +551,8 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
    | 0x40000000 | 2^64-0x40000000 | Specification required, expert     |
    |            |                 | review                             |
    +------------+-----------------+------------------------------------+
+
+
 
 
 
@@ -622,16 +622,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
 
 9.1.  Normative References
 
-   [I-D.ietf-netmod-rfc6020bis]
-              Bjorklund, M., "The YANG 1.1 Data Modeling Language",
-              draft-ietf-netmod-rfc6020bis-14 (work in progress), June
-              2016.
-
-   [I-D.ietf-netmod-yang-json]
-              Lhotka, L., "JSON Encoding of Data Modeled with YANG",
-              draft-ietf-netmod-yang-json-10 (work in progress), March
-              2016.
-
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
@@ -666,14 +656,6 @@ Appendix A.  ".sid" file example
 
    o  ietf-system@2014-08-06.yang
 
-
-
-
-Somaraju, et al.         Expires April 29, 2017                [Page 12]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
-
-
    o  ietf-yang-types@2013-07-15.yang
 
    o  ietf-inet-types@2013-07-15.yang
@@ -684,6 +666,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
 
 {
   "assignment-ranges": [
+
+
+
+Somaraju, et al.         Expires April 29, 2017                [Page 12]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
+
+
     {
       "entry-point": 1700,
       "size": 100
@@ -722,14 +712,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
       "label": "ntp-udp-port",
       "sid": 1705
     },
-
-
-
-Somaraju, et al.         Expires April 29, 2017                [Page 13]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
-
-
     {
       "type": "feature",
       "label": "radius",
@@ -740,6 +722,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
       "label": "radius-authentication",
       "sid": 1707
     },
+
+
+
+Somaraju, et al.         Expires April 29, 2017                [Page 13]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
+
+
     {
       "type": "feature",
       "label": "timezone-name",
@@ -778,14 +768,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
     {
       "type": "node",
       "label": "/system",
-
-
-
-Somaraju, et al.         Expires April 29, 2017                [Page 14]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
-
-
       "sid": 1715
     },
     {
@@ -796,6 +778,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
     {
       "type": "node",
       "label": "/system-state/clock",
+
+
+
+Somaraju, et al.         Expires April 29, 2017                [Page 14]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
+
+
       "sid": 1717
     },
     {
@@ -834,14 +824,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
       "sid": 1724
     },
     {
-
-
-
-Somaraju, et al.         Expires April 29, 2017                [Page 15]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
-
-
       "type": "node",
       "label": "/system/authentication",
       "sid": 1725
@@ -852,6 +834,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
       "sid": 1726
     },
     {
+
+
+
+Somaraju, et al.         Expires April 29, 2017                [Page 15]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
+
+
       "type": "node",
       "label": "/system/authentication/user-authentication-order",
       "sid": 1727
@@ -890,14 +880,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
       "type": "node",
       "label": "/system/clock",
       "sid": 1734
-
-
-
-Somaraju, et al.         Expires April 29, 2017                [Page 16]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
-
-
     },
     {
       "type": "node",
@@ -908,6 +890,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
       "type": "node",
       "label": "/system/clock/timezone/timezone-utc-offset/timezone-utc-offset",
       "sid": 1736
+
+
+
+Somaraju, et al.         Expires April 29, 2017                [Page 16]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
+
+
     },
     {
       "type": "node",
@@ -946,14 +936,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
     },
     {
       "type": "node",
-
-
-
-Somaraju, et al.         Expires April 29, 2017                [Page 17]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
-
-
       "label": "/system/dns-resolver/server/name",
       "sid": 1744
     },
@@ -964,6 +946,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
     },
     {
       "type": "node",
+
+
+
+Somaraju, et al.         Expires April 29, 2017                [Page 17]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
+
+
       "label": "/system/dns-resolver/server/transport/udp-and-tcp/udp-and-tcp/address",
       "sid": 1746
     },
@@ -1002,14 +992,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
       "label": "/system/ntp/server/association-type",
       "sid": 1753
     },
-
-
-
-Somaraju, et al.         Expires April 29, 2017                [Page 18]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
-
-
     {
       "type": "node",
       "label": "/system/ntp/server/iburst",
@@ -1020,6 +1002,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
       "label": "/system/ntp/server/name",
       "sid": 1755
     },
+
+
+
+Somaraju, et al.         Expires April 29, 2017                [Page 18]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
+
+
     {
       "type": "node",
       "label": "/system/ntp/server/prefer",
@@ -1058,14 +1048,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
     {
       "type": "node",
       "label": "/system/radius/options/timeout",
-
-
-
-Somaraju, et al.         Expires April 29, 2017                [Page 19]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
-
-
       "sid": 1763
     },
     {
@@ -1076,6 +1058,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
     {
       "type": "node",
       "label": "/system/radius/server/authentication-type",
+
+
+
+Somaraju, et al.         Expires April 29, 2017                [Page 19]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
+
+
       "sid": 1765
     },
     {
@@ -1114,14 +1104,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
       "sid": 1772
     },
     {
-
-
-
-Somaraju, et al.         Expires April 29, 2017                [Page 20]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
-
-
       "type": "rpc",
       "label": "/system-restart",
       "sid": 1773
@@ -1132,6 +1114,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
       "sid": 1774
     }
   ]
+
+
+
+Somaraju, et al.         Expires April 29, 2017                [Page 20]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
+
+
 }
 
 Authors' Addresses
@@ -1165,6 +1155,16 @@ Authors' Addresses
    Email: a@ackl.io
 
 
+   Randy Turner
+   Landis+Gyr
+   30000 Mill Creek Ave
+   Suite 100
+   Alpharetta, GA  30022
+   US
+
+   Phone: ++16782581292
+   Email: randy.turner@landisgyr.com
+   URI:   http://www.landisgyr.com/
 
 
 
@@ -1178,18 +1178,6 @@ Somaraju, et al.         Expires April 29, 2017                [Page 21]
 Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
 
 
-   Randy Turner
-   Landis+Gyr
-   30000 Mill Creek Ave
-   Suite 100
-   Alpharetta, GA  30022
-   US
-
-   Phone: ++16782581292
-   Email: randy.turner@landisgyr.com
-   URI:   http://www.landisgyr.com/
-
-
    Ana Minaburo
    Acklio
    2bis rue de la chataigneraie
@@ -1197,6 +1185,18 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2016
    France
 
    Email: ana@ackl.io
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

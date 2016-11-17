@@ -315,8 +315,8 @@ li, p {
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Somaraju, A., Turner, R., and A. Minaburo" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-yang-cbor-02" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-10-26" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-yang-cbor-03" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-11-17" />
   <meta name="dct.abstract" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
   <meta name="description" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
 
@@ -340,7 +340,7 @@ li, p {
   <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: April 29, 2017</td>
+  <td class="left">Expires: May 21, 2017</td>
   <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -369,7 +369,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">October 26, 2016</td>
+  <td class="right">November 17, 2016</td>
 </tr>
 
     	
@@ -377,7 +377,7 @@ li, p {
   </table>
 
   <p class="title">CBOR Encoding of Data Modeled with YANG<br />
-  <span class="filename">draft-ietf-core-yang-cbor-02</span></p>
+  <span class="filename">draft-ietf-core-yang-cbor-03</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -389,7 +389,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on April 29, 2017.</p>
+<p>This Internet-Draft will expire on May 21, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -447,12 +447,12 @@ li, p {
   </ul>
 
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a></h1>
-<p id="rfc.section.1.p.1">The specification of the YANG 1.1 data modelling language <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> defines an XML encoding for data instances, i.e. contents of configuration datastores, state data, RPC inputs and outputs, action inputs and outputs, and event notifications.</p>
-<p id="rfc.section.1.p.2">A new set of encoding rules has been defined to allow the use of the same data models in environments based on the JavaScript Object Notation (JSON) Data Interchange Format <a href="#RFC7159">[RFC7159]</a>. This is accomplished in the JSON Encoding of Data Modeled with YANG specification <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a>.</p>
+<p id="rfc.section.1.p.1">The specification of the YANG 1.1 data modelling language <a href="#RFC7950">[RFC7950]</a> defines an XML encoding for data instances, i.e. contents of configuration datastores, state data, RPC inputs and outputs, action inputs and outputs, and event notifications.</p>
+<p id="rfc.section.1.p.2">A new set of encoding rules has been defined to allow the use of the same data models in environments based on the JavaScript Object Notation (JSON) Data Interchange Format <a href="#RFC7159">[RFC7159]</a>. This is accomplished in the JSON Encoding of Data Modeled with YANG specification <a href="#RFC7951">[RFC7951]</a>.</p>
 <p id="rfc.section.1.p.3">The aim of this document is to define a set of encoding rules for the Concise Binary Object Representation (CBOR) <a href="#RFC7049">[RFC7049]</a>. The resulting encoding is more compact compared to XML and JSON and more suitable for Constrained Nodes and/or Constrained Networks as defined by <a href="#RFC7228">[RFC7228]</a>.</p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#terminology-and-notation" id="terminology-and-notation">Terminology and Notation</a></h1>
 <p id="rfc.section.2.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in <a href="#RFC2119">[RFC2119]</a>.</p>
-<p id="rfc.section.2.p.2">The following terms are defined in <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a>:</p>
+<p id="rfc.section.2.p.2">The following terms are defined in <a href="#RFC7950">[RFC7950]</a>:</p>
 <p/>
 
 <ul>
@@ -468,7 +468,7 @@ li, p {
   <li>schema tree</li>
   <li>submodule</li>
 </ul>
-<p id="rfc.section.2.p.4">The following terms are defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a>:</p>
+<p id="rfc.section.2.p.4">The following terms are defined in <a href="#RFC7951">[RFC7951]</a>:</p>
 <p/>
 
 <ul>
@@ -583,16 +583,15 @@ li, p {
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#properties-of-the-cbor-encoding" id="properties-of-the-cbor-encoding">Properties of the CBOR Encoding</a></h1>
 <p id="rfc.section.3.p.1">This document defines CBOR encoding rules for YANG schema trees and their subtrees.</p>
 <p id="rfc.section.3.p.2">Basic schema nodes such as leaf, leaf-list, list, anydata and anyxml can be encoded standalone. In this case, only the value of this schema node is encoded in CBOR. Identification of this value needs to be provided by some external means when required.</p>
-<p id="rfc.section.3.p.3">A collection such as container, list instance, notification, RPC input, RPC output, action input and action output is serialized using a CBOR map in which each child schema node is encoded using a key and a value. This specification supports two type of keys; SID as defined in <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a> and member names as defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a>. Each of these key type is encoded using a specific CBOR type which allows their interpretation during the deserialization process. The end user of this mapping specification can mandate the use of a specific key type or a specific subset of key types.</p>
-<p id="rfc.section.3.p.4">In order to minimize the size of the encoded data, the proposed mapping avoid any unnecessary meta-information beyond those natively supported by CBOR. For instance, CBOR tags are used solely in the case of the union datatype to distinguish explicitly the use of different YANG datatypes encoded using the same CBOR major type.</p>
-<p id="rfc.section.3.p.5">It is expected that application entities generating and decoding CBOR contents have enough knowledge about the information processed in order to perform the expected task without the need of such extra meta-information.</p>
+<p id="rfc.section.3.p.3">A collection such as container, list instance, notification, RPC input, RPC output, action input and action output is serialized using a CBOR map in which each child schema node is encoded using a key and a value. This specification supports two type of keys; SID as defined in <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a> and member names as defined in <a href="#RFC7951">[RFC7951]</a>. Each of these key types is encoded using a specific CBOR type which allows their interpretation during the deserialization process. The end user of this mapping specification (e.g. RESTCONF, CoMI) can mandate the use of a specific key type.</p>
+<p id="rfc.section.3.p.4">In order to minimize the size of the encoded data, the proposed mapping avoids any unnecessary meta-information beyond those natively supported by CBOR. For instance, CBOR tags are used solely in the case of anyxml data nodes and the union datatype to distinguish explicitly the use of different YANG datatypes encoded using the same CBOR major type.</p>
 <h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#instance-encoding" id="instance-encoding">Encoding of YANG Data Node Instances</a></h1>
-<p id="rfc.section.4.p.1">Schema node instances defined using the YANG modeling language are encoded using CBOR <a href="#RFC7049">[RFC7049]</a> based on the rules defined in this section. We assume that the reader is already familiar with both YANG <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> and CBOR <a href="#RFC7049">[RFC7049]</a>.</p>
+<p id="rfc.section.4.p.1">Schema node instances defined using the YANG modeling language are encoded using CBOR <a href="#RFC7049">[RFC7049]</a> based on the rules defined in this section. We assume that the reader is already familiar with both YANG <a href="#RFC7950">[RFC7950]</a> and CBOR <a href="#RFC7049">[RFC7049]</a>.</p>
 <h1 id="rfc.section.4.1"><a href="#rfc.section.4.1">4.1.</a> <a href="#the-leaf-data-node" id="the-leaf-data-node">The &#8216;leaf&#8217; Data Node</a></h1>
 <p id="rfc.section.4.1.p.1">Leafs MUST be encoded based on the encoding rules specified in <a href="#data-types-mapping">Section 5</a>.</p>
 <h1 id="rfc.section.4.2"><a href="#rfc.section.4.2">4.2.</a> <a href="#container" id="container">The &#8216;container&#8217; Data Node</a></h1>
-<p id="rfc.section.4.2.p.1">Collections such as containers, list instances, notifications, RPC inputs, RPC outputs, action inputs and action outputs MUST be encoded using a CBOR map data item (major type 5). A map is comprised of pairs of data items, with each data item consisting of a key and a value. Each key within the CBOR map is set to a data node identifier, each value is set to the value of this data node instance.</p>
-<p id="rfc.section.4.2.p.2">This specification supports two type of keys; SID as defined in <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a> encoded using CBOR unsigned or signed integers and member names as defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> encoded using CBOR text strings. The use of CBOR byte strings for keys is reserved for future extensions.</p>
+<p id="rfc.section.4.2.p.1">Collections such as containers, list instances, notifications, RPC inputs, RPC outputs, action inputs and action outputs MUST be encoded using a CBOR map data item (major type 5). A map is comprised of pairs of data items, with each data item consisting of a key and a value. Each key within the CBOR map is set to a data node identifier, each value is set to the value of this data node instance according to the instance datatype.</p>
+<p id="rfc.section.4.2.p.2">This specification supports two type of keys; SID as defined in <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a> encoded using CBOR unsigned or signed integers and member names as defined in <a href="#RFC7951">[RFC7951]</a> encoded using CBOR text strings. The use of CBOR byte strings for keys is reserved for future extensions.</p>
 <h1 id="rfc.section.4.2.1"><a href="#rfc.section.4.2.1">4.2.1.</a> <a href="#container-with-sid" id="container-with-sid">SIDs as keys</a></h1>
 <p id="rfc.section.4.2.1.p.1">Keys implemented using SIDs MUST be encoded using a CBOR unsigned integer (major type 0) or CBOR signed integer (major type 1), depending on the actual value. Keys are set to the delta of the associated SID, delta values are computed as follows:</p>
 <p/>
@@ -601,7 +600,7 @@ li, p {
   <li>The delta value is equal to the SID of the current schema node minus the SID of the parent schema node. When no parent exists in the context of use of this container, the delta is set to the SID of the current schema node (a parent with SID equal to zero is assumed).</li>
   <li>Delta values may result in a negative number, clients and servers MUST support negative deltas.</li>
 </ul>
-<p id="rfc.section.4.2.1.p.3">The following example shows the encoding of the &#8216;system&#8217; container using the SIDs defined in <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a> Appendix C.</p>
+<p id="rfc.section.4.2.1.p.3">The following example shows the encoding of the &#8216;system&#8217; container using the SIDs defined in <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a> Appendix C.</p>
 <p id="rfc.section.4.2.1.p.4">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 typedef date-and-time {
@@ -611,18 +610,13 @@ typedef date-and-time {
   }
 }
 
-container system {
-  leaf hostname {
-    type inet:domain-name;
+container clock {
+  leaf current-datetime {
+    type date-and-time;
+  }
 
-  container clock {
-    leaf current-datetime {
-      type date-and-time;
-    }
-
-    leaf boot-datetime {
-      type date-and-time;
-    }
+  leaf boot-datetime {
+    type date-and-time;
   }
 }
 </pre>
@@ -648,8 +642,8 @@ a1                                      # map(1)
       323031352d30392d31355430393a31323a35385a2d30353a3030
 </pre>
 <h1 id="rfc.section.4.2.2"><a href="#rfc.section.4.2.2">4.2.2.</a> <a href="#member-names-as-keys" id="member-names-as-keys">Member names as keys</a></h1>
-<p id="rfc.section.4.2.2.p.1">Keys implemented using member names MUST be encoded using a CBOR text string data item (major type 3). A namespace-qualified member name MUST be used for all members of a top-level collection, and then also whenever the namespaces of the schema node and its parent are different. In all other cases, the simple form of the member name MUST be used. Names and namespaces are defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> section 4.</p>
-<p id="rfc.section.4.2.2.p.2">The following example shows the encoding of the  the &#8216;system&#8217; container using names. This example is described in <a href="#container-with-sid">Section 4.2.1</a>.</p>
+<p id="rfc.section.4.2.2.p.1">Keys implemented using member names MUST be encoded using a CBOR text string data item (major type 3). A namespace-qualified member name MUST be used for all members of a top-level collection, and then also whenever the namespaces of the schema node and its parent are different. In all other cases, the simple form of the member name MUST be used. Names and namespaces are defined in <a href="#RFC7951">[RFC7951]</a> section 4.</p>
+<p id="rfc.section.4.2.2.p.2">The following example shows the encoding of the &#8216;system&#8217; container using names. This example is described in <a href="#container-with-sid">Section 4.2.1</a>.</p>
 <p id="rfc.section.4.2.2.p.3">CBOR diagnostic notation:</p>
 <pre>
 {
@@ -698,9 +692,8 @@ leaf-list search {
 <h1 id="rfc.section.4.4"><a href="#rfc.section.4.4">4.4.</a> <a href="#list" id="list">The &#8216;list&#8217; Data Node</a></h1>
 <p id="rfc.section.4.4.p.1">A list MUST be encoded using a CBOR array data item (major type 4). Each list instance within this CBOR array is encoded using a CBOR map data item (major type 5) based on the same rules as a YANG container as defined in <a href="#container">Section 4.2</a>.</p>
 <h1 id="rfc.section.4.4.1"><a href="#rfc.section.4.4.1">4.4.1.</a> <a href="#list-with-sid" id="list-with-sid">SIDs as keys</a></h1>
-<p id="rfc.section.4.4.1.p.1">The follwoing example show the encoding a the &#8216;server&#8217; list using the SIDs defined in <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a> Appendix C. It is important to note that the protocol or method using this mapping may carry a parent SID or may have the knowledge of this parent SID based on its context. In these cases, delta encoding can be performed based on this parent SID which minimizes the size of the encoded data.</p>
-<p id="rfc.section.4.4.1.p.2">The following example shows the encoding of the &#8216;server&#8217; list containing two enties. SIDs used in this example are defined in <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a> Appendix C. It is important to note that the protocol or method using this mapping may carry a parent SID or may have the knowledge of this parent SID based on its context. In these cases, delta encoding can be performed based on this parent SID which minimizes the size of the encoded data.</p>
-<p id="rfc.section.4.4.1.p.3">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
+<p id="rfc.section.4.4.1.p.1">The follwoing example show the encoding of the &#8216;server&#8217; list using the SIDs defined in <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a> Appendix C. It is important to note that the protocol or method using this mapping may carry a parent SID or may have the knowledge of this parent SID based on its context. In these cases, delta encoding can be performed based on this parent SID which minimizes the size of the encoded data.</p>
+<p id="rfc.section.4.4.1.p.2">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 list server {
   key name;
@@ -739,7 +732,7 @@ list server {
   }
 }
 </pre>
-<p id="rfc.section.4.4.1.p.4">CBOR diagnostic notation:</p>
+<p id="rfc.section.4.4.1.p.3">CBOR diagnostic notation:</p>
 <pre>
 [
   {
@@ -760,7 +753,7 @@ list server {
   }
 ]
 </pre>
-<p id="rfc.section.4.4.1.p.5">CBOR encoding:</p>
+<p id="rfc.section.4.4.1.p.4">CBOR encoding:</p>
 <pre>
 82                                    # array(2)
    a5                                 # map(5)
@@ -791,7 +784,7 @@ list server {
             7461632e6e72632e6361      # "tac.nrc.ca"
 </pre>
 <h1 id="rfc.section.4.4.2"><a href="#rfc.section.4.4.2">4.4.2.</a> <a href="#member-names-as-keys-1" id="member-names-as-keys-1">Member names as keys</a></h1>
-<p id="rfc.section.4.4.2.p.1">The following example shows the encoding of the the &#8216;server&#8217; list using names. This example is described in <a href="#list-with-sid">Section 4.4.1</a>.</p>
+<p id="rfc.section.4.4.2.p.1">The following example shows the encoding of the &#8216;server&#8217; list using names. This example is described in <a href="#list-with-sid">Section 4.4.1</a>.</p>
 <p id="rfc.section.4.4.2.p.2">CBOR diagnostic notation:</p>
 <pre>
 [
@@ -862,8 +855,52 @@ list server {
   <li>The CBOR array MUST contain either unique scalar values (as a leaf-list, see <a href="#leaf-list">Section 4.3</a>), or maps (as a list, see <a href="#list">Section 4.4</a>).</li>
   <li>Values MUST follow the encoding rules of one of the datatypes listed in <a href="#data-types-mapping">Section 5</a>.</li>
 </ul>
+<p id="rfc.section.4.5.p.3">The following example shows a possible use of anydata. In this example, an anydata is used to define a data node containing a notification event, this data node can be part of a YANG list to create an event logger.</p>
+<p id="rfc.section.4.5.p.4">Definition example:</p>
+<pre>
+anydata event;
+</pre>
+<p id="rfc.section.4.5.p.5">This example also assumes the assistance of the following notification.</p>
+<pre>
+module example-port {
+  ...
+
+  notification example-port-fault {  # ID 2600
+    leaf port-name {                 # ID 2601
+      type string;
+    }
+    leaf port-fault {                # ID 2601
+      type string;
+    }
+  }
+}
+</pre>
+<p id="rfc.section.4.5.p.6">CBOR diagnostic notation:</p>
+<pre>
+{
+  2601 : "0/4/21",       # port-name
+  2602 : "Open pin 2"    # port-fault
+}
+</pre>
+<p id="rfc.section.4.5.p.7">CBOR encoding:</p>
+<pre>
+a2                         # map(2)
+   19 0a29                 # unsigned(2601)
+   66                      # text(6)
+      302f342f3231         # "0/4/21"
+   19 0a2a                 # unsigned(2602)
+   6a                      # text(10)
+      4f70656e2070696e2032 # "Open pin 2"
+</pre>
 <h1 id="rfc.section.4.6"><a href="#rfc.section.4.6">4.6.</a> <a href="#the-anyxml-data-node" id="the-anyxml-data-node">The &#8216;anyxml&#8217; Data Node</a></h1>
-<p id="rfc.section.4.6.p.1">An anyxml schema node is used to serialize an arbitrary CBOR content, i.e., its value can be any CBOR binary object.</p>
+<p id="rfc.section.4.6.p.1">An anyxml schema node is used to serialize an arbitrary CBOR content, i.e., its value can be any CBOR binary object. anyxml value may contain CBOR data items tagged with one of the tag listed in <a href="#tag-registry">Section 7.1</a>, these tags shall be supported.</p>
+<p id="rfc.section.4.6.p.2">The following example shows a valid CBOR encoded instance.</p>
+<p id="rfc.section.4.6.p.3">Definition example from <a href="#RFC7951">[RFC7951]</a>:</p>
+<pre>
+anyxml bar;
+</pre>
+<p id="rfc.section.4.6.p.4">CBOR diagnostic notation: [true, null, true]</p>
+<p id="rfc.section.4.6.p.5">CBOR encoding: 83 f5 f6 f5</p>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#data-types-mapping" id="data-types-mapping">Representing YANG Data Types in CBOR</a></h1>
 <h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#the-unsigned-integer-types" id="the-unsigned-integer-types">The unsigned integer Types</a></h1>
 <p id="rfc.section.5.1.p.1">Leafs of type uint8, uint16, uint32 and uint64 MUST be encoded using a CBOR unsigned integer data item (major type 0).</p>
@@ -892,7 +929,7 @@ leaf timezone-utc-offset {
 <p id="rfc.section.5.2.p.4">CBOR diagnostic notation: -300</p>
 <p id="rfc.section.5.2.p.5">CBOR encoding: 39 012b</p>
 <h1 id="rfc.section.5.3"><a href="#rfc.section.5.3">5.3.</a> <a href="#the-decimal64-type" id="the-decimal64-type">The &#8216;decimal64&#8217; Type</a></h1>
-<p id="rfc.section.5.3.p.1">Leafs of type decimal64 MUST be encoded using either CBOR unsigned integer (major type 0) or CBOR signed integer (major type 1), depending on the actual value. The position of the decimal point is defined by the fraction-digits YANG statement and is not available in the CBOR encoding.</p>
+<p id="rfc.section.5.3.p.1">Leafs of type decimal64 MUST be encoded using a decimal fraction as defined in <a href="#RFC7049">[RFC7049]</a> section 2.4.3.</p>
 <p id="rfc.section.5.3.p.2">The following example shows the encoding of leaf &#8216;my-decimal&#8217; set to 2.57.</p>
 <p id="rfc.section.5.3.p.3">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
@@ -903,8 +940,8 @@ leaf my-decimal {
   }
 }
 </pre>
-<p id="rfc.section.5.3.p.4">CBOR diagnostic notation: 257</p>
-<p id="rfc.section.5.3.p.5">CBOR encoding: 19 0101</p>
+<p id="rfc.section.5.3.p.4">CBOR diagnostic notation: 4([-2, 257])</p>
+<p id="rfc.section.5.3.p.5">CBOR encoding: c4 82 21 19 0101</p>
 <h1 id="rfc.section.5.4"><a href="#rfc.section.5.4">5.4.</a> <a href="#the-string-type" id="the-string-type">The &#8216;string&#8217; Type</a></h1>
 <p id="rfc.section.5.4.p.1">Leafs of type string MUST be encoded using a CBOR text string data item (major type 3).</p>
 <p id="rfc.section.5.4.p.2">The following example shows the encoding of leaf &#8216;name&#8217; set to &#8220;eth0&#8221;.</p>
@@ -928,7 +965,7 @@ leaf enabled {
 <p id="rfc.section.5.5.p.4">CBOR diagnostic notation: true</p>
 <p id="rfc.section.5.5.p.5">CBOR encoding: f5</p>
 <h1 id="rfc.section.5.6"><a href="#rfc.section.5.6">5.6.</a> <a href="#the-enumeration-type" id="the-enumeration-type">The &#8216;enumeration&#8217; Type</a></h1>
-<p id="rfc.section.5.6.p.1">Leafs of type enumeration MUST be encoded using a CBOR unsigned integer (major type 0) or CBOR signed integer (major type 1), depending on the actual value. Enumeration values are either explicitly assigned using the YANG statement &#8216;value&#8217; or automatically assigned based on the algorithm defined in <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> section 9.6.4.2.</p>
+<p id="rfc.section.5.6.p.1">Leafs of type enumeration MUST be encoded using a CBOR unsigned integer (major type 0) or CBOR signed integer (major type 1), depending on the actual value. Enumeration values are either explicitly assigned using the YANG statement &#8216;value&#8217; or automatically assigned based on the algorithm defined in <a href="#RFC7950">[RFC7950]</a> section 9.6.4.2.</p>
 <p id="rfc.section.5.6.p.2">The following example shows the encoding of leaf &#8216;oper-status&#8217; set to &#8216;testing&#8217;.</p>
 <p id="rfc.section.5.6.p.3">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
@@ -947,10 +984,10 @@ leaf oper-status {
 <p id="rfc.section.5.6.p.4">CBOR diagnostic notation: 3</p>
 <p id="rfc.section.5.6.p.5">CBOR encoding: 03</p>
 <h1 id="rfc.section.5.7"><a href="#rfc.section.5.7">5.7.</a> <a href="#the-bits-type" id="the-bits-type">The &#8216;bits&#8217; Type</a></h1>
-<p id="rfc.section.5.7.p.1">Leafs of type bits MUST be encoded using a CBOR byte string data item (major type 2). Bits position are either explicitly assigned using the YANG statement &#8216;position&#8217; or automatically assigned based on the algorithm defined in <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> section 9.7.4.2.</p>
+<p id="rfc.section.5.7.p.1">Leafs of type bits MUST be encoded using a CBOR byte string data item (major type 2). Bits position are either explicitly assigned using the YANG statement &#8216;position&#8217; or automatically assigned based on the algorithm defined in <a href="#RFC7950">[RFC7950]</a> section 9.7.4.2.</p>
 <p id="rfc.section.5.7.p.2">Bits position 0 to 7 are assigned to the first byte within the byte string, bits 8 to 15 to the second byte, and subsequent bytes are assigned similarly. Within each byte, bits are assigned from least to most significant.</p>
 <p id="rfc.section.5.7.p.3">The following example shows the encoding of leaf &#8216;mybits&#8217; with the &#8216;disable-nagle&#8217; and &#8216;10-Mb-only&#8217; flags set.</p>
-<p id="rfc.section.5.7.p.4">Definition example from <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a>:</p>
+<p id="rfc.section.5.7.p.4">Definition example from <a href="#RFC7950">[RFC7950]</a>:</p>
 <pre>
 leaf mybits {
   type bits {
@@ -1007,10 +1044,10 @@ container interfaces-state {
 <p id="rfc.section.5.9.p.4">CBOR diagnostic notation: &#8220;eth1&#8221;</p>
 <p id="rfc.section.5.9.p.5">CBOR encoding: 64 65746831</p>
 <h1 id="rfc.section.5.10"><a href="#rfc.section.5.10">5.10.</a> <a href="#the-identityref-type" id="the-identityref-type">The &#8216;identityref&#8217; Type</a></h1>
-<p id="rfc.section.5.10.p.1">This specification supports two approaches for encoding identityref, a SID as defined in <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a> or a name as defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> section 6.8.</p>
+<p id="rfc.section.5.10.p.1">This specification supports two approaches for encoding identityref, a SID as defined in <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a> or a name as defined in <a href="#RFC7951">[RFC7951]</a> section 6.8.</p>
 <h1 id="rfc.section.5.10.1"><a href="#rfc.section.5.10.1">5.10.1.</a> <a href="#identityref-with-sid" id="identityref-with-sid">SIDs as identityref</a></h1>
 <p id="rfc.section.5.10.1.p.1">SIDs are globally unique and may be used as identityref.  This approach is both compact and simple to implement.  When SIDs are used, identityref MUST be encoded using a CBOR unsigned integer data item (major type 0) and set to a SID allocated from a registered SID range.</p>
-<p id="rfc.section.5.10.1.p.2">The following example shows the encoding of leaf &#8216;type&#8217; set to the value &#8216;iana-if-type:ethernetCsmacd&#8217; (SID 1180).</p>
+<p id="rfc.section.5.10.1.p.2">The following example shows the encoding of leaf &#8216;type&#8217; set to the value &#8216;iana-if-type:ethernetCsmacd&#8217; (SID 1180 as listed in &#8216;iana-if-type@2014-05-08.sid&#8217;).</p>
 <p id="rfc.section.5.10.1.p.3">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 identity interface-type {
@@ -1033,7 +1070,7 @@ leaf type {
 <p id="rfc.section.5.10.1.p.4">CBOR diagnostic notation: 1180</p>
 <p id="rfc.section.5.10.1.p.5">CBOR encoding: 19 049c</p>
 <h1 id="rfc.section.5.10.2"><a href="#rfc.section.5.10.2">5.10.2.</a> <a href="#name-as-identityref" id="name-as-identityref">Name as identityref</a></h1>
-<p id="rfc.section.5.10.2.p.1">Alternatively, an identityref may be encoded using a name as defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> section 6.8.  When names are used, identityref MUST be encoded using a CBOR text string data item (major type 3). If the identity is defined in another module than the leaf node containing the identityref value, the namespace-qualified form MUST be used. Otherwise, both the simple and namespace-qualified forms are permitted. Names and namespaces are defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> section 4.</p>
+<p id="rfc.section.5.10.2.p.1">Alternatively, an identityref may be encoded using a name as defined in <a href="#RFC7951">[RFC7951]</a> section 6.8.  When names are used, identityref MUST be encoded using a CBOR text string data item (major type 3). If the identity is defined in another module than the leaf node containing the identityref value, the namespace-qualified form MUST be used. Otherwise, both the simple and namespace-qualified forms are permitted. Names and namespaces are defined in <a href="#RFC7951">[RFC7951]</a> section 4.</p>
 <p id="rfc.section.5.10.2.p.2">The following example shows the encoding of the identity &#8216;iana-if-type:ethernetCsmacd&#8217; using its name. This example is described in <a href="#identityref-with-sid">Section 5.10.1</a>.</p>
 <p id="rfc.section.5.10.2.p.3">CBOR diagnostic notation: &#8220;iana-if-type:ethernetCsmacd&#8221;</p>
 <p id="rfc.section.5.10.2.p.4">CBOR encoding: 78 1b 69616e612d69662d747970653a65746865726e657443736d616364</p>
@@ -1054,11 +1091,9 @@ leaf is-router {
 
 <ul>
   <li>bits</li>
-  <li>decimal64</li>
   <li>enumeration</li>
   <li>identityref</li>
   <li>instance-identifier</li>
-  <li>leafref  (Only when the datatype of the leaf referenced using the &#8216;path&#8217; YANG statement require a CBOR tag)</li>
 </ul>
 <p id="rfc.section.5.12.p.3">See <a href="#tag-registry">Section 7.1</a> for more information about these CBOR tags.</p>
 <p id="rfc.section.5.12.p.4">The following example shows the encoding of leaf &#8216;ip-address&#8217; when set to &#8220;2001:db8:a0b:12f0::1&#8221;.</p>
@@ -1097,11 +1132,12 @@ leaf address {
 <p id="rfc.section.5.12.p.6">CBOR diagnostic notation: &#8220;2001:db8:a0b:12f0::1&#8221;</p>
 <p id="rfc.section.5.12.p.7">CBOR encoding: 74 323030313a6462383a6130623a313266303a3a31</p>
 <h1 id="rfc.section.5.13"><a href="#rfc.section.5.13">5.13.</a> <a href="#the-instance-identifier-type" id="the-instance-identifier-type">The &#8216;instance-identifier&#8217; Type</a></h1>
-<p id="rfc.section.5.13.p.1">This specification supports two approaches for encoding an instance-identifier, one based on SIDs as defined in <a href="#I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</a> and one based on names as defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> section 6.13.</p>
+<p id="rfc.section.5.13.p.1">This specification supports two approaches for encoding an instance-identifier, one based on SIDs as defined in <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a> and one based on names as defined in <a href="#RFC7951">[RFC7951]</a> section 6.11.</p>
 <h1 id="rfc.section.5.13.1"><a href="#rfc.section.5.13.1">5.13.1.</a> <a href="#instance-identifier-with-sid" id="instance-identifier-with-sid">SIDs as instance-identifier</a></h1>
-<p id="rfc.section.5.13.1.p.1">SIDs uniquely identify a data node. For a single instance data node, the SID is sufficient to identify this instance. For a multi-instance data node, a SID is combined with the list key(s) to identify each instance of this data node within the YANG list(s).</p>
-<p id="rfc.section.5.13.1.p.2">Single instance data nodes MUST be encoded using a CBOR unsigned integer data item (major type 0) and set to the targeted data node SID.</p>
-<p id="rfc.section.5.13.1.p.3">Multi-instances data nodes MUST be encoded using a CBOR array data item (major type 4) containing the following entries:</p>
+<p id="rfc.section.5.13.1.p.1">SIDs uniquely identify a data node. In the case of a single instance data node, a data node defined at the root of a YANG module or submodule or data nodes defined within a container, the SID is sufficient to identify this instance.</p>
+<p id="rfc.section.5.13.1.p.2">In the case of a data node member of a YANG list, a SID is combined with the list key(s) to identify each instance within the YANG list(s).</p>
+<p id="rfc.section.5.13.1.p.3">Single instance data nodes MUST be encoded using a CBOR unsigned integer data item (major type 0) and set to the targeted data node SID.</p>
+<p id="rfc.section.5.13.1.p.4">Data nodes member of a YANG list MUST be encoded using a CBOR array data item (major type 4) containing the following entries:</p>
 <p/>
 
 <ul>
@@ -1111,8 +1147,8 @@ leaf address {
 <p>
   <strong>First example:</strong>
 </p>
-<p id="rfc.section.5.13.1.p.6">The following example shows the encoding of a leaf of type instance-identifier which identify the data node &#8220;/system/contact&#8221; (SID 1737).</p>
-<p id="rfc.section.5.13.1.p.7">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
+<p id="rfc.section.5.13.1.p.7">The following example shows the encoding of a leaf of type instance-identifier which identifies the data node &#8220;/system/contact&#8221; (SID 1737).</p>
+<p id="rfc.section.5.13.1.p.8">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 container system {
 
@@ -1125,13 +1161,13 @@ container system {
   }
 }
 </pre>
-<p id="rfc.section.5.13.1.p.8">CBOR diagnostic notation: 1737</p>
-<p id="rfc.section.5.13.1.p.9">CBOR encoding: 19 06c9</p>
+<p id="rfc.section.5.13.1.p.9">CBOR diagnostic notation: 1737</p>
+<p id="rfc.section.5.13.1.p.10">CBOR encoding: 19 06c9</p>
 <p>
   <strong>Second example:</strong>
 </p>
-<p id="rfc.section.5.13.1.p.11">The following example shows the encoding of a leaf of type instance-identifier which identify the data node instance &#8220;/system/authentication/user/authorized-key/key-data&#8221; (SID 1730) for user name &#8220;bob&#8221; and authorized-key &#8220;admin&#8221;.</p>
-<p id="rfc.section.5.13.1.p.12">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
+<p id="rfc.section.5.13.1.p.12">The following example shows the encoding of a leaf of type instance-identifier which identify the data node instance &#8220;/system/authentication/user/authorized-key/key-data&#8221; (SID 1730) for user name &#8220;bob&#8221; and authorized-key &#8220;admin&#8221;.</p>
+<p id="rfc.section.5.13.1.p.13">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 list user {
   key name;
@@ -1157,8 +1193,8 @@ list user {
   }
 }
 </pre>
-<p id="rfc.section.5.13.1.p.13">CBOR diagnostic notation: [1730, &#8220;bob&#8221;, &#8220;admin&#8221;]</p>
-<p id="rfc.section.5.13.1.p.14">CBOR encoding:</p>
+<p id="rfc.section.5.13.1.p.14">CBOR diagnostic notation: [1730, &#8220;bob&#8221;, &#8220;admin&#8221;]</p>
+<p id="rfc.section.5.13.1.p.15">CBOR encoding:</p>
 <pre>
 83                      # array(3)
    19 06c2              # unsigned(1730)
@@ -1170,9 +1206,9 @@ list user {
 <p>
   <strong>Third example:</strong>
 </p>
-<p id="rfc.section.5.13.1.p.16">The following example shows the encoding of a leaf of type instance-identifier which identify the list instance &#8220;/system/authentication/user&#8221; (SID 1726) corresponding to the user name &#8220;jack&#8221;.</p>
-<p id="rfc.section.5.13.1.p.17">CBOR diagnostic notation: [1726, &#8220;jack&#8221;]</p>
-<p id="rfc.section.5.13.1.p.18">CBOR encoding:</p>
+<p id="rfc.section.5.13.1.p.17">The following example shows the encoding of a leaf of type instance-identifier which identify the list instance &#8220;/system/authentication/user&#8221; (SID 1726) corresponding to the user name &#8220;jack&#8221;.</p>
+<p id="rfc.section.5.13.1.p.18">CBOR diagnostic notation: [1726, &#8220;jack&#8221;]</p>
+<p id="rfc.section.5.13.1.p.19">CBOR encoding:</p>
 <pre>
 82                      # array(2)
    19 06be              # unsigned(1726)
@@ -1180,7 +1216,7 @@ list user {
       6a61636b          # "jack"
 </pre>
 <h1 id="rfc.section.5.13.2"><a href="#rfc.section.5.13.2">5.13.2.</a> <a href="#names-as-instance-identifier" id="names-as-instance-identifier">Names as instance-identifier</a></h1>
-<p id="rfc.section.5.13.2.p.1">The use of names as instance-identifier is defined in <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> section 6.11. The resulting xpath MUST be encoded using a CBOR text string data item (major type 3).</p>
+<p id="rfc.section.5.13.2.p.1">The use of names as instance-identifier is defined in <a href="#RFC7951">[RFC7951]</a> section 6.11. The resulting xpath MUST be encoded using a CBOR text string data item (major type 3).</p>
 <p>
   <strong>First example:</strong>
 </p>
@@ -1221,7 +1257,7 @@ list user {
    74696f6e2f757365725b6e616d653d27626f62275d
 </pre>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
-<p id="rfc.section.6.p.1">The security considerations of <a href="#RFC7049">[RFC7049]</a> and <a href="#I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</a> apply.</p>
+<p id="rfc.section.6.p.1">The security considerations of <a href="#RFC7049">[RFC7049]</a> and <a href="#RFC7950">[RFC7950]</a> apply.</p>
 <p id="rfc.section.6.p.2">This document defines an alternative encoding for data modeled in the YANG data modeling language. As such, this encoding does not contribute any new security issues in addition of those identified for the specific protocol or context for which it is used.</p>
 <p id="rfc.section.6.p.3">To minimize security risks, software on the receiving side SHOULD reject all messages that do not comply to the rules of this document and reply with an appropriate error message to the sender.</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a></h1>
@@ -1245,24 +1281,18 @@ list user {
     </tr>
     <tr>
       <td class="left">41</td>
-      <td class="left">decimal64</td>
-      <td class="left">YANG decimal64 datatype</td>
-      <td class="left">RFC XXXX</td>
-    </tr>
-    <tr>
-      <td class="left">42</td>
       <td class="left">enumeration</td>
       <td class="left">YANG enumeration datatype</td>
       <td class="left">RFC XXXX</td>
     </tr>
     <tr>
-      <td class="left">43</td>
+      <td class="left">42</td>
       <td class="left">identityref</td>
       <td class="left">YANG identityref datatype</td>
       <td class="left">RFC XXXX</td>
     </tr>
     <tr>
-      <td class="left">44</td>
+      <td class="left">43</td>
       <td class="left">instance-identifier</td>
       <td class="left">YANG instance-identifier datatype</td>
       <td class="left">RFC XXXX</td>
@@ -1271,18 +1301,12 @@ list user {
 </table>
 <p id="rfc.section.7.1.p.2">// RFC Ed.: update Tag values using allocated tags if needed and remove this note // RFC Ed.: replace XXXX with RFC number and remove this note</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments</a></h1>
-<p id="rfc.section.8.p.1">This document has been largely inspired by the extensive works done by Andy Bierman and Peter van der Stok on <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a>. <a href="#I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</a> has also been a critical input to this work. The authors would like to thank the authors and contributors to these two drafts.</p>
+<p id="rfc.section.8.p.1">This document has been largely inspired by the extensive works done by Andy Bierman and Peter van der Stok on <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a>. <a href="#RFC7951">[RFC7951]</a> has also been a critical input to this work. The authors would like to thank the authors and contributors to these two drafts.</p>
 <p id="rfc.section.8.p.2">The authors would also like to acknowledge the review, feedback, and comments from Ladislav Lhotka and Juergen Schoenwaelder.</p>
 <h1 id="rfc.references"><a href="#rfc.references">9.</a> References</h1>
 <h1 id="rfc.references.1"><a href="#rfc.references.1">9.1.</a> Normative References</h1>
 <table>
   <tbody>
-    <tr>
-      <td class="reference">
-        <b id="I-D.ietf-netmod-rfc6020bis">[I-D.ietf-netmod-rfc6020bis]</b>
-      </td>
-      <td class="top"><a>Bjorklund, M.</a>, "<a href="http://tools.ietf.org/html/draft-ietf-netmod-rfc6020bis-14">The YANG 1.1 Data Modeling Language</a>", Internet-Draft draft-ietf-netmod-rfc6020bis-14, June 2016.</td>
-    </tr>
     <tr>
       <td class="reference">
         <b id="RFC2119">[RFC2119]</b>
@@ -1295,6 +1319,12 @@ list user {
       </td>
       <td class="top"><a>Bormann, C.</a> and <a>P. Hoffman</a>, "<a href="http://tools.ietf.org/html/rfc7049">Concise Binary Object Representation (CBOR)</a>", RFC 7049, DOI 10.17487/RFC7049, October 2013.</td>
     </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC7950">[RFC7950]</b>
+      </td>
+      <td class="top"><a>Bjorklund, M.</a>, "<a href="http://tools.ietf.org/html/rfc7950">The YANG 1.1 Data Modeling Language</a>", RFC 7950, DOI 10.17487/RFC7950, August 2016.</td>
+    </tr>
   </tbody>
 </table>
 <h1 id="rfc.references.2"><a href="#rfc.references.2">9.2.</a> Informative References</h1>
@@ -1302,21 +1332,15 @@ list user {
   <tbody>
     <tr>
       <td class="reference">
-        <b id="I-D.ietf-netmod-yang-json">[I-D.ietf-netmod-yang-json]</b>
+        <b id="I-D.ietf-core-sid">[I-D.ietf-core-sid]</b>
       </td>
-      <td class="top"><a>Lhotka, L.</a>, "<a href="http://tools.ietf.org/html/draft-ietf-netmod-yang-json-10">JSON Encoding of Data Modeled with YANG</a>", Internet-Draft draft-ietf-netmod-yang-json-10, March 2016.</td>
-    </tr>
-    <tr>
-      <td class="reference">
-        <b id="I-D.somaraju-core-sid">[I-D.somaraju-core-sid]</b>
-      </td>
-      <td class="top"><a>Somaraju, A.</a>, <a>Veillette, M.</a>, <a>Pelov, A.</a>, <a>Turner, R.</a> and <a>A. Minaburo</a>, "<a href="http://tools.ietf.org/html/draft-somaraju-core-sid-01">Structure Identifier (SID)</a>", Internet-Draft draft-somaraju-core-sid-01, July 2016.</td>
+      <td class="top"><a>Somaraju, A.</a>, <a>Veillette, M.</a>, <a>Pelov, A.</a>, <a>Turner, R.</a> and <a>A. Minaburo</a>, "<a href="http://tools.ietf.org/html/draft-ietf-core-sid-00">YANG Schema Item iDentifier (SID)</a>", Internet-Draft draft-ietf-core-sid-00, October 2016.</td>
     </tr>
     <tr>
       <td class="reference">
         <b id="I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</b>
       </td>
-      <td class="top"><a>Stok, P.</a> and <a>A. Bierman</a>, "<a href="http://tools.ietf.org/html/draft-vanderstok-core-comi-09">CoAP Management Interface</a>", Internet-Draft draft-vanderstok-core-comi-09, March 2016.</td>
+      <td class="top"><a>Stok, P.</a>, <a>Bierman, A.</a>, <a>Veillette, M.</a> and <a>A. Pelov</a>, "<a href="http://tools.ietf.org/html/draft-vanderstok-core-comi-10">CoAP Management Interface</a>", Internet-Draft draft-vanderstok-core-comi-10, October 2016.</td>
     </tr>
     <tr>
       <td class="reference">
@@ -1347,6 +1371,12 @@ list user {
         <b id="RFC7317">[RFC7317]</b>
       </td>
       <td class="top"><a>Bierman, A.</a> and <a>M. Bjorklund</a>, "<a href="http://tools.ietf.org/html/rfc7317">A YANG Data Model for System Management</a>", RFC 7317, DOI 10.17487/RFC7317, August 2014.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC7951">[RFC7951]</b>
+      </td>
+      <td class="top"><a>Lhotka, L.</a>, "<a href="http://tools.ietf.org/html/rfc7951">JSON Encoding of Data Modeled with YANG</a>", RFC 7951, DOI 10.17487/RFC7951, August 2016.</td>
     </tr>
   </tbody>
 </table>

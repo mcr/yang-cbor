@@ -316,7 +316,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Somaraju, A., Turner, R., and A. Minaburo" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-yang-cbor-03" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-11-17" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-11-22" />
   <meta name="dct.abstract" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
   <meta name="description" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
 
@@ -340,7 +340,7 @@ li, p {
   <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: May 21, 2017</td>
+  <td class="left">Expires: May 26, 2017</td>
   <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -369,7 +369,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">November 17, 2016</td>
+  <td class="right">November 22, 2016</td>
 </tr>
 
     	
@@ -389,7 +389,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on May 21, 2017.</p>
+<p>This Internet-Draft will expire on May 26, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -577,7 +577,7 @@ li, p {
 <p/>
 
 <ul>
-  <li>Comments can be added to the end of each line. Any characters after a Pound sign (&#8216;#&#8217;) outside of a string, up to the end of the line, are treated as a comment.</li>
+  <li>Any text within and including a pair of slashes is considered a comment.</li>
   <li>Deltas are represented as numbers preceded by a &#8216;+&#8217; or &#8216;&#8211;&#8217; sign. The use of the &#8216;+&#8217; sign for positive deltas represents an extension to the CBOR diagnostic notation as defined by <a href="#RFC7049">[RFC7049]</a> section 6.</li>
 </ul>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#properties-of-the-cbor-encoding" id="properties-of-the-cbor-encoding">Properties of the CBOR Encoding</a></h1>
@@ -623,9 +623,9 @@ container clock {
 <p id="rfc.section.4.2.1.p.5">CBOR diagnostic notation:</p>
 <pre>
 {
-  1717 : {                              # clock  (SID 1717)
-    +2 : "2015-10-02T14:47:24Z-05:00",  # current-datetime (SID 1719)
-    +1 : "2015-09-15T09:12:58Z-05:00"   # boot-datetime (SID 1718)
+  1717 : {                              / clock  (SID 1717) /
+    +2 : "2015-10-02T14:47:24Z-05:00",  / current-datetime (SID 1719) /
+    +1 : "2015-09-15T09:12:58Z-05:00"   / boot-datetime (SID 1718) /
   }
 }
 </pre>
@@ -736,19 +736,19 @@ list server {
 <pre>
 [
   {
-    1755 : "NRC TIC server",          # name (SID 1755)
-    1757 : {                          # udp (SID 1757)
-      +1 : "tic.nrc.ca",              # address (SID 1758)
-      +2 : 123                        # port (SID 1759)
+    1755 : "NRC TIC server",          / name (SID 1755) /
+    1757 : {                          / udp (SID 1757) /
+      +1 : "tic.nrc.ca",              / address (SID 1758) /
+      +2 : 123                        / port (SID 1759) /
     },
-    1753 : 0,                         # association-type (SID 1753)
-    1754 : false,                     # iburst (SID 1754)
-    1756 : true                       # prefer (SID 1756)
+    1753 : 0,                         / association-type (SID 1753) /
+    1754 : false,                     / iburst (SID 1754) /
+    1756 : true                       / prefer (SID 1756) /
   },
   {
-    1755 : "NRC TAC server",          # name (SID 1755)
-    1757 : {                          # udp (SID 1757)
-      +1 : "tac.nrc.ca"               # address (SID 1758)
+    1755 : "NRC TAC server",          / name (SID 1755) /
+    1757 : {                          / udp (SID 1757) /
+      +1 : "tac.nrc.ca"               / address (SID 1758) /
     }
   }
 ]
@@ -878,8 +878,8 @@ module example-port {
 <p id="rfc.section.4.5.p.6">CBOR diagnostic notation:</p>
 <pre>
 {
-  2601 : "0/4/21",       # port-name
-  2602 : "Open pin 2"    # port-fault
+  2601 : "0/4/21",       / port-name /
+  2602 : "Open pin 2"    / port-fault /
 }
 </pre>
 <p id="rfc.section.4.5.p.7">CBOR encoding:</p>

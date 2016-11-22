@@ -5,14 +5,14 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Informational                             A. Pelov, Ed.
-Expires: May 21, 2017                                             Acklio
+Expires: May 26, 2017                                             Acklio
                                                              A. Somaraju
                                                    Tridonic GmbH & Co KG
                                                                R. Turner
                                                               Landis+Gyr
                                                              A. Minaburo
                                                                   Acklio
-                                                       November 17, 2016
+                                                       November 22, 2016
 
 
                       Constrained Objects Language
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 21, 2017.
+   This Internet-Draft will expire on May 26, 2017.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Veillette, et al.         Expires May 21, 2017                  [Page 1]
+Veillette, et al.         Expires May 26, 2017                  [Page 1]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Veillette, et al.         Expires May 21, 2017                  [Page 2]
+Veillette, et al.         Expires May 26, 2017                  [Page 2]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -165,7 +165,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                  [Page 3]
+Veillette, et al.         Expires May 26, 2017                  [Page 3]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -221,7 +221,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                  [Page 4]
+Veillette, et al.         Expires May 26, 2017                  [Page 4]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -277,7 +277,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                  [Page 5]
+Veillette, et al.         Expires May 26, 2017                  [Page 5]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -333,7 +333,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                  [Page 6]
+Veillette, et al.         Expires May 26, 2017                  [Page 6]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -389,7 +389,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                  [Page 7]
+Veillette, et al.         Expires May 26, 2017                  [Page 7]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -445,7 +445,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                  [Page 8]
+Veillette, et al.         Expires May 26, 2017                  [Page 8]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -501,7 +501,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                  [Page 9]
+Veillette, et al.         Expires May 26, 2017                  [Page 9]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -557,7 +557,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 10]
+Veillette, et al.         Expires May 26, 2017                 [Page 10]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -613,7 +613,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 11]
+Veillette, et al.         Expires May 26, 2017                 [Page 11]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -669,7 +669,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 12]
+Veillette, et al.         Expires May 26, 2017                 [Page 12]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -725,7 +725,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 13]
+Veillette, et al.         Expires May 26, 2017                 [Page 13]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -781,7 +781,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 14]
+Veillette, et al.         Expires May 26, 2017                 [Page 14]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -837,7 +837,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 15]
+Veillette, et al.         Expires May 26, 2017                 [Page 15]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -893,7 +893,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 16]
+Veillette, et al.         Expires May 26, 2017                 [Page 16]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -949,7 +949,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 17]
+Veillette, et al.         Expires May 26, 2017                 [Page 17]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1005,7 +1005,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 18]
+Veillette, et al.         Expires May 26, 2017                 [Page 18]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1061,7 +1061,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 19]
+Veillette, et al.         Expires May 26, 2017                 [Page 19]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1117,7 +1117,7 @@ or completely replaced by a future version of this draft.
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 20]
+Veillette, et al.         Expires May 26, 2017                 [Page 20]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1173,7 +1173,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 21]
+Veillette, et al.         Expires May 26, 2017                 [Page 21]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1229,7 +1229,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 22]
+Veillette, et al.         Expires May 26, 2017                 [Page 22]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1285,7 +1285,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 23]
+Veillette, et al.         Expires May 26, 2017                 [Page 23]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1341,7 +1341,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 24]
+Veillette, et al.         Expires May 26, 2017                 [Page 24]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1397,7 +1397,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 25]
+Veillette, et al.         Expires May 26, 2017                 [Page 25]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1453,7 +1453,7 @@ FETCH /c Content-Format(application/cool-instance-id-list+cbor) Observe(0)
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 26]
+Veillette, et al.         Expires May 26, 2017                 [Page 26]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1509,7 +1509,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 27]
+Veillette, et al.         Expires May 26, 2017                 [Page 27]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1565,7 +1565,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 28]
+Veillette, et al.         Expires May 26, 2017                 [Page 28]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1621,7 +1621,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 29]
+Veillette, et al.         Expires May 26, 2017                 [Page 29]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1677,7 +1677,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 30]
+Veillette, et al.         Expires May 26, 2017                 [Page 30]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1733,7 +1733,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 31]
+Veillette, et al.         Expires May 26, 2017                 [Page 31]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1789,7 +1789,7 @@ module ietf-cool {
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 32]
+Veillette, et al.         Expires May 26, 2017                 [Page 32]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1845,7 +1845,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 33]
+Veillette, et al.         Expires May 26, 2017                 [Page 33]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1901,7 +1901,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 34]
+Veillette, et al.         Expires May 26, 2017                 [Page 34]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -1957,7 +1957,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 35]
+Veillette, et al.         Expires May 26, 2017                 [Page 35]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -2013,7 +2013,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 36]
+Veillette, et al.         Expires May 26, 2017                 [Page 36]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -2069,7 +2069,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 37]
+Veillette, et al.         Expires May 26, 2017                 [Page 37]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -2125,7 +2125,7 @@ Appendix B.  File "ietf-cool@2016-01-01.sid"
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 38]
+Veillette, et al.         Expires May 26, 2017                 [Page 38]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -2181,7 +2181,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 39]
+Veillette, et al.         Expires May 26, 2017                 [Page 39]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -2237,7 +2237,7 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 40]
+Veillette, et al.         Expires May 26, 2017                 [Page 40]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -2293,7 +2293,7 @@ Authors' Addresses
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 41]
+Veillette, et al.         Expires May 26, 2017                 [Page 41]
 
 Internet-Draft        Constrained Objects Language         November 2016
 
@@ -2349,4 +2349,4 @@ Internet-Draft        Constrained Objects Language         November 2016
 
 
 
-Veillette, et al.         Expires May 21, 2017                 [Page 42]
+Veillette, et al.         Expires May 26, 2017                 [Page 42]

@@ -188,8 +188,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2016
       container, a list, a case, a notification, an RPC input, an RPC
       output, an action input, an action output.
 
-   o  delta : Difference between the SID assigned to the current schema
-      node and the SID assigned to the parent.
+   o  delta : Difference between the current SID and a reference SID.  A
+      reference SID is defined for each context for which deltas are
+      used.
 
    o  parent: The collection in which a schema node is defined.
 
@@ -203,7 +204,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2016
    [RFC7049] section 6.  This notation is used strictly for
    documentation purposes and is never used in the data serialization.
    Table 1 below provides a summary of this notation.
-
 
 
 

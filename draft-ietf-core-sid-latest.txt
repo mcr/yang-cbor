@@ -73,8 +73,8 @@ Table of Contents
    3.  ".sid" file lifecycle . . . . . . . . . . . . . . . . . . . .   4
    4.  ".sid" file format  . . . . . . . . . . . . . . . . . . . . .   7
    5.  Security Considerations . . . . . . . . . . . . . . . . . . .  10
-   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  10
-     6.1.  "SID" range registry  . . . . . . . . . . . . . . . . . .  10
+   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  11
+     6.1.  "SID" range registry  . . . . . . . . . . . . . . . . . .  11
      6.2.  YANG module registry  . . . . . . . . . . . . . . . . . .  12
    7.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  13
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  13
@@ -282,53 +282,53 @@ Veillette, et al.         Expires May 27, 2017                  [Page 5]
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
-       +---------------+
-  O    | Creation of a |
- -|- ->| YANG module   |
- / \   +---------------+
-               |
-               V
-        /-------------\
-       / Standardized  \ yes
-       \ YANG module ? /-------------+
-        \-------------/              |
-               | no                  |
-               V                     V
-        /-------------\      +---------------+
-       / Constrained   \ yes | SID range     |
-   +-->\ application ? /---->| registration  |
-   |    \-------------/      +---------------+
-   |           | no                  |
-   |           V                     V
-   |   +---------------+     +---------------+
-   +---| YANG module   |     | SID sub-range |
-       | update        |     | assignment    |
-       +---------------+     +---------------+
-                                     |
-                                     V
-                             +---------------+
-                             | .sid file     |
-                             | generation    |
-                             +---------------+
-                                     |
-                                     V
-                              /-------------\      +---------------+
-                             /  Publicly     \ yes | YANG module   |
-                             \  available ?  /---->| registration  |
-                              \-------------/      +---------------+
-                                     | no                  |
-                                     +---------------------+
-                                     |
-                                   [DONE]
- ~~~~
-{: align="left"}
+          +---------------+
+     O    | Creation of a |
+    -|- ->| YANG module   |
+    / \   +---------------+
+                  |
+                  V
+           /-------------\
+          / Standardized  \ yes
+          \ YANG module ? /-------------+
+           \-------------/              |
+                  | no                  |
+                  V                     V
+           /-------------\      +---------------+
+          / Constrained   \ yes | SID range     |
+      +-->\ application ? /---->| registration  |
+      |    \-------------/      +---------------+
+      |           | no                  |
+      |           V                     V
+      |   +---------------+     +---------------+
+      +---| YANG module   |     | SID sub-range |
+          | update        |     | assignment    |
+          +---------------+     +---------------+
+                                        |
+                                        V
+                                +---------------+
+                                | .sid file     |
+                                | generation    |
+                                +---------------+
+                                        |
+                                        V
+                                 /-------------\      +---------------+
+                                /  Publicly     \ yes | YANG module   |
+                                \  available ?  /---->| registration  |
+                                 \-------------/      +---------------+
+                                        | no                  |
+                                        +---------------------+
+                                        |
+                                      [DONE]
 
-Each time a YANG module or one of its imported module(s) or included sub-module(s) is updated, the ".sid" file MAY need to be updated. This update SHOULD also be performed using an automated tool.
+   Each time a YANG module or one of its imported module(s) or included
+   sub-module(s) is updated, the ".sid" file MAY need to be updated.
+   This update SHOULD also be performed using an automated tool.
 
-If a new revision requires more SIDs than initially allocated, a new SID range MUST be added to the assignment ranges as defined in the ".sid" file header. These extra SIDs are used for subsequent assignments.
-
-The following activity diagram summarizes the update of a YANG module and its associated .sid file.
-
+   If a new revision requires more SIDs than initially allocated, a new
+   SID range MUST be added to the assignment ranges as defined in the
+   ".sid" file header.  These extra SIDs are used for subsequent
+   assignments.
 
 
 
@@ -338,35 +338,41 @@ Veillette, et al.         Expires May 27, 2017                  [Page 6]
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
-   +---------------+   O    | Update of the |  -|- ->| YANG module   |  / \   | or include(s) |
-   | or import(s)  |
-   +---------------+
-           |
-           V
-    /-------------\      +----------------+
-   /  More SIDs    \ yes | Extra sub-range|
-   \  required ?   /---->| assignment     |
-    \-------------/      +----------------+
-           | no                  |
-           +---------------------+
-           |
-           V
-   +---------------+
-   | .sid file     |
-   | update based  |
-   | on previous   |
-   | .sid file     |
-   +---------------+
-           |
-           V
-    /-------------\      +---------------+
-   /  Publicly     \ yes | YANG module   |
-   \  available ?  /---->| registration  |
-    \-------------/      +---------------+
-           | no                  |
-           +---------------------+
-           |
-         [DONE] ~~~~
+   The following activity diagram summarizes the update of a YANG module
+   and its associated .sid file.
+
+          +---------------+
+     O    | Update of the |
+    -|- ->| YANG module   |
+    / \   | or include(s) |
+          | or import(s)  |
+          +---------------+
+                  |
+                  V
+           /-------------\      +----------------+
+          /  More SIDs    \ yes | Extra sub-range|
+          \  required ?   /---->| assignment     |
+           \-------------/      +----------------+
+                  | no                  |
+                  +---------------------+
+                  |
+                  V
+          +---------------+
+          | .sid file     |
+          | update based  |
+          | on previous   |
+          | .sid file     |
+          +---------------+
+                  |
+                  V
+           /-------------\      +---------------+
+          /  Publicly     \ yes | YANG module   |
+          \  available ?  /---->| registration  |
+           \-------------/      +---------------+
+                  | no                  |
+                  +---------------------+
+                  |
+                [DONE]
 
 4.  ".sid" file format
 
@@ -380,12 +386,6 @@ module ietf-sid-file {
   namespace "urn:ietf:params:xml:ns:yang:ietf-sid-file";
   prefix sid;
 
-  organization
-    "IETF Core Working Group";
-
-  contact
-    "Ana Minaburo
-     <ana@ackl.io>
 
 
 
@@ -393,6 +393,13 @@ Veillette, et al.         Expires May 27, 2017                  [Page 7]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
+
+  organization
+    "IETF Core Working Group";
+
+  contact
+    "Ana Minaburo
+     <ana@ackl.io>
 
      Alexander Pelov
      <mailto:a@ackl.io>
@@ -435,13 +442,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
        rule in Section 12 of RFC 6020.";
   }
 
-  typedef revision-identifier {
-    type string {
-      pattern '\d{4}-\d{2}-\d{2}';
-    }
-    description
-      "Represents a date in YYYY-MM-DD format.";
-  }
 
 
 
@@ -449,6 +449,14 @@ Veillette, et al.         Expires May 27, 2017                  [Page 8]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
+
+  typedef revision-identifier {
+    type string {
+      pattern '\d{4}-\d{2}-\d{2}';
+    }
+    description
+      "Represents a date in YYYY-MM-DD format.";
+  }
 
   leaf module-name {
     type yang-identifier;
@@ -490,14 +498,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
     description
       "List of items defined by the associated YANG module.";
 
-    leaf type {
-      type string {
-        pattern 'Module|Submodule|feature|' +
-                'identity$|node$|notification$|rpc$|action$';
-      }
-      mandatory true;
-      description
-        "Item type assigned, this field can be set to:
 
 
 
@@ -506,6 +506,14 @@ Veillette, et al.         Expires May 27, 2017                  [Page 9]
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
+    leaf type {
+      type string {
+        pattern 'Module|Submodule|feature|' +
+                'identity$|node$|notification$|rpc$|action$';
+      }
+      mandatory true;
+      description
+        "Item type assigned, this field can be set to:
           - 'Module'
           - 'Submodule'
           - 'feature'
@@ -547,14 +555,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
    contribute to any new security issues in addition of those identified
    for the specific protocols or contexts for which it is used.
 
-6.  IANA Considerations
-
-6.1.  "SID" range registry
-
-   IANA is requested to create a registry for YANG Schema Item
-   iDentifier (SID) ranges.  This registry needs to guarantee that the
-
-
 
 
 Veillette, et al.         Expires May 27, 2017                 [Page 10]
@@ -562,6 +562,12 @@ Veillette, et al.         Expires May 27, 2017                 [Page 10]
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
+6.  IANA Considerations
+
+6.1.  "SID" range registry
+
+   IANA is requested to create a registry for YANG Schema Item
+   iDentifier (SID) ranges.  This registry needs to guarantee that the
    ranges registered do not overlap.  The registry SHALL record for each
    entry:
 
@@ -598,12 +604,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
       review or IESG approval.  IANA MAY delegate this registration
       process to one or multiple sub-registries.  The recommended size
       of the SID range allocation for a sub-registry is 1,000,000.
-
-
-
-
-
-
 
 
 

@@ -486,46 +486,43 @@ li, p {
                                      +---------------------+
                                      |
                                    [DONE]
- ~~~~
-{: align="left"}
-
-Each time a YANG module or one of its imported module(s) or included sub-module(s) is updated, the ".sid" file MAY need to be updated. This update SHOULD also be performed using an automated tool.
-
-If a new revision requires more SIDs than initially allocated, a new SID range MUST be added to the assignment ranges as defined in the ".sid" file header. These extra SIDs are used for subsequent assignments.
-
-The following activity diagram summarizes the update of a YANG module and its associated .sid file.
-
 </pre>
+<p id="rfc.section.3.p.6">Each time a YANG module or one of its imported module(s) or included sub-module(s) is updated, the &#8220;.sid&#8221; file MAY need to be updated. This update SHOULD also be performed using an automated tool.</p>
+<p id="rfc.section.3.p.7">If a new revision requires more SIDs than initially allocated, a new SID range MUST be added to the assignment ranges as defined in the &#8220;.sid&#8221; file header. These extra SIDs are used for subsequent assignments.</p>
+<p id="rfc.section.3.p.8">The following activity diagram summarizes the update of a YANG module and its associated .sid file.</p>
 <pre>
-   +---------------+   O    | Update of the |  -|- -&gt;| YANG module   |  / \   | or include(s) |
-   | or import(s)  |
-   +---------------+
-           |
-           V
-    /-------------\      +----------------+
-   /  More SIDs    \ yes | Extra sub-range|
-   \  required ?   /----&gt;| assignment     |
-    \-------------/      +----------------+
-           | no                  |
-           +---------------------+
-           |
-           V
-   +---------------+
-   | .sid file     |
-   | update based  |
-   | on previous   |
-   | .sid file     |
-   +---------------+
-           |
-           V
-    /-------------\      +---------------+
-   /  Publicly     \ yes | YANG module   |
-   \  available ?  /----&gt;| registration  |
-    \-------------/      +---------------+
-           | no                  |
-           +---------------------+
-           |
-         [DONE] ~~~~
+       +---------------+
+  O    | Update of the |
+ -|- -&gt;| YANG module   |
+ / \   | or include(s) |
+       | or import(s)  |
+       +---------------+
+               |
+               V
+        /-------------\      +----------------+
+       /  More SIDs    \ yes | Extra sub-range|
+       \  required ?   /----&gt;| assignment     |
+        \-------------/      +----------------+
+               | no                  |
+               +---------------------+
+               |
+               V
+       +---------------+
+       | .sid file     |
+       | update based  |
+       | on previous   |
+       | .sid file     |
+       +---------------+
+               |
+               V
+        /-------------\      +---------------+
+       /  Publicly     \ yes | YANG module   |
+       \  available ?  /----&gt;| registration  |
+        \-------------/      +---------------+
+               | no                  |
+               +---------------------+
+               |
+             [DONE]
 </pre>
 <h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#sid-file-format" id="sid-file-format">&#8220;.sid&#8221; file format</a></h1>
 <p id="rfc.section.4.p.1">&#8220;.sid&#8221; files are used to persist and publish SIDs assigned to the different YANG items of a specific YANG module. The following YANG module defined the structure of this file, encoding is performed using the rules defined in <a href="#RFC7951">[RFC7951]</a>.</p>

@@ -2,16 +2,16 @@
 
 
 
-Internet Engineering Task Force                         A. Somaraju, Ed.
-Internet-Draft                                     Tridonic GmbH & Co KG
-Intended status: Standards Track                       M. Veillette, Ed.
-Expires: May 27, 2017                            Trilliant Networks Inc.
-                                                                A. Pelov
-                                                                  Acklio
+Internet Engineering Task Force                        M. Veillette, Ed.
+Internet-Draft                                   Trilliant Networks Inc.
+Intended status: Standards Track                           A. Pelov, Ed.
+Expires: May 27, 2017                                             Acklio
                                                                R. Turner
                                                               Landis+Gyr
                                                              A. Minaburo
                                                                   Acklio
+                                                             A. Somaraju
+                                                   Tridonic GmbH & Co KG
                                                        November 23, 2016
 
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Somaraju, et al.          Expires May 27, 2017                  [Page 1]
+Veillette, et al.         Expires May 27, 2017                  [Page 1]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Somaraju, et al.          Expires May 27, 2017                  [Page 2]
+Veillette, et al.         Expires May 27, 2017                  [Page 2]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -165,7 +165,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                  [Page 3]
+Veillette, et al.         Expires May 27, 2017                  [Page 3]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -221,7 +221,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                  [Page 4]
+Veillette, et al.         Expires May 27, 2017                  [Page 4]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -277,7 +277,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                  [Page 5]
+Veillette, et al.         Expires May 27, 2017                  [Page 5]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -333,7 +333,7 @@ The following activity diagram summarizes the update of a YANG module and its as
 
 
 
-Somaraju, et al.          Expires May 27, 2017                  [Page 6]
+Veillette, et al.         Expires May 27, 2017                  [Page 6]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -389,7 +389,7 @@ module ietf-sid-file {
 
 
 
-Somaraju, et al.          Expires May 27, 2017                  [Page 7]
+Veillette, et al.         Expires May 27, 2017                  [Page 7]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -445,7 +445,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                  [Page 8]
+Veillette, et al.         Expires May 27, 2017                  [Page 8]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -501,7 +501,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                  [Page 9]
+Veillette, et al.         Expires May 27, 2017                  [Page 9]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -557,7 +557,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                 [Page 10]
+Veillette, et al.         Expires May 27, 2017                 [Page 10]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -613,7 +613,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                 [Page 11]
+Veillette, et al.         Expires May 27, 2017                 [Page 11]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -669,7 +669,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                 [Page 12]
+Veillette, et al.         Expires May 27, 2017                 [Page 12]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -725,7 +725,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                 [Page 13]
+Veillette, et al.         Expires May 27, 2017                 [Page 13]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -781,7 +781,7 @@ Appendix A.  ".sid" file example
 
 
 
-Somaraju, et al.          Expires May 27, 2017                 [Page 14]
+Veillette, et al.         Expires May 27, 2017                 [Page 14]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -837,7 +837,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                 [Page 15]
+Veillette, et al.         Expires May 27, 2017                 [Page 15]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -893,7 +893,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                 [Page 16]
+Veillette, et al.         Expires May 27, 2017                 [Page 16]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -949,7 +949,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                 [Page 17]
+Veillette, et al.         Expires May 27, 2017                 [Page 17]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -1005,7 +1005,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                 [Page 18]
+Veillette, et al.         Expires May 27, 2017                 [Page 18]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -1061,7 +1061,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                 [Page 19]
+Veillette, et al.         Expires May 27, 2017                 [Page 19]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -1117,7 +1117,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                 [Page 20]
+Veillette, et al.         Expires May 27, 2017                 [Page 20]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -1173,7 +1173,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                 [Page 21]
+Veillette, et al.         Expires May 27, 2017                 [Page 21]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
@@ -1215,25 +1215,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 Authors' Addresses
 
-   Abhinav Somaraju (editor)
-   Tridonic GmbH & Co KG
-   Farbergasse 15
-   Dornbirn, Vorarlberg  6850
-   Austria
-
-   Phone: +43664808926169
-   Email: abhinav.somaraju@tridonic.com
-
-
-
-
-
-
-Somaraju, et al.          Expires May 27, 2017                 [Page 22]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
-
-
    Michel Veillette (editor)
    Trilliant Networks Inc.
    610 Rue du Luxembourg
@@ -1244,7 +1225,16 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
    Email: michel.veillette@trilliantinc.com
 
 
-   Alexander Pelov
+
+
+
+
+Veillette, et al.         Expires May 27, 2017                 [Page 22]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
+
+
+   Alexander Pelov (editor)
    Acklio
    2bis rue de la Chataigneraie
    Cesson-Sevigne, Bretagne  35510
@@ -1274,6 +1264,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
    Email: ana@ackl.io
 
 
+   Abhinav Somaraju
+   Tridonic GmbH & Co KG
+   Farbergasse 15
+   Dornbirn, Vorarlberg  6850
+   Austria
+
+   Phone: +43664808926169
+   Email: abhinav.somaraju@tridonic.com
 
 
 
@@ -1285,4 +1283,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2016
 
 
 
-Somaraju, et al.          Expires May 27, 2017                 [Page 23]
+
+
+Veillette, et al.         Expires May 27, 2017                 [Page 23]

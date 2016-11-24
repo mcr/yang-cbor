@@ -316,7 +316,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Somaraju, A., Turner, R., and A. Minaburo" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-yang-cbor-03" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-11-23" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-11-24" />
   <meta name="dct.abstract" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
   <meta name="description" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
 
@@ -340,7 +340,7 @@ li, p {
   <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: May 27, 2017</td>
+  <td class="left">Expires: May 28, 2017</td>
   <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -369,7 +369,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">November 23, 2016</td>
+  <td class="right">November 24, 2016</td>
 </tr>
 
     	
@@ -389,7 +389,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on May 27, 2017.</p>
+<p>This Internet-Draft will expire on May 28, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -692,7 +692,7 @@ leaf-list search {
 <h1 id="rfc.section.4.4"><a href="#rfc.section.4.4">4.4.</a> <a href="#list" id="list">The &#8216;list&#8217; Data Node</a></h1>
 <p id="rfc.section.4.4.p.1">A list MUST be encoded using a CBOR array data item (major type 4). Each list instance within this CBOR array is encoded using a CBOR map data item (major type 5) based on the same rules as a YANG container as defined in <a href="#container">Section 4.2</a>.</p>
 <h1 id="rfc.section.4.4.1"><a href="#rfc.section.4.4.1">4.4.1.</a> <a href="#list-with-sid" id="list-with-sid">SIDs as keys</a></h1>
-<p id="rfc.section.4.4.1.p.1">The follwoing example show the encoding of the &#8216;server&#8217; list using the SIDs defined in <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a> Appendix C. It is important to note that the protocol or method using this mapping may carry a parent SID or may have the knowledge of this parent SID based on its context. In these cases, delta encoding can be performed based on this parent SID which minimizes the size of the encoded data.</p>
+<p id="rfc.section.4.4.1.p.1">The following example show the encoding of the &#8216;server&#8217; list using the SIDs defined in <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a> Appendix C. It is important to note that the protocol or method using this mapping may carry a parent SID or may have the knowledge of this parent SID based on its context. In these cases, delta encoding can be performed based on this parent SID which minimizes the size of the encoded data.</p>
 <p id="rfc.section.4.4.1.p.2">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 list server {

@@ -316,7 +316,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Somaraju, A., Turner, R., and A. Minaburo" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-yang-cbor-03" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-11-24" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-11-30" />
   <meta name="dct.abstract" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
   <meta name="description" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
 
@@ -340,7 +340,7 @@ li, p {
   <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: May 28, 2017</td>
+  <td class="left">Expires: June 3, 2017</td>
   <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -369,7 +369,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">November 24, 2016</td>
+  <td class="right">November 30, 2016</td>
 </tr>
 
     	
@@ -389,7 +389,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on May 28, 2017.</p>
+<p>This Internet-Draft will expire on June 3, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -902,6 +902,7 @@ anyxml bar;
 <p id="rfc.section.4.6.p.4">CBOR diagnostic notation: [true, null, true]</p>
 <p id="rfc.section.4.6.p.5">CBOR encoding: 83 f5 f6 f5</p>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#data-types-mapping" id="data-types-mapping">Representing YANG Data Types in CBOR</a></h1>
+<p id="rfc.section.5.p.1">The CBOR encoding of an instance of a leaf or leaf-list data node depends on the built-in type of that data node. The following sub-section defined the CBOR encoding of each built-in type supported by YANG as listed in <a href="#RFC7950">[RFC7950]</a> section 4.2.4. Each subsection shows an example value assigned to a data node of the discussed built-in type.</p>
 <h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#the-unsigned-integer-types" id="the-unsigned-integer-types">The unsigned integer Types</a></h1>
 <p id="rfc.section.5.1.p.1">Leafs of type uint8, uint16, uint32 and uint64 MUST be encoded using a CBOR unsigned integer data item (major type 0).</p>
 <p id="rfc.section.5.1.p.2">The following example shows the encoding of leaf &#8216;mtu&#8217; set to 1280 bytes.</p>
@@ -1020,7 +1021,7 @@ leaf aes128-key {
 <p id="rfc.section.5.8.p.5">CBOR encoding: 50 1f1ce6a3f42660d888d92a4d8030476e</p>
 <h1 id="rfc.section.5.9"><a href="#rfc.section.5.9">5.9.</a> <a href="#the-leafref-type" id="the-leafref-type">The &#8216;leafref&#8217; Type</a></h1>
 <p id="rfc.section.5.9.p.1">Leafs of type leafref MUST be encoded using the rules of the schema node referenced by the &#8216;path&#8217; YANG statement.</p>
-<p id="rfc.section.5.9.p.2">The following example shows the encoding of leaf &#8216;interface-state-ref&#8217; set to the value &#8220;eth1&#8221;.</p>
+<p id="rfc.section.5.9.p.2">The following example shows the encoding of the value &#8220;eth1&#8221; assigned to the leaf &#8216;interface-state-ref&#8217;.</p>
 <p id="rfc.section.5.9.p.3">Definition example from <a href="#RFC7223">[RFC7223]</a>:</p>
 <pre>
 typedef interface-state-ref {

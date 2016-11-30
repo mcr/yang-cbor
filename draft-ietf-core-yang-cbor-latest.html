@@ -600,7 +600,7 @@ li, p {
   <li>The delta value is equal to the SID of the current schema node minus the SID of the parent schema node. When no parent exists in the context of use of this container, the delta is set to the SID of the current schema node (a parent with SID equal to zero is assumed).</li>
   <li>Delta values may result in a negative number, clients and servers MUST support negative deltas.</li>
 </ul>
-<p id="rfc.section.4.2.1.p.3">The following example shows the encoding of the &#8216;system&#8217; container using the SIDs defined in <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a> Appendix C.</p>
+<p id="rfc.section.4.2.1.p.3">The following example shows the encoding of a &#8216;system&#8217; container instance using the SIDs defined in <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a> Appendix C.</p>
 <p id="rfc.section.4.2.1.p.4">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 typedef date-and-time {
@@ -643,7 +643,7 @@ a1                                      # map(1)
 </pre>
 <h1 id="rfc.section.4.2.2"><a href="#rfc.section.4.2.2">4.2.2.</a> <a href="#member-names-as-keys" id="member-names-as-keys">Member names as keys</a></h1>
 <p id="rfc.section.4.2.2.p.1">Keys implemented using member names MUST be encoded using a CBOR text string data item (major type 3). A namespace-qualified member name MUST be used for all members of a top-level collection, and then also whenever the namespaces of the schema node and its parent are different. In all other cases, the simple form of the member name MUST be used. Names and namespaces are defined in <a href="#RFC7951">[RFC7951]</a> section 4.</p>
-<p id="rfc.section.4.2.2.p.2">The following example shows the encoding of the &#8216;system&#8217; container using names. This example is described in <a href="#container-with-sid">Section 4.2.1</a>.</p>
+<p id="rfc.section.4.2.2.p.2">The following example shows the encoding of a &#8216;system&#8217; container instance using names. This example is described in <a href="#container-with-sid">Section 4.2.1</a>.</p>
 <p id="rfc.section.4.2.2.p.3">CBOR diagnostic notation:</p>
 <pre>
 {
@@ -670,7 +670,7 @@ a1                                          # map(1)
 </pre>
 <h1 id="rfc.section.4.3"><a href="#rfc.section.4.3">4.3.</a> <a href="#leaf-list" id="leaf-list">The &#8216;leaf-list&#8217; Data Node</a></h1>
 <p id="rfc.section.4.3.p.1">A leaf-list MUST be encoded using a CBOR array data item (major type 4).  Each entry of this array MUST be encoded using the rules defined by the YANG type specified.</p>
-<p id="rfc.section.4.3.p.2">The following example shows the encoding the &#8216;search&#8217; leaf-list containing the two entries, &#8220;ietf.org&#8221; and &#8220;ieee.org&#8221;.</p>
+<p id="rfc.section.4.3.p.2">The following example shows the encoding a &#8216;search&#8217; leaf-list instance containing the two entries, &#8220;ietf.org&#8221; and &#8220;ieee.org&#8221;.</p>
 <p id="rfc.section.4.3.p.3">Definition example <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 typedef domain-name {
@@ -692,7 +692,7 @@ leaf-list search {
 <h1 id="rfc.section.4.4"><a href="#rfc.section.4.4">4.4.</a> <a href="#list" id="list">The &#8216;list&#8217; Data Node</a></h1>
 <p id="rfc.section.4.4.p.1">A list MUST be encoded using a CBOR array data item (major type 4). Each list instance within this CBOR array is encoded using a CBOR map data item (major type 5) based on the same rules as a YANG container as defined in <a href="#container">Section 4.2</a>.</p>
 <h1 id="rfc.section.4.4.1"><a href="#rfc.section.4.4.1">4.4.1.</a> <a href="#list-with-sid" id="list-with-sid">SIDs as keys</a></h1>
-<p id="rfc.section.4.4.1.p.1">The following example show the encoding of the &#8216;server&#8217; list using the SIDs defined in <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a> Appendix C. It is important to note that the protocol or method using this mapping may carry a parent SID or may have the knowledge of this parent SID based on its context. In these cases, delta encoding can be performed based on this parent SID which minimizes the size of the encoded data.</p>
+<p id="rfc.section.4.4.1.p.1">The following example show the encoding of a &#8216;server&#8217; list instance using the SIDs defined in <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a> Appendix C. It is important to note that the protocol or method using this mapping may carry a parent SID or may have the knowledge of this parent SID based on its context. In these cases, delta encoding can be performed based on this parent SID which minimizes the size of the encoded data.</p>
 <p id="rfc.section.4.4.1.p.2">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 list server {
@@ -784,7 +784,7 @@ list server {
             7461632e6e72632e6361      # "tac.nrc.ca"
 </pre>
 <h1 id="rfc.section.4.4.2"><a href="#rfc.section.4.4.2">4.4.2.</a> <a href="#member-names-as-keys-1" id="member-names-as-keys-1">Member names as keys</a></h1>
-<p id="rfc.section.4.4.2.p.1">The following example shows the encoding of the &#8216;server&#8217; list using names. This example is described in <a href="#list-with-sid">Section 4.4.1</a>.</p>
+<p id="rfc.section.4.4.2.p.1">The following example shows the encoding of a &#8216;server&#8217; list instance using names. This example is described in <a href="#list-with-sid">Section 4.4.1</a>.</p>
 <p id="rfc.section.4.4.2.p.2">CBOR diagnostic notation:</p>
 <pre>
 [
@@ -905,7 +905,7 @@ anyxml bar;
 <p id="rfc.section.5.p.1">The CBOR encoding of an instance of a leaf or leaf-list data node depends on the built-in type of that data node. The following sub-section defined the CBOR encoding of each built-in type supported by YANG as listed in <a href="#RFC7950">[RFC7950]</a> section 4.2.4. Each subsection shows an example value assigned to a data node of the discussed built-in type.</p>
 <h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#the-unsigned-integer-types" id="the-unsigned-integer-types">The unsigned integer Types</a></h1>
 <p id="rfc.section.5.1.p.1">Leafs of type uint8, uint16, uint32 and uint64 MUST be encoded using a CBOR unsigned integer data item (major type 0).</p>
-<p id="rfc.section.5.1.p.2">The following example shows the encoding of leaf &#8216;mtu&#8217; set to 1280 bytes.</p>
+<p id="rfc.section.5.1.p.2">The following example shows the encoding of a &#8216;mtu&#8217; leaf instance set to 1280 bytes.</p>
 <p id="rfc.section.5.1.p.3">Definition example from <a href="#RFC7277">[RFC7277]</a>:</p>
 <pre>
 leaf mtu {
@@ -918,7 +918,7 @@ leaf mtu {
 <p id="rfc.section.5.1.p.5">CBOR encoding: 19 0500</p>
 <h1 id="rfc.section.5.2"><a href="#rfc.section.5.2">5.2.</a> <a href="#the-integer-types" id="the-integer-types">The integer Types</a></h1>
 <p id="rfc.section.5.2.p.1">Leafs of type int8, int16, int32 and int64 MUST be encoded using either CBOR unsigned integer (major type 0) or CBOR signed integer (major type 1), depending on the actual value.</p>
-<p id="rfc.section.5.2.p.2">The following example shows the encoding of leaf &#8216;timezone-utc-offset&#8217; set to -300 minutes.</p>
+<p id="rfc.section.5.2.p.2">The following example shows the encoding of a &#8216;timezone-utc-offset&#8217; leaf instance set to -300 minutes.</p>
 <p id="rfc.section.5.2.p.3">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 leaf timezone-utc-offset {
@@ -931,7 +931,7 @@ leaf timezone-utc-offset {
 <p id="rfc.section.5.2.p.5">CBOR encoding: 39 012b</p>
 <h1 id="rfc.section.5.3"><a href="#rfc.section.5.3">5.3.</a> <a href="#the-decimal64-type" id="the-decimal64-type">The &#8216;decimal64&#8217; Type</a></h1>
 <p id="rfc.section.5.3.p.1">Leafs of type decimal64 MUST be encoded using a decimal fraction as defined in <a href="#RFC7049">[RFC7049]</a> section 2.4.3.</p>
-<p id="rfc.section.5.3.p.2">The following example shows the encoding of leaf &#8216;my-decimal&#8217; set to 2.57.</p>
+<p id="rfc.section.5.3.p.2">The following example shows the encoding of a &#8216;my-decimal&#8217; leaf instance set to 2.57.</p>
 <p id="rfc.section.5.3.p.3">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 leaf my-decimal {
@@ -945,7 +945,7 @@ leaf my-decimal {
 <p id="rfc.section.5.3.p.5">CBOR encoding: c4 82 21 19 0101</p>
 <h1 id="rfc.section.5.4"><a href="#rfc.section.5.4">5.4.</a> <a href="#the-string-type" id="the-string-type">The &#8216;string&#8217; Type</a></h1>
 <p id="rfc.section.5.4.p.1">Leafs of type string MUST be encoded using a CBOR text string data item (major type 3).</p>
-<p id="rfc.section.5.4.p.2">The following example shows the encoding of leaf &#8216;name&#8217; set to &#8220;eth0&#8221;.</p>
+<p id="rfc.section.5.4.p.2">The following example shows the encoding of a &#8216;name&#8217; leaf instance set to &#8220;eth0&#8221;.</p>
 <p id="rfc.section.5.4.p.3">Definition example from <a href="#RFC7223">[RFC7223]</a>:</p>
 <pre>
 leaf name {
@@ -956,7 +956,7 @@ leaf name {
 <p id="rfc.section.5.4.p.5">CBOR encoding: 64 65746830</p>
 <h1 id="rfc.section.5.5"><a href="#rfc.section.5.5">5.5.</a> <a href="#the-boolean-type" id="the-boolean-type">The &#8216;boolean&#8217; Type</a></h1>
 <p id="rfc.section.5.5.p.1">Leafs of type boolean MUST be encoded using a CBOR true (major type 7, additional information 21) or false data item (major type 7, additional information 20).</p>
-<p id="rfc.section.5.5.p.2">The following example shows the encoding of leaf &#8216;enabled&#8217; set to &#8216;true&#8217;.</p>
+<p id="rfc.section.5.5.p.2">The following example shows the encoding of an &#8216;enabled&#8217; leaf instance set to &#8216;true&#8217;.</p>
 <p id="rfc.section.5.5.p.3">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 leaf enabled {
@@ -967,7 +967,7 @@ leaf enabled {
 <p id="rfc.section.5.5.p.5">CBOR encoding: f5</p>
 <h1 id="rfc.section.5.6"><a href="#rfc.section.5.6">5.6.</a> <a href="#the-enumeration-type" id="the-enumeration-type">The &#8216;enumeration&#8217; Type</a></h1>
 <p id="rfc.section.5.6.p.1">Leafs of type enumeration MUST be encoded using a CBOR unsigned integer (major type 0) or CBOR signed integer (major type 1), depending on the actual value. Enumeration values are either explicitly assigned using the YANG statement &#8216;value&#8217; or automatically assigned based on the algorithm defined in <a href="#RFC7950">[RFC7950]</a> section 9.6.4.2.</p>
-<p id="rfc.section.5.6.p.2">The following example shows the encoding of leaf &#8216;oper-status&#8217; set to &#8216;testing&#8217;.</p>
+<p id="rfc.section.5.6.p.2">The following example shows the encoding of an &#8216;oper-status&#8217; leaf instance set to &#8216;testing&#8217;.</p>
 <p id="rfc.section.5.6.p.3">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 leaf oper-status {
@@ -987,7 +987,7 @@ leaf oper-status {
 <h1 id="rfc.section.5.7"><a href="#rfc.section.5.7">5.7.</a> <a href="#the-bits-type" id="the-bits-type">The &#8216;bits&#8217; Type</a></h1>
 <p id="rfc.section.5.7.p.1">Leafs of type bits MUST be encoded using a CBOR byte string data item (major type 2). Bits position are either explicitly assigned using the YANG statement &#8216;position&#8217; or automatically assigned based on the algorithm defined in <a href="#RFC7950">[RFC7950]</a> section 9.7.4.2.</p>
 <p id="rfc.section.5.7.p.2">Bits position 0 to 7 are assigned to the first byte within the byte string, bits 8 to 15 to the second byte, and subsequent bytes are assigned similarly. Within each byte, bits are assigned from least to most significant.</p>
-<p id="rfc.section.5.7.p.3">The following example shows the encoding of leaf &#8216;mybits&#8217; with the &#8216;disable-nagle&#8217; and &#8216;10-Mb-only&#8217; flags set.</p>
+<p id="rfc.section.5.7.p.3">The following example shows the encoding of a &#8216;mybits&#8217; leaf instance with the &#8216;disable-nagle&#8217; and &#8216;10-Mb-only&#8217; flags set.</p>
 <p id="rfc.section.5.7.p.4">Definition example from <a href="#RFC7950">[RFC7950]</a>:</p>
 <pre>
 leaf mybits {
@@ -1008,7 +1008,7 @@ leaf mybits {
 <p id="rfc.section.5.7.p.6">CBOR encoding: 41 05</p>
 <h1 id="rfc.section.5.8"><a href="#rfc.section.5.8">5.8.</a> <a href="#the-binary-type" id="the-binary-type">The &#8216;binary&#8217; Type</a></h1>
 <p id="rfc.section.5.8.p.1">Leafs of type binary MUST be encoded using a CBOR byte string data item (major type 2).</p>
-<p id="rfc.section.5.8.p.2">The following example shows the encoding of leaf &#8216;aes128-key&#8217; set to 0x1f1ce6a3f42660d888d92a4d8030476e.</p>
+<p id="rfc.section.5.8.p.2">The following example shows the encoding of an &#8216;aes128-key&#8217; leaf instance set to 0x1f1ce6a3f42660d888d92a4d8030476e.</p>
 <p id="rfc.section.5.8.p.3">Definition example:</p>
 <pre>
 leaf aes128-key {
@@ -1021,7 +1021,7 @@ leaf aes128-key {
 <p id="rfc.section.5.8.p.5">CBOR encoding: 50 1f1ce6a3f42660d888d92a4d8030476e</p>
 <h1 id="rfc.section.5.9"><a href="#rfc.section.5.9">5.9.</a> <a href="#the-leafref-type" id="the-leafref-type">The &#8216;leafref&#8217; Type</a></h1>
 <p id="rfc.section.5.9.p.1">Leafs of type leafref MUST be encoded using the rules of the schema node referenced by the &#8216;path&#8217; YANG statement.</p>
-<p id="rfc.section.5.9.p.2">The following example shows the encoding of the value &#8220;eth1&#8221; assigned to the leaf &#8216;interface-state-ref&#8217;.</p>
+<p id="rfc.section.5.9.p.2">The following example shows the encoding of an &#8216;interface-state-ref&#8217; leaf instance set to &#8220;eth1&#8221;.</p>
 <p id="rfc.section.5.9.p.3">Definition example from <a href="#RFC7223">[RFC7223]</a>:</p>
 <pre>
 typedef interface-state-ref {
@@ -1048,7 +1048,7 @@ container interfaces-state {
 <p id="rfc.section.5.10.p.1">This specification supports two approaches for encoding identityref, a SID as defined in <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a> or a name as defined in <a href="#RFC7951">[RFC7951]</a> section 6.8.</p>
 <h1 id="rfc.section.5.10.1"><a href="#rfc.section.5.10.1">5.10.1.</a> <a href="#identityref-with-sid" id="identityref-with-sid">SIDs as identityref</a></h1>
 <p id="rfc.section.5.10.1.p.1">SIDs are globally unique and may be used as identityref.  This approach is both compact and simple to implement.  When SIDs are used, identityref MUST be encoded using a CBOR unsigned integer data item (major type 0) and set to a SID allocated from a registered SID range.</p>
-<p id="rfc.section.5.10.1.p.2">The following example shows the encoding of leaf &#8216;type&#8217; set to the value &#8216;iana-if-type:ethernetCsmacd&#8217; (SID 1180 as listed in &#8216;iana-if-type@2014-05-08.sid&#8217;).</p>
+<p id="rfc.section.5.10.1.p.2">The following example shows the encoding of a &#8216;type&#8217; leaf instance set to the value &#8216;iana-if-type:ethernetCsmacd&#8217; (SID 1180 as listed in &#8216;iana-if-type@2014-05-08.sid&#8217;).</p>
 <p id="rfc.section.5.10.1.p.3">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 identity interface-type {
@@ -1077,7 +1077,7 @@ leaf type {
 <p id="rfc.section.5.10.2.p.4">CBOR encoding: 78 1b 69616e612d69662d747970653a65746865726e657443736d616364</p>
 <h1 id="rfc.section.5.11"><a href="#rfc.section.5.11">5.11.</a> <a href="#the-empty-type" id="the-empty-type">The &#8216;empty&#8217; Type</a></h1>
 <p id="rfc.section.5.11.p.1">Leafs of type empty MUST be encoded using the CBOR null value (major type 7, additional information 22).</p>
-<p id="rfc.section.5.11.p.2">The following example shows the encoding of leaf &#8216;is-router&#8217; when present.</p>
+<p id="rfc.section.5.11.p.2">The following example shows the encoding of a &#8216;is-router&#8217; leaf instance when present.</p>
 <p id="rfc.section.5.11.p.3">Definition example from <a href="#RFC7277">[RFC7277]</a>:</p>
 <pre>
 leaf is-router {
@@ -1097,7 +1097,7 @@ leaf is-router {
   <li>instance-identifier</li>
 </ul>
 <p id="rfc.section.5.12.p.3">See <a href="#tag-registry">Section 7.1</a> for more information about these CBOR tags.</p>
-<p id="rfc.section.5.12.p.4">The following example shows the encoding of leaf &#8216;ip-address&#8217; when set to &#8220;2001:db8:a0b:12f0::1&#8221;.</p>
+<p id="rfc.section.5.12.p.4">The following example shows the encoding of an &#8216;ip-address&#8217; leaf instance when set to &#8220;2001:db8:a0b:12f0::1&#8221;.</p>
 <p id="rfc.section.5.12.p.5">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 typedef ipv4-address {
@@ -1148,7 +1148,7 @@ leaf address {
 <p>
   <strong>First example:</strong>
 </p>
-<p id="rfc.section.5.13.1.p.7">The following example shows the encoding of a leaf of type instance-identifier which identifies the data node &#8220;/system/contact&#8221; (SID 1737).</p>
+<p id="rfc.section.5.13.1.p.7">The following example shows the encoding of a leaf instance of type instance-identifier which identifies the data node &#8220;/system/contact&#8221; (SID 1737).</p>
 <p id="rfc.section.5.13.1.p.8">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 container system {
@@ -1167,7 +1167,7 @@ container system {
 <p>
   <strong>Second example:</strong>
 </p>
-<p id="rfc.section.5.13.1.p.12">The following example shows the encoding of a leaf of type instance-identifier which identify the data node instance &#8220;/system/authentication/user/authorized-key/key-data&#8221; (SID 1730) for user name &#8220;bob&#8221; and authorized-key &#8220;admin&#8221;.</p>
+<p id="rfc.section.5.13.1.p.12">The following example shows the encoding of a leaf instance of type instance-identifier which identify the data node instance &#8220;/system/authentication/user/authorized-key/key-data&#8221; (SID 1730) for user name &#8220;bob&#8221; and authorized-key &#8220;admin&#8221;.</p>
 <p id="rfc.section.5.13.1.p.13">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>
 list user {
@@ -1207,7 +1207,7 @@ list user {
 <p>
   <strong>Third example:</strong>
 </p>
-<p id="rfc.section.5.13.1.p.17">The following example shows the encoding of a leaf of type instance-identifier which identify the list instance &#8220;/system/authentication/user&#8221; (SID 1726) corresponding to the user name &#8220;jack&#8221;.</p>
+<p id="rfc.section.5.13.1.p.17">The following example shows the encoding of a leaf instance of type instance-identifier which identify the list instance &#8220;/system/authentication/user&#8221; (SID 1726) corresponding to the user name &#8220;jack&#8221;.</p>
 <p id="rfc.section.5.13.1.p.18">CBOR diagnostic notation: [1726, &#8220;jack&#8221;]</p>
 <p id="rfc.section.5.13.1.p.19">CBOR encoding:</p>
 <pre>

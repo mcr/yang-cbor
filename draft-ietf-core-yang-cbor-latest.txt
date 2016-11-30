@@ -809,7 +809,8 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2016
    depends on the built-in type of that data node.  The following sub-
    section defined the CBOR encoding of each built-in type supported by
    YANG as listed in [RFC7950] section 4.2.4.  Each subsection shows an
-   example value assigned to a data node of the discussed built-in type.
+   example value assigned to a data node instance of the discussed
+   built-in type.
 
 5.1.  The unsigned integer Types
 
@@ -830,7 +831,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2016
    CBOR diagnostic notation: 1280
 
    CBOR encoding: 19 0500
-
 
 
 

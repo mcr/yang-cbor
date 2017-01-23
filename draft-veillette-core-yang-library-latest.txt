@@ -9,7 +9,7 @@ Expires: July 27, 2017
 
 
                     Constrained YANG Module Library
-                  draft-veillette-core-yang-library-00
+                  draft-veillette-core-cool-library-00
 
 Abstract
 
@@ -270,8 +270,8 @@ Internet-Draft       Constrained YANG Module Library        January 2017
 3.2.3.  modules-state/module
 
    This mandatory list contains one entry for each YANG module supported
-   by the server.  There MUST be an entry in this list for each revision
-   of each YANG module that is used by the server.
+   by the server endpoint.  There MUST be an entry in this list for each
+   revision of each YANG module that is used by the server.
 
 
 
@@ -287,10 +287,10 @@ Internet-Draft       Constrained YANG Module Library        January 2017
    RFC Ed.: update the date below with the date of RFC publication and
    remove this note.
 
-<CODE BEGINS> file "ietf-constrained-yang-library@2017-01-20.yang"
-module ietf-constrained-yang-library {
-  namespace "urn:ietf:params:xml:ns:yang:ietf-constrained-yang-library";
-  prefix "lib";
+<CODE BEGINS> file " ietf-constrained-yang-library@2017-01-20.yang"
+  module ietf-constrained-yang-library {
+    namespace "urn:ietf:params:xml:ns:yang:ietf-constrained-yang-library";
+    prefix "lib";
 
   organization
     "IETF CORE (Constrained RESTful Environments) Working Group";
@@ -520,8 +520,8 @@ Internet-Draft       Constrained YANG Module Library        January 2017
         }
         mandatory true;
         description
-          "Indicates the type of conformance the server is claiming
-          for the YANG module identified by this entry.";
+          "Indicates the type of conformance the server endpoint is
+          claiming for the YANG module identified by this entry.";
       }
 
       list submodule {
@@ -576,7 +576,7 @@ Internet-Draft       Constrained YANG Module Library        January 2017
 
    namespace: urn:ietf:params:xml:ns:yang:ietf-constrained-yang-library
 
-   prefix: lib
+   prefix: coollib
 
    reference: RFC XXXX
 

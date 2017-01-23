@@ -292,7 +292,7 @@ li, p {
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Veillette, M., Ed." />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-cool-library-00" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-yang-library-00" />
   <meta name="dct.issued" scheme="ISO8601" content="2017-1-23" />
   <meta name="dct.abstract" content="This document describes a YANG library, which provides information about all YANG modules implemented by a constrained network management server (e.g. CoMI server).  Simple caching mechanisms are provided to minimize retrieval of this information by clients." />
   <meta name="description" content="This document describes a YANG library, which provides information about all YANG modules implemented by a constrained network management server (e.g. CoMI server).  Simple caching mechanisms are provided to minimize retrieval of this information by clients." />
@@ -326,7 +326,7 @@ li, p {
   </table>
 
   <p class="title">Constrained YANG Module Library<br />
-  <span class="filename">draft-veillette-core-cool-library-00</span></p>
+  <span class="filename">draft-veillette-core-yang-library-00</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -461,14 +461,14 @@ notifications:
 <p id="rfc.section.3.2.2.p.2">This leaf allows a client to fetch the module list once, cache it, and only re-fetch it if the value of this leaf has been changed.</p>
 <p id="rfc.section.3.2.2.p.3">If the value of this leaf changes, the server also generates a &#8220;yang-library-change&#8221; notification, with the new value of &#8220;module-set-id&#8221;.</p>
 <h1 id="rfc.section.3.2.3"><a href="#rfc.section.3.2.3">3.2.3.</a> <a href="#modules-statemodule" id="modules-statemodule">modules-state/module</a></h1>
-<p id="rfc.section.3.2.3.p.1">This mandatory list contains one entry for each YANG module supported by the server endpoint.  There MUST be an entry in this list for each revision of each YANG module that is used by the server.</p>
+<p id="rfc.section.3.2.3.p.1">This mandatory list contains one entry for each YANG module supported by the server.  There MUST be an entry in this list for each revision of each YANG module that is used by the server.</p>
 <h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#yang-module-ietf-constrained-yang-library" id="yang-module-ietf-constrained-yang-library">YANG Module &#8220;ietf-constrained-yang-library&#8221;</a></h1>
 <p id="rfc.section.4.p.1">RFC Ed.: update the date below with the date of RFC publication and remove this note.</p>
 <pre>
-&lt;CODE BEGINS&gt; file " ietf-constrained-yang-library@2017-01-20.yang"
-  module ietf-constrained-yang-library {
-    namespace "urn:ietf:params:xml:ns:yang:ietf-constrained-yang-library";
-    prefix "lib";
+&lt;CODE BEGINS&gt; file "ietf-constrained-yang-library@2017-01-20.yang"
+module ietf-constrained-yang-library {
+  namespace "urn:ietf:params:xml:ns:yang:ietf-constrained-yang-library";
+  prefix "lib";
 
   organization
     "IETF CORE (Constrained RESTful Environments) Working Group";
@@ -667,8 +667,8 @@ notifications:
         }
         mandatory true;
         description
-          "Indicates the type of conformance the server endpoint is
-          claiming for the YANG module identified by this entry.";
+          "Indicates the type of conformance the server is claiming
+          for the YANG module identified by this entry.";
       }
       
       list submodule {
@@ -709,7 +709,7 @@ notifications:
 <p id="rfc.section.5.1.p.1">This document registers one YANG module in the YANG Module Names registry <a href="#RFC7950">[RFC7950]</a>.</p>
 <p id="rfc.section.5.1.p.2">name:         ietf-constrained-yang-library</p>
 <p id="rfc.section.5.1.p.3">namespace:    urn:ietf:params:xml:ns:yang:ietf-constrained-yang-library</p>
-<p id="rfc.section.5.1.p.4">prefix:       coollib</p>
+<p id="rfc.section.5.1.p.4">prefix:       lib</p>
 <p id="rfc.section.5.1.p.5">reference:    RFC XXXX</p>
 <p id="rfc.section.5.1.p.6">// RFC Ed.: replace XXXX with RFC number and remove this note</p>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>

@@ -1066,7 +1066,7 @@ container interfaces-state {
 <h1 id="rfc.section.5.10"><a href="#rfc.section.5.10">5.10.</a> <a href="#the-identityref-type" id="the-identityref-type">The &#8216;identityref&#8217; Type</a></h1>
 <p id="rfc.section.5.10.p.1">This specification supports two approaches for encoding identityref, a YANG Schema Item iDentifier (SID) as defined in <a href="#sid">Section 2.1</a> or a name as defined in <a href="#RFC7951">[RFC7951]</a> section 6.8.</p>
 <h1 id="rfc.section.5.10.1"><a href="#rfc.section.5.10.1">5.10.1.</a> <a href="#identityref-with-sid" id="identityref-with-sid">SIDs as identityref</a></h1>
-<p id="rfc.section.5.10.1.p.1">When schema nodes of type identityref are implemented using SIDs, they MUST be encoded using a CBOR unsigned integer data item (major type 0) and set to a SID allocated from a registered SID range. (Note that no delta mechanism is employed for SIDs as identityref.)</p>
+<p id="rfc.section.5.10.1.p.1">When schema nodes of type identityref are implemented using SIDs, they MUST be encoded using a CBOR unsigned integer data item (major type 0). (Note that no delta mechanism is employed for SIDs as identityref.)</p>
 <p id="rfc.section.5.10.1.p.2">The following example shows the encoding of a &#8216;type&#8217; leaf instance set to the value &#8216;iana-if-type:ethernetCsmacd&#8217; (SID 1180).</p>
 <p id="rfc.section.5.10.1.p.3">Definition example from <a href="#RFC7317">[RFC7317]</a>:</p>
 <pre>

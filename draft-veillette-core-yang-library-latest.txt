@@ -90,8 +90,8 @@ Table of Contents
    utilize the YANG data modeling language:
 
    o  module list: The list of YANG modules implemented by a server,
-      each module is identified by its assigned Schema Item iDentifier
-      (SID) and revision.
+      each module is identified by its assigned YANG Schema Item
+      iDentifier (SID) and revision.
 
    o  submodule list: The list of YANG submodules included by each
       module, each submodule is identified by its assigned SID and
@@ -121,8 +121,8 @@ Internet-Draft       Constrained YANG Module Library        January 2017
    functionality and shares the same approach as YANG module ietf-yang-
    library.  The following changes with respect to ietf-yang-library are
    specified to make ietf-constrained-yang-library compatible with SID
-   [I-D.ietf-core-sid] used by CoMI [I-D.vanderstok-core-comi] and to
-   improve its applicability to constrained devices and networks.
+   [I-D.ietf-core-yang-cbor] used by CoMI [I-D.vanderstok-core-comi] and
+   to improve its applicability to constrained devices and networks.
 
    o  YANG module ietf-constrained-yang-library extends the caching
       mechanism supported by ietf-yang-library to multiple servers.
@@ -161,7 +161,7 @@ Internet-Draft       Constrained YANG Module Library        January 2017
 
    o  deviation
 
-   The following terms are defined in [I-D.ietf-core-sid]:
+   The following terms are defined in [I-D.ietf-core-yang-cbor]:
 
 
 
@@ -170,7 +170,7 @@ Veillette                Expires August 4, 2017                 [Page 3]
 Internet-Draft       Constrained YANG Module Library        January 2017
 
 
-   o  Schema Item iDentifier (SID)
+   o  YANG Schema Item iDentifier (SID)
 
    The following terms are defined in [I-D.vanderstok-core-comi]:
 
@@ -622,10 +622,11 @@ Internet-Draft       Constrained YANG Module Library        January 2017
 
 8.1.  Normative References
 
-   [I-D.ietf-core-sid]
-              Somaraju, A., Veillette, M., Pelov, A., Turner, R., and A.
-              Minaburo, "YANG Schema Item iDentifier (SID)", draft-ietf-
-              core-sid-00 (work in progress), October 2016.
+   [I-D.ietf-core-yang-cbor]
+              Veillette, M., Pelov, A., Somaraju, A., Turner, R., and A.
+              Minaburo, "CBOR Encoding of Data Modeled with YANG",
+              draft-ietf-core-yang-cbor-03 (work in progress), October
+              2016.
 
    [I-D.vanderstok-core-comi]
               Stok, P., Bierman, A., Veillette, M., and A. Pelov, "CoAP
@@ -662,7 +663,6 @@ Author's Address
 
    Phone: +14503750556
    Email: michel.veillette@trilliantinc.com
-
 
 
 

@@ -377,13 +377,13 @@ li, p {
 <p/>
 
 <ul>
-  <li>module list: The list of YANG modules implemented by a server, each module is identified by its assigned Schema Item iDentifier (SID) and revision.</li>
+  <li>module list: The list of YANG modules implemented by a server, each module is identified by its assigned YANG Schema Item iDentifier (SID) and revision.</li>
   <li>submodule list: The list of YANG submodules included by each module, each submodule is identified by its assigned SID and revision.</li>
   <li>feature list: The list of features supported by the server, each feature is identified by its assigned SID.</li>
   <li>deviation list: The list of YANG modules used for deviation statements associated with each YANG module, each module is identified by its assigned SID and revision.</li>
 </ul>
 <h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> <a href="#major-differences-between-ietf-constrained-yang-library-and-ietf-yang-library" id="major-differences-between-ietf-constrained-yang-library-and-ietf-yang-library">Major differences between ietf-constrained-yang-library and ietf-yang-library</a></h1>
-<p id="rfc.section.1.1.p.1">YANG module ietf-constrained-yang-library targets the same functionality and shares the same approach as YANG module ietf-yang-library. The following changes with respect to ietf-yang-library are specified to make ietf-constrained-yang-library compatible with SID <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a> used by CoMI <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a> and to improve its applicability to constrained devices and networks.</p>
+<p id="rfc.section.1.1.p.1">YANG module ietf-constrained-yang-library targets the same functionality and shares the same approach as YANG module ietf-yang-library. The following changes with respect to ietf-yang-library are specified to make ietf-constrained-yang-library compatible with SID <a href="#I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</a> used by CoMI <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a> and to improve its applicability to constrained devices and networks.</p>
 <p/>
 
 <ul>
@@ -404,11 +404,11 @@ li, p {
   <li>feature</li>
   <li>deviation</li>
 </ul>
-<p id="rfc.section.2.p.4">The following terms are defined in <a href="#I-D.ietf-core-sid">[I-D.ietf-core-sid]</a>:</p>
+<p id="rfc.section.2.p.4">The following terms are defined in <a href="#I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</a>:</p>
 <p/>
 
 <ul>
-  <li>Schema Item iDentifier (SID)</li>
+  <li>YANG Schema Item iDentifier (SID)</li>
 </ul>
 <p id="rfc.section.2.p.6">The following terms are defined in <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a>:</p>
 <p/>
@@ -723,9 +723,9 @@ module ietf-constrained-yang-library {
   <tbody>
     <tr>
       <td class="reference">
-        <b id="I-D.ietf-core-sid">[I-D.ietf-core-sid]</b>
+        <b id="I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</b>
       </td>
-      <td class="top"><a>Somaraju, A.</a>, <a>Veillette, M.</a>, <a>Pelov, A.</a>, <a>Turner, R.</a> and <a>A. Minaburo</a>, "<a href="http://tools.ietf.org/html/draft-ietf-core-sid-00">YANG Schema Item iDentifier (SID)</a>", Internet-Draft draft-ietf-core-sid-00, October 2016.</td>
+      <td class="top"><a>Veillette, M.</a>, <a>Pelov, A.</a>, <a>Somaraju, A.</a>, <a>Turner, R.</a> and <a>A. Minaburo</a>, "<a href="http://tools.ietf.org/html/draft-ietf-core-yang-cbor-03">CBOR Encoding of Data Modeled with YANG</a>", Internet-Draft draft-ietf-core-yang-cbor-03, October 2016.</td>
     </tr>
     <tr>
       <td class="reference">

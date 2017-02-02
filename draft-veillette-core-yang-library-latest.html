@@ -293,7 +293,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed." />
   <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-yang-library-00" />
-  <meta name="dct.issued" scheme="ISO8601" content="2017-1-31" />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-2-02" />
   <meta name="dct.abstract" content="This document describes a YANG library that provides information about all the YANG modules used by a constrained network management server (e.g., a CoAP Management Interface (CoMI) server). Simple caching mechanisms are provided to allow clients to minimize retrieval of this information." />
   <meta name="description" content="This document describes a YANG library that provides information about all the YANG modules used by a constrained network management server (e.g., a CoAP Management Interface (CoMI) server). Simple caching mechanisms are provided to allow clients to minimize retrieval of this information." />
 
@@ -314,10 +314,10 @@ li, p {
 </tr>
 <tr>
   <td class="left">Intended status: Standards Track</td>
-  <td class="right">January 31, 2017</td>
+  <td class="right">February 02, 2017</td>
 </tr>
 <tr>
-  <td class="left">Expires: August 4, 2017</td>
+  <td class="left">Expires: August 6, 2017</td>
   <td class="right"></td>
 </tr>
 
@@ -338,7 +338,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on August 4, 2017.</p>
+<p>This Internet-Draft will expire on August 6, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -383,7 +383,7 @@ li, p {
   <li>deviation list: The list of YANG modules used for deviation statements associated with each YANG module, each module is identified by its assigned SID and revision.</li>
 </ul>
 <h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> <a href="#major-differences-between-ietf-constrained-yang-library-and-ietf-yang-library" id="major-differences-between-ietf-constrained-yang-library-and-ietf-yang-library">Major differences between ietf-constrained-yang-library and ietf-yang-library</a></h1>
-<p id="rfc.section.1.1.p.1">YANG module ietf-constrained-yang-library targets the same functionality and shares the same approach as YANG module ietf-yang-library. The following changes with respect to ietf-yang-library are specified to make ietf-constrained-yang-library compatible with SID <a href="#I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</a> used by CoMI <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a> and to improve its applicability to constrained devices and networks.</p>
+<p id="rfc.section.1.1.p.1">YANG module ietf-constrained-yang-library targets the same functionality and shares the same approach as YANG module ietf-yang-library. The following changes with respect to ietf-yang-library are specified to make ietf-constrained-yang-library compatible with SID <a href="#I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</a> used by CoMI <a href="#I-D.ietf-core-comi">[I-D.ietf-core-comi]</a> and to improve its applicability to constrained devices and networks.</p>
 <p/>
 
 <ul>
@@ -410,7 +410,7 @@ li, p {
 <ul>
   <li>YANG Schema Item iDentifier (SID)</li>
 </ul>
-<p id="rfc.section.2.p.6">The following terms are defined in <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a>:</p>
+<p id="rfc.section.2.p.6">The following terms are defined in <a href="#I-D.ietf-core-comi">[I-D.ietf-core-comi]</a>:</p>
 <p/>
 
 <ul>
@@ -713,7 +713,7 @@ module ietf-constrained-yang-library {
 <p id="rfc.section.5.1.p.5">reference:    RFC XXXX</p>
 <p id="rfc.section.5.1.p.6">// RFC Ed.: replace XXXX with RFC number and remove this note</p>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
-<p id="rfc.section.6.p.1">This YANG module is designed to be accessed via the CoMI protocol <a href="#I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</a>.  Some of the readable data nodes in this YANG module may be considered sensitive or vulnerable in some network environments.  It is thus important to control read access to these data nodes.</p>
+<p id="rfc.section.6.p.1">This YANG module is designed to be accessed via the CoMI protocol <a href="#I-D.ietf-core-comi">[I-D.ietf-core-comi]</a>.  Some of the readable data nodes in this YANG module may be considered sensitive or vulnerable in some network environments.  It is thus important to control read access to these data nodes.</p>
 <p id="rfc.section.6.p.2">Specifically, the &#8216;module&#8217; list may help an attacker to identify the server capabilities and server implementations with known bugs. Server vulnerabilities may be specific to particular modules, module revisions, module features, or even module deviations.  This information is included in each module entry.  For example, if a particular operation on a particular data node is known to cause a server to crash or significantly degrade device performance, then the module list information will help an attacker identify server implementations with such a defect, in order to launch a denial of service attack on the device.</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments</a></h1>
 <p id="rfc.section.7.p.1">The YANG module defined by this memo have been derived from an already existing YANG module, ietf-yang-library <a href="#RFC7895">[RFC7895]</a>, we will like to thanks to the authors of this YANG module. A special thank Andy Bierman for his initial recommendations for the creation of this YANG module.</p>
@@ -723,15 +723,15 @@ module ietf-constrained-yang-library {
   <tbody>
     <tr>
       <td class="reference">
-        <b id="I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</b>
+        <b id="I-D.ietf-core-comi">[I-D.ietf-core-comi]</b>
       </td>
-      <td class="top"><a>Veillette, M.</a>, <a>Pelov, A.</a>, <a>Somaraju, A.</a>, <a>Turner, R.</a> and <a>A. Minaburo</a>, "<a href="http://tools.ietf.org/html/draft-ietf-core-yang-cbor-03">CBOR Encoding of Data Modeled with YANG</a>", Internet-Draft draft-ietf-core-yang-cbor-03, October 2016.</td>
+      <td class="top"><a>Stok, P.</a>, <a>Bierman, A.</a>, <a>Veillette, M.</a> and <a>A. Pelov</a>, "<a href="http://tools.ietf.org/html/draft-ietf-core-comi-00">CoAP Management Interface</a>", Internet-Draft draft-ietf-core-comi-00, January 2017.</td>
     </tr>
     <tr>
       <td class="reference">
-        <b id="I-D.vanderstok-core-comi">[I-D.vanderstok-core-comi]</b>
+        <b id="I-D.ietf-core-yang-cbor">[I-D.ietf-core-yang-cbor]</b>
       </td>
-      <td class="top"><a>Stok, P.</a>, <a>Bierman, A.</a>, <a>Veillette, M.</a> and <a>A. Pelov</a>, "<a href="http://tools.ietf.org/html/draft-vanderstok-core-comi-11">CoAP Management Interface</a>", Internet-Draft draft-vanderstok-core-comi-11, January 2017.</td>
+      <td class="top"><a>Veillette, M.</a>, <a>Pelov, A.</a>, <a>Somaraju, A.</a>, <a>Turner, R.</a> and <a>A. Minaburo</a>, "<a href="http://tools.ietf.org/html/draft-ietf-core-yang-cbor-03">CBOR Encoding of Data Modeled with YANG</a>", Internet-Draft draft-ietf-core-yang-cbor-03, October 2016.</td>
     </tr>
     <tr>
       <td class="reference">

@@ -5,14 +5,14 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Standards Track                           A. Pelov, Ed.
-Expires: August 17, 2017                                          Acklio
+Expires: August 18, 2017                                          Acklio
                                                                R. Turner
                                                               Landis+Gyr
                                                              A. Minaburo
                                                                   Acklio
                                                              A. Somaraju
                                                    Tridonic GmbH & Co KG
-                                                       February 13, 2017
+                                                       February 14, 2017
 
 
                    YANG Schema Item iDentifier (SID)
@@ -41,7 +41,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on August 17, 2017.
+   This Internet-Draft will expire on August 18, 2017.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Veillette, et al.        Expires August 17, 2017                [Page 1]
+Veillette, et al.        Expires August 18, 2017                [Page 1]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Veillette, et al.        Expires August 17, 2017                [Page 2]
+Veillette, et al.        Expires August 18, 2017                [Page 2]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -165,7 +165,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017                [Page 3]
+Veillette, et al.        Expires August 18, 2017                [Page 3]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -221,7 +221,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017                [Page 4]
+Veillette, et al.        Expires August 18, 2017                [Page 4]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -277,7 +277,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017                [Page 5]
+Veillette, et al.        Expires August 18, 2017                [Page 5]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -333,7 +333,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017                [Page 6]
+Veillette, et al.        Expires August 18, 2017                [Page 6]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -389,7 +389,7 @@ module ietf-sid-file {
 
 
 
-Veillette, et al.        Expires August 17, 2017                [Page 7]
+Veillette, et al.        Expires August 18, 2017                [Page 7]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -445,7 +445,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017                [Page 8]
+Veillette, et al.        Expires August 18, 2017                [Page 8]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -501,7 +501,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017                [Page 9]
+Veillette, et al.        Expires August 18, 2017                [Page 9]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -557,7 +557,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017               [Page 10]
+Veillette, et al.        Expires August 18, 2017               [Page 10]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -581,20 +581,20 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
    The IANA policy for this registry is split into four tiers as
    follows:
 
-   o  The range of 0 to 999 and 0x40000000 to 0xFFFFFFFFFFFFFFFF are
-      reserved for future extensions of this protocol.  Allocation
-      within these ranges require IETF review or IESG approval.
+   o  The range of 0 to 999 and 1,000,000,000 to 2^64 are reserved for
+      future extensions of this protocol.  Allocation within these
+      ranges require IETF review or IESG approval.
 
-   o  The range of 1000 to 59999 is reserved for standardized YANG
+   o  The range of 1000 to 59,999 is reserved for standardized YANG
       modules.  Allocation within this range requires publishing of the
       associated ".yang" and ".sid" files.  (Specification required.)
 
-   o  The range of 60000 to 99999 is reserved for experimental YANG
+   o  The range of 60,000 to 99,999 is reserved for experimental YANG
       modules.  Use of this range MUST NOT be used in operational
       deployments since these SIDs are not globally unique which limit
       their interoperability.
 
-   o  The range of 100000 to 1,073,641,824 is available on a first come
+   o  The range of 100,000 to 1,000,000,000 is available on a first come
       first served basis.  The only information required from the
       registrant is a valid contact information.  The recommended size
       of the SID ranges allocated is 1,000 for private use and 10,000
@@ -613,26 +613,25 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017               [Page 11]
+Veillette, et al.        Expires August 18, 2017               [Page 11]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
-   +------------+-----------------+------------------------------------+
-   | Entry      | Size            | Registration Procedures            |
-   | Point      |                 |                                    |
-   +------------+-----------------+------------------------------------+
-   | 0          | 1,000           | IETF review or IESG approval       |
-   | 1,000      | 59,000          | Specification and associated       |
-   |            |                 | ".yang" and ".sid" files required  |
-   | 60,000     | 40,000          | Experimental use                   |
-   | 100,000    | 1,073,641,824   | Contact information is required.   |
-   |            |                 | Registration of the module name(s) |
-   |            |                 | and associated ".yang" and ".sid"  |
-   |            |                 | files are optional.                |
-   | 0x40000000 | 2^64-0x40000000 | Specification required, expert     |
-   |            |                 | review                             |
-   +------------+-----------------+------------------------------------+
+   +---------------+---------------+-----------------------------------+
+   | Entry Point   | Size          | Registration Procedures           |
+   +---------------+---------------+-----------------------------------+
+   | 0             | 1,000         | IETF review or IESG approval      |
+   | 1,000         | 59,000        | Specification and associated      |
+   |               |               | ".yang" and ".sid" files required |
+   | 60,000        | 40,000        | Experimental use                  |
+   | 100,000       | 1,000,000,000 | Contact information is required.  |
+   |               |               | Registration of the module        |
+   |               |               | name(s) and associated ".yang"    |
+   |               |               | and ".sid" files are optional.    |
+   | 1,000,000,000 | 2^64          | Specification required, expert    |
+   |               |               | review                            |
+   +---------------+---------------+-----------------------------------+
 
 6.2.  YANG module registry
 
@@ -669,7 +668,8 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017               [Page 12]
+
+Veillette, et al.        Expires August 18, 2017               [Page 12]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -725,7 +725,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017               [Page 13]
+Veillette, et al.        Expires August 18, 2017               [Page 13]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -781,7 +781,7 @@ Appendix A.  ".sid" file example
 
 
 
-Veillette, et al.        Expires August 17, 2017               [Page 14]
+Veillette, et al.        Expires August 18, 2017               [Page 14]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -837,7 +837,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017               [Page 15]
+Veillette, et al.        Expires August 18, 2017               [Page 15]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -893,7 +893,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017               [Page 16]
+Veillette, et al.        Expires August 18, 2017               [Page 16]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -949,7 +949,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017               [Page 17]
+Veillette, et al.        Expires August 18, 2017               [Page 17]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -1005,7 +1005,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017               [Page 18]
+Veillette, et al.        Expires August 18, 2017               [Page 18]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -1061,7 +1061,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017               [Page 19]
+Veillette, et al.        Expires August 18, 2017               [Page 19]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -1117,7 +1117,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017               [Page 20]
+Veillette, et al.        Expires August 18, 2017               [Page 20]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -1173,7 +1173,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017               [Page 21]
+Veillette, et al.        Expires August 18, 2017               [Page 21]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -1229,7 +1229,7 @@ Authors' Addresses
 
 
 
-Veillette, et al.        Expires August 17, 2017               [Page 22]
+Veillette, et al.        Expires August 18, 2017               [Page 22]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
@@ -1285,4 +1285,4 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      February 2017
 
 
 
-Veillette, et al.        Expires August 17, 2017               [Page 23]
+Veillette, et al.        Expires August 18, 2017               [Page 23]

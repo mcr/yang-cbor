@@ -4,8 +4,8 @@
 
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
-Intended status: Standards Track                       February 13, 2017
-Expires: August 17, 2017
+Intended status: Standards Track                       February 14, 2017
+Expires: August 18, 2017
 
 
                     Constrained YANG Module Library
@@ -34,7 +34,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on August 17, 2017.
+   This Internet-Draft will expire on August 18, 2017.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Veillette                Expires August 17, 2017                [Page 1]
+Veillette                Expires August 18, 2017                [Page 1]
 
 Internet-Draft       Constrained YANG Module Library       February 2017
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Veillette                Expires August 17, 2017                [Page 2]
+Veillette                Expires August 18, 2017                [Page 2]
 
 Internet-Draft       Constrained YANG Module Library       February 2017
 
@@ -165,7 +165,7 @@ Internet-Draft       Constrained YANG Module Library       February 2017
 
 
 
-Veillette                Expires August 17, 2017                [Page 3]
+Veillette                Expires August 18, 2017                [Page 3]
 
 Internet-Draft       Constrained YANG Module Library       February 2017
 
@@ -221,7 +221,7 @@ Internet-Draft       Constrained YANG Module Library       February 2017
 
 
 
-Veillette                Expires August 17, 2017                [Page 4]
+Veillette                Expires August 18, 2017                [Page 4]
 
 Internet-Draft       Constrained YANG Module Library       February 2017
 
@@ -277,7 +277,7 @@ Internet-Draft       Constrained YANG Module Library       February 2017
 
 
 
-Veillette                Expires August 17, 2017                [Page 5]
+Veillette                Expires August 18, 2017                [Page 5]
 
 Internet-Draft       Constrained YANG Module Library       February 2017
 
@@ -333,7 +333,7 @@ module ietf-constrained-yang-library {
 
 
 
-Veillette                Expires August 17, 2017                [Page 6]
+Veillette                Expires August 18, 2017                [Page 6]
 
 Internet-Draft       Constrained YANG Module Library       February 2017
 
@@ -389,7 +389,7 @@ Internet-Draft       Constrained YANG Module Library       February 2017
 
 
 
-Veillette                Expires August 17, 2017                [Page 7]
+Veillette                Expires August 18, 2017                [Page 7]
 
 Internet-Draft       Constrained YANG Module Library       February 2017
 
@@ -445,7 +445,7 @@ Internet-Draft       Constrained YANG Module Library       February 2017
 
 
 
-Veillette                Expires August 17, 2017                [Page 8]
+Veillette                Expires August 18, 2017                [Page 8]
 
 Internet-Draft       Constrained YANG Module Library       February 2017
 
@@ -501,7 +501,7 @@ Internet-Draft       Constrained YANG Module Library       February 2017
 
 
 
-Veillette                Expires August 17, 2017                [Page 9]
+Veillette                Expires August 18, 2017                [Page 9]
 
 Internet-Draft       Constrained YANG Module Library       February 2017
 
@@ -557,7 +557,7 @@ Internet-Draft       Constrained YANG Module Library       February 2017
 
 
 
-Veillette                Expires August 17, 2017               [Page 10]
+Veillette                Expires August 18, 2017               [Page 10]
 
 Internet-Draft       Constrained YANG Module Library       February 2017
 
@@ -613,7 +613,7 @@ Internet-Draft       Constrained YANG Module Library       February 2017
 
 
 
-Veillette                Expires August 17, 2017               [Page 11]
+Veillette                Expires August 18, 2017               [Page 11]
 
 Internet-Draft       Constrained YANG Module Library       February 2017
 
@@ -669,4 +669,4 @@ Author's Address
 
 
 
-Veillette                Expires August 17, 2017               [Page 12]
+Veillette                Expires August 18, 2017               [Page 12]

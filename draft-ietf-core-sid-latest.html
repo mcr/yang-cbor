@@ -289,7 +289,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Turner, R., Minaburo, A., and A. Somaraju" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-sid-00" />
-  <meta name="dct.issued" scheme="ISO8601" content="2017-2-14" />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-4-25" />
   <meta name="dct.abstract" content="YANG Schema Item iDentifiers (SID) are used to identify different YANG items using a numeric identifier. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs." />
   <meta name="description" content="YANG Schema Item iDentifiers (SID) are used to identify different YANG items using a numeric identifier. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs." />
 
@@ -313,7 +313,7 @@ li, p {
   <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: August 18, 2017</td>
+  <td class="left">Expires: October 27, 2017</td>
   <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -342,7 +342,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">February 14, 2017</td>
+  <td class="right">April 25, 2017</td>
 </tr>
 
     	
@@ -362,7 +362,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on August 18, 2017.</p>
+<p>This Internet-Draft will expire on October 27, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -393,7 +393,7 @@ li, p {
   </ul>
 
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a></h1>
-<p id="rfc.section.1.p.1">Some of the items defined in YANG <a href="#RFC7950">[RFC7950]</a> require the use of a unique identifier.  In both NETCONF <a href="#RFC6241">[RFC6241]</a> and RESTCONF, these identifiers are implemented using names.  To allow the implementation of data models defined in YANG in constrained devices and constrained networks, a more compact method to identify YANG items is required. This compact identifier, called SID, is encoded using an unsigned integer. The following items are identified using SIDs:</p>
+<p id="rfc.section.1.p.1">Some of the items defined in YANG <a href="#RFC7950">[RFC7950]</a> require the use of a unique identifier.  In both NETCONF <a href="#RFC6241">[RFC6241]</a> and RESTCONF, <a href="#RFC8040">[RFC8040]</a> these identifiers are implemented using names.  To allow the implementation of data models defined in YANG in constrained devices and constrained networks, a more compact method to identify YANG items is required. This compact identifier, called SID, is encoded using an unsigned integer. The following items are identified using SIDs:</p>
 <p/>
 
 <ul>
@@ -443,7 +443,7 @@ li, p {
 </ul>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#sid-lifecycle" id="sid-lifecycle">&#8220;.sid&#8221; file lifecycle</a></h1>
 <p id="rfc.section.3.p.1">YANG is a language designed to model data sent between clients and servers using one of the compatible protocol (e.g. NETCONF <a href="#RFC6241">[RFC6241]</a>, RESCONF and CoMI). A YANG module defines hierarchies of data, including configuration, state data, RPCs, actions and notifications.</p>
-<p id="rfc.section.3.p.2">YANG modules are not necessary created in the context of constrained applications. YANG modules can be implemented using NETCONF <a href="#RFC6241">[RFC6241]</a> or RESTCONF without the need to assign SIDs.</p>
+<p id="rfc.section.3.p.2">YANG modules are not necessary created in the context of constrained applications. YANG modules can be implemented using NETCONF <a href="#RFC6241">[RFC6241]</a> or RESTCONF <a href="#RFC8040">[RFC8040]</a> without the need to assign SIDs.</p>
 <p id="rfc.section.3.p.3">As needed, authors of YANG modules can assign SIDs to their YANG modules. This process starts by the registration of a SID range. Once a SID range is registered, the owner of this range assigns sub-ranges to each YANG module in order to generate the associated &#8220;.sid&#8221; files. Generation of &#8220;.sid&#8221; files SHOULD be performed using an automated tool.</p>
 <p id="rfc.section.3.p.4">Registration of the .sid file associated to a YANG module is optional but recommended to promote interoperability between devices and to avoid duplicate allocation of SIDs to a single YANG module.</p>
 <p id="rfc.section.3.p.5">The following activity diagram summarizes the creation of a YANG module and its associated .sid file.</p>
@@ -566,7 +566,8 @@ module ietf-sid-file {
       "Initial revision.";
     reference
       "RFC XXXX";
-      // RFC Ed.: replace XXXX with RFC number assigned to draft-ietf-core-yang-cbor and remove this note
+      // RFC Ed.: replace XXXX with RFC number assigned to
+      // draft-ietf-core-yang-cbor and remove this note
   }
 
   typedef yang-identifier {
@@ -654,9 +655,11 @@ module ietf-sid-file {
           - a module name
           - a submodule name
           - a feature name
-          - a base identity encoded as '/&lt;base identity name&gt;'
-          - an identity encoded as '/&lt;base identity name&gt;/&lt;identity name&gt;'
-          - a schema node path";
+          - a base identity encoded as
+            '/&lt;base identity name&gt;'
+          - an identity encoded as
+            '/&lt;base identity name&gt;/&lt;identity name&gt;'
+          - a data node path";
     }
 
     leaf sid {
@@ -827,12 +830,6 @@ module ietf-sid-file {
   <tbody>
     <tr>
       <td class="reference">
-        <b id="I-D.ietf-netconf-restconf">[I-D.ietf-netconf-restconf]</b>
-      </td>
-      <td class="top"><a>Bierman, A.</a>, <a>Bjorklund, M.</a> and <a>K. Watsen</a>, "<a href="http://tools.ietf.org/html/draft-ietf-netconf-restconf-18">RESTCONF Protocol</a>", Internet-Draft draft-ietf-netconf-restconf-18, October 2016.</td>
-    </tr>
-    <tr>
-      <td class="reference">
         <b id="RFC6241">[RFC6241]</b>
       </td>
       <td class="top"><a>Enns, R.</a>, <a>Bjorklund, M.</a>, <a>Schoenwaelder, J.</a> and <a>A. Bierman</a>, "<a href="http://tools.ietf.org/html/rfc6241">Network Configuration Protocol (NETCONF)</a>", RFC 6241, DOI 10.17487/RFC6241, June 2011.</td>
@@ -861,6 +858,12 @@ module ietf-sid-file {
       </td>
       <td class="top"><a>Bierman, A.</a> and <a>M. Bjorklund</a>, "<a href="http://tools.ietf.org/html/rfc7317">A YANG Data Model for System Management</a>", RFC 7317, DOI 10.17487/RFC7317, August 2014.</td>
     </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC8040">[RFC8040]</b>
+      </td>
+      <td class="top"><a>Bierman, A.</a>, <a>Bjorklund, M.</a> and <a>K. Watsen</a>, "<a href="http://tools.ietf.org/html/rfc8040">RESTCONF Protocol</a>", RFC 8040, DOI 10.17487/RFC8040, January 2017.</td>
+    </tr>
   </tbody>
 </table>
 <h1 id="rfc.appendix.A"><a href="#rfc.appendix.A">Appendix A.</a> <a href="#sid-file-example" id="sid-file-example">&#8220;.sid&#8221; file example</a></h1>
@@ -876,391 +879,391 @@ module ietf-sid-file {
 </ul>
 <pre>
 {
-  "assignment-ranges": [
-    {
-      "entry-point": 1700,
-      "size": 100
-    }
-  ],
-  "module-name": "ietf-system",
-  "module-revision": "2014-08-06",
-  "items": [
-    {
-      "type": "Module",
-      "label": "ietf-system",
-      "sid": 1700
-    },
-    {
-      "type": "feature",
-      "label": "authentication",
-      "sid": 1701
-    },
-    {
-      "type": "feature",
-      "label": "dns-udp-tcp-port",
-      "sid": 1702
-    },
-    {
-      "type": "feature",
-      "label": "local-users",
-      "sid": 1703
-    },
-    {
-      "type": "feature",
-      "label": "ntp",
-      "sid": 1704
-    },
-    {
-      "type": "feature",
-      "label": "ntp-udp-port",
-      "sid": 1705
-    },
-    {
-      "type": "feature",
-      "label": "radius",
-      "sid": 1706
-    },
-    {
-      "type": "feature",
-      "label": "radius-authentication",
-      "sid": 1707
-    },
-    {
-      "type": "feature",
-      "label": "timezone-name",
-      "sid": 1708
-    },
-    {
-      "type": "identity",
-      "label": "/authentication-method",
-      "sid": 1709
-    },
-    {
-      "type": "identity",
-      "label": "/authentication-method/local-users",
-      "sid": 1710
-    },
-    {
-      "type": "identity",
-      "label": "/authentication-method/radius",
-      "sid": 1711
-    },
-    {
-      "type": "identity",
-      "label": "/radius-authentication-type",
-      "sid": 1712
-    },
-    {
-      "type": "identity",
-      "label": "/radius-authentication-type/radius-chap",
-      "sid": 1713
-    },
-    {
-      "type": "identity",
-      "label": "/radius-authentication-type/radius-pap",
-      "sid": 1714
-    },
-    {
-      "type": "node",
-      "label": "/system",
-      "sid": 1715
-    },
-    {
-      "type": "node",
-      "label": "/system-state",
-      "sid": 1716
-    },
-    {
-      "type": "node",
-      "label": "/system-state/clock",
-      "sid": 1717
-    },
-    {
-      "type": "node",
-      "label": "/system-state/clock/boot-datetime",
-      "sid": 1718
-    },
-    {
-      "type": "node",
-      "label": "/system-state/clock/current-datetime",
-      "sid": 1719
-    },
-    {
-      "type": "node",
-      "label": "/system-state/platform",
-      "sid": 1720
-    },
-    {
-      "type": "node",
-      "label": "/system-state/platform/machine",
-      "sid": 1721
-    },
-    {
-      "type": "node",
-      "label": "/system-state/platform/os-name",
-      "sid": 1722
-    },
-    {
-      "type": "node",
-      "label": "/system-state/platform/os-release",
-      "sid": 1723
-    },
-    {
-      "type": "node",
-      "label": "/system-state/platform/os-version",
-      "sid": 1724
-    },
-    {
-      "type": "node",
-      "label": "/system/authentication",
-      "sid": 1725
-    },
-    {
-      "type": "node",
-      "label": "/system/authentication/user",
-      "sid": 1726
-    },
-    {
-      "type": "node",
-      "label": "/system/authentication/user-authentication-order",
-      "sid": 1727
-    },
-    {
-      "type": "node",
-      "label": "/system/authentication/user/authorized-key",
-      "sid": 1728
-    },
-    {
-      "type": "node",
-      "label": "/system/authentication/user/authorized-key/algorithm",
-      "sid": 1729
-    },
-    {
-      "type": "node",
-      "label": "/system/authentication/user/authorized-key/key-data",
-      "sid": 1730
-    },
-    {
-      "type": "node",
-      "label": "/system/authentication/user/authorized-key/name",
-      "sid": 1731
-    },
-    {
-      "type": "node",
-      "label": "/system/authentication/user/name",
-      "sid": 1732
-    },
-    {
-      "type": "node",
-      "label": "/system/authentication/user/password",
-      "sid": 1733
-    },
-    {
-      "type": "node",
-      "label": "/system/clock",
-      "sid": 1734
-    },
-    {
-      "type": "node",
-      "label": "/system/clock/timezone/timezone-name/timezone-name",
-      "sid": 1735
-    },
-    {
-      "type": "node",
-      "label": "/system/clock/timezone/timezone-utc-offset/timezone-utc-offset",
-      "sid": 1736
-    },
-    {
-      "type": "node",
-      "label": "/system/contact",
-      "sid": 1737
-    },
-    {
-      "type": "node",
-      "label": "/system/dns-resolver",
-      "sid": 1738
-    },
-    {
-      "type": "node",
-      "label": "/system/dns-resolver/options",
-      "sid": 1739
-    },
-    {
-      "type": "node",
-      "label": "/system/dns-resolver/options/attempts",
-      "sid": 1740
-    },
-    {
-      "type": "node",
-      "label": "/system/dns-resolver/options/timeout",
-      "sid": 1741
-    },
-    {
-      "type": "node",
-      "label": "/system/dns-resolver/search",
-      "sid": 1742
-    },
-    {
-      "type": "node",
-      "label": "/system/dns-resolver/server",
-      "sid": 1743
-    },
-    {
-      "type": "node",
-      "label": "/system/dns-resolver/server/name",
-      "sid": 1744
-    },
-    {
-      "type": "node",
-      "label": "/system/dns-resolver/server/transport/udp-and-tcp/udp-and-tcp",
-      "sid": 1745
-    },
-    {
-      "type": "node",
-      "label": "/system/dns-resolver/server/transport/udp-and-tcp/udp-and-tcp/address",
-      "sid": 1746
-    },
-    {
-      "type": "node",
-      "label": "/system/dns-resolver/server/transport/udp-and-tcp/udp-and-tcp/port",
-      "sid": 1747
-    },
-    {
-      "type": "node",
-      "label": "/system/hostname",
-      "sid": 1748
-    },
-    {
-      "type": "node",
-      "label": "/system/location",
-      "sid": 1749
-    },
-    {
-      "type": "node",
-      "label": "/system/ntp",
-      "sid": 1750
-    },
-    {
-      "type": "node",
-      "label": "/system/ntp/enabled",
-      "sid": 1751
-    },
-    {
-      "type": "node",
-      "label": "/system/ntp/server",
-      "sid": 1752
-    },
-    {
-      "type": "node",
-      "label": "/system/ntp/server/association-type",
-      "sid": 1753
-    },
-    {
-      "type": "node",
-      "label": "/system/ntp/server/iburst",
-      "sid": 1754
-    },
-    {
-      "type": "node",
-      "label": "/system/ntp/server/name",
-      "sid": 1755
-    },
-    {
-      "type": "node",
-      "label": "/system/ntp/server/prefer",
-      "sid": 1756
-    },
-    {
-      "type": "node",
-      "label": "/system/ntp/server/transport/udp/udp",
-      "sid": 1757
-    },
-    {
-      "type": "node",
-      "label": "/system/ntp/server/transport/udp/udp/address",
-      "sid": 1758
-    },
-    {
-      "type": "node",
-      "label": "/system/ntp/server/transport/udp/udp/port",
-      "sid": 1759
-    },
-    {
-      "type": "node",
-      "label": "/system/radius",
-      "sid": 1760
-    },
-    {
-      "type": "node",
-      "label": "/system/radius/options",
-      "sid": 1761
-    },
-    {
-      "type": "node",
-      "label": "/system/radius/options/attempts",
-      "sid": 1762
-    },
-    {
-      "type": "node",
-      "label": "/system/radius/options/timeout",
-      "sid": 1763
-    },
-    {
-      "type": "node",
-      "label": "/system/radius/server",
-      "sid": 1764
-    },
-    {
-      "type": "node",
-      "label": "/system/radius/server/authentication-type",
-      "sid": 1765
-    },
-    {
-      "type": "node",
-      "label": "/system/radius/server/name",
-      "sid": 1766
-    },
-    {
-      "type": "node",
-      "label": "/system/radius/server/transport/udp/udp",
-      "sid": 1767
-    },
-    {
-      "type": "node",
-      "label": "/system/radius/server/transport/udp/udp/address",
-      "sid": 1768
-    },
-    {
-      "type": "node",
-      "label": "/system/radius/server/transport/udp/udp/authentication-port",
-      "sid": 1769
-    },
-    {
-      "type": "node",
-      "label": "/system/radius/server/transport/udp/udp/shared-secret",
-      "sid": 1770
-    },
-    {
-      "type": "rpc",
-      "label": "/set-current-datetime",
-      "sid": 1771
-    },
-    {
-      "type": "rpc",
-      "label": "/set-current-datetime/input/current-datetime",
-      "sid": 1772
-    },
-    {
-      "type": "rpc",
-      "label": "/system-restart",
-      "sid": 1773
-    },
-    {
-      "type": "rpc",
-      "label": "/system-shutdown",
-      "sid": 1774
-    }
-  ]
+ "assignment-ranges": [
+  {
+   "entry-point": 1700,
+   "size": 100
+  }
+ ],
+ "module-name": "ietf-system",
+ "module-revision": "2014-08-06",
+ "items": [
+  {
+   "type": "Module",
+   "label": "ietf-system",
+   "sid": 1700
+  },
+  {
+   "type": "feature",
+   "label": "authentication",
+   "sid": 1701
+  },
+  {
+   "type": "feature",
+   "label": "dns-udp-tcp-port",
+   "sid": 1702
+  },
+  {
+   "type": "feature",
+   "label": "local-users",
+   "sid": 1703
+  },
+  {
+   "type": "feature",
+   "label": "ntp",
+   "sid": 1704
+  },
+  {
+   "type": "feature",
+   "label": "ntp-udp-port",
+   "sid": 1705
+  },
+  {
+   "type": "feature",
+   "label": "radius",
+   "sid": 1706
+  },
+  {
+   "type": "feature",
+   "label": "radius-authentication",
+   "sid": 1707
+  },
+  {
+   "type": "feature",
+   "label": "timezone-name",
+   "sid": 1708
+  },
+  {
+   "type": "identity",
+   "label": "/authentication-method",
+   "sid": 1709
+  },
+  {
+   "type": "identity",
+   "label": "/authentication-method/local-users",
+   "sid": 1710
+  },
+  {
+   "type": "identity",
+   "label": "/authentication-method/radius",
+   "sid": 1711
+  },
+  {
+   "type": "identity",
+   "label": "/radius-authentication-type",
+   "sid": 1712
+  },
+  {
+   "type": "identity",
+   "label": "/radius-authentication-type/radius-chap",
+   "sid": 1713
+  },
+  {
+   "type": "identity",
+   "label": "/radius-authentication-type/radius-pap",
+   "sid": 1714
+  },
+  {
+   "type": "node",
+   "label": "/system",
+   "sid": 1715
+  },
+  {
+   "type": "node",
+   "label": "/system-state",
+   "sid": 1716
+  },
+  {
+   "type": "node",
+   "label": "/system-state/clock",
+   "sid": 1717
+  },
+  {
+   "type": "node",
+   "label": "/system-state/clock/boot-datetime",
+   "sid": 1718
+  },
+  {
+   "type": "node",
+   "label": "/system-state/clock/current-datetime",
+   "sid": 1719
+  },
+  {
+   "type": "node",
+   "label": "/system-state/platform",
+   "sid": 1720
+  },
+  {
+   "type": "node",
+   "label": "/system-state/platform/machine",
+   "sid": 1721
+  },
+  {
+   "type": "node",
+   "label": "/system-state/platform/os-name",
+   "sid": 1722
+  },
+  {
+   "type": "node",
+   "label": "/system-state/platform/os-release",
+   "sid": 1723
+  },
+  {
+   "type": "node",
+   "label": "/system-state/platform/os-version",
+   "sid": 1724
+  },
+  {
+   "type": "node",
+   "label": "/system/authentication",
+   "sid": 1725
+  },
+  {
+   "type": "node",
+   "label": "/system/authentication/user",
+   "sid": 1726
+  },
+  {
+   "type": "node",
+   "label": "/system/authentication/user-authentication-order",
+   "sid": 1727
+  },
+  {
+   "type": "node",
+   "label": "/system/authentication/user/authorized-key",
+   "sid": 1728
+  },
+  {
+   "type": "node",
+   "label": "/system/authentication/user/authorized-key/algorithm",
+   "sid": 1729
+  },
+  {
+   "type": "node",
+   "label": "/system/authentication/user/authorized-key/key-data",
+   "sid": 1730
+  },
+  {
+   "type": "node",
+   "label": "/system/authentication/user/authorized-key/name",
+   "sid": 1731
+  },
+  {
+   "type": "node",
+   "label": "/system/authentication/user/name",
+   "sid": 1732
+  },
+  {
+   "type": "node",
+   "label": "/system/authentication/user/password",
+   "sid": 1733
+  },
+  {
+   "type": "node",
+   "label": "/system/clock",
+   "sid": 1734
+  },
+  {
+   "type": "node",
+   "label": "/system/clock/timezone-name",
+   "sid": 1735
+  },
+  {
+   "type": "node",
+   "label": "/system/clock/timezone-utc-offset",
+   "sid": 1736
+  },
+  {
+   "type": "node",
+   "label": "/system/contact",
+   "sid": 1737
+  },
+  {
+   "type": "node",
+   "label": "/system/dns-resolver",
+   "sid": 1738
+  },
+  {
+   "type": "node",
+   "label": "/system/dns-resolver/options",
+   "sid": 1739
+  },
+  {
+   "type": "node",
+   "label": "/system/dns-resolver/options/attempts",
+   "sid": 1740
+  },
+  {
+   "type": "node",
+   "label": "/system/dns-resolver/options/timeout",
+   "sid": 1741
+  },
+  {
+   "type": "node",
+   "label": "/system/dns-resolver/search",
+   "sid": 1742
+  },
+  {
+   "type": "node",
+   "label": "/system/dns-resolver/server",
+   "sid": 1743
+  },
+  {
+   "type": "node",
+   "label": "/system/dns-resolver/server/name",
+   "sid": 1744
+  },
+  {
+   "type": "node",
+   "label": "/system/dns-resolver/server/udp-and-tcp",
+   "sid": 1745
+  },
+  {
+   "type": "node",
+   "label": "/system/dns-resolver/server/udp-and-tcp/address",
+   "sid": 1746
+  },
+  {
+   "type": "node",
+   "label": "/system/dns-resolver/server/udp-and-tcp/port",
+   "sid": 1747
+  },
+  {
+   "type": "node",
+   "label": "/system/hostname",
+   "sid": 1748
+  },
+  {
+   "type": "node",
+   "label": "/system/location",
+   "sid": 1749
+  },
+  {
+   "type": "node",
+   "label": "/system/ntp",
+   "sid": 1750
+  },
+  {
+   "type": "node",
+   "label": "/system/ntp/enabled",
+   "sid": 1751
+  },
+  {
+   "type": "node",
+   "label": "/system/ntp/server",
+   "sid": 1752
+  },
+  {
+   "type": "node",
+   "label": "/system/ntp/server/association-type",
+   "sid": 1753
+  },
+  {
+   "type": "node",
+   "label": "/system/ntp/server/iburst",
+   "sid": 1754
+  },
+  {
+   "type": "node",
+   "label": "/system/ntp/server/name",
+   "sid": 1755
+  },
+  {
+   "type": "node",
+   "label": "/system/ntp/server/prefer",
+   "sid": 1756
+  },
+  {
+   "type": "node",
+   "label": "/system/ntp/server/udp",
+   "sid": 1757
+  },
+  {
+   "type": "node",
+   "label": "/system/ntp/server/udp/address",
+   "sid": 1758
+  },
+  {
+   "type": "node",
+   "label": "/system/ntp/server/udp/port",
+   "sid": 1759
+  },
+  {
+   "type": "node",
+   "label": "/system/radius",
+   "sid": 1760
+  },
+  {
+   "type": "node",
+   "label": "/system/radius/options",
+   "sid": 1761
+  },
+  {
+   "type": "node",
+   "label": "/system/radius/options/attempts",
+   "sid": 1762
+  },
+  {
+   "type": "node",
+   "label": "/system/radius/options/timeout",
+   "sid": 1763
+  },
+  {
+   "type": "node",
+   "label": "/system/radius/server",
+   "sid": 1764
+  },
+  {
+   "type": "node",
+   "label": "/system/radius/server/authentication-type",
+   "sid": 1765
+  },
+  {
+   "type": "node",
+   "label": "/system/radius/server/name",
+   "sid": 1766
+  },
+  {
+   "type": "node",
+   "label": "/system/radius/server/udp",
+   "sid": 1767
+  },
+  {
+   "type": "node",
+   "label": "/system/radius/server/udp/address",
+   "sid": 1768
+  },
+  {
+   "type": "node",
+   "label": "/system/radius/server/udp/authentication-port",
+   "sid": 1769
+  },
+  {
+   "type": "node",
+   "label": "/system/radius/server/udp/shared-secret",
+   "sid": 1770
+  },
+  {
+   "type": "rpc",
+   "label": "/set-current-datetime",
+   "sid": 1771
+  },
+  {
+   "type": "rpc",
+   "label": "/set-current-datetime/input/current-datetime",
+   "sid": 1772
+  },
+  {
+   "type": "rpc",
+   "label": "/system-restart",
+   "sid": 1773
+  },
+  {
+   "type": "rpc",
+   "label": "/system-shutdown",
+   "sid": 1774
+  }
+ ]
 }
 </pre>
 <h1 id="rfc.authors">

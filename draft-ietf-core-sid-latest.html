@@ -274,8 +274,10 @@ li, p {
 <link href="#rfc.section.4" rel="Chapter" title="4 &#x201C;.sid&#x201D; file format"/>
 <link href="#rfc.section.5" rel="Chapter" title="5 Security Considerations"/>
 <link href="#rfc.section.6" rel="Chapter" title="6 IANA Considerations"/>
-<link href="#rfc.section.6.1" rel="Chapter" title="6.1 &#x201C;SID&#x201D; range registry"/>
-<link href="#rfc.section.6.2" rel="Chapter" title="6.2 YANG module registry"/>
+<link href="#rfc.section.6.1" rel="Chapter" title="6.1 &#x201C;SID mega-range&#x201D; registry"/>
+<link href="#rfc.section.6.1.1" rel="Chapter" title="6.1.1 IANA SID mega-range sub-registries"/>
+<link href="#rfc.section.6.1.2" rel="Chapter" title="6.1.2 IANA &#x201C;RFC SID range assignment&#x201D; sub-registries"/>
+<link href="#rfc.section.6.2" rel="Chapter" title="6.2 &#x201C;YANG module assignment&#x201D; registry"/>
 <link href="#rfc.section.7" rel="Chapter" title="7 Acknowledgments"/>
 <link href="#rfc.references" rel="Chapter" title="8 References"/>
 <link href="#rfc.references.1" rel="Chapter" title="8.1 Normative References"/>
@@ -289,7 +291,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Turner, R., Minaburo, A., and A. Somaraju" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-sid-00" />
-  <meta name="dct.issued" scheme="ISO8601" content="2017-4-25" />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-5-01" />
   <meta name="dct.abstract" content="YANG Schema Item iDentifiers (SID) are used to identify different YANG items using a numeric identifier. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs." />
   <meta name="description" content="YANG Schema Item iDentifiers (SID) are used to identify different YANG items using a numeric identifier. This document defines the registration and assignment processes of SIDs. To enable the implementation of these processes, this document also defines a file format used to persist and publish assigned SIDs." />
 
@@ -313,7 +315,7 @@ li, p {
   <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-  <td class="left">Expires: October 27, 2017</td>
+  <td class="left">Expires: November 2, 2017</td>
   <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -342,7 +344,7 @@ li, p {
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">April 25, 2017</td>
+  <td class="right">May 01, 2017</td>
 </tr>
 
     	
@@ -362,7 +364,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on October 27, 2017.</p>
+<p>This Internet-Draft will expire on November 2, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -380,8 +382,10 @@ li, p {
 <li>4.   <a href="#rfc.section.4">&#8220;.sid&#8221; file format</a></li>
 <li>5.   <a href="#rfc.section.5">Security Considerations</a></li>
 <li>6.   <a href="#rfc.section.6">IANA Considerations</a></li>
-<ul><li>6.1.   <a href="#rfc.section.6.1">&#8220;SID&#8221; range registry</a></li>
-<li>6.2.   <a href="#rfc.section.6.2">YANG module registry</a></li>
+<ul><li>6.1.   <a href="#rfc.section.6.1">&#8220;SID mega-range&#8221; registry</a></li>
+<ul><li>6.1.1.   <a href="#rfc.section.6.1.1">IANA SID mega-range sub-registries</a></li>
+<li>6.1.2.   <a href="#rfc.section.6.1.2">IANA &#8220;RFC SID range assignment&#8221; sub-registries</a></li>
+</ul><li>6.2.   <a href="#rfc.section.6.2">&#8220;YANG module assignment&#8221; registry</a></li>
 </ul><li>7.   <a href="#rfc.section.7">Acknowledgments</a></li>
 <li>8.   <a href="#rfc.references">References</a></li>
 <ul><li>8.1.   <a href="#rfc.references.1">Normative References</a></li>
@@ -416,7 +420,7 @@ li, p {
   <li>If the number of items exceeds the SID range(s) allocated to a YANG module, an extra range is added for subsequent assignments.</li>
 </ul>
 <p id="rfc.section.1.p.7">SIDs are assigned permanently, items introduced by a new revision of a YANG module are added to the list of SIDs already assigned.  This process can also be automated using the same method described above except that the assignment restart from the highest SID already assigned plus one.</p>
-<p id="rfc.section.1.p.8">To avoid duplicate assignment of SIDs, the registration of the SIDs assigned to YANG module(s) is recommended.  <a href="#module-registry">Section 6.2</a> provide more details about the registration process of YANG modules and associated SIDs. In order to implement this registry, <a href="#sid-file-format">Section 4</a> defines a standard file format used to store and publish SIDs.</p>
+<p id="rfc.section.1.p.8">To avoid duplicate assignment of SIDs, the registration of the SIDs assigned to YANG module(s) is recommended.  <a href="#module-registry">Section 6.2</a> provide more details about the registration process of YANG modules and associated SIDs. To enable the implementation of this registry, <a href="#sid-file-format">Section 4</a> defines a standard file format used to store and publish SIDs.</p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#terminology-and-notation" id="terminology-and-notation">Terminology and Notation</a></h1>
 <p id="rfc.section.2.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in <a href="#RFC2119">[RFC2119]</a>.</p>
 <p id="rfc.section.2.p.2">The following terms are defined in <a href="#RFC7950">[RFC7950]</a>:</p>
@@ -442,7 +446,7 @@ li, p {
   <li>YANG Schema Item iDentifier (SID): Unsigned integer used to identify different YANG items.</li>
 </ul>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#sid-lifecycle" id="sid-lifecycle">&#8220;.sid&#8221; file lifecycle</a></h1>
-<p id="rfc.section.3.p.1">YANG is a language designed to model data sent between clients and servers using one of the compatible protocol (e.g. NETCONF <a href="#RFC6241">[RFC6241]</a>, RESCONF and CoMI). A YANG module defines hierarchies of data, including configuration, state data, RPCs, actions and notifications.</p>
+<p id="rfc.section.3.p.1">YANG is a language designed to model data sent between clients and servers using one of the compatible protocol (e.g. NETCONF <a href="#RFC6241">[RFC6241]</a>, RESCONF <a href="#RFC8040">[RFC8040]</a> and CoMI <a href="#I-D.ietf-core-comi">[I-D.ietf-core-comi]</a>). A YANG module defines hierarchies of data, including configuration, state data, RPCs, actions and notifications.</p>
 <p id="rfc.section.3.p.2">YANG modules are not necessary created in the context of constrained applications. YANG modules can be implemented using NETCONF <a href="#RFC6241">[RFC6241]</a> or RESTCONF <a href="#RFC8040">[RFC8040]</a> without the need to assign SIDs.</p>
 <p id="rfc.section.3.p.3">As needed, authors of YANG modules can assign SIDs to their YANG modules. This process starts by the registration of a SID range. Once a SID range is registered, the owner of this range assigns sub-ranges to each YANG module in order to generate the associated &#8220;.sid&#8221; files. Generation of &#8220;.sid&#8221; files SHOULD be performed using an automated tool.</p>
 <p id="rfc.section.3.p.4">Registration of the .sid file associated to a YANG module is optional but recommended to promote interoperability between devices and to avoid duplicate allocation of SIDs to a single YANG module.</p>
@@ -488,7 +492,7 @@ li, p {
                                    [DONE]
 </pre>
 <p id="rfc.section.3.p.6">Each time a YANG module or one of its imported module(s) or included sub-module(s) is updated, the &#8220;.sid&#8221; file MAY need to be updated. This update SHOULD also be performed using an automated tool.</p>
-<p id="rfc.section.3.p.7">If a new revision requires more SIDs than initially allocated, a new SID range MUST be added to the assignment ranges as defined in the &#8220;.sid&#8221; file header. These extra SIDs are used for subsequent assignments.</p>
+<p id="rfc.section.3.p.7">If a new revision requires more SIDs than initially allocated, a new SID range MUST be added to the assignment ranges as defined in the &#8220;.sid&#8221; file header. These extra SIDs are used for subsequent assignements.</p>
 <p id="rfc.section.3.p.8">The following activity diagram summarizes the update of a YANG module and its associated .sid file.</p>
 <pre>
        +---------------+
@@ -536,10 +540,7 @@ module ietf-sid-file {
     "IETF Core Working Group";
 
   contact
-    "Ana Minaburo
-     &lt;ana@ackl.io&gt;
-
-     Alexander Pelov
+    "Alexander Pelov
      &lt;mailto:a@ackl.io&gt;
 
      Abhinav Somaraju
@@ -673,44 +674,64 @@ module ietf-sid-file {
 </pre>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
 <p id="rfc.section.5.p.1">The security considerations of <a href="#RFC7049">[RFC7049]</a> and <a href="#RFC7950">[RFC7950]</a> apply.</p>
-<p id="rfc.section.5.p.2">This document defines an new type of identifier used to encode data models defined in YANG <a href="#RFC7950">[RFC7950]</a>. As such, this identifier does not contribute to any new security issues in addition of those identified for the specific protocols or contexts for which it is used.</p>
+<p id="rfc.section.5.p.2">This document defines a new type of identifier used to encode data models defined in YANG <a href="#RFC7950">[RFC7950]</a>. As such, this identifier does not contribute to any new security issues in addition of those identified for the specific protocols or contexts for which it is used.</p>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#IANA" id="IANA">IANA Considerations</a></h1>
-<h1 id="rfc.section.6.1"><a href="#rfc.section.6.1">6.1.</a> <a href="#sid-range-registry" id="sid-range-registry">&#8220;SID&#8221; range registry</a></h1>
-<p id="rfc.section.6.1.p.1">IANA is requested to create a registry for YANG Schema Item iDentifier (SID) ranges. This registry needs to guarantee that the ranges registered do not overlap. The registry SHALL record for each entry:</p>
+<h1 id="rfc.section.6.1"><a href="#rfc.section.6.1">6.1.</a> <a href="#sid-range-registry" id="sid-range-registry">&#8220;SID mega-range&#8221; registry</a></h1>
+<p id="rfc.section.6.1.p.1">The name of this registry is &#8220;SID mega-range&#8221;. This registry is used to delegate the management of block of SIDs for third party&#8217;s (e.g. SDO, registrar).</p>
+<p id="rfc.section.6.1.p.2">Each entry in this registry must include:</p>
 <p/>
 
 <ul>
   <li>The entry point (first entry) of the registered SID range.</li>
   <li>The size of the registered SID range.</li>
-  <li>The contact information of the owner of the range such as name, email address, and phone number.</li>
+  <li>The contact information of the requesting organization including:  <ul><li>Organization name</li><li>Primary contact name, email address, and phone number</li><li>Secondary contact name, email address, and phone number</li></ul></li>
 </ul>
-<p id="rfc.section.6.1.p.3">The IANA policy for this registry is split into four tiers as follows:</p>
+<p id="rfc.section.6.1.p.4">The initial entry in this registry reserved for IANA:</p>
+<table cellpadding="3" cellspacing="0" class="tt full left">
+  <thead>
+    <tr>
+      <th class="left">Entry Point</th>
+      <th class="left">Size</th>
+      <th class="left">Organization name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">0</td>
+      <td class="left">1000000</td>
+      <td class="left">IANA</td>
+    </tr>
+  </tbody>
+</table>
+<p id="rfc.section.6.1.p.5">The IANA policies for future additions to this registry are &#8220;Hierarchical Allocation, Expert Review&#8221; <a href="#RFC5226">[RFC5226]</a>. Prior to a first allocation, the requesting organization must demonstrate a functional registry infrastructure. On subsequent allocation request(s), the organization must demonstrate the exhaustion of the prior range. These conditions need to be asserted by the assigned expert(s).</p>
+<h1 id="rfc.section.6.1.1"><a href="#rfc.section.6.1.1">6.1.1.</a> <a href="#iana-sid-mega-range-sub-registries" id="iana-sid-mega-range-sub-registries">IANA SID mega-range sub-registries</a></h1>
+<p id="rfc.section.6.1.1.p.1">The first million SIDs is owned by IANA and sub-divided as follow:</p>
 <p/>
 
 <ul>
-  <li>The range of 0 to 999 and 1,000,000,000 to 2^64 are reserved for future extensions of this protocol. Allocation within these ranges require IETF review or IESG approval.</li>
-  <li>The range of 1000 to 59,999 is reserved for standardized YANG modules. Allocation within this range requires publishing of the associated &#8220;.yang&#8221; and &#8220;.sid&#8221; files.  (Specification required.)</li>
-  <li>The range of 60,000 to 99,999 is reserved for experimental YANG modules. Use of this range MUST NOT be used in operational deployments since these SIDs are not globally unique which limit their interoperability.</li>
-  <li>The range of 100,000 to 1,000,000,000 is available on a first come first served basis. The only information required from the registrant is a valid contact information. The recommended size of the SID ranges allocated is 1,000 for private use and 10,000 for standard development organizations (SDOs). Registrants MAY request fewer or more SIDs based on their expected, sat needs. Allocation of a significantly larger SID range MAY required IETF review or IESG approval. IANA MAY delegate this registration process to one or multiple sub-registries. The recommended size of the SID range allocation for a sub-registry is 1,000,000.</li>
+  <li>The range of 0 to 999 is reserved for future extensions.  The IANA policy for this range is &#8220;IETF review&#8221; <a href="#RFC5226">[RFC5226]</a>.</li>
+  <li>The range of 1000 to 59,999 is reserved for YANG modules defined in RFCs.  The IANA policy for future additions to this sub-registry is &#8220;RFC required&#8221; <a href="#RFC5226">[RFC5226]</a>. Allocation within this range requires publishing of the associated &#8220;.yang&#8221; and &#8220;.sid&#8221; files in the YANG module registry.</li>
+  <li>The range of 60,000 to 99,999 is reserved for experimental YANG modules.  Use of this range MUST NOT be used in operational deployments since these SIDs are not globally unique which limit their interoperability. The IANA policy for this range is &#8220;Experimental use&#8221; <a href="#RFC5226">[RFC5226]</a>.</li>
+  <li>The range of 100,000 to 999,999 is reserved for standardized YANG modules.  The IANA policy for future additions to this sub-registry is &#8220;Specification Required&#8221; <a href="#RFC5226">[RFC5226]</a>. Allocation within this range requires publishing of the associated &#8220;.yang&#8221; and &#8220;.sid&#8221; files in the YANG module registry.</li>
 </ul>
 <table cellpadding="3" cellspacing="0" class="tt full left">
   <thead>
     <tr>
       <th class="left">Entry Point</th>
       <th class="left">Size</th>
-      <th class="left">Registration Procedures</th>
+      <th class="left">IANA policy</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td class="left">0</td>
       <td class="left">1,000</td>
-      <td class="left">IETF review or IESG approval</td>
+      <td class="left">IETF review</td>
     </tr>
     <tr>
       <td class="left">1,000</td>
       <td class="left">59,000</td>
-      <td class="left">Specification and associated &#8220;.yang&#8221; and &#8220;.sid&#8221; files required</td>
+      <td class="left">RFC required</td>
     </tr>
     <tr>
       <td class="left">60,000</td>
@@ -720,29 +741,14 @@ module ietf-sid-file {
     <tr>
       <td class="left">100,000</td>
       <td class="left">1,000,000,000</td>
-      <td class="left">Contact information is required. Registration of the module name(s) and associated &#8220;.yang&#8221; and &#8220;.sid&#8221; files are optional.</td>
-    </tr>
-    <tr>
-      <td class="left">1,000,000,000</td>
-      <td class="left">2^64</td>
-      <td class="left">Specification required, expert review</td>
+      <td class="left">Specification Required</td>
     </tr>
   </tbody>
 </table>
-<h1 id="rfc.section.6.2"><a href="#rfc.section.6.2">6.2.</a> <a href="#module-registry" id="module-registry">YANG module registry</a></h1>
-<p id="rfc.section.6.2.p.1">Each registered SID range can be used to assign SIDs to one or more YANG modules. To track which YANG modules have been assigned and to avoid duplicate allocation, IANA is requested to provide a method to register and query the following information:</p>
-<p/>
-
-<ul>
-  <li>The YANG module name</li>
-  <li>The contact information of the author</li>
-  <li>The specification reference</li>
-  <li>The associated &#8220;.yang&#8221; file(s) (Optional)</li>
-  <li>The associated &#8220;.sid&#8221; file (Optional)</li>
-</ul>
-<p id="rfc.section.6.2.p.3">Registration of YANG modules is optional. When a YANG module is registered, the registrant MUST provide the module name and contact information and/or a specification reference.</p>
-<p id="rfc.section.6.2.p.4">The registration of the associated &#8220;.yang&#8221; and &#8220;.sid&#8221; files is optional. When provided, the validity of the files MUST be verified. This can be accomplished by a YANG validation tool specially modified to support &#8220;.sid&#8221; file verification. The SID range specified within the &#8220;.sid&#8221; file SHOULD also be checked against the &#8220;SID&#8221; range registry (<a href="#sid-range-registry">Section 6.1</a>) and against the other YANG modules registered to detect any duplicate use of SIDs.</p>
-<p id="rfc.section.6.2.p.5">Initial entries in this registry are as follows:</p>
+<p id="rfc.section.6.1.1.p.3">The size of SID range assigned to a YANG module should be between 50% and 60% of the current number of YANG items. This headroom allows assignment within the same range of new YANG items introduced by the subsequent versions. A larger SID range size may be requested by the authors if this recommendation is considered insufficient. It is important to note that an extra range can be allocated an existing YANG module if the initial ranges(s) are eventually exhausted.</p>
+<h1 id="rfc.section.6.1.2"><a href="#rfc.section.6.1.2">6.1.2.</a> <a href="#iana-rfc-sid-range-assignment-sub-registries" id="iana-rfc-sid-range-assignment-sub-registries">IANA &#8220;RFC SID range assignment&#8221; sub-registries</a></h1>
+<p id="rfc.section.6.1.2.p.1">The name of this sub-registry is &#8220;RFC SID range assignment&#8221;. This sub-registry corresponds to the SID entry point 1000, size 59000. Each entry in this sub-registry must include the SID range entry point, the SID range size, the YANG module name, the RFC number.</p>
+<p id="rfc.section.6.1.2.p.2">Initial entries in this registry are as follows:</p>
 <table cellpadding="3" cellspacing="0" class="tt full left">
   <thead>
     <tr>
@@ -757,7 +763,7 @@ module ietf-sid-file {
       <td class="left">1000</td>
       <td class="left">100</td>
       <td class="left"/>
-      <td class="left">Reserved for CoMI</td>
+      <td class="left">Reserved for <a href="#I-D.ietf-core-comi">[I-D.ietf-core-comi]</a></td>
     </tr>
     <tr>
       <td class="left">1100</td>
@@ -793,6 +799,26 @@ module ietf-sid-file {
     </tr>
   </tbody>
 </table>
+<h1 id="rfc.section.6.2"><a href="#rfc.section.6.2">6.2.</a> <a href="#module-registry" id="module-registry">&#8220;YANG module assignment&#8221; registry</a></h1>
+<p id="rfc.section.6.2.p.1">The name of this registry is &#8220;YANG module assignment&#8221;. This registry is used to track which YANG modules have been assigned and the specific YANG items assignment. Each entry in this sub-registry must include:</p>
+<p/>
+
+<ul>
+  <li>The YANG module name</li>
+  <li>The associated &#8220;.yang&#8221; file(s)</li>
+  <li>The associated &#8220;.sid&#8221; file</li>
+</ul>
+<p id="rfc.section.6.2.p.3">The validity of the &#8220;.yang&#8221; and &#8220;.sid&#8221; files added to this registry MUST be verified.</p>
+<p/>
+
+<ul>
+  <li>The syntax of the registered &#8220;.yang&#8221; and &#8220;.sid&#8221; files must be valid.</li>
+  <li>Each YANG item defined by the registered &#8220;.yang&#8221; file must have a SID assigned in the &#8220;.sid&#8221; file.</li>
+  <li>Each SID is assigned to a single YANG item, duplicate assignment is not allowed.</li>
+  <li>The SID range(s) defined in the &#8220;.sid&#8221; file must be unique, must not conflict with any other ranges defined in already registered &#8220;.sid&#8221; files.</li>
+  <li>The ownership of the SID range(s) should be verify.</li>
+</ul>
+<p id="rfc.section.6.2.p.5">The IANA policy for future additions to this registry is &#8220;First Come First Served&#8221; as described in <a href="#RFC5226">[RFC5226]</a>.</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments</a></h1>
 <p id="rfc.section.7.p.1">The authors would like to thank Carsten Bormann for his help during the development of this document and his useful comments during the review process.</p>
 <h1 id="rfc.references"><a href="#rfc.references">8.</a> References</h1>
@@ -828,6 +854,18 @@ module ietf-sid-file {
 <h1 id="rfc.references.2"><a href="#rfc.references.2">8.2.</a> Informative References</h1>
 <table>
   <tbody>
+    <tr>
+      <td class="reference">
+        <b id="I-D.ietf-core-comi">[I-D.ietf-core-comi]</b>
+      </td>
+      <td class="top"><a>Stok, P.</a>, <a>Bierman, A.</a>, <a>Veillette, M.</a> and <a>A. Pelov</a>, "<a href="http://tools.ietf.org/html/draft-ietf-core-comi-00">CoAP Management Interface</a>", Internet-Draft draft-ietf-core-comi-00, January 2017.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC5226">[RFC5226]</b>
+      </td>
+      <td class="top"><a>Narten, T.</a> and <a>H. Alvestrand</a>, "<a href="http://tools.ietf.org/html/rfc5226">Guidelines for Writing an IANA Considerations Section in RFCs</a>", BCP 26, RFC 5226, DOI 10.17487/RFC5226, May 2008.</td>
+    </tr>
     <tr>
       <td class="reference">
         <b id="RFC6241">[RFC6241]</b>

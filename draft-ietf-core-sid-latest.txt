@@ -16,7 +16,7 @@ Expires: November 2, 2017                                         Acklio
 
 
                    YANG Schema Item iDentifier (SID)
-                         draft-ietf-core-sid-00
+                         draft-ietf-core-sid-01
 
 Abstract
 

@@ -316,8 +316,8 @@ li, p {
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Somaraju, A., Turner, R., and A. Minaburo" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-yang-cbor-04" />
-  <meta name="dct.issued" scheme="ISO8601" content="2017-7-24" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-yang-cbor-05" />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-8-08" />
   <meta name="dct.abstract" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
   <meta name="description" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) " />
 
@@ -341,7 +341,7 @@ li, p {
 <td class="right">A. Pelov, Ed.</td>
 </tr>
 <tr>
-<td class="left">Expires: January 25, 2018</td>
+<td class="left">Expires: February 9, 2018</td>
 <td class="right">Acklio</td>
 </tr>
 <tr>
@@ -370,7 +370,7 @@ li, p {
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">July 24, 2017</td>
+<td class="right">August 08, 2017</td>
 </tr>
 
     	
@@ -378,7 +378,7 @@ li, p {
   </table>
 
   <p class="title">CBOR Encoding of Data Modeled with YANG<br />
-  <span class="filename">draft-ietf-core-yang-cbor-04</span></p>
+  <span class="filename">draft-ietf-core-yang-cbor-05</span></p>
   
   <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
 <p>This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) <a href="#RFC7049" class="xref">[RFC7049]</a>.</p>
@@ -386,7 +386,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on January 25, 2018.</p>
+<p>This Internet-Draft will expire on February 9, 2018.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2017 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -671,7 +671,7 @@ li, p {
 <li>The delta value is equal to the SID of the current schema node minus the SID of the parent schema node. When no parent exists in the context of use of this container, the delta is set to the SID of the current schema node (i.e., a parent with SID equal to zero is assumed).</li>
 <li>Delta values may result in a negative number, clients and servers MUST support both unsigned and negative deltas.</li>
 </ul>
-<p id="rfc.section.4.2.1.p.3">The following example shows the encoding of a &#8216;system&#8217; container instance.</p>
+<p id="rfc.section.4.2.1.p.3">The following example shows the encoding of a &#8216;system-state&#8217; container instance with a single child, a clock container. The clock container container has two children, a &#8216;current-datetime&#8217; leaf and a &#8216;boot-datetime&#8217; leaf.</p>
 <p id="rfc.section.4.2.1.p.4">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
 typedef date-and-time {
@@ -681,35 +681,61 @@ typedef date-and-time {
   }
 }
 
-container clock {
-  leaf current-datetime {
-    type date-and-time;
-  }
+container system-state {
 
-  leaf boot-datetime {
-    type date-and-time;
+  container clock {
+    leaf current-datetime {
+      type date-and-time;
+    }
+
+    leaf boot-datetime {
+      type date-and-time;
+    }
   }
 }
 </pre>
-<p id="rfc.section.4.2.1.p.5">CBOR diagnostic notation:</p>
+<p id="rfc.section.4.2.1.p.5">For this first representation, we assume that parent SID of the root container (i.e. &#8216;system-state&#8217;) is not available to the serializer. In this case, root data nodes are encoded using absolute SIDs.</p>
+<p id="rfc.section.4.2.1.p.6">CBOR diagnostic notation:</p>
 <pre>
 {
-  1717 : {                              / clock  (SID 1717) /
-    +2 : "2015-10-02T14:47:24Z-05:00",  / current-datetime (SID 1719) /
-    +1 : "2015-09-15T09:12:58Z-05:00"   / boot-datetime (SID 1718) /
+  1717 : {                             / clock  (SID 1717) /
+    +2 : "2015-10-02T14:47:24Z-05:00", / current-datetime (SID 1719)/
+    +1 : "2015-09-15T09:12:58Z-05:00"  / boot-datetime (SID 1718) /
   }
 }
 </pre>
-<p id="rfc.section.4.2.1.p.6">CBOR encoding:</p>
+<p id="rfc.section.4.2.1.p.7">CBOR encoding:</p>
 <pre>
-a1                                      # map(1)
-   19 06b5                              # unsigned(1717)
-   a2                                   # map(2)
-      02                                # unsigned(2)
-      78 1a                             # text(26)
+a1                                     # map(1)
+   19 06b5                             # unsigned(1717)
+   a2                                  # map(2)
+      02                               # unsigned(2)
+      78 1a                            # text(26)
       323031352d31302d30325431343a34373a32345a2d30353a3030
-      01                                # unsigned(1)
-      78 1a                             # text(26)
+      01                               # unsigned(1)
+      78 1a                            # text(26)
+      323031352d30392d31355430393a31323a35385a2d30353a3030
+</pre>
+<p id="rfc.section.4.2.1.p.8">On the other hand, if the serializer is aware of the parent SID, 1716 in the case &#8216;system-state&#8217; container, root data nodes are encoded using deltas.</p>
+<p id="rfc.section.4.2.1.p.9">CBOR diagnostic notation:</p>
+<pre>
+{
+  +1 : {                               / clock  (SID 1717) /
+    +2 : "2015-10-02T14:47:24Z-05:00", / current-datetime (SID 1719)/
+    +1 : "2015-09-15T09:12:58Z-05:00"  / boot-datetime (SID 1718) /
+  }
+}
+</pre>
+<p id="rfc.section.4.2.1.p.10">CBOR encoding:</p>
+<pre>
+a1                                     # map(1)
+   01                                   # unsigned(1)
+   a2                                  # map(2)
+      02                               # unsigned(2)
+      78 1a                            # text(26)
+      323031352d31302d30325431343a34373a32345a2d30353a3030
+      01                               # unsigned(1)
+      78 1a                            # text(26)
       323031352d30392d31355430393a31323a35385a2d30353a3030
 </pre>
 <h1 id="rfc.section.4.2.2">

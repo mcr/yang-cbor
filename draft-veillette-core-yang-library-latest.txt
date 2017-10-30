@@ -4,8 +4,8 @@
 
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
-Intended status: Standards Track                         August 08, 2017
-Expires: February 9, 2018
+Intended status: Standards Track                        October 30, 2017
+Expires: May 3, 2018
 
 
                     Constrained YANG Module Library
@@ -27,14 +27,14 @@ Status of This Memo
    Internet-Drafts are working documents of the Internet Engineering
    Task Force (IETF).  Note that other groups may also distribute
    working documents as Internet-Drafts.  The list of current Internet-
-   Drafts is at http://datatracker.ietf.org/drafts/current/.
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 9, 2018.
+   This Internet-Draft will expire on May 3, 2018.
 
 Copyright Notice
 
@@ -43,7 +43,7 @@ Copyright Notice
 
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents
-   (http://trustee.ietf.org/license-info) in effect on the date of
+   (https://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Veillette               Expires February 9, 2018                [Page 1]
+Veillette                  Expires May 3, 2018                  [Page 1]
 
-Internet-Draft       Constrained YANG Module Library         August 2017
+Internet-Draft       Constrained YANG Module Library        October 2017
 
 
 Table of Contents
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Veillette               Expires February 9, 2018                [Page 2]
+Veillette                  Expires May 3, 2018                  [Page 2]
 
-Internet-Draft       Constrained YANG Module Library         August 2017
+Internet-Draft       Constrained YANG Module Library        October 2017
 
 
 1.1.  Major differences between ietf-constrained-yang-library and ietf-
@@ -165,9 +165,9 @@ Internet-Draft       Constrained YANG Module Library         August 2017
 
 
 
-Veillette               Expires February 9, 2018                [Page 3]
+Veillette                  Expires May 3, 2018                  [Page 3]
 
-Internet-Draft       Constrained YANG Module Library         August 2017
+Internet-Draft       Constrained YANG Module Library        October 2017
 
 
    o  YANG Schema Item iDentifier (SID)
@@ -221,9 +221,9 @@ Internet-Draft       Constrained YANG Module Library         August 2017
 
 
 
-Veillette               Expires February 9, 2018                [Page 4]
+Veillette                  Expires May 3, 2018                  [Page 4]
 
-Internet-Draft       Constrained YANG Module Library         August 2017
+Internet-Draft       Constrained YANG Module Library        October 2017
 
 
 3.2.1.  modules-state
@@ -277,9 +277,9 @@ Internet-Draft       Constrained YANG Module Library         August 2017
 
 
 
-Veillette               Expires February 9, 2018                [Page 5]
+Veillette                  Expires May 3, 2018                  [Page 5]
 
-Internet-Draft       Constrained YANG Module Library         August 2017
+Internet-Draft       Constrained YANG Module Library        October 2017
 
 
         WG Chair: Carsten Bormann
@@ -333,9 +333,9 @@ Internet-Draft       Constrained YANG Module Library         August 2017
 
 
 
-Veillette               Expires February 9, 2018                [Page 6]
+Veillette                  Expires May 3, 2018                  [Page 6]
 
-Internet-Draft       Constrained YANG Module Library         August 2017
+Internet-Draft       Constrained YANG Module Library        October 2017
 
 
          "Revision date encoded as a binary string as follow:
@@ -389,9 +389,9 @@ Internet-Draft       Constrained YANG Module Library         August 2017
 
 
 
-Veillette               Expires February 9, 2018                [Page 7]
+Veillette                  Expires May 3, 2018                  [Page 7]
 
-Internet-Draft       Constrained YANG Module Library         August 2017
+Internet-Draft       Constrained YANG Module Library        October 2017
 
 
      container modules-state {
@@ -445,9 +445,9 @@ Internet-Draft       Constrained YANG Module Library         August 2017
 
 
 
-Veillette               Expires February 9, 2018                [Page 8]
+Veillette                  Expires May 3, 2018                  [Page 8]
 
-Internet-Draft       Constrained YANG Module Library         August 2017
+Internet-Draft       Constrained YANG Module Library        October 2017
 
 
              same entry MAY appear within multiple 'module' entries.
@@ -501,9 +501,9 @@ Internet-Draft       Constrained YANG Module Library         August 2017
 
 
 
-Veillette               Expires February 9, 2018                [Page 9]
+Veillette                  Expires May 3, 2018                  [Page 9]
 
-Internet-Draft       Constrained YANG Module Library         August 2017
+Internet-Draft       Constrained YANG Module Library        October 2017
 
 
          list submodule {
@@ -557,9 +557,9 @@ Internet-Draft       Constrained YANG Module Library         August 2017
 
 
 
-Veillette               Expires February 9, 2018               [Page 10]
+Veillette                  Expires May 3, 2018                 [Page 10]
 
-Internet-Draft       Constrained YANG Module Library         August 2017
+Internet-Draft       Constrained YANG Module Library        October 2017
 
 
    // RFC Ed.: replace XXXX with RFC number and remove this note
@@ -603,35 +603,35 @@ Internet-Draft       Constrained YANG Module Library         August 2017
    [I-D.ietf-core-yang-cbor]
               Veillette, M., Pelov, A., Somaraju, A., Turner, R., and A.
               Minaburo, "CBOR Encoding of Data Modeled with YANG",
-              draft-ietf-core-yang-cbor-04 (work in progress), February
+              draft-ietf-core-yang-cbor-05 (work in progress), August
               2017.
 
    [I-D.ietf-netmod-yang-tree-diagrams]
               Bjorklund, M. and L. Berger, "YANG Tree Diagrams", draft-
-              ietf-netmod-yang-tree-diagrams-01 (work in progress), June
-              2017.
+              ietf-netmod-yang-tree-diagrams-02 (work in progress),
+              October 2017.
 
 
 
-Veillette               Expires February 9, 2018               [Page 11]
+Veillette                  Expires May 3, 2018                 [Page 11]
 
-Internet-Draft       Constrained YANG Module Library         August 2017
+Internet-Draft       Constrained YANG Module Library        October 2017
 
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
-              <http://www.rfc-editor.org/info/rfc2119>.
+              <https://www.rfc-editor.org/info/rfc2119>.
 
    [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
               RFC 7950, DOI 10.17487/RFC7950, August 2016,
-              <http://www.rfc-editor.org/info/rfc7950>.
+              <https://www.rfc-editor.org/info/rfc7950>.
 
 8.2.  Informative References
 
    [RFC7895]  Bierman, A., Bjorklund, M., and K. Watsen, "YANG Module
               Library", RFC 7895, DOI 10.17487/RFC7895, June 2016,
-              <http://www.rfc-editor.org/info/rfc7895>.
+              <https://www.rfc-editor.org/info/rfc7895>.
 
 Author's Address
 
@@ -669,4 +669,4 @@ Author's Address
 
 
 
-Veillette               Expires February 9, 2018               [Page 12]
+Veillette                  Expires May 3, 2018                 [Page 12]

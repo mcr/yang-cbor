@@ -5,26 +5,20 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Standards Track                           A. Pelov, Ed.
-Expires: February 9, 2018                                         Acklio
-                                                               R. Turner
-                                                              Landis+Gyr
-                                                             A. Minaburo
-                                                                  Acklio
-                                                             A. Somaraju
-                                                   Tridonic GmbH & Co KG
-                                                         August 08, 2017
+Expires: May 3, 2018                                              Acklio
+                                                        October 30, 2017
 
 
                    YANG Schema Item iDentifier (SID)
-                         draft-ietf-core-sid-01
+                         draft-ietf-core-sid-02
 
 Abstract
 
-   YANG Schema Item iDentifiers (SID) are globally unique 64-bit numeric
-   identifiers used to identify all items used in YANG.  This document
-   defines the semantics, the registration, and assignment processes of
-   SIDs.  To enable the implementation of these processes, this document
-   also defines a file format used to persist and publish assigned SIDs.
+   YANG Schema Item iDentifiers (SID) are globally unique 64-bit
+   unsigned numbers used to identify YANG items.  This document defines
+   the semantics, the registration, and assignment processes of SIDs.
+   To enable the implementation of these processes, this document also
+   defines a file format used to persist and publish assigned SIDs.
 
 Status of This Memo
 
@@ -34,14 +28,14 @@ Status of This Memo
    Internet-Drafts are working documents of the Internet Engineering
    Task Force (IETF).  Note that other groups may also distribute
    working documents as Internet-Drafts.  The list of current Internet-
-   Drafts is at http://datatracker.ietf.org/drafts/current/.
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 9, 2018.
+   This Internet-Draft will expire on May 3, 2018.
 
 Copyright Notice
 
@@ -50,40 +44,41 @@ Copyright Notice
 
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents
-
-
-
-Veillette, et al.       Expires February 9, 2018                [Page 1]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
-
-
-   (http://trustee.ietf.org/license-info) in effect on the date of
+   (https://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
    include Simplified BSD License text as described in Section 4.e of
+
+
+
+
+Veillette & Pelov          Expires May 3, 2018                  [Page 1]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
+
+
    the Trust Legal Provisions and are provided without warranty as
    described in the Simplified BSD License.
 
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
-   2.  Terminology and Notation  . . . . . . . . . . . . . . . . . .   4
+   2.  Terminology and Notation  . . . . . . . . . . . . . . . . . .   3
    3.  ".sid" file lifecycle . . . . . . . . . . . . . . . . . . . .   4
    4.  ".sid" file format  . . . . . . . . . . . . . . . . . . . . .   7
-   5.  Security Considerations . . . . . . . . . . . . . . . . . . .  10
-   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  11
-     6.1.  "SID mega-range" registry . . . . . . . . . . . . . . . .  11
-       6.1.1.  IANA SID Mega-Range Registry  . . . . . . . . . . . .  11
-       6.1.2.  IANA "RFC SID range assignment" sub-registries  . . .  12
-     6.2.  "YANG module assignment" registry . . . . . . . . . . . .  13
-   7.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  14
-   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  14
-     8.1.  Normative References  . . . . . . . . . . . . . . . . . .  14
-     8.2.  Informative References  . . . . . . . . . . . . . . . . .  14
-   Appendix A.  ".sid" file example  . . . . . . . . . . . . . . . .  15
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  23
+   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   9
+   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  10
+     6.1.  "SID mega-range" registry . . . . . . . . . . . . . . . .  10
+       6.1.1.  IANA SID Mega-Range Registry  . . . . . . . . . . . .  10
+       6.1.2.  IANA "RFC SID range assignment" sub-registries  . . .  11
+     6.2.  "YANG module assignment" registry . . . . . . . . . . . .  12
+   7.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  13
+   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  13
+     8.1.  Normative References  . . . . . . . . . . . . . . . . . .  13
+     8.2.  Informative References  . . . . . . . . . . . . . . . . .  13
+   Appendix A.  ".sid" file example  . . . . . . . . . . . . . . . .  14
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  22
 
 1.  Introduction
 
@@ -106,69 +101,54 @@ Table of Contents
 
    o  notifications and associated information
 
-
-
-
-Veillette, et al.       Expires February 9, 2018                [Page 2]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
-
-
    o  YANG modules, submodules and features
 
    To minimize their size, SIDs are often represented as a difference
    between the current SID and a reference SID.  Such difference is
    called "delta", shorthand for "delta-encoded SID".  Conversion from
+
+
+
+Veillette & Pelov          Expires May 3, 2018                  [Page 2]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
+
+
    SIDs to deltas and back to SIDs is a stateless process.  Each
    protocol implementing deltas must unambiguously define the reference
    SID for each YANG item.
 
    SIDs are globally unique numbers, a registration system is used in
    order to guarantee their uniqueness.  SIDs are registered in blocks
-   called "SID ranges".  Section 6.1 provide more details about the
-   registration process of SID range(s).
+   called "SID ranges".
 
    Assignment of SIDs to YANG items can be automated, the recommended
    process to assign SIDs is as follows:
 
-   o  A tool extracts the different items defined for a specific YANG
-      module.
+   1.  A tool extracts the different items defined for a specific YANG
+       module.
 
-   o  The list of items is ordered in alphabetical order by type and
-      label.  Valid types and label formats are described within the
-      'ietf-sid-file' YANG module defined in Section 4.
+   2.  The list of items is ordered in alphabetical order by type and
+       label.  Valid types and label formats are described within the
+       'ietf-sid-file' YANG module defined in Section 4.
 
-   o  SIDs are assigned sequentially from the entry point up to the size
-      of the registered SID range.  This approach is recommended to
-      minimize the serialization overhead, especially when delta
-      encoding is implemented.
+   3.  SIDs are assigned sequentially from the entry point up to the
+       size of the registered SID range.  This approach is recommended
+       to minimize the serialization overhead, especially when delta
+       encoding is implemented.
 
-   o  If the number of items exceeds the SID range(s) allocated to a
-      YANG module, an extra range is added for subsequent assignments.
+   4.  If the number of items exceeds the SID range(s) allocated to a
+       YANG module, an extra range is added for subsequent assignments.
 
    SIDs are assigned permanently, items introduced by a new revision of
    a YANG module are added to the list of SIDs already assigned.  This
-   process can also be automated using the same method described above
-   except that the assignment restart from the highest SID already
-   assigned plus one.
+   process can also be automated using the same method described above,
+   unassigned YANG items are processed at step #3.
 
-   To avoid duplicate assignment of SIDs, the registration of the SIDs
-   assigned to YANG module(s) is recommended.  Section 6.2 provide more
-   details about the registration process of YANG modules and associated
-   SIDs.  To enable the implementation of this registry, Section 4
-   defines a standard file format used to store and publish SIDs.
-
-
-
-
-
-
-
-
-Veillette, et al.       Expires February 9, 2018                [Page 3]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
-
+   Section 3 provides more details about the registration process of
+   YANG modules and associated SIDs.  To enable the implementation of
+   this registry, Section 4 defines a standard file format used to store
+   and publish SIDs.
 
 2.  Terminology and Notation
 
@@ -181,6 +161,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
    o  action
 
    o  feature
+
+
+
+
+Veillette & Pelov          Expires May 3, 2018                  [Page 3]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
+
 
    o  module
 
@@ -218,14 +206,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
    YANG is a language designed to model data sent between clients and
    servers using one of the compatible protocol (e.g.  NETCONF
    [RFC6241], RESCONF [RFC8040] and CoMI [I-D.ietf-core-comi]).  A YANG
-
-
-
-Veillette, et al.       Expires February 9, 2018                [Page 4]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
-
-
    module defines hierarchies of data, including configuration, state
    data, RPCs, actions and notifications.
 
@@ -237,6 +217,15 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
    modules.  This process starts by the registration of a SID range.
    Once a SID range is registered, the owner of this range assigns sub-
    ranges to each YANG module in order to generate the associated ".sid"
+
+
+
+
+Veillette & Pelov          Expires May 3, 2018                  [Page 4]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
+
+
    files.  Generation of ".sid" files SHOULD be performed using an
    automated tool.
 
@@ -246,41 +235,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
 
    The following activity diagram summarizes the creation of a YANG
    module and its associated .sid file.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Veillette, et al.       Expires February 9, 2018                [Page 5]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
-
 
           +---------------+
      O    | Creation of a |
@@ -321,22 +275,21 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
                                         |
                                       [DONE]
 
+
+
+Veillette & Pelov          Expires May 3, 2018                  [Page 5]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
+
+
    Each time a YANG module or one of its imported module(s) or included
    sub-module(s) is updated, the ".sid" file MAY need to be updated.
    This update SHOULD also be performed using an automated tool.
 
    If a new revision requires more SIDs than initially allocated, a new
-   SID range MUST be added to the assignment ranges as defined in the
+   SID range MUST be added to the "assignment-ranges" as defined in the
    ".sid" file header.  These extra SIDs are used for subsequent
    assignements.
-
-
-
-
-Veillette, et al.       Expires February 9, 2018                [Page 6]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
-
 
    The following activity diagram summarizes the update of a YANG module
    and its associated .sid file.
@@ -374,6 +327,17 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
                   |
                 [DONE]
 
+
+
+
+
+
+
+Veillette & Pelov          Expires May 3, 2018                  [Page 6]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
+
+
 4.  ".sid" file format
 
    ".sid" files are used to persist and publish SIDs assigned to the
@@ -386,39 +350,20 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
      namespace "urn:ietf:params:xml:ns:yang:ietf-sid-file";
      prefix sid;
 
-
-
-
-Veillette, et al.       Expires February 9, 2018                [Page 7]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
-
-
      organization
        "IETF Core Working Group";
 
      contact
-       "Alexander Pelov
-        <mailto:a@ackl.io>
+       "Michel Veillette
+        <mailto:michel.veillette@trilliantinc.com>
 
-        Abhinav Somaraju
-        <mailto:abhinav.somaraju@tridonic.com>
-
-        Laurent Toutain
-        <Laurent.Toutain@telecom-bretagne.eu>
-
-        Randy Turner
-        <mailto:Randy.Turner@landisgyr.com>
-
-        Michel Veillette
-        <mailto:michel.veillette@trilliantinc.com>";
+        Alexander Pelov
+        <mailto:a@ackl.io>";
 
      description
        "This module define the structure of the .sid files.
         .sid files contains the identifiers (SIDs) assigned
-        to the different items defined in a YANG module.
-        SIDs are used to encode a data model defined in YANG
-        using CBOR.";
+        to the different items defined in a YANG module.";
 
      revision 2015-12-16 {
        description
@@ -441,15 +386,15 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
      }
 
      typedef revision-identifier {
-       type string {
 
 
 
-Veillette, et al.       Expires February 9, 2018                [Page 8]
+Veillette & Pelov          Expires May 3, 2018                  [Page 7]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
 
 
+       type string {
          pattern '\d{4}-\d{2}-\d{2}';
        }
        description
@@ -477,7 +422,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
           different items defined by the associated module.";
 
        leaf entry-point {
-         type uint32;
+         type uint64;
          mandatory true;
          description
            "Lowest SID available for assignment.";
@@ -497,15 +442,15 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
          "List of items defined by the associated YANG module.";
 
        leaf type {
-         type string {
 
 
 
-Veillette, et al.       Expires February 9, 2018                [Page 9]
+Veillette & Pelov          Expires May 3, 2018                  [Page 8]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
 
 
+         type string {
            pattern 'Module|Submodule|feature|' +
                    'identity$|node$|notification$|rpc$|action$';
          }
@@ -538,7 +483,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
        }
 
        leaf sid {
-         type uint32;
+         type uint64;
          mandatory true;
          description "Identifier assigned to this YANG item.";
        }
@@ -552,15 +497,17 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
 
    This document defines a new type of identifier used to encode data
    models defined in YANG [RFC7950].  As such, this identifier does not
+
+
+
+
+Veillette & Pelov          Expires May 3, 2018                  [Page 9]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
+
+
    contribute to any new security issues in addition of those identified
    for the specific protocols or contexts for which it is used.
-
-
-
-Veillette, et al.       Expires February 9, 2018               [Page 10]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
-
 
 6.  IANA Considerations
 
@@ -606,18 +553,18 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
    o  The range of 0 to 999 is reserved for future extensions.  The IANA
       policy for this range is "IETF review" [RFC5226].
 
+
+
+
+
+Veillette & Pelov          Expires May 3, 2018                 [Page 10]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
+
+
    o  The range of 1000 to 59,999 is reserved for YANG modules defined
       in RFCs.  The IANA policy for future additions to this sub-
       registry is "RFC required" [RFC5226].  Allocation within this
-
-
-
-
-Veillette, et al.       Expires February 9, 2018               [Page 11]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
-
-
       range requires publishing of the associated ".yang" and ".sid"
       files in the YANG module registry.
 
@@ -642,13 +589,13 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
    | 100,000     | 1,000,000,000 | Specification Required |
    +-------------+---------------+------------------------+
 
-   The size of SID range assigned to a YANG module should be between 50%
-   and 60% of the current number of YANG items.  This headroom allows
+   The size of SID range assigned to a YANG module should be at least
+   33% above the current number of YANG items.  This headroom allows
    assignment within the same range of new YANG items introduced by
    subsequent revisions.  A larger SID range size may be requested by
    the authors if this recommendation is considered insufficient.  It is
-   important to note that an extra SID range can be allocated to
-   existing YANG module if the initial ranges(s) are exhausted.
+   important to note that an extra SID range can be allocated to an
+   existing YANG module if the initial range is exhausted.
 
 6.1.2.  IANA "RFC SID range assignment" sub-registries
 
@@ -666,16 +613,13 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
 
 
 
-
-
-
-Veillette, et al.       Expires February 9, 2018               [Page 12]
+Veillette & Pelov          Expires May 3, 2018                 [Page 11]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
 
 
    +------------+------+-----------------+-----------------------------+
-   | Entry      | Size | Module name     | Reference                   |
+   | Entry      | Size | Module name     | RFC number                  |
    | Point      |      |                 |                             |
    +------------+------+-----------------+-----------------------------+
    | 1000       | 100  |                 | Reserved for                |
@@ -725,16 +669,17 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
 
 
 
-Veillette, et al.       Expires February 9, 2018               [Page 13]
+Veillette & Pelov          Expires May 3, 2018                 [Page 12]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
 
 
 7.  Acknowledgments
 
-   The authors would like to thank Carsten Bormann for his help during
-   the development of this document and his useful comments during the
-   review process.
+   The authors would like to thank Andy Bierman, Carsten Bormann,
+   Abhinav Somaraju, Laurent Toutain and Randy Turner for their help
+   during the development of this document and their useful comments
+   during the review process.
 
 8.  References
 
@@ -743,19 +688,19 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
-              <http://www.rfc-editor.org/info/rfc2119>.
+              <https://www.rfc-editor.org/info/rfc2119>.
 
    [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
-              October 2013, <http://www.rfc-editor.org/info/rfc7049>.
+              October 2013, <https://www.rfc-editor.org/info/rfc7049>.
 
    [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
               RFC 7950, DOI 10.17487/RFC7950, August 2016,
-              <http://www.rfc-editor.org/info/rfc7950>.
+              <https://www.rfc-editor.org/info/rfc7950>.
 
    [RFC7951]  Lhotka, L., "JSON Encoding of Data Modeled with YANG",
               RFC 7951, DOI 10.17487/RFC7951, August 2016,
-              <http://www.rfc-editor.org/info/rfc7951>.
+              <https://www.rfc-editor.org/info/rfc7951>.
 
 8.2.  Informative References
 
@@ -767,40 +712,39 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
    [RFC5226]  Narten, T. and H. Alvestrand, "Guidelines for Writing an
               IANA Considerations Section in RFCs", RFC 5226,
               DOI 10.17487/RFC5226, May 2008,
-              <http://www.rfc-editor.org/info/rfc5226>.
+              <https://www.rfc-editor.org/info/rfc5226>.
 
    [RFC6241]  Enns, R., Ed., Bjorklund, M., Ed., Schoenwaelder, J., Ed.,
               and A. Bierman, Ed., "Network Configuration Protocol
               (NETCONF)", RFC 6241, DOI 10.17487/RFC6241, June 2011,
-              <http://www.rfc-editor.org/info/rfc6241>.
+              <https://www.rfc-editor.org/info/rfc6241>.
 
    [RFC7223]  Bjorklund, M., "A YANG Data Model for Interface
               Management", RFC 7223, DOI 10.17487/RFC7223, May 2014,
-              <http://www.rfc-editor.org/info/rfc7223>.
+              <https://www.rfc-editor.org/info/rfc7223>.
 
 
 
-
-Veillette, et al.       Expires February 9, 2018               [Page 14]
+Veillette & Pelov          Expires May 3, 2018                 [Page 13]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
 
 
    [RFC7224]  Bjorklund, M., "IANA Interface Type YANG Module",
               RFC 7224, DOI 10.17487/RFC7224, May 2014,
-              <http://www.rfc-editor.org/info/rfc7224>.
+              <https://www.rfc-editor.org/info/rfc7224>.
 
    [RFC7277]  Bjorklund, M., "A YANG Data Model for IP Management",
               RFC 7277, DOI 10.17487/RFC7277, June 2014,
-              <http://www.rfc-editor.org/info/rfc7277>.
+              <https://www.rfc-editor.org/info/rfc7277>.
 
    [RFC7317]  Bierman, A. and M. Bjorklund, "A YANG Data Model for
               System Management", RFC 7317, DOI 10.17487/RFC7317, August
-              2014, <http://www.rfc-editor.org/info/rfc7317>.
+              2014, <https://www.rfc-editor.org/info/rfc7317>.
 
    [RFC8040]  Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
               Protocol", RFC 8040, DOI 10.17487/RFC8040, January 2017,
-              <http://www.rfc-editor.org/info/rfc8040>.
+              <https://www.rfc-editor.org/info/rfc8040>.
 
 Appendix A.  ".sid" file example
 
@@ -837,9 +781,9 @@ Appendix A.  ".sid" file example
 
 
 
-Veillette, et al.       Expires February 9, 2018               [Page 15]
+Veillette & Pelov          Expires May 3, 2018                 [Page 14]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
 
 
       "label": "authentication",
@@ -893,9 +837,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
 
 
 
-Veillette, et al.       Expires February 9, 2018               [Page 16]
+Veillette & Pelov          Expires May 3, 2018                 [Page 15]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
 
 
      {
@@ -949,9 +893,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
 
 
 
-Veillette, et al.       Expires February 9, 2018               [Page 17]
+Veillette & Pelov          Expires May 3, 2018                 [Page 16]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
 
 
       "sid": 1720
@@ -1005,9 +949,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
 
 
 
-Veillette, et al.       Expires February 9, 2018               [Page 18]
+Veillette & Pelov          Expires May 3, 2018                 [Page 17]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
 
 
       "type": "node",
@@ -1061,9 +1005,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
 
 
 
-Veillette, et al.       Expires February 9, 2018               [Page 19]
+Veillette & Pelov          Expires May 3, 2018                 [Page 18]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
 
 
      },
@@ -1117,9 +1061,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
 
 
 
-Veillette, et al.       Expires February 9, 2018               [Page 20]
+Veillette & Pelov          Expires May 3, 2018                 [Page 19]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
 
 
       "label": "/system/location",
@@ -1173,9 +1117,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
 
 
 
-Veillette, et al.       Expires February 9, 2018               [Page 21]
+Veillette & Pelov          Expires May 3, 2018                 [Page 20]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
 
 
      {
@@ -1229,9 +1173,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
 
 
 
-Veillette, et al.       Expires February 9, 2018               [Page 22]
+Veillette & Pelov          Expires May 3, 2018                 [Page 21]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
 
 
       "sid": 1768
@@ -1285,9 +1229,9 @@ Authors' Addresses
 
 
 
-Veillette, et al.       Expires February 9, 2018               [Page 23]
+Veillette & Pelov          Expires May 3, 2018                 [Page 22]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
 
 
    Alexander Pelov (editor)
@@ -1299,35 +1243,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
    Email: a@ackl.io
 
 
-   Randy Turner
-   Landis+Gyr
-   30000 Mill Creek Ave
-   Suite 100
-   Alpharetta, GA  30022
-   US
-
-   Phone: ++16782581292
-   Email: randy.turner@landisgyr.com
-   URI:   http://www.landisgyr.com/
-
-
-   Ana Minaburo
-   Acklio
-   2bis rue de la chataigneraie
-   Cesson-Sevigne, Bretagne  35510
-   France
-
-   Email: ana@ackl.io
-
-
-   Abhinav Somaraju
-   Tridonic GmbH & Co KG
-   Farbergasse 15
-   Dornbirn, Vorarlberg  6850
-   Austria
-
-   Phone: +43664808926169
-   Email: abhinav.somaraju@tridonic.com
 
 
 
@@ -1341,4 +1256,33 @@ Internet-Draft      YANG Schema Item iDentifier (SID)        August 2017
 
 
 
-Veillette, et al.       Expires February 9, 2018               [Page 24]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Veillette & Pelov          Expires May 3, 2018                 [Page 23]

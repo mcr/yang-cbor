@@ -5,14 +5,14 @@
 CoRE                                                      R. Turner, Ed.
 Internet-Draft                                                Landis+Gyr
 Intended status: Best Current Practice                      M. Veillette
-Expires: February 9, 2018                        Trilliant Networks Inc.
+Expires: May 3, 2018                             Trilliant Networks Inc.
                                                                 A. Pelov
                                                                   Acklio
                                                              A. Somaraju
                                                    Tridonic GmbH & Co KG
                                                              A. Minaburo
                                                                   Acklio
-                                                         August 08, 2017
+                                                        October 30, 2017
 
 
                          CoOL Problem Statement
@@ -40,22 +40,22 @@ Status of This Memo
    Internet-Drafts are working documents of the Internet Engineering
    Task Force (IETF).  Note that other groups may also distribute
    working documents as Internet-Drafts.  The list of current Internet-
-   Drafts is at http://datatracker.ietf.org/drafts/current/.
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 9, 2018.
+   This Internet-Draft will expire on May 3, 2018.
 
 
 
 
 
-Turner, et al.          Expires February 9, 2018                [Page 1]
+Turner, et al.             Expires May 3, 2018                  [Page 1]
 
-Internet-Draft                CoOL Problem                   August 2017
+Internet-Draft                CoOL Problem                  October 2017
 
 
 Copyright Notice
@@ -65,7 +65,7 @@ Copyright Notice
 
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents
-   (http://trustee.ietf.org/license-info) in effect on the date of
+   (https://trustee.ietf.org/license-info) in effect on the date of
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Turner, et al.          Expires February 9, 2018                [Page 2]
+Turner, et al.             Expires May 3, 2018                  [Page 2]
 
-Internet-Draft                CoOL Problem                   August 2017
+Internet-Draft                CoOL Problem                  October 2017
 
 
    functionality will be limited.  Likewise, minimal network bandwidth
@@ -165,9 +165,9 @@ Internet-Draft                CoOL Problem                   August 2017
 
 
 
-Turner, et al.          Expires February 9, 2018                [Page 3]
+Turner, et al.             Expires May 3, 2018                  [Page 3]
 
-Internet-Draft                CoOL Problem                   August 2017
+Internet-Draft                CoOL Problem                  October 2017
 
 
    device and networking properties to the application of YANG in these
@@ -221,9 +221,9 @@ Internet-Draft                CoOL Problem                   August 2017
 
 
 
-Turner, et al.          Expires February 9, 2018                [Page 4]
+Turner, et al.             Expires May 3, 2018                  [Page 4]
 
-Internet-Draft                CoOL Problem                   August 2017
+Internet-Draft                CoOL Problem                  October 2017
 
 
    direction, requiring more upfront preparation, aiming at maximal
@@ -277,9 +277,9 @@ Internet-Draft                CoOL Problem                   August 2017
 
 
 
-Turner, et al.          Expires February 9, 2018                [Page 5]
+Turner, et al.             Expires May 3, 2018                  [Page 5]
 
-Internet-Draft                CoOL Problem                   August 2017
+Internet-Draft                CoOL Problem                  October 2017
 
 
    management of a device.  The CoOL working group will attempt to reuse
@@ -333,9 +333,9 @@ Authors' Addresses
 
 
 
-Turner, et al.          Expires February 9, 2018                [Page 6]
+Turner, et al.             Expires May 3, 2018                  [Page 6]
 
-Internet-Draft                CoOL Problem                   August 2017
+Internet-Draft                CoOL Problem                  October 2017
 
 
    Ana Minaburo
@@ -389,4 +389,4 @@ Internet-Draft                CoOL Problem                   August 2017
 
 
 
-Turner, et al.          Expires February 9, 2018                [Page 7]
+Turner, et al.             Expires May 3, 2018                  [Page 7]

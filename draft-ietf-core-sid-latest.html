@@ -407,7 +407,7 @@ li, p {
 <li>SIDs are assigned sequentially from the entry point up to the size of the registered SID range. This approach is recommended to minimize the serialization overhead, especially when delta encoding is implemented.</li>
 <li>If the number of items exceeds the SID range(s) allocated to a YANG module, an extra range is added for subsequent assignments.</li>
 </ol>
-<p id="rfc.section.1.p.7">SIDs are assigned permanently, items introduced by a new revision of a YANG module are added to the list of SIDs already assigned. This process can also be automated using the same method described above, unassigned Y&#192;NG items are processed at step #3.</p>
+<p id="rfc.section.1.p.7">SIDs are assigned permanently, items introduced by a new revision of a YANG module are added to the list of SIDs already assigned. This process can also be automated using the same method described above, only unassigned Y&#192;NG items are processed at step #3.</p>
 <p><a href="#sid-lifecycle" class="xref">Section 3</a> provides more details about the registration process of YANG modules and associated SIDs. To enable the implementation of this registry, <a href="#sid-file-format" class="xref">Section 4</a> defines a standard file format used to store and publish SIDs.</p>
 <h1 id="rfc.section.2">
 <a href="#rfc.section.2">2.</a> <a href="#terminology-and-notation" id="terminology-and-notation">Terminology and Notation</a>

@@ -143,7 +143,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)       October 2017
    SIDs are assigned permanently, items introduced by a new revision of
    a YANG module are added to the list of SIDs already assigned.  This
    process can also be automated using the same method described above,
-   unassigned YANG items are processed at step #3.
+   only unassigned YANG items are processed at step #3.
 
    Section 3 provides more details about the registration process of
    YANG modules and associated SIDs.  To enable the implementation of

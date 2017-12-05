@@ -425,6 +425,10 @@ class SidFile:
         for identity in module.i_identities:
                 self.merge_item('identity', "/%s%s" % (self.get_base_identity(module.i_identities[identity]), identity))
 
+        for gname in module.i_groupings:
+            g = module.i_groupings[gname]
+            self.collect_inner_data_nodes(g.i_children)
+
         for substmt in module.substmts:
             if substmt.keyword == 'augment':
                 self.collect_inner_data_nodes(substmt.substmts)

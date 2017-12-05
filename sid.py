@@ -10,6 +10,7 @@ import collections
 import re
 import os
 
+
 from pyang import plugin
 from pyang import error
 from collections import OrderedDict
@@ -390,8 +391,12 @@ class SidFile:
         self.merge_item('Module', self.module_name)
 
         for name in module.i_ctx.modules:
+            arg = module.i_ctx.modules[name].arg
+
             if module.i_ctx.modules[name].keyword == 'submodule':
                 self.merge_item('Submodule', module.i_ctx.modules[name].arg)
+            if module.i_ctx.modules[name].keyword == 'module':
+                self.merge_item('Module', module.i_ctx.modules[name].arg)
 
         for feature in module.i_features:
                 self.merge_item('feature', feature)
